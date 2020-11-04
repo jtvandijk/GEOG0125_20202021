@@ -1,0 +1,27 @@
+/*--- toc logo ---*/
+
+.toc-logo {
+  width: 250px !important;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+
+.toc-logo img {
+  max-width: 100%;
+}
+
+.summary > li:first-child {
+  height: auto !important;
+}
+
+.summary {
+  font-size: 110% !important;
+}
+
+/*--- notes ---*/
+.note {
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #f0f0f0;
+}

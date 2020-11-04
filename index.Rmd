@@ -1,0 +1,20 @@
+--- 
+title: "GEOG0125: Advanced Topics in Social Data Science"
+author: Justin van Dijk^[Department of Geography, https://www.mappingdutchman.com/] and Stephen Law^[Department of Geography, https://www.geog.ucl.ac.uk/people/academic-staff/stephen-law]
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+link-citations: yes
+github-repo: "jtvandijk/GEOG0125"
+description: "GEOG0125: Advanced Topics in Social Data Science."
+url: 'https\://jtvandijk.github.io/GEOG0125/'
+---
+
+# Welcome {-}
+
+Welcome to **Advanced Topics in Spatial Data Science**, one of the elective modules for the MSc in Geographic and Social Data Science here at [UCL Geography](https://www.geog.ucl.ac.uk/).
+
+## Noticed a mistake in this resource? {-}
+Please let us know through the GitHub issues tab, send us a message over MS Teams, or contact us by e-mail.
+
