@@ -17,4 +17,3 @@ Welcome to **Advanced Topics in Spatial Data Science**, one of the elective modu
 
 ## Noticed a mistake in this resource? {-}
 Please let us know through the GitHub issues tab, send us a message over MS Teams, or contact us by e-mail.
-
