@@ -1,0 +1,7 @@
+# Web Visualisation
+
+Mapping is at the core of Spatial Data Science. This week we will introduce you to 'mapping at scale': how to display large amounts of data with interactive maps through slippy maps. In the practical component we will be using map tiles to create an interactive web map from scratch using `JavaScript` and `Leaflet.js`.
+
+<center>
+**This week’s content will be made available on 15/03/2021.**
+</center>

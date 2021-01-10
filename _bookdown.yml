@@ -1,6 +1,10 @@
 book_filename: "GEOG0125"
 rmd_files:
 - index.Rmd
+- 02-week02.Rmd
+- 07-week07.Rmd
+- 08-week08.Rmd
+- 09-week09.Rmd
 language:
   ui:
     chapter_name: ""

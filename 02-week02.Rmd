@@ -1,0 +1,4 @@
+# Statistical Inference and Econometrics
+
+Statistical inference is the process of using data analysis to deduce properties of an underlying distribution of probability. This week we will dive a little deeper into the econometrics sides of things by looking at linear models, fixed-effect models, and random-effect models.
+

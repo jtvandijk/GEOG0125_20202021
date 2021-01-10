@@ -1,0 +1,7 @@
+# Spatial-Temporal Mobility Analysis
+
+This week we will be looking at capturing mobility data with GPS, specifically we will look at how to obtain, clean, and interpret a GPS data set. We will further use Machine Learning algorithms, specifically Support Vector Machines and Tree-based methods, to classify labeled GPS data into ‘stay’ and ‘move’ points.
+
+<center>
+**This week’s content will be made available on 01/03/2021.**
+</center>
