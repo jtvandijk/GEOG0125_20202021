@@ -5,7 +5,7 @@ Statistical inference is the process of using data analysis to deduce properties
 
 This week we will dive a little deeper into the statistical inference, and in particular take a sneak peek at the field of study of **econometrics**. 
 
-This week is structured by **4** short videos, reading material, practical material that you need to work through, and a seminar on Tuesday. 
+This week is structured by **4** short lecture videos, reading material, a tutorial in R with a 'hands-on' application of techniques covered in the lecture videos, and a seminar on Tuesday. 
 
 Let's get started.
 
