@@ -26,9 +26,12 @@ Please find the reading list for this week below.
 
 #### Core reading {-}
 - Bzdok, D., Altman, and M. Krzywinski. 2018. Statistics versus machine learning. *Nature Methods* 15: 233-234. [[Link]](https://www.nature.com/articles/nmeth.4642)
-- Idahosa, L., Marwa, N., and J. Akotey. 2017. Energy (electricity) consumption in South African hotels: A panel data analysis. *Energy and Buildings* 156: 207-217. [[Link]](https://doi.org/10.1016/j.enbuild.2017.09.051)
+- Idahosa, L. O., Marwa, N., and J. Akotey. 2017. Energy (electricity) consumption in South African hotels: A panel data analysis. *Energy and Buildings* 156: 207-217. [[Link]](https://ucl-new-primo.hosted.exlibrisgroup.com/permalink/f/1klfcc3/TN_cdi_gale_infotracacademiconefile_A523007644)
+- Stock, J. and M. Watson. 2019. **Chapter 1**: *Economic Questions and Data*. In: Stock, J. and M. Watson. Introduction to Econometrics, pp.43-54. Harlow: Pearson Education Ltd. [[Link]](https://ucl-new-primo.hosted.exlibrisgroup.com/permalink/f/1klfcc3/TN_cdi_proquest_ebookcentral_EBC6399072)
+- Stock, J. and M. Watson. 2019. **Chapter 10**: *Regression with Panel Data*. In: Stock, J. and M. Watson. Introduction to Econometrics, pp.362-382. Harlow: Pearson Education Ltd. [[Link]](https://ucl-new-primo.hosted.exlibrisgroup.com/permalink/f/1klfcc3/TN_cdi_proquest_ebookcentral_EBC6399072)
 
 #### Supplementary reading {-}
+- Idahosa, L. O. and J. T. van Dijk. 2016. South Africa: Freedom for whom? Inequality, unemployment and the elderly. *Development* 58(1): 96-102. [[Link]](https://ucl-new-primo.hosted.exlibrisgroup.com/permalink/f/1klfcc3/TN_cdi_proquest_journals_1758956430)
 
 ### Technical Help session
 Every Thursday between 12h00-13h00 you can join the **Technical Help** session on Microsoft Teams. The session will be hostd by Alfie. He will be there for the whole hour to answer any question you have live in the meeting or any questions you have formulated beforehand. If you cannot make the meeting, feel free to post the issue you ar having in the Technical Help channel on the GEOG0125 Team so that Alfie will can help to find a solution. 
@@ -39,7 +42,7 @@ During this course we will be talking a lot about different [machine learning](h
 >"Statistics draws population inferences from a sample, and machine learning finds generalizable
 predictive patterns" (Bzdok *et al.* 2018).
 
-Of course, this is a little bit of a blunt way to summarise the differences. Think of a linear regression model: using a *train* data set it can be used to make predictions about a *test* data set but when implemented as a statistical model it is used to find the line that minimises the mean squared error accross all data and can be used to characterise the relationship between the independent variables and the dependent variable. Still, it does show the difference in emphasis and as such this week we will be looking at using statistical models to look into the relationships between variables with some help from the field of econometrics, who have made this into an art!
+Of course, this is a little bit of a blunt way to summarise the differences. Think of a linear regression model: using a *train* data set it can be used to make predictions about a *test* data set but when implemented as a statistical model it is used to find the line that minimises the mean squared error accross all data and can be used to characterise the relationship between the independent variables and the dependent variable. Still, it does show the difference in emphasis and as such this week we will be looking at using statistical models to look into the relationships between variables with some help from the field of **econometrics**, who have made this into an art!
 
 #### Video: Linear models {-}
 ```{r 02-video-linear-models, warnings=FALSE, message=FALSE, echo=FALSE}
