@@ -1,4 +1,65 @@
 # Statistical Inference and Econometrics
 
+## Introduction
 Statistical inference is the process of using data analysis to deduce properties of an underlying distribution of probability. This week we will dive a little deeper into the econometrics sides of things by looking at linear models, fixed-effect models, and random-effect models.
 
+This week is structured by **3** short videos, some reading material, practical material that you need to work through, and a seminar on Tuesday. 
+
+Let's get started.
+
+#### Video: Introduction W01 {-}
+```{r 01-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_msstream('') %>% use_align('left')
+```
+[Lecture slides] [[Watch on MS stream]]()
+
+```{r 01-settings, warnings=FALSE, message=FALSE, echo=FALSE}
+# settings
+options(max.print=30)
+```
+
+### Reading list {#reading-list-w01}
+Please find the reading list for this week below.
+
+#### Core reading {-}
+- Bzdok, D., Altman, and M. Krzywinski. 2018. Statistics versus machine learning. *Nature Methods* 15: 233-234. [[Link]](https://www.nature.com/articles/nmeth.4642)
+- Idahosa, L., Marwa, N., and J. Akotey. 2017. Energy (electricity) consumption in South African hotels: A panel data analysis. *Energy and Buildings* 156: 207-217. [[Link]](https://doi.org/10.1016/j.enbuild.2017.09.051)
+
+#### Supplementary reading {-}
+
+### Technical Help session
+Every Thursday between 12h00-13h00 you can join the **Technical Help** session on Microsoft Teams. The session will be hostd by Alfie. He will be there for the whole hour to answer any question you have live in the meeting or any questions you have formulated beforehand. If you cannot make the meeting, feel free to post the issue you ar having in the Technical Help channel on the GEOG0125 Team so that Alfie will can help to find a solution. 
+
+## Statistical inference
+During this course we will be talking a lot about different [machine learning](https://en.wikipedia.org/wiki/Machine_learning#:~:text=Machine%20learning%20(ML)%20is%20the,a%20subset%20of%20artificial%20intelligence.) methods and techniques. Before we continue, however, it is good to have one week in which we focus on statistical inference. The major difference between machine learning and statistics is their purpose. Machine learning models are designed to make **accurate predictions**. Statistical models are designed for inference about the **relationships between variables**.
+
+>"Statistics draws population inferences from a sample, and machine learning finds generalizable
+predictive patterns" (Bzdok *et al.* 2018).
+
+Of course, this is a little bit of a blunt way to summarise the differences. Think of a linear regression model: using a *train* data set it can be used to make predictions about a *test* data set but when implemented as a statistical model it is used to find the line that minimises the mean squared error accross all data and can be used to characterise the relationshiop between the independent variables and the dependent variable.
+
+#### Video: Linear models {-}
+```{r 02-video-linear-models, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_msstream('') %>% use_align('left')
+```
+[[Lecture slides]]() [[Watch on MS stream]]()
+
+## Fixed-effect models
+#### Video: Fixed-effect models {-}
+```{r 02-video-fixed-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_msstream('') %>% use_align('left')
+```
+[[Lecture slides]]() [[Watch on MS stream]]()
+
+## Random-effect models
+#### Video: Random-effect models {-}
+```{r 02-video-random-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_msstream('') %>% use_align('left')
+```
+[[Lecture slides]]() [[Watch on MS stream]]()
+
+## Take home message
+
+## Attributions {#attributions_w02}
