@@ -67,13 +67,13 @@ By now you may wonder, sure, but what then is causality? We can say that $X$ cau
 The problem with establishing a causal relationship is that in many cases you cannot 'switch on' or 'switch off' a characteristic. Let's go through this by thinking whether some $X$ causes $Y$. Our $X$ is coded as 0 or 1, for instance, 0 if a person has not received a coronavirus vaccination and 1 if a person has received a coronavirus vaccination. $Y$ is some numeric value. So how do we check if $X$ causes $Y$? What we would need to do for everyone in our sample is to check what will happen to $Y$ when we make $X=0$ and when we make $X=1$. But this is obviously a problem! You cannot both have $X=0$ and $X=1$: you either got inoculated against the coronavirus or you did not. This means that if $X=1$ you can measure what the value of $Y$ is, but you do not know what the value of $Y$ **would have been** if $X=0$. A solution you may come up with is to compare $Y$ between individuals who have $X=0$ and $X=1$. However, there is another problem: there could be all kinds of reasons on why $Y$ differs between individuals that are not necessarily related to $X$. 
 
 <div class="note">
-This section heavily borrows material and explanations from Nick Huntington-Klein's excellent [ECON 305: Economics, Causality, and Analytics](http://www.nickchk.com/econ305.html) module, do have a look if you want to learn more.
+This section heavily borrows material and explanations from Nick Huntington-Klein's excellent [ECON 305: Economics, Causality, and Analytics](http://www.nickchk.com/econ305.html) module, do have a look if you want to learn more about this topic.
 </div>
 
-This brings us to econometrics and causal inference: the main goal of causal inference is to make the best possible estimation of what $Y$ would have been if $X$ would have been different, the so-called **counterfactual**. As we cannot always use an experiment in which we can randomly assign $X$ so that we know that on average people with $X=1$ and the same as people with $X=2$, we have to come up with a model to figure out what the counterfactual would do. In the following, we will explore two ways of doing this through so-called fixed-effect models and random effect-models.
+This brings us to econometrics and causal inference: the main goal of causal inference is to make the best possible estimation of what $Y$ would have been if $X$ would have been different, the so-called **counterfactual**. As we cannot always use an experiment in which we can randomly assign $X$ so that we know that on average people with $X=1$ and the same as people with $X=2$, we have to come up with a model to figure out what the counterfactual would do. In the following, we will explore two ways of doing this through so-called fixed-effect models and random effect-models in the situation in which we have multiple data points for each observation (i.e. [longitudinal data](https://en.wikipedia.org/wiki/Longitudinal_study) or [panel data](https://en.wikipedia.org/wiki/Panel_data)).
 
 ### Fixed-effect models
-Fixed effects are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable $Y$. Let's have a closer look at dealing with fixed-effects.
+Fixed effects are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable $Y$. Let's have a closer look at dealing with fixed-effects in the context of panel data.
 
 #### Video: Fixed-effect models {-}
 ```{r 02-video-fixed-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -81,14 +81,14 @@ embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
 
-Let's try to to apply a fixed-effect model in R. For this we will use a dataset containing some [panel data](https://en.wikipedia.org/wiki/Panel_data). The data set contains data for some undefined variable $Y$ for different countries and years.
+Let's try to to apply a fixed-effect model in R. For this we will use a data set containing some [panel data](https://en.wikipedia.org/wiki/Panel_data). The data set contains data for some undefined variable $Y$ for different countries and years.
 
 #### File download {-}
 | File                                                 | Type           | Link |
 | :------                                              | :------        | :------ |
 | Example Panel Data       | `csv`             | [Download](https://github.com/jtvandijk/GEOG0125/tree/master/raw/zip/paneldata.zip) |
 
-```{r 02-load libraries, warnings=FALSE, message=FALSE}
+```{r 02-load-libraries, warnings=FALSE, message=FALSE}
 # load libraries
 library(tidyverse)
 library(plm)
@@ -96,10 +96,36 @@ library(car)
 library(gplots)
 library(tseries)
 library(lmtest)
+
+# read data
+country_data <- read_csv('_book/raw/w02/paneldata.csv')
+
+# inspect
+head(country_data)
+```
+
+Upon inspecting the `dataframe` you can see that the data contains 8 different fictional countries. For each country we have several years of data: three independent variables names $x_{1}$, $x_{2}$, and $x_{3}$ and a dependent variable $y$. As this is a panel dataset we have to declare it as such using the `plm.data()` function from the `plm` package. The `plm` package is a library dedicated to panel data analysis.
+
+```{r 02-create-panel-data, warnings=FALSE, message=FALSE}
+# create a panel data object
+country_panel <- pdata.frame(country_data, index=c('country','year'))
+
+# inspect
+country_panel
+```
+
+Although the data looks the same, you can see that the row index has been updated to reflect the `country` and `year` variables. Let's inspect the data using a boxplot as well as a [conditioning plot](https://www.oreilly.com/library/view/graphing-data-with/9781491922606/ch18.html). A coplot is a method for visualising interactions in your data set: it shows you how some variables are conditional on some other set of variables. So, for our panel data set, we can look at the variation of $Y$ over time by country. The bars at top indicate the countries position from left to right starting on the bottom row.
+
+```{r 02-co-plot, warnings=FALSE, message=FALSE}
+# create a quick box plot
+scatterplot(y ~ year, data=country_panel)
+
+# create a quick conditioning plot
+coplot(y ~ year|country, data=country_panel, type='b')
 ```
 
 ### Random-effect models
-Random effects are the opposite of fixed effects. Contrary to fixed effects, random effects are random and difficult to predict. As such, the effect they will have on a dependent variable $Y$ is not constant. Think of the cost of renting a one bedroom appartement: [rental prices vary greatly](https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/indexofprivatehousingrentalprices/may2020#:~:text=Private%20rental%20prices%20paid%20by,12%20months%20to%20May%202020.) depending on location. Let's have a closer look at dealing with random-effects.
+Random effects are the opposite of fixed effects. Contrary to fixed effects, random effects are random and difficult to predict. As such, the effect they will have on a dependent variable $Y$ is not constant. Think of the cost of renting a one bedroom appartement: [rental prices vary greatly](https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/indexofprivatehousingrentalprices/may2020#:~:text=Private%20rental%20prices%20paid%20by,12%20months%20to%20May%202020.) depending on location. Let's have a closer look at dealing with random-effects in the context of panel data.
 
 #### Video: Random-effect models {-}
 ```{r 02-video-random-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
