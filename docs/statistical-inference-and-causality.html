@@ -157,7 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#what-is-causality"><i class="fa fa-check"></i><b>1.3.1</b> What is causality?</a></li>
 <li class="chapter" data-level="1.3.2" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#the-problem-with-causality"><i class="fa fa-check"></i><b>1.3.2</b> The problem with causality</a></li>
-<li class="chapter" data-level="1.3.3" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#random-effect-models"><i class="fa fa-check"></i><b>1.3.3</b> Random effect models</a></li>
+<li class="chapter" data-level="1.3.3" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#random-effects-models"><i class="fa fa-check"></i><b>1.3.3</b> Random effects models</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#take-home-message"><i class="fa fa-check"></i><b>1.4</b> Take home message</a></li>
 <li class="chapter" data-level="1.5" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#attributions_w02"><i class="fa fa-check"></i><b>1.5</b> Attributions</a></li>
@@ -260,18 +260,18 @@ predictive patterns” (Bzdok <em>et al.</em> 2018).</p>
 <div class="note">
 <p>This section heavily borrows material and explanations from Nick Huntington-Klein’s excellent <a href="http://www.nickchk.com/econ305.html">ECON 305: Economics, Causality, and Analytics</a> module, do have a look if you want to learn more about this topic.</p>
 </div>
-<p>This brings us to econometrics and causal inference: the main goal of causal inference is to make the best possible estimation of what <span class="math inline">\(Y\)</span> would have been if <span class="math inline">\(X\)</span> would have been different, the so-called <strong>counterfactual</strong>. As we cannot always use an experiment in which we can randomly assign <span class="math inline">\(X\)</span> so that we know that on average people with <span class="math inline">\(X=1\)</span> and the same as people with <span class="math inline">\(X=2\)</span>, we have to come up with a model to figure out what the counterfactual would do. In the following, we will explore two ways of doing this through so-called fixed effect models and random effect models in the situation in which we have data points for each observation across time (i.e. <a href="https://en.wikipedia.org/wiki/Longitudinal_study">longitudinal data</a> or <a href="https://en.wikipedia.org/wiki/Panel_data">panel data</a>).</p>
-<p>###Fixed effect models
-Fixed effects are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable <span class="math inline">\(Y\)</span>. As such, using a fixed effect model you can explore the relationship between variables within an entity (which could be persons, companies, countries, etc.). Each entity has its own individual charactersitics that may or may not influence the dependent variable. When using a fixed effect model, we assume that something within the entity may impact or bias the dependent variables and we need to control for this. A fixed effect model does this by removing the characteristics that do not change over time so that we can assess the net effect of the independent variables on the dependent variable.</p>
-<div id="video-fixed-effect-models" class="section level4 unnumbered">
-<h4>Video: fixed effect models</h4>
+<p>This brings us to econometrics and causal inference: the main goal of causal inference is to make the best possible estimation of what <span class="math inline">\(Y\)</span> would have been if <span class="math inline">\(X\)</span> would have been different, the so-called <strong>counterfactual</strong>. As we cannot always use an experiment in which we can randomly assign <span class="math inline">\(X\)</span> so that we know that on average people with <span class="math inline">\(X=1\)</span> and the same as people with <span class="math inline">\(X=2\)</span>, we have to come up with a model to figure out what the counterfactual would do. In the following, we will explore two ways of doing this through so-called fixed effects models and random effects models in the situation in which we have data points for each observation across time (i.e. <a href="https://en.wikipedia.org/wiki/Longitudinal_study">longitudinal data</a> or <a href="https://en.wikipedia.org/wiki/Panel_data">panel data</a>).</p>
+<p>###Fixed effects models
+Fixed effectss are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable <span class="math inline">\(Y\)</span>. As such, using a fixed effects model you can explore the relationship between variables within an entity (which could be persons, companies, countries, etc.). Each entity has its own individual charactersitics that may or may not influence the dependent variable. When using a fixed effects model, we assume that something within the entity may impact or bias the dependent variables and we need to control for this. A fixed effects model does this by removing the characteristics that do not change over time so that we can assess the net effect of the independent variables on the dependent variable.</p>
+<div id="video-fixed-effects-models" class="section level4 unnumbered">
+<h4>Video: fixed effects models</h4>
 <p><div class="vembedr" align="left">
 <div>
 <iframe src="https://web.microsoftstream.com/embed/video/?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;"></iframe>
 </div>
 </div>
 <a href="">[Lecture slides]</a> <a href="">[Watch on MS stream]</a></p>
-<p>Let’s try to to apply a fixed effect model in R. For this we will use a data set containing some <a href="https://en.wikipedia.org/wiki/Panel_data">panel data</a>. The data set contains data, for different countries and years, an undefined variable <span class="math inline">\(Y\)</span> that we want to explain with some other variables.</p>
+<p>Let’s try to to apply a fixed effects model in R. For this we will use a data set containing some <a href="https://en.wikipedia.org/wiki/Panel_data">panel data</a>. The data set contains data, for different countries and years, an undefined variable <span class="math inline">\(Y\)</span> that we want to explain with some other variables.</p>
 </div>
 <div id="file-download" class="section level4 unnumbered">
 <h4>File download</h4>
@@ -300,7 +300,7 @@ Fixed effects are variables that are constant across individuals; these variable
 <span id="cb1-7"><a href="statistical-inference-and-causality.html#cb1-7" aria-hidden="true"></a><span class="kw">library</span>(lmtest)</span>
 <span id="cb1-8"><a href="statistical-inference-and-causality.html#cb1-8" aria-hidden="true"></a></span>
 <span id="cb1-9"><a href="statistical-inference-and-causality.html#cb1-9" aria-hidden="true"></a><span class="co"># read data</span></span>
-<span id="cb1-10"><a href="statistical-inference-and-causality.html#cb1-10" aria-hidden="true"></a>country_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;_book/raw/w02/paneldata.csv&#39;</span>)</span>
+<span id="cb1-10"><a href="statistical-inference-and-causality.html#cb1-10" aria-hidden="true"></a>country_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;raw/w02/paneldata.csv&#39;</span>)</span>
 <span id="cb1-11"><a href="statistical-inference-and-causality.html#cb1-11" aria-hidden="true"></a></span>
 <span id="cb1-12"><a href="statistical-inference-and-causality.html#cb1-12" aria-hidden="true"></a><span class="co"># inspect</span></span>
 <span id="cb1-13"><a href="statistical-inference-and-causality.html#cb1-13" aria-hidden="true"></a><span class="kw">head</span>(country_data)</span></code></pre></div>
@@ -409,12 +409,12 @@ Fixed effects are variables that are constant across individuals; these variable
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="statistical-inference-and-causality.html#cb17-1" aria-hidden="true"></a><span class="co"># add the LSDV regression lines</span></span>
 <span id="cb17-2"><a href="statistical-inference-and-causality.html#cb17-2" aria-hidden="true"></a><span class="kw">abline</span>(<span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x1, <span class="dt">data=</span>country_panel),<span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</span></code></pre></div>
 <p><img src="GEOG0125_files/figure-html/02-plot-the-lsdv-1.png" width="672" /></p>
-<p>We can also run a country-specific fixed effect model by using specific intercepts for each country. We can achieve this by using the <code>plm</code> package.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="statistical-inference-and-causality.html#cb18-1" aria-hidden="true"></a><span class="co"># run a fixed effect model</span></span>
-<span id="cb18-2"><a href="statistical-inference-and-causality.html#cb18-2" aria-hidden="true"></a>fixed &lt;-<span class="st"> </span><span class="kw">plm</span>(y <span class="op">~</span><span class="st"> </span>x1, <span class="dt">data=</span>country_panel, <span class="dt">model=</span><span class="st">&#39;within&#39;</span>)</span>
+<p>We can also run a country-specific fixed effects model by using specific intercepts for each country. We can achieve this by using the <code>plm</code> package.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="statistical-inference-and-causality.html#cb18-1" aria-hidden="true"></a><span class="co"># run a fixed effects model</span></span>
+<span id="cb18-2"><a href="statistical-inference-and-causality.html#cb18-2" aria-hidden="true"></a>fixed_effects &lt;-<span class="st"> </span><span class="kw">plm</span>(y <span class="op">~</span><span class="st"> </span>x1, <span class="dt">data=</span>country_panel, <span class="dt">model=</span><span class="st">&#39;within&#39;</span>)</span>
 <span id="cb18-3"><a href="statistical-inference-and-causality.html#cb18-3" aria-hidden="true"></a></span>
 <span id="cb18-4"><a href="statistical-inference-and-causality.html#cb18-4" aria-hidden="true"></a><span class="co"># summary</span></span>
-<span id="cb18-5"><a href="statistical-inference-and-causality.html#cb18-5" aria-hidden="true"></a><span class="kw">summary</span>(fixed)</span></code></pre></div>
+<span id="cb18-5"><a href="statistical-inference-and-causality.html#cb18-5" aria-hidden="true"></a><span class="kw">summary</span>(fixed_effects)</span></code></pre></div>
 <pre><code>## Oneway (individual) effect Within Model
 ## 
 ## Call:
@@ -440,17 +440,60 @@ Fixed effects are variables that are constant across individuals; these variable
 <p>Here you can check the individual intercepts through <code>fixef(fixed</code>). The coefficient of <span class="math inline">\(x_{1}\)</span> indicates how much <span class="math inline">\(Y\)</span> changes on average over time per country: as you can see the results are the same. Arguably, however, running your model with explicit dummy variables is more informative.</p>
 </div>
 </div>
-<div id="random-effect-models" class="section level3" number="1.3.3">
-<h3><span class="header-section-number">1.3.3</span> Random effect models</h3>
-<p>Random effects are the opposite of fixed effects. Contrary to fixed effects, random effects are random and difficult to predict. As such, the effect they will have on a dependent variable <span class="math inline">\(Y\)</span> is not constant. Think of the cost of renting a one bedroom appartement: <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/indexofprivatehousingrentalprices/may2020#:~:text=Private%20rental%20prices%20paid%20by,12%20months%20to%20May%202020.">rental prices vary greatly</a> depending on location. So if you have reason to believe that these differences across entities have some influence on the dependent variable, then you would use a random effects model approach. Let’s have a closer look at dealing with random effects in the context of panel data.</p>
-<div id="video-random-effect-models" class="section level4 unnumbered">
-<h4>Video: random effect models</h4>
+<div id="random-effects-models" class="section level3" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Random effects models</h3>
+<p>Random effects are the opposite of fixed effects. Contrary to fixed effects, random effects are random and difficult to predict. As such, the effect they will have on a dependent variable <span class="math inline">\(Y\)</span> is not constant. Think of the cost of renting a one bedroom appartement: <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/indexofprivatehousingrentalprices/may2020#:~:text=Private%20rental%20prices%20paid%20by,12%20months%20to%20May%202020.">rental prices vary greatly</a> depending on location. Let’s have a closer look at dealing with random effects in the context of panel data.</p>
+<div id="video-random-effects-models" class="section level4 unnumbered">
+<h4>Video: Random effects models</h4>
 <p><div class="vembedr" align="left">
 <div>
 <iframe src="https://web.microsoftstream.com/embed/video/?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;"></iframe>
 </div>
 </div>
 <a href="">[Lecture slides]</a> <a href="">[Watch on MS stream]</a></p>
+<p>If you have reason to believe that differences across entities have some influence on the dependent variable that is not time-dependent, then you would use a random effects model approach over a fixed effects model approach.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="statistical-inference-and-causality.html#cb20-1" aria-hidden="true"></a><span class="co"># run a random effects model</span></span>
+<span id="cb20-2"><a href="statistical-inference-and-causality.html#cb20-2" aria-hidden="true"></a>random_effects &lt;-<span class="st"> </span><span class="kw">plm</span>(y <span class="op">~</span><span class="st"> </span>x1, <span class="dt">data=</span>country_panel, <span class="dt">model=</span><span class="st">&#39;random&#39;</span>)</span>
+<span id="cb20-3"><a href="statistical-inference-and-causality.html#cb20-3" aria-hidden="true"></a></span>
+<span id="cb20-4"><a href="statistical-inference-and-causality.html#cb20-4" aria-hidden="true"></a><span class="co"># summary</span></span>
+<span id="cb20-5"><a href="statistical-inference-and-causality.html#cb20-5" aria-hidden="true"></a><span class="kw">summary</span>(random_effects)</span></code></pre></div>
+<pre><code>## Oneway (individual) effect Random Effect Model 
+##    (Swamy-Arora&#39;s transformation)
+## 
+## Call:
+## plm(formula = y ~ x1, data = country_panel, model = &quot;random&quot;)
+## 
+## Balanced Panel: n = 7, T = 10, N = 70
+## 
+## Effects:
+##                     var   std.dev share
+## idiosyncratic 7.815e+18 2.796e+09 0.873
+## individual    1.133e+18 1.065e+09 0.127
+## theta: 0.3611
+## 
+## Residuals:
+##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+## -8.94e+09 -1.51e+09  2.82e+08  0.00e+00  1.56e+09  6.63e+09 
+## 
+## Coefficients:
+##               Estimate Std. Error z-value Pr(&gt;|z|)
+## (Intercept) 1037014329  790626206  1.3116   0.1896
+## x1          1247001710  902145599  1.3823   0.1669
+## 
+## Total Sum of Squares:    5.6595e+20
+## Residual Sum of Squares: 5.5048e+20
+## R-Squared:      0.02733
+## Adj. R-Squared: 0.013026
+## Chisq: 1.91065 on 1 DF, p-value: 0.16689</code></pre>
+<p>Interpretation of the coefficients is a little bit tricky since they include both the within-entity and between-entity effects. In the case the data represents the average effect of <span class="math inline">\(X\)</span> over <span class="math inline">\(Y\)</span> when <span class="math inline">\(X\)</span> changes across time and between countries by one unit.</p>
+<p>If you are not sure whether you should run a fixed effects or a random effects model, you can runa Hausman test to help you with the decision. The Hausman test tests whether the variation accross entities (i.e. countries in our example) is uncorrelated with the independent variables. The null hypothesis is that there is no such correlation: if the Hausman specification test comes back significant then it means that you should use a fixed effects model. You run it by comparing the results from both models!</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="statistical-inference-and-causality.html#cb22-1" aria-hidden="true"></a><span class="kw">phtest</span>(fixed_effects, random_effects)</span></code></pre></div>
+<pre><code>## 
+## 	Hausman Test
+## 
+## data:  y ~ x1
+## chisq = 3.674, df = 1, p-value = 0.05527
+## alternative hypothesis: one model is inconsistent</code></pre>
 </div>
 </div>
 </div>

@@ -98,7 +98,7 @@ library(tseries)
 library(lmtest)
 
 # read data
-country_data <- read_csv('_book/raw/w02/paneldata.csv')
+country_data <- read_csv('raw/w02/paneldata.csv')
 
 # inspect
 head(country_data)
@@ -197,7 +197,7 @@ embed_msstream('') %>% use_align('left')
 
 If you have reason to believe that differences across entities have some influence on the dependent variable that is not time-dependent, then you would use a random effects model approach over a fixed effects model approach. 
 
-```{r 02-fixed-effects-plm, warnings=FALSE, message=FALSE}
+```{r 02-random-effects-plm, warnings=FALSE, message=FALSE}
 # run a random effects model
 random_effects <- plm(y ~ x1, data=country_panel, model='random')
 
