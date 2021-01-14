@@ -216,11 +216,11 @@ phtest(fixed_effects, random_effects)
 According to the Hausman test, we should use the random effects model to estimate the relationship between $x_1$ and our $Y$.
 
 <div class="note">
-Normally, this is not the end of it as there is a sequence of tests that can and should be performed to make sure the model is valid. Testing for [hetersokedaticity](https://en.wikipedia.org/wiki/Heteroscedasticity) and [stochastic trends](https://otexts.com/fpp2/stochastic-and-deterministic-trends.html) for instance
+Normally, this is not the end of it as there is a sequence of tests that can and should be performed to make sure the model is valid. Testing for [hetersokedaticity](https://en.wikipedia.org/wiki/Heteroscedasticity) and [stochastic trends](https://otexts.com/fpp2/stochastic-and-deterministic-trends.html), for instance. However, this is out of scope of the current module.
 </div>
 
 ## Take home message
-
+Different models are used for different research questions: the question guides the model. What is important to keep in mind, especially when working with machine learning models, is that not all models are suitable to say something about the relationships between variables. Let alone on whether variable $X$ is the cause of change in variable $Y$. In this week's material, we really wanted to introduce you to some models that do explicitly look at relationships between variables from an econometrics point of view - a very tiny sneak peak if you may and there are many other advanced econometric models such as models using [instrumental variables](https://en.wikipedia.org/wiki/Instrumental_variables_estimation) and [difference-in-differences](https://en.wikipedia.org/wiki/Difference_in_differences#:~:text=Difference%20in%20differences%20(DID%20or,'%20versus%20a%20'control%20group') models. That is it for this week!
 
 ## Attributions {#attributions_w02}
 This week's content and practical uses content and inspiration from:
