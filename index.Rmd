@@ -21,7 +21,7 @@ The first half of the module introduce concepts such as statistical inference, d
 | Week          | Date          | Topic | Moodle | GitHub |
 | :------ |:-----|:--------------| :--: | :--: |
 | 1             | 11/01/2021    | Introduction to AdvSocGeo Data Science | **x** | |
-| 2             | 18/01/2021    | [Statistical Inference and Econometrics](statistical-inference-and-econometrics.html) | | **x** |
+| 2             | 18/01/2021    | [Statistical Inference and Causality](statistical-inference-and-causality.html) | | **x** |
 | 3             | 25/01/2021    | GeoAI: Introduction to Deep Learning | **x** | |
 | 4             | 01/02/2021    | GeoAI: Convolutional Neural Networks | **x** | |
 | 5             | 08/02/2021    | Keynote: Spatial Data Science (Carto) | **x** | |

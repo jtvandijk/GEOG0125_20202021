@@ -1,13 +1,13 @@
-# Statistical Inference and Econometrics
+# Statistical Inference and Causality
 
 ## Introduction
-Statistical inference is the process of using data analysis to deduce properties of an underlying distribution of probability. In other words: statistical inference is the procedure through which we try to make inferences about a population based on characteristics of this population that have been captured in a sample. Statistical inference can thus be contrasted with exploratory and descriptive data analysis, which focuses solely on the description of the data set on which the analysis is applied. 
+Statistical inference is the process of using data analysis to deduce properties of an underlying distribution of probability. In other words: statistical inference is the procedure through which we try to make inferences about a population based on characteristics of this population that have been captured in a sample. This includes uncovering the association between variables as well as establishing causal relationships. However, correlation does not imply causation and identifying causal relationships from obsevational data is not trivial.
 
-This week we will dive a little deeper into the statistical inference, and in particular take a sneak peek at the field of study of **econometrics**. 
+> "Correlation does not imply causation" (Any statistician).
 
-This week is structured by **4** short lecture videos, reading material, a tutorial in R with a 'hands-on' application of techniques covered in the lecture videos, and a seminar on Tuesday. 
+This week we will dive a little deeper into statistical inference and how to establish causal relationships by taking a small dive into the field of study of [econometrics](https://en.wikipedia.org/wiki/Econometrics#:~:text=Econometrics%20is%20the%20application%20of,by%20appropriate%20methods%20of%20inference%22.). This week is structured by **4** short lecture videos, reading material, a tutorial in R with a 'hands-on' application of the techniques covered in the lecture videos, and a seminar on Tuesday. The short lecture videos this week are provided by an absolute expert in the field of econometrics: [Dr Idahosa](https://www.uj.ac.za/contact/Pages/Love-Idahosa.aspx) from the [University of Johannesburg](https://www.uj.ac.za/).
 
-Let's get started.
+Let's get to it!
 
 #### Video: Introduction W01 {-}
 ```{r 01-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -34,31 +34,46 @@ Please find the reading list for this week below.
 - Idahosa, L. O. and J. T. van Dijk. 2016. South Africa: Freedom for whom? Inequality, unemployment and the elderly. *Development* 58(1): 96-102. [[Link]](https://ucl-new-primo.hosted.exlibrisgroup.com/permalink/f/1klfcc3/TN_cdi_proquest_journals_1758956430)
 
 ### Technical Help session
-Every Thursday between 12h00-13h00 you can join the **Technical Help** session on Microsoft Teams. The session will be hostd by Alfie. He will be there for the whole hour to answer any question you have live in the meeting or any questions you have formulated beforehand. If you cannot make the meeting, feel free to post the issue you ar having in the Technical Help channel on the GEOG0125 Team so that Alfie will can help to find a solution. 
+Every Thursday between 12h00-13h00 you can join the **Technical Help** session on Microsoft Teams. The session will be hosted by [Alfie](https://www.ucl.ac.uk/geospatial-analytics/people/alfie-long). He will be there for the whole hour to answer any question you have live in the meeting or any questions you have formulated beforehand. If you cannot make the meeting, feel free to post the issue you ar having in the Technical Help channel on the GEOG0125 Team so that Alfie will can help to find a solution. 
 
 ## Statistical inference
-During this course we will be talking a lot about different [machine learning](https://en.wikipedia.org/wiki/Machine_learning#:~:text=Machine%20learning%20(ML)%20is%20the,a%20subset%20of%20artificial%20intelligence.) methods and techniques. Before we continue, however, it is good to have one week in which we focus on statistical inference. The major difference between machine learning and statistics is their purpose. Machine learning models are designed to make **accurate predictions**. Statistical models are designed for inference about the **relationships between variables**.
+Where during the remainder of this module we will predominantly focus on different [machine learning](https://en.wikipedia.org/wiki/Machine_learning#:~:text=Machine%20learning%20(ML)%20is%20the,a%20subset%20of%20artificial%20intelligence.) methods and techniques) and the data scientist's toolbox, this week we will focus on statistical inference. Although there is considerable overlap sometimes even involving the same methods, the major difference between machine learning and statistics is their purpose. Machine learning models are designed to make **accurate predictions**. Statistical models are designed for inference about the **relationships between variables**. 
 
 >"Statistics draws population inferences from a sample, and machine learning finds generalizable
 predictive patterns" (Bzdok *et al.* 2018).
 
-Of course, this is a little bit of a blunt way to summarise the differences. Think of a linear regression model: using a *train* data set it can be used to make predictions about a *test* data set but when implemented as a statistical model it is used to find the line that minimises the mean squared error accross all data and can be used to characterise the relationship between the independent variables and the dependent variable. Still, it does show the difference in emphasis and as such this week we will be looking at using statistical models to look into the relationships between variables with some help from the field of **econometrics**, who have made this into an art!
+#### Video: Linear regression models {-}
+Before we move onto the more complicated material, let's have a quick refresher on linear regression models. Linear regression models offer a very **interpretable** way to model the association between variables. A linear regression model is used to find the line that minimises the mean squared error accross all data to establish the relationship between a response variable one or more explanatory (independent) variables. The case of one explanatory variable is called a **simple linear regression**; if more explanatory variables are used it is called **multiple regression**.
 
-#### Video: Linear models {-}
 ```{r 02-video-linear-models, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
 embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
 
-## Fixed-effect models
+## Causality
+ake several popular methods for getting causal effects out of non-experimental data and provide animated plots that show you what these methods actually do to the data and how you can understand what the effects you're estimating actually ARE.
+
+
+Regression is a statistical analysis technique, the purpose is to predict a target variable y according to some other variables x1, x2, ..., namely, if you passively "see" that X=x, what the value of Y will be?
+Regression cares about correlation relationships. You can always get a regression formula between Y and X, even when they by no means entail any causal relationships. 
+However, correlation does not necessary mean causation. 
+An example is that we can build a regression model between "chocolate consumption quantity of a person" and "the probability the person to win the Nobel price" (cf.: http://www.businessinsider.com.au/chocolate-consumption-vs-nobel-prizes-2014-4?r=US&IR=T ) , but there shouldn't exist actual causal relationship between them.
+
+Identifying causal relationships from observational data is not easy. Still, researchers are often interested in examining the effects of policy changes or other decisions. In those analyses, researchers will face any number of analytical decisions, including whether to use fixed or random effects models to control for variables that don’t change over time.
+Let’s consider an example. Suppose we’re interested in estimating the effect that a government grant might have had on firms’ product quality (as examined in this previous study). In addition to controlling for observed variables like the number of employees the firms had at different time points in the study period, we might also want to control for unobserved variables, such as the management quality of the firms.
+Assuming that the firms’ management quality is constant over time, we can use regression models to try to account for those unobserved factors — but there isn’t always consensus about the best way to do so. Specifically, researchers often must decide whether to use a fixed or random effects approach in an analysis like this.
+
+
+### Fixed-effect models
+
 #### Video: Fixed-effect models {-}
 ```{r 02-video-fixed-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
 
-## Random-effect models
+### Random-effect models
 #### Video: Random-effect models {-}
 ```{r 02-video-random-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
@@ -67,4 +82,10 @@ embed_msstream('') %>% use_align('left')
 
 ## Take home message
 
+
 ## Attributions {#attributions_w02}
+This week's content and practical uses content and inspiration from:
+
+- Torres-Reyna, Oscar. 2010. Getting Started in Fixed/Random Effects Models using R. [[Link]](
+https://rstudio-pubs-static.s3.amazonaws.com/372492_3e05f38dd3f248e89cdedd317d603b9a.html#45_regression_diagnostics)
+- Huntington-Klein, Nick. 2019. ECON 305: Economics, Causality, and Analytics. [[Link]](http://www.nickchk.com/econ305.html)
