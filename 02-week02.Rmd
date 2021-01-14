@@ -70,7 +70,7 @@ The problem with establishing a causal relationship is that in many cases you ca
 This section heavily borrows material and explanations from Nick Huntington-Klein's excellent [ECON 305: Economics, Causality, and Analytics](http://www.nickchk.com/econ305.html) module, do have a look if you want to learn more about this topic.
 </div>
 
-This brings us to econometrics and causal inference: the main goal of causal inference is to make the best possible estimation of what $Y$ would have been if $X$ would have been different, the so-called **counterfactual**. As we cannot always use an experiment in which we can randomly assign $X$ so that we know that on average people with $X=1$ and the same as people with $X=2$, we have to come up with a model to figure out what the counterfactual would do. In the following, we will explore two ways of doing this through so-called fixed-effect models and random effect-models in the situation in which we have multiple data points for each observation (i.e. [longitudinal data](https://en.wikipedia.org/wiki/Longitudinal_study) or [panel data](https://en.wikipedia.org/wiki/Panel_data)).
+This brings us to econometrics and causal inference: the main goal of causal inference is to make the best possible estimation of what $Y$ would have been if $X$ would have been different, the so-called **counterfactual**. As we cannot always use an experiment in which we can randomly assign $X$ so that we know that on average people with $X=1$ and the same as people with $X=2$, we have to come up with a model to figure out what the counterfactual would do. In the following, we will explore two ways of doing this through so-called fixed-effect models and random effect-models in the situation in which we have data points for each observation across time (i.e. [longitudinal data](https://en.wikipedia.org/wiki/Longitudinal_study) or [panel data](https://en.wikipedia.org/wiki/Panel_data)).
 
 ### Fixed-effect models
 Fixed effects are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable $Y$. Let's have a closer look at dealing with fixed-effects in the context of panel data.
@@ -122,6 +122,36 @@ scatterplot(y ~ year, data=country_panel)
 
 # create a quick conditioning plot
 coplot(y ~ year|country, data=country_panel, type='b')
+```
+
+The graphs show that there $Y$ is variable both over time and between countries. Let's also have a look at the [heterogeinity](https://en.wikipedia.org/wiki/Homogeneity_and_heterogeneity) of our data by plotting the means, and the 95% confidence interval around the means, of $Y$ accross time and accross countries.
+
+```{r 02-heterogeneity, warnings=FALSE, message=FALSE}
+# means accross years
+plotmeans(y ~ year, data=country_panel)
+
+# means accross countries
+plotmeans(y ~ year, data=country_panel)
+```
+
+There is clearly some heterogeneity accross the countries and accross years. However, the basic Ordinary Least Squares (OLS) regression model does not consider this heterogeneity:
+
+```{r 02-run-the-OLS, warnings=FALSE, message=FALSE}
+# run an OLS
+ols <- lm(y ~ x1, data=country_panel)
+
+# summary
+summary(ols)
+```
+
+The resuls show that there is no statistical relationship between $x_{1}$ and the dependent variable $Y$ as the model tries to explain all variability in the data at once. You can clearly see this in the plot below:
+
+```{r 02-plot-the-ols, warnings=FALSE, message=FALSE}
+# plot the results
+scatterplot(country_panel$y ~ country_panel$x1, boxplots=FALSE, smooth=FALSE)
+
+# add the OLS regression line
+abline(lm(y ~ x1, data=country_panel),lwd=3, col='red')
 ```
 
 ### Random-effect models
