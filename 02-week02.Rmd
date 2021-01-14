@@ -70,18 +70,18 @@ The problem with establishing a causal relationship is that in many cases you ca
 This section heavily borrows material and explanations from Nick Huntington-Klein's excellent [ECON 305: Economics, Causality, and Analytics](http://www.nickchk.com/econ305.html) module, do have a look if you want to learn more about this topic.
 </div>
 
-This brings us to econometrics and causal inference: the main goal of causal inference is to make the best possible estimation of what $Y$ would have been if $X$ would have been different, the so-called **counterfactual**. As we cannot always use an experiment in which we can randomly assign $X$ so that we know that on average people with $X=1$ and the same as people with $X=2$, we have to come up with a model to figure out what the counterfactual would do. In the following, we will explore two ways of doing this through so-called fixed effect models and random effect models in the situation in which we have data points for each observation across time (i.e. [longitudinal data](https://en.wikipedia.org/wiki/Longitudinal_study) or [panel data](https://en.wikipedia.org/wiki/Panel_data)).
+This brings us to econometrics and causal inference: the main goal of causal inference is to make the best possible estimation of what $Y$ would have been if $X$ would have been different, the so-called **counterfactual**. As we cannot always use an experiment in which we can randomly assign $X$ so that we know that on average people with $X=1$ and the same as people with $X=2$, we have to come up with a model to figure out what the counterfactual would do. In the following, we will explore two ways of doing this through so-called fixed effects models and random effects models in the situation in which we have data points for each observation across time (i.e. [longitudinal data](https://en.wikipedia.org/wiki/Longitudinal_study) or [panel data](https://en.wikipedia.org/wiki/Panel_data)).
 
-###Fixed effect models
-Fixed effects are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable $Y$. As such, using a fixed effect model you can explore the relationship between variables within an entity (which could be persons, companies, countries, etc.). Each entity has its own individual charactersitics that may or may not influence the dependent variable. When using a fixed effect model, we assume that something within the entity may impact or bias the dependent variables and we need to control for this. A fixed effect model does this by removing the characteristics that do not change over time so that we can assess the net effect of the independent variables on the dependent variable.
+###Fixed effects models
+Fixed effectss are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable $Y$. As such, using a fixed effects model you can explore the relationship between variables within an entity (which could be persons, companies, countries, etc.). Each entity has its own individual charactersitics that may or may not influence the dependent variable. When using a fixed effects model, we assume that something within the entity may impact or bias the dependent variables and we need to control for this. A fixed effects model does this by removing the characteristics that do not change over time so that we can assess the net effect of the independent variables on the dependent variable.
 
-#### Video: fixed effect models {-}
+#### Video: fixed effects models {-}
 ```{r 02-video-fixed-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
 
-Let's try to to apply a fixed effect model in R. For this we will use a data set containing some [panel data](https://en.wikipedia.org/wiki/Panel_data). The data set contains data, for different countries and years, an undefined variable $Y$ that we want to explain with some other variables.
+Let's try to to apply a fixed effects model in R. For this we will use a data set containing some [panel data](https://en.wikipedia.org/wiki/Panel_data). The data set contains data, for different countries and years, an undefined variable $Y$ that we want to explain with some other variables.
 
 #### File download {-}
 | File                                                 | Type           | Link |
@@ -174,27 +174,44 @@ scatterplot(fixed_dum$fitted ~ country_panel$x1|country_panel$country, boxplots=
 abline(lm(y ~ x1, data=country_panel),lwd=3, col='red')
 ```
 
-We can also run a country-specific fixed effect model by using specific intercepts for each country. We can achieve this by using the `plm` package.
+We can also run a country-specific fixed effects model by using specific intercepts for each country. We can achieve this by using the `plm` package.
 
 ```{r 02-fixed-effects-plm, warnings=FALSE, message=FALSE}
-# run a fixed effect model
-fixed <- plm(y ~ x1, data=country_panel, model='within')
+# run a fixed effects model
+fixed_effects <- plm(y ~ x1, data=country_panel, model='within')
 
 # summary
-summary(fixed)
+summary(fixed_effects)
 ```
 
 Here you can check the individual intercepts through `fixef(fixed`). The coefficient of $x_{1}$ indicates how much $Y$ changes on average over time per country: as you can see the results are the same. Arguably, however, running your model with explicit dummy variables is more informative.
 
-### Random effect models
-Random effects are the opposite of fixed effects. Contrary to fixed effects, random effects are random and difficult to predict. As such, the effect they will have on a dependent variable $Y$ is not constant. Think of the cost of renting a one bedroom appartement: [rental prices vary greatly](https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/indexofprivatehousingrentalprices/may2020#:~:text=Private%20rental%20prices%20paid%20by,12%20months%20to%20May%202020.) depending on location. So if you have reason to believe that these differences across entities have some influence on the dependent variable, then you would use a random effects model approach. Let's have a closer look at dealing with random effects in the context of panel data.
+### Random effects models
+Random effects are the opposite of fixed effects. Contrary to fixed effects, random effects are random and difficult to predict. As such, the effect they will have on a dependent variable $Y$ is not constant. Think of the cost of renting a one bedroom appartement: [rental prices vary greatly](https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/indexofprivatehousingrentalprices/may2020#:~:text=Private%20rental%20prices%20paid%20by,12%20months%20to%20May%202020.) depending on location. Let's have a closer look at dealing with random effects in the context of panel data.
 
-#### Video: random effect models {-}
+#### Video: Random effects models {-}
 ```{r 02-video-random-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
 
+If you have reason to believe that differences across entities have some influence on the dependent variable that is not time-dependent, then you would use a random effects model approach over a fixed effects model approach. 
+
+```{r 02-fixed-effects-plm, warnings=FALSE, message=FALSE}
+# run a random effects model
+random_effects <- plm(y ~ x1, data=country_panel, model='random')
+
+# summary
+summary(random_effects)
+```
+
+Interpretation of the coefficients is a little bit tricky since they include both the within-entity and between-entity effects. In the case the data represents the average effect of $X$ over $Y$ when $X$ changes across time and between countries by one unit.
+
+If you are not sure whether you should run a fixed effects or a random effects model, you can runa Hausman test to help you with the decision. The Hausman test tests whether the variation accross entities (i.e. countries in our example) is uncorrelated with the independent variables. The null hypothesis is that there is no such correlation: if the Hausman specification test comes back significant then it means that you should use a fixed effects model. You run it by comparing the results from both models!
+
+```{r 02-run-hausman-run, warnings=FALSE, message=FALSE}
+phtest(fixed_effects, random_effects)
+```
 
 
 ## Take home message
