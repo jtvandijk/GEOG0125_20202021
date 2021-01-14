@@ -157,7 +157,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#what-is-causality"><i class="fa fa-check"></i><b>1.3.1</b> What is causality?</a></li>
 <li class="chapter" data-level="1.3.2" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#the-problem-with-causality"><i class="fa fa-check"></i><b>1.3.2</b> The problem with causality</a></li>
-<li class="chapter" data-level="1.3.3" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#random-effects-models"><i class="fa fa-check"></i><b>1.3.3</b> Random effects models</a></li>
+<li class="chapter" data-level="1.3.3" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#fixed-effects-models"><i class="fa fa-check"></i><b>1.3.3</b> Fixed effects models</a></li>
+<li class="chapter" data-level="1.3.4" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#random-effects-models"><i class="fa fa-check"></i><b>1.3.4</b> Random effects models</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#take-home-message"><i class="fa fa-check"></i><b>1.4</b> Take home message</a></li>
 <li class="chapter" data-level="1.5" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#attributions_w02"><i class="fa fa-check"></i><b>1.5</b> Attributions</a></li>
@@ -261,8 +262,10 @@ predictive patterns” (Bzdok <em>et al.</em> 2018).</p>
 <p>This section heavily borrows material and explanations from Nick Huntington-Klein’s excellent <a href="http://www.nickchk.com/econ305.html">ECON 305: Economics, Causality, and Analytics</a> module, do have a look if you want to learn more about this topic.</p>
 </div>
 <p>This brings us to econometrics and causal inference: the main goal of causal inference is to make the best possible estimation of what <span class="math inline">\(Y\)</span> would have been if <span class="math inline">\(X\)</span> would have been different, the so-called <strong>counterfactual</strong>. As we cannot always use an experiment in which we can randomly assign <span class="math inline">\(X\)</span> so that we know that on average people with <span class="math inline">\(X=1\)</span> and the same as people with <span class="math inline">\(X=2\)</span>, we have to come up with a model to figure out what the counterfactual would do. In the following, we will explore two ways of doing this through so-called fixed effects models and random effects models in the situation in which we have data points for each observation across time (i.e. <a href="https://en.wikipedia.org/wiki/Longitudinal_study">longitudinal data</a> or <a href="https://en.wikipedia.org/wiki/Panel_data">panel data</a>).</p>
-<p>###Fixed effects models
-Fixed effectss are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable <span class="math inline">\(Y\)</span>. As such, using a fixed effects model you can explore the relationship between variables within an entity (which could be persons, companies, countries, etc.). Each entity has its own individual charactersitics that may or may not influence the dependent variable. When using a fixed effects model, we assume that something within the entity may impact or bias the dependent variables and we need to control for this. A fixed effects model does this by removing the characteristics that do not change over time so that we can assess the net effect of the independent variables on the dependent variable.</p>
+</div>
+<div id="fixed-effects-models" class="section level3" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Fixed effects models</h3>
+<p>Fixed effectss are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable <span class="math inline">\(Y\)</span>. As such, using a fixed effects model you can explore the relationship between variables within an entity (which could be persons, companies, countries, etc.). Each entity has its own individual charactersitics that may or may not influence the dependent variable. When using a fixed effects model, we assume that something within the entity may impact or bias the dependent variables and we need to control for this. A fixed effects model does this by removing the characteristics that do not change over time so that we can assess the net effect of the independent variables on the dependent variable.</p>
 <div id="video-fixed-effects-models" class="section level4 unnumbered">
 <h4>Video: fixed effects models</h4>
 <p><div class="vembedr" align="left">
@@ -440,8 +443,8 @@ Fixed effectss are variables that are constant across individuals; these variabl
 <p>Here you can check the individual intercepts through <code>fixef(fixed</code>). The coefficient of <span class="math inline">\(x_{1}\)</span> indicates how much <span class="math inline">\(Y\)</span> changes on average over time per country: as you can see the results are the same. Arguably, however, running your model with explicit dummy variables is more informative.</p>
 </div>
 </div>
-<div id="random-effects-models" class="section level3" number="1.3.3">
-<h3><span class="header-section-number">1.3.3</span> Random effects models</h3>
+<div id="random-effects-models" class="section level3" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> Random effects models</h3>
 <p>Random effects are the opposite of fixed effects. Contrary to fixed effects, random effects are random and difficult to predict. As such, the effect they will have on a dependent variable <span class="math inline">\(Y\)</span> is not constant. Think of the cost of renting a one bedroom appartement: <a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/indexofprivatehousingrentalprices/may2020#:~:text=Private%20rental%20prices%20paid%20by,12%20months%20to%20May%202020.">rental prices vary greatly</a> depending on location. Let’s have a closer look at dealing with random effects in the context of panel data.</p>
 <div id="video-random-effects-models" class="section level4 unnumbered">
 <h4>Video: Random effects models</h4>
