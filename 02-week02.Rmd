@@ -42,9 +42,9 @@ Where during the remainder of this module we will predominantly focus on differe
 >"Statistics draws population inferences from a sample, and machine learning finds generalizable
 predictive patterns" (Bzdok *et al.* 2018).
 
-#### Video: Linear regression models {-}
 Before we move onto the more complicated material, let's have a quick refresher on linear regression models. Linear regression models offer a very **interpretable** way to model the association between variables. A linear regression model is used to find the line that minimises the mean squared error accross all data to establish the relationship between a response variable one or more explanatory (independent) variables. The case of one explanatory variable is called a **simple linear regression**; if more explanatory variables are used it is called **multiple regression**.
 
+#### Video: Linear regression models {-}
 ```{r 02-video-linear-models, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
 embed_msstream('') %>% use_align('left')
