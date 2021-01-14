@@ -213,7 +213,11 @@ If you are not sure whether you should run a fixed effects or a random effects m
 phtest(fixed_effects, random_effects)
 ```
 
-According to the Hausman test, we should use the random effects model.
+According to the Hausman test, we should use the random effects model to estimate the relationship between $x_1$ and our $Y$.
+
+<div class="note">
+Normally, this is not the end of it as there is a sequence of tests that can and should be performed to make sure the model is valid. Testing for [hetersokedaticity](https://en.wikipedia.org/wiki/Heteroscedasticity) and [stochastic trends](https://otexts.com/fpp2/stochastic-and-deterministic-trends.html) for instance
+</div>
 
 ## Take home message
 
