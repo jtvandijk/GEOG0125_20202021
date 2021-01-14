@@ -80,8 +80,6 @@ embed_msstream('') %>% use_align('left')
 [[Lecture slides]]() [[Watch on MS stream]]()
 
 ### Random-effect models
-
-
 #### Video: Random-effect models {-}
 ```{r 02-video-random-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
