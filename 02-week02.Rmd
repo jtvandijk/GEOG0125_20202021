@@ -75,7 +75,7 @@ This brings us to econometrics and causal inference: the main goal of causal inf
 ### Fixed effects models
 Fixed effectss are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable $Y$. As such, using a fixed effects model you can explore the relationship between variables within an entity (which could be persons, companies, countries, etc.). Each entity has its own individual charactersitics that may or may not influence the dependent variable. When using a fixed effects model, we assume that something within the entity may impact or bias the dependent variables and we need to control for this. A fixed effects model does this by removing the characteristics that do not change over time so that we can assess the net effect of the independent variables on the dependent variable.
 
-#### Video: fixed effects models {-}
+#### Video: Fixed effects models {-}
 ```{r 02-video-fixed-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
 ```
@@ -220,7 +220,7 @@ Normally, this is not the end of it as there is a sequence of tests that can and
 </div>
 
 ## Take home message
-Different models are used for different research questions: the question guides the model. What is important to keep in mind, especially when working with machine learning models, is that not all models are suitable to say something about the relationships between variables. Let alone on whether variable $X$ is the cause of change in variable $Y$. In this week's material, we really wanted to introduce you to some models that do explicitly look at relationships between variables from an econometrics point of view - a very tiny sneak peak if you may and there are many other advanced econometric models such as models using [instrumental variables](https://en.wikipedia.org/wiki/Instrumental_variables_estimation) and [difference-in-differences](https://en.wikipedia.org/wiki/Difference_in_differences#:~:text=Difference%20in%20differences%20(DID%20or,'%20versus%20a%20'control%20group') models. That is it for this week!
+Different models are used for different research questions: the question guides the model. What is important to keep in mind, especially when working with machine learning models, is that not all models are suitable to say something about the relationships between variables. Let alone on whether variable $X$ is the cause of change in variable $Y$. In this week's material, we really wanted to introduce you to some models that do explicitly look at relationships between variables from an econometrics point of view - a very tiny sneak peak if you may and there are many other advanced econometric models such as models using [instrumental variables](https://en.wikipedia.org/wiki/Instrumental_variables_estimation) and [difference-in-differences](https://en.wikipedia.org/wiki/Difference_in_differences) models. That is it for this week!
 
 ## Attributions {#attributions_w02}
 This week's content and practical uses content and inspiration from:
