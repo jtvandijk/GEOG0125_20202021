@@ -213,6 +213,7 @@ If you are not sure whether you should run a fixed effects or a random effects m
 phtest(fixed_effects, random_effects)
 ```
 
+According to the Hausman test, we should use the random effects model.
 
 ## Take home message
 
