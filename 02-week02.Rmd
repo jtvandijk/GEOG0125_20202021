@@ -73,6 +73,8 @@ This section heavily borrows material and explanations from Nick Huntington-Klei
 This brings us to econometrics and causal inference: the main goal of causal inference is to make the best possible estimation of what $Y$ would have been if $X$ would have been different, the so-called **counterfactual**. As we cannot always use an experiment in which we can randomly assign $X$ so that we know that on average people with $X=1$ and the same as people with $X=2$, we have to come up with a model to figure out what the counterfactual would do. In the following, we will explore two ways of doing this through so-called fixed-effect models and random effect-models.
 
 ### Fixed-effect models
+Fixed effects are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable $Y$. Let's have a closer look at dealing with fixed-effects.
+
 #### Video: Fixed-effect models {-}
 ```{r 02-video-fixed-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
@@ -80,6 +82,8 @@ embed_msstream('') %>% use_align('left')
 [[Lecture slides]]() [[Watch on MS stream]]()
 
 ### Random-effect models
+Random effects are the opposite of fixed effects. Contrary to fixed effects, random effects are random and difficult to predict. As such, the effect they will have on a dependent variable $Y$ is not constant. Think of the cost of renting a one bedroom appartement: [rental prices vary greatly](https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/indexofprivatehousingrentalprices/may2020#:~:text=Private%20rental%20prices%20paid%20by,12%20months%20to%20May%202020.) depending on location. Let's have a closer look at dealing with random-effects.
+
 #### Video: Random-effect models {-}
 ```{r 02-video-random-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
