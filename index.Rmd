@@ -7,7 +7,7 @@ output: bookdown::gitbook
 documentclass: book
 link-citations: yes
 github-repo: "jtvandijk/GEOG0125"
-description: "GEOG0125: Advanced Topics in Social Data Science."
+description: "GEOG0125: Advanced Topics in Social and Geographic Data Science."
 url: 'https\://jtvandijk.github.io/GEOG0125/'
 ---
 
@@ -15,7 +15,7 @@ url: 'https\://jtvandijk.github.io/GEOG0125/'
 
 Welcome to **Advanced Topics in Social and Geographic Data Science**, one of the elective modules for the MSc in Geographic and Social Data Science here at [UCL Geography](https://www.geog.ucl.ac.uk/).This module has been designed as an advanced topics module to learn data science concepts and methods and to apply them in the domains of social science and geography. 
 
-The first half of the module introduce concepts such as statistical inference, deep learning and convolutional neural network which will end with a keynote lecture from Carto on Spatial Data Science. In the second half of the module, we will introduce you to the practical skills of being a data scientists including learning about database design, unix-tools and web visualisation. We hope this module can provide you with the necessary knowledge in becoming a social and geographic data scientist in the future.
+The first half of the module introduces a variety of important concepts such as statistical inference, deep learning, and convolutional neural networks. We will end with a keynote lecture from Carto on Spatial Data Science. In the second half of the module, we will introduce you to the practical skills of being a data scientists including an introduction to databases, unix-tools and web visualisation. We hope this module can provide you with the necessary knowledge in becoming a social and geographic data scientist in the future.
 
 ## Weekly topics {-}
 | Week          | Date          | Topic | Moodle | GitHub |
