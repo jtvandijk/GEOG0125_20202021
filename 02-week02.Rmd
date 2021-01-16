@@ -12,9 +12,9 @@ Let's get to it!
 #### Video: Introduction W01 {-}
 ```{r 01-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
-embed_msstream('') %>% use_align('left')
+embed_msstream('b2d5835e-7137-4c9e-aa9c-9101d62b9e94') %>% use_align('left')
 ```
-[Lecture slides] [[Watch on MS stream]]()
+[Lecture slides] [[Watch on MS stream]](https://web.microsoftstream.com/video/b2d5835e-7137-4c9e-aa9c-9101d62b9e94)
 
 ```{r 01-settings, warnings=FALSE, message=FALSE, echo=FALSE}
 # settings
@@ -37,12 +37,12 @@ Please find the reading list for this week below.
 Every Thursday between 13h00-14h00 you can join the **Technical Help** session on Microsoft Teams. The session will be hosted by [Alfie](https://www.ucl.ac.uk/geospatial-analytics/people/alfie-long). He will be there for the whole hour to answer any question you have live in the meeting or any questions you have formulated beforehand. If you cannot make the meeting, feel free to post the issue you are having in the Technical Help channel on the GEOG0125 Team so that Alfie can help to find a solution. 
 
 ## Statistical inference
-Where during the remainder of this module we will predominantly focus on different [machine learning](https://en.wikipedia.org/wiki/Machine_learning#:~:text=Machine%20learning%20(ML)%20is%20the,a%20subset%20of%20artificial%20intelligence.) methods and techniques and the data scientist's toolbox, this week we will focus on statistical inference. Although there is considerable overlap between machine learning and statistics, sometimes even involving the same methods, the major difference between machine learning and statistics is their purpose. Where machine learning models are designed to make **accurate predictions**, statistical models are designed for inference about the **relationships between variables**. 
+Where during the remainder of this module we will predominantly focus on different [machine learning](https://en.wikipedia.org/wiki/Machine_learning#:~:text=Machine%20learning%20(ML)%20is%20the,a%20subset%20of%20artificial%20intelligence.) methods and techniques and the data scientist's toolbox, this week we will focus on statistical inference. Although there is considerable overlap between machine learning and statistics, sometimes even involving the same methods, the major difference between machine learning and statistics is their purpose. Where machine learning models are designed to make *accurate predictions*, statistical models are designed for inference about the *relationships between variables*. 
 
 >"Statistics draws population inferences from a sample, and machine learning finds generalizable
 predictive patterns" (Bzdok *et al.* 2018).
 
-One way to analyse the relationships between variables is by a linear regression. Linear regression models offer a very **interpretable** way to model the association between variables. A linear regression model is used to find the line that minimises the mean squared error accross all data to establish the relationship between a response variable one or more explanatory (independent) variables. The case of one explanatory variable is called a **simple linear regression**; if more explanatory variables are used it is called **multiple regression**. The purpose of a regression model is to predict a target variable $Y$ according to some other variable $X$ or variables $X_{1}$, $X_{2}$, etc.
+One way to analyse the relationships between variables is by a linear regression. Linear regression models offer a very **interpretable** way to model the association between variables. A linear regression model is used to find the line that minimises the mean squared error across all data to establish the relationship between a response variable one or more explanatory (independent) variables. The case of one explanatory variable is called a simple linear regression; if more explanatory variables are used it is called multiple regression. The purpose of a regression model is to predict a target variable $Y$ according to some other variable $X$ or variables $X_{1}$, $X_{2}$, etc.
 
 ## Causality
 ### What is causality?
@@ -54,7 +54,7 @@ The golden standard to establish a causal relationship is to set-up and execute 
 The distinction between causal and non-causal relationships is crucial and heavily depends on your research questions. If you are trying to classify Google Street view images and predict whether the photo contains an office building or a residential building, you want to create a model that predicts this as good as possible. However, you do not care about what caused the building in the photo to be an office building or a residential building. That being said: almost any question is causal and where statistics is used in almost any field of inquiry, few pay proper attention to understanding causality.
 </div>
 
-By now you may wonder, sure, but what then is causality? We can say that $X$ causes $Y$ if we were to change the value of $X$ without changing anything else then as a result $Y$ would also change. A simple example: if you switch on the light switch, your light bulb will go on. The action of flipping the light switch **causes** your light to go on. This being said: it does not mean that $X$ is necessarily the only thing that causes $Y$ (e.g. the light bulb is burnt out or the light was already on) and perhaps a better way of phrasing it is to say that there is a **causal relationship** between variables if $X$ changes the probabiblity of $Y$ happening or changing.
+By now you may wonder, sure, but what then is causality? We can say that $X$ causes $Y$ if we were to change the value of $X$ without changing anything else then as a result $Y$ would also change. A simple example: if you switch on the light switch, your light bulb will go on. The action of flipping the light switch **causes** your light to go on. This being said: it does not mean that $X$ is necessarily the only thing that causes $Y$ (e.g. the light bulb is burnt out or the light was already on) and perhaps a better way of phrasing it is to say that there is a **causal relationship** between variables if $X$ changes the probability of $Y$ happening or changing.
 
 ### The problem with causality
 The problem with establishing a causal relationship is that in many cases you cannot 'switch on' or 'switch off' a characteristic. Let's go through this by thinking whether some $X$ causes $Y$. Our $X$ is coded as 0 or 1, for instance, 0 if a person has not received a coronavirus vaccination and 1 if a person has received a coronavirus vaccination. $Y$ is some numeric value. So how do we check if $X$ causes $Y$? What we would need to do for everyone in our sample is to check what happens to $Y$ when we make $X=0$ and what happens to $Y$ when we make $X=1$. Obviously, this is a problem! You cannot both have $X=0$ and $X=1$: you either got inoculated against the coronavirus or you did not. This means that if $X=1$ you can measure what the value of $Y$ is, but you do not know what the value of $Y$ **would have been** if $X=0$. The solution you may come up with is to compare $Y$ between individuals who have $X=0$ and $X=1$. However, there is another problem: there could be all kinds of reasons on why $Y$ differs between individuals that are not necessarily related to $X$. 
@@ -69,12 +69,12 @@ This brings us to econometrics and causal inference: the main goal of causal inf
 ```{r 02-video-fixed-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
 embed_msstream('') %>% use_align('left')
 ```
-[[Lecture slides]]() [[Watch on MS stream]]()
+[[Lecture slides]](https://github.com/jtvandijk/GEOG0125/blob/master/slides/w02/w02_introduction_panel_data.pdf) [[Watch on MS stream]]()
 
 ### Fixed effects models
-Fixed effects are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable $Y$. As such, using a fixed effects model you can explore the relationship between variables within an entity (which could be persons, companies, countries, etc.). Each entity has its own individual charactersitics that may or may not influence the dependent variable. When using a fixed effects model, we assume that something within the entity may impact or bias the dependent variables and we need to control for this. A fixed effects model does this by removing the characteristics that do not change over time so that we can assess the net effect of the independent variables on the dependent variable.
+Fixed effects are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable $Y$. As such, using a fixed effects model you can explore the relationship between variables within an entity (which could be persons, companies, countries, etc.). Each entity has its own individual characteristics that may or may not influence the dependent variable. When using a fixed effects model, we assume that something within the entity may impact or bias the dependent variables and we need to control for this. A fixed effects model does this by removing the characteristics that do not change over time so that we can assess the net effect of the independent variables on the dependent variable.
 
-Let's try to to apply a fixed effects model in R. For this we will use a data set containing some [panel data](https://en.wikipedia.org/wiki/Panel_data). The data set contains data, for different countries and years, an undefined variable $Y$ that we want to explain with some other variables.
+Let's try to to apply a fixed effects model in R. For this we will use a data set containing some [panel data](https://en.wikipedia.org/wiki/Panel_data). The data set contains fictional data, for different countries and years, for an undefined variable $Y$ that we want to explain with some other variables.
 
 #### File download {-}
 | File                                                 | Type           | Link |
@@ -97,7 +97,7 @@ country_data <- read_csv('raw/w02/paneldata.csv')
 head(country_data)
 ```
 
-Upon inspecting the `dataframe` you can see that the data contains 8 different fictional countries. For each country we have several years of data: three independent variables names $x_{1}$, $x_{2}$, and $x_{3}$ and a dependent variable $y$. As this is a panel dataset we have to declare it as such using the `plm.data()` function from the `plm` package. The `plm` package is a library dedicated to panel data analysis.
+Upon inspecting the `dataframe` you can see that the data contains 8 different fictional countries. For each country we have several years of data: three independent variables names $X_{1}$, $X_{2}$, and $X_{3}$ and a dependent variable $y$. As this is a panel dataset we have to declare it as such using the `plm.data()` function from the `plm` package. The `plm` package is a library dedicated to panel data analysis.
 
 ```{r 02-create-panel-data, warnings=FALSE, message=FALSE}
 # create a panel data object
@@ -117,17 +117,17 @@ scatterplot(y ~ year, data=country_panel)
 coplot(y ~ year|country, data=country_panel, type='b')
 ```
 
-The graphs show that there $Y$ is variable both over time and between countries. Let's also have a look at the [heterogeinity](https://en.wikipedia.org/wiki/Homogeneity_and_heterogeneity) of our data by plotting the means, and the 95% confidence interval around the means, of $Y$ accross time and accross countries.
+The graphs show that there $Y$ is variable both over time and between countries. Let's also have a look at the [heterogeneity](https://en.wikipedia.org/wiki/Homogeneity_and_heterogeneity) of our data by plotting the means, and the 95% confidence interval around the means, of $Y$ across time and across countries.
 
 ```{r 02-heterogeneity, warnings=FALSE, message=FALSE}
-# means accross years
+# means across years
 plotmeans(y ~ year, data=country_panel)
 
-# means accross countries
+# means across countries
 plotmeans(y ~ country, data=country_panel)
 ```
 
-There is clearly some heterogeneity accross the countries and accross years. However, the basic Ordinary Least Squares (OLS) regression model does not consider this heterogeneity:
+There is clearly some heterogeneity across the countries and across years. However, the basic Ordinary Least Squares (OLS) regression model does not consider this heterogeneity:
 
 ```{r 02-run-the-OLS, warnings=FALSE, message=FALSE}
 # run an OLS
@@ -137,7 +137,7 @@ ols <- lm(y ~ x1, data=country_panel)
 summary(ols)
 ```
 
-The results show that there is no significant statistical relationship between $x_{1}$ and the dependent variable $Y$ as the model tries to explain all variability in the data at once. You can clearly see this in the plot below:
+The results show that there is no significant statistical relationship between $X_{1}$ and the dependent variable $Y$ as the model tries to explain all variability in the data at once. You can clearly see this in the plot below:
 
 ```{r 02-plot-the-ols, warnings=FALSE, message=FALSE}
 # plot the results
@@ -157,7 +157,7 @@ fixed_dum <- lm(y ~ x1 + factor(country) - 1, data=country_panel)
 summary(fixed_dum)
 ```
 
-The least square dummy variable model (LSDV) provides a good way to understand fixed effects. By adding the dummy for each country, we are now estimating the pure effect of $x_{1}$ on $Y$. Each dummy is absorbing the effects that are particular to each country. Where the independent variable $x_{1}$ was not significant in the OLS model, after controlling for differences across countries, $x_{1}$ became significant in the LSDV model. You can clearly see why this is happening in the plot below:
+The least square dummy variable model (LSDV) provides a good way to understand fixed effects. By adding the dummy for each country, we are now estimating the pure effect of $X_{1}$ on $Y$. Each dummy is absorbing the effects that are particular to each country. Where the independent variable $X_{1}$ was not significant in the OLS model, after controlling for differences across countries, $X_{1}$ became significant in the LSDV model. You can clearly see why this is happening in the plot below:
 
 ```{r 02-plot-the-lsdv, warnings=FALSE, message=FALSE}
 # plot the results
@@ -177,10 +177,10 @@ fixed_effects <- plm(y ~ x1, data=country_panel, model='within')
 summary(fixed_effects)
 ```
 
-Here you can check the individual intercepts through `fixef(fixed`). The coefficient of $x_{1}$ indicates how much $Y$ changes on average over time per country: as you can see the results are the same. Arguably, however, running your model with explicit dummy variables is more informative.
+Here you can check the individual intercepts through `fixef(fixed`). The coefficient of $X_{1}$ indicates how much $Y$ changes on average over time per country: as you can see the results are identical to the results we got from running the LSDV model. Arguably, however, running your model with explicit dummy variables is more informative.
 
 ### Random effects models
-Random effects are the opposite of fixed effects. Contrary to fixed effects, random effects are random and difficult to predict. As such, the effect they will have on a dependent variable $Y$ is not constant. Think of the cost of renting a one bedroom appartement: [rental prices vary greatly](https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/indexofprivatehousingrentalprices/may2020#:~:text=Private%20rental%20prices%20paid%20by,12%20months%20to%20May%202020.) depending on location. Let's have a closer look at dealing with random effects in the context of panel data.
+Random effects are the opposite of fixed effects. Contrary to fixed effects, random effects are random and difficult to predict. As such, the effect they will have on a dependent variable $Y$ is not constant. Think of the cost of renting a one bedroom appartement: [rental prices vary greatly](https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/indexofprivatehousingrentalprices/may2020#:~:text=Private%20rental%20prices%20paid%20by,12%20months%20to%20May%202020.) depending on location. 
 
 If you have reason to believe that differences across entities have some influence on the dependent variable that is not time-dependent, then you would use a random effects model approach over a fixed effects model approach. 
 
@@ -192,9 +192,9 @@ random_effects <- plm(y ~ x1, data=country_panel, model='random')
 summary(random_effects)
 ```
 
-Interpretation of the coefficients is a little bit tricky since they include both the within-entity and between-entity effects. In the case the data represents the average effect of $X$ over $Y$ when $X$ changes across time and between countries by one unit.
+Interpretation of the coefficients is a little bit tricky since they include both the within-entity and between-entity effects. In this case, the data represents the average effect of $X_{1}$ over $Y$ when $X$ changes across time and between countries by one unit.
 
-If you are not sure whether you should run a fixed effects or a random effects model, you can runa Hausman test to help you with the decision. The Hausman test tests whether the variation accross entities (i.e. countries in our example) is uncorrelated with the independent variables. The null hypothesis is that there is no such correlation: if the Hausman specification test comes back significant then it means that you should use a fixed effects model. You run it by comparing the results from both models!
+If you are not sure whether you should run a fixed effects or a random effects model, you can run a Hausman test to help you with the decision. The Hausman test tests whether the variation across entities (i.e. countries in our example) is uncorrelated with the independent variables. The null hypothesis is that there is no such correlation: if the Hausman specification test comes back significant then it means that you should use a fixed effects model. You run it by comparing the results from both models!
 
 ```{r 02-run-hausman-run, warnings=FALSE, message=FALSE}
 phtest(fixed_effects, random_effects)
@@ -207,7 +207,7 @@ Normally, this is not the end of it as there is a sequence of tests that can and
 </div>
 
 ## Take home message
-Different models are used for different research questions: the question guides the model. What is important to keep in mind, especially when working with machine learning models, is that not all models are suitable to say something about the relationships between variables. Let alone on whether variable $X$ is the cause of change in variable $Y$. In this week's material, we really wanted to introduce you to some models that do explicitly look at relationships between variables from an econometrics point of view - a very tiny sneak peak if you may and there are many other advanced econometric models such as models using [instrumental variables](https://en.wikipedia.org/wiki/Instrumental_variables_estimation) and [difference-in-differences](https://en.wikipedia.org/wiki/Difference_in_differences) models. That is it for this week!
+Different models are used for different research questions: the question guides the model. What is important to keep in mind, especially when working with machine learning models, is that not all models are suitable to say something about the relationships between variables. Let alone on whether variable $X$ is the cause of change in variable $Y$. In this week's material, we really wanted to introduce you to some models that do explicitly look at relationships between variables from an econometrics point of view - a very tiny sneak peak if you may. Of course, there are many other advanced econometric models such as models using [instrumental variables](https://en.wikipedia.org/wiki/Instrumental_variables_estimation) and [difference-in-differences](https://en.wikipedia.org/wiki/Difference_in_differences) models. That is it for this week!
 
 ## Attributions {#attributions_w02}
 This week's content and practical uses content and inspiration from:
