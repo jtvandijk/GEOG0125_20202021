@@ -5,7 +5,9 @@ Statistical inference is the process of using data analysis to deduce properties
 
 > "Correlation does not imply causation" (Any statistician).
 
-This week we will dive a little deeper into statistical inference and how to establish causal relationships by taking a small dive into the field of study of [econometrics](https://en.wikipedia.org/wiki/Econometrics#:~:text=Econometrics%20is%20the%20application%20of,by%20appropriate%20methods%20of%20inference%22.). This week's lecture video is provided by an absolute expert in the field of econometrics: [Dr Idahosa](https://www.uj.ac.za/contact/Pages/Love-Idahosa.aspx) from the [University of Johannesburg](https://www.uj.ac.za/). This week is further structured by reading material, a tutorial in R with a 'hands-on' application of the techniques covered in the lecture video, and a seminar on Tuesday. 
+This week we will dive a little deeper into statistical inference and how to establish causal relationships by taking a small dive into the field of study of [econometrics](https://en.wikipedia.org/wiki/Econometrics#:~:text=Econometrics%20is%20the%20application%20of,by%20appropriate%20methods%20of%20inference%22.). 
+
+This week's lecture video is provided by an absolute expert in the field of econometrics: [Dr Idahosa](https://www.uj.ac.za/contact/Pages/Love-Idahosa.aspx) from the [University of Johannesburg](https://www.uj.ac.za/). This week is further structured by reading material, a tutorial in R with a 'hands-on' application of the techniques covered in the lecture video, and a seminar on Tuesday. 
 
 Let's get to it!
 
