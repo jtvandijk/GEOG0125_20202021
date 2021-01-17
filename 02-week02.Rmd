@@ -69,9 +69,9 @@ This brings us to econometrics and causal inference: the main goal of causal inf
 
 #### Video: Panel Data Analysis {-}
 ```{r 02-video-fixed-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
-embed_msstream('') %>% use_align('left')
+embed_msstream('a533a384-4acd-4583-90af-348a1c3d3388') %>% use_align('left')
 ```
-[[Lecture slides]](https://github.com/jtvandijk/GEOG0125/blob/master/slides/w02/w02_introduction_panel_data.pdf) [[Watch on MS stream]]()
+[[Lecture slides]](https://github.com/jtvandijk/GEOG0125/blob/master/slides/w02/w02_introduction_panel_data.pdf) [[Watch on MS stream]](https://web.microsoftstream.com/video/a533a384-4acd-4583-90af-348a1c3d3388)
 
 ### Fixed effects models
 Fixed effects are variables that are constant across individuals; these variables, like age, sex, or ethnicity, typically do not change over time or change over time at a constant rate. As such, they have fixed effects on a dependent variable $Y$. As such, using a fixed effects model you can explore the relationship between variables within an entity (which could be persons, companies, countries, etc.). Each entity has its own individual characteristics that may or may not influence the dependent variable. When using a fixed effects model, we assume that something within the entity may impact or bias the dependent variables and we need to control for this. A fixed effects model does this by removing the characteristics that do not change over time so that we can assess the net effect of the independent variables on the dependent variable.
