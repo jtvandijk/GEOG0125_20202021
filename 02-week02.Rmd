@@ -65,7 +65,9 @@ The problem with establishing a causal relationship is that in many cases you ca
 This section heavily borrows material and explanations from Nick Huntington-Klein's excellent [ECON 305: Economics, Causality, and Analytics](http://www.nickchk.com/econ305.html) module, do have a look if you want to learn more about this topic.
 </div>
 
-This brings us to econometrics and causal inference: the main goal of causal inference is to make the best possible estimation of what $Y$ would have been if $X$ would have been different, the so-called **counterfactual**. As we cannot always use an experiment in which we can randomly assign $X$ so that we know that on average people with $X=1$ and the same as people with $X=2$, we have to come up with a model to figure out what the counterfactual would do. In the following, we will explore two ways of doing this through so-called fixed effects models and random effects models in the situation in which we have data points for each observation across time (i.e. [longitudinal data](https://en.wikipedia.org/wiki/Longitudinal_study) or [panel data](https://en.wikipedia.org/wiki/Panel_data)).
+This brings us to econometrics and causal inference: the main goal of causal inference is to make the best possible estimation of what $Y$ would have been if $X$ would have been different, the so-called **counterfactual**. As we cannot always use an experiment in which we can randomly assign $X$ so that we know that on average people with $X=1$ and the same as people with $X=2$, we have to come up with a model to figure out what the counterfactual would do. 
+
+In the following, we will explore two ways of doing this through so-called fixed effects models and random effects models in the situation in which we have data points for each observation across time (i.e. [longitudinal data](https://en.wikipedia.org/wiki/Longitudinal_study) or [panel data](https://en.wikipedia.org/wiki/Panel_data)).
 
 #### Video: Panel Data Analysis {-}
 ```{r 02-video-fixed-effect-models, warnings=FALSE, message=FALSE, echo=FALSE}
