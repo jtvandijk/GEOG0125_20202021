@@ -1,7 +1,71 @@
 # Spatial-Temporal Mobility Analysis
 
-This week we will be looking at capturing mobility data with GPS, specifically we will look at how to obtain, clean, and interpret a GPS data set. We will further use Machine Learning algorithms, specifically Support Vector Machines and Tree-based methods, to classify labeled GPS data into ‘stay’ and ‘move’ points.
+## Introduction {#intro-w07}
+Against the background of unprecedented growth in private vehicle ownership and the entrenchment of the private car in everyday life, the past decades have seen a growing and ongoing academic and policy debate on how to encourage individuals to change to more sustainable ways of travelling. More recently, researchers have started to build on so-called location-aware technologies, exploring innovative methods to more accurately capture, visualise, and analyse individual spatiotemporal travel patterns: information that can be used to formulate strategies to accommodate the increasing demand for transport vis-à-vis growing environmental and societal concerns.
 
-<center>
-**This week’s content will be made available on 01/03/2021.**
-</center>
+This week we will be looking at capturing mobility data with GPS, specifically we will look at how to obtain, clean, and interpret a GPS data set. We will further use two Machine Learning algorithms, specifically Support Vector Machines and tree-based methods, to classify labeled GPS data into *stay* and *move* points. This week is structured around three short videos as well as a tutorial in R with a 'hands-on' application of GPS data classification.
+
+Let's get to it!
+
+#### Video: Introduction W07 {-}
+```{r 07-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_msstream('') %>% use_align('left')
+```
+[Lecture slides] [[Watch on MS stream]]()
+
+```{r 07-settings, warnings=FALSE, message=FALSE, echo=FALSE}
+# settings
+options(max.print=30)
+```
+
+### Reading list {#reading-list-w07}
+Please find the reading list for this week below.
+
+#### Core reading {-}
+- Bohte, W. and K. Maat. 2009. Deriving and validating trip purposes and travel modes for multi-day GPS-based travel surveys: A large-scale application in the Netherlands. *Transportation Research Part C: Emerging Technologies* 17(3): 285–297. [[Link]](https://doi.org/10.1016/j.trc.2008.11.004)
+- Feng, T and H. Timmermans. 2016. Comparison of advanced imputation algorithms for detection of transportation mode and activity episode using GPS data. *Transportation Planning and Technology* 39(2): 180–194. [[Link]](https://doi.org/10.1080/03081060.2015.1127540)
+- Nitsche, P. *et al.*. 2014. Supporting large- scale travel surveys with smartphones - a practical approach. *Transportation Research Part C: Emerging Technologies* 43: 212–221. [[Link]](https://doi.org/10.1016/j.trc.2013.11.005)
+
+#### Supplementary reading {-}
+- Van Dijk, J. 2018. Identifying activity-travel points from GPS-data with multiple moving windows. *Computers, Environment and Urban Systems* 70: 84-101. [[Link]](https://doi.org/10.1016/j.compenvurbsys.2018.02.004)
+- Wolf, J. 2000. Using GPS data loggers to replace travel diaries in the collection of travel data. *Doctoral dissertation*. Atlanta, Georgia: Georgia Institute of Technology. [[Link]](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.126.3799&rep=rep1&type=pdf)
+
+### Technical Help session
+Every Thursday between 13h00-14h00 you can join the **Technical Help** session on Microsoft Teams. The session will be hosted by [Alfie](https://www.ucl.ac.uk/geospatial-analytics/people/alfie-long). He will be there for the whole hour to answer any question you have live in the meeting or any questions you have formulated beforehand. If you cannot make the meeting, feel free to post the issue you are having in the Technical Help channel on the GEOG0125 Team so that Alfie can help to find a solution. 
+
+## GPS data
+Mobility is a central aspect of everyday life. In its simplest form, human mobility refers to the movement of individuals from location A to location B. This can be a relocation from one city to another city, as well as a trip from home to work. Transport systems provide the physical nodes and linkages that facilitate this mobility. However, transport systems and road networks in many cities around the world are under pressure as a result of unparalleled growth in private vehicle ownership and increasingly complex and fragmented travel patterns. Particularly in urban areas, this is problematic because it leads to problems such as congestion, accidents, road decay, and reduced accessibility. As such, governments and researchers throughout the world have started to recognise the need to curtail demand for private road transport, and agree that:
+
+>"Technological breakthroughs [alone] are not going to provide the silver bullet for the mitigation of climate change and energy security threats caused by the transport sector" ([Stradling and Anable, 2008: 195](https://www.wiley.com/en-gb/Transport+Geographies%3A+Mobilities%2C+Flows+and+Spaces-p-9781405153225))
+
+The realisation that increasing road infrastructure and improvements in car technology are not sufficient to address the transport problems around the world has led to the idea that transport planning should shift from supply-side to demand-side passenger transport planning. For this, accurate dat are required on individual spatio-temporal behaviour.
+
+Travel data collection methods can roughly be classified into two, not mutually exclusive, methods. The first method uses self-reported data, such as data collected through telephone-assisted interviews, computer-assisted interviews, and pen-and-paper interviews. The second method relies on passively collected data, such as data collected through call-detail records and GPS data. Technological developments in the field of location-aware technologies, GPS in particular, have greatly enhanced opportunities to collect accurate data on human spatiotemporal behaviour. GPS data need to be collected and analysed systematically to be intelligible for transport researchers and policy makers. Moreover, the challenges inherent to mobile data collection techniques include not only harnessing the tools to obtain geo-referenced data, but also the development of new skills sets for cleaning, analysing, and interpreting these data.
+
+#### Video: GPS data  {-}
+```{r 07-gps-data, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_msstream('') %>% use_align('left')
+```
+[[Lecture slides]]() [[Watch on MS stream]]()
+
+## GPS data classification
+Where GPS technology can precisely register the spatiotemporal elements of activity-travel behaviour, travel characteristics need to be imputed from the data. As such, throughout the last decade or so, a plethora of methods has been developed for identifying trips, activities, and travel modes from raw GPS trajectories. These methods range from deterministic (rule-based) methods to advanced machine learning algorithms. Here, we will focus on using two types of machine learning technicues (Support Vector Machines and tree-based methods) to classify labelled GPS points into *stay* and *move* points.
+
+#### Video: GPS data classification {-}
+```{r 04-data-classification, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_msstream('') %>% use_align('left')
+```
+[[Lecture slides]]() [[Watch on MS stream]]()
+
+- Artificial GPS data
+- Random forest (+ boosted decision tree)
+- Support vector machine
+
+## Take home message
+
+## Attributions {#attributions_w07}
+This week's content and practical uses content and inspiration from:
+
+- Van Dijk, J. 2017. Designing Travel Behaviour Change Interventions: a spatiotemporal perspective. *Doctoral dissertation*. Stellenbosch: Stellenbosch University.[[Link]](http://hdl .handle.net/10019.1/102809)
+- Van Dijk, J. 2018. Identifying activity-travel points from GPS-data with multiple moving windows. *Computers, Environment and Urban Systems* 70: 84-101. [[Link]](https://doi.org/10.1016/j.compenvurbsys.2018.02.004)

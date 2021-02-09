@@ -1,0 +1,6 @@
+# Convolutional Neural Networks
+This week, we will introduce you to the topic of Convolutional Neural Network, a special case of Neural Network. In particular, we will describe the various CNN architecture and the useful technique of transfer learning. We will discuss the principles behind the different convolutional layers and activation functions. We will also give a case study on street frontage classification and object detection. The practical component of the week will allow you to practice running convolutional neural network models.
+
+<div class="note">
+**This week's material is available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=23879).**
+</div>

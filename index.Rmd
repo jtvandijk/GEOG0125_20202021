@@ -1,5 +1,5 @@
 --- 
-title: "GEOG0125: Advanced Topics in Social Data Science"
+title: "GEOG0125:  Advanced Topics in Social and Geographic Data Science"
 author: Justin van Dijk^[Department of Geography, https://www.mappingdutchman.com/] and Stephen Law^[Department of Geography, https://www.geog.ucl.ac.uk/people/academic-staff/stephen-law]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -15,22 +15,22 @@ url: 'https\://jtvandijk.github.io/GEOG0125/'
 
 Welcome to **Advanced Topics in Social and Geographic Data Science**, one of the elective modules for the MSc in Geographic and Social Data Science here at [UCL Geography](https://www.geog.ucl.ac.uk/).This module has been designed as an advanced topics module to learn data science concepts and methods and to apply them in the domains of social science and geography. 
 
-The first half of the module introduces a variety of important concepts such as statistical inference, deep learning, and convolutional neural networks. We will end with a keynote lecture from Carto on Spatial Data Science. In the second half of the module, we will introduce you to the practical skills of being a data scientists including an introduction to databases, unix-tools and web visualisation. We hope this module can provide you with the necessary knowledge in becoming a social and geographic data scientist in the future.
+The first half of the module introduces a variety of important concepts such as statistical inference, deep learning, and convolutional neural networks. We will end with a keynote lecture from Carto on Spatial Data Science. In the second half of the module, we will introduce you to the practical skills of being a data scientists including an introduction to databases, unix-tools and web visualisation (a data sciencist's toolbox). We hope this module can provide you with the necessary knowledge in becoming a social and geographic data scientist in the future.
 
 ## Weekly topics {-}
 | Week          | Date          | Topic | Moodle | GitHub |
 | :------ |:-----|:--------------| :--: | :--: |
-| 1             | 11/01/2021    | Introduction to AdvSocGeo Data Science | **x** | |
+| 1             | 11/01/2021    | Introduction to SocGeoDataScience | **x** | |
 | 2             | 18/01/2021    | [Statistical Inference and Causality](statistical-inference-and-causality.html) | | **x** |
 | 3             | 25/01/2021    | GeoAI: Introduction to Deep Learning | **x** | |
-| 4             | 01/02/2021    | GeoAI: Convolutional Neural Networks | **x** | |
-| 5             | 08/02/2021    | Keynote: Spatial Data Science (Carto) | **x** | |
-| *reading week*  | *reading week*  | *reading week* | | |
+| 4             | 01/02/2021    | Keynote: Spatial Data Science (Carto)  | **x** | |
+| 5             | 08/02/2021    | GeoAI: Convolutional Neural Networks| **x** | |
+|               |               | *reading week* | | |
 | 6             | 22/02/2021    | GeoAI: Spatial Data Science Applications | **x** | |
-| 7             | 01/03/2021    | DS Tools: [Spatial-Temporal Mobility Analysis](spatial-temporal-mobility-analysis.html) | | **x** |
-| 8             | 08/03/2021    | DS Tools: [Unix tools and Database Management](unix-tools-and-database-management.html) | | **x** |
-| 9             | 15/03/2021    | DS Tools: [Web Visualisation](web-visualisation.html) | | **x** |
-| 10            | 22/03/2021    | Summary and Future of SocGeoDataScience | **x** | |
+| 7             | 01/03/2021    | GeoAI: [Spatial-Temporal Mobility Analysis](spatial-temporal-mobility-analysis.html) | | **x** |
+| 8             | 08/03/2021    | Data Sciencist's Toolbox: [Unix tools](unix-tools.html) | | **x** |
+| 9             | 15/03/2021    | Data Sciencist's Toolbox: [Web Visualisation](web-visualisation.html) | | **x** |
+| 10            | 22/03/2021    | A look into the future of SocGeoDataScience | **x** | |
 
 ## Moodle {-}
 All important information and communication in relation to this module will be provided on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=23879). Even though some of the short lecture videos and practical materials will be hosted on this webpage, do check on Moodle regularly to see if there are any updates or important messages.

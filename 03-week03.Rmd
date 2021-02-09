@@ -1,0 +1,8 @@
+# (PART\*) GeoAI {-}
+
+# Introduction to Deep Learning
+This week, we will introduce you to the topic of Deep Learning, its history and its uses in digital humanities, robotics, climate science, geography and social science. We will discuss the principles and algorithms of training and evaluating a deep neural network as an extension of a linear regression model. We will also present the strength and weakness of such techniques. The practical component of the week will allow you to practice and deep learning models, which are highly transferable skills in the future.
+
+<div class="note">
+**This week's material is available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=23879).**
+</div>

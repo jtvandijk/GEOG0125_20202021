@@ -1,0 +1,6 @@
+# Spatial Data Science Applications
+This week, we will introduce you the topic of applying deep neural networks for spatial data science applications. In particular we will describe the use of multi-modality data in machine learning. In particular we will describe the use of multi-modal data for socio-economic predictions for two different papers.
+
+<div class="note">
+**This week's material is available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=23879).**
+</div>

@@ -1,0 +1,8 @@
+# (PART\*) Future {-}
+
+# A look into the future
+This week we will wrap up what we have discussed over the past weeks and take a look at the future of Social and Geographic Data science.
+
+<div class="note">
+**This week's material will be available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=23879).**
+</div>

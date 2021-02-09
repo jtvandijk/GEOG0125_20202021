@@ -1,0 +1,8 @@
+# (PART\*) Introduction {-}
+
+# Introduction 
+The first week of Advanced Topics in Social and Geographic Data Science will introduce the module, why is it useful and what you will learn. You will be given a recap to the introduction to social and geographic data science specifically on the machine learning workflow. We will then give instructions to the reading group and the coursework assessment. This week’s practical component will focus on installing a new virtual environment for the module, accessing Jupyter Notebook locally and a recap on a typical machine learning workflow in Python. We will also get everyone familiar with Google Colab Web service. This week plays a formative role in providing you with the baseline knowledge for the module.
+
+<div class="note">
+**This week's material is available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=23879).**
+</div>

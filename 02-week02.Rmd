@@ -1,6 +1,8 @@
+# (PART\*) Inference {-}
+
 # Statistical Inference and Causality
 
-## Introduction
+## Introduction {#intro-w09}
 Statistical inference is the process of using data analysis to deduce properties of an underlying distribution of probability. In other words: statistical inference is the procedure through which we try to make inferences about a population based on characteristics of this population that have been captured in a sample. This includes uncovering the association between variables as well as establishing causal relationships. However, correlation does not imply causation and identifying causal relationships from observational data is not trivial.
 
 > "Correlation does not imply causation" (Any statistician).

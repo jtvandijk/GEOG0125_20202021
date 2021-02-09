@@ -1,0 +1,6 @@
+# Keynote: Spatial Data Science
+This week we will have a guest lecture from Miguel Alvarez Garcia @Carto on CartoFrame and Spatial Data Science. Miguel is a Data Scientist at CARTO and has experience in optimisation and machine learning. His current work focuses on solving problems with a strong geospatial component in various sectors such as logistics, utilities, retail, and environmental. 
+
+<div class="note">
+**Details on this guest lecture are available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=23879).**
+</div>
