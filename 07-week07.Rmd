@@ -35,7 +35,7 @@ Please find the reading list for this week below.
 Every Thursday between 13h00-14h00 you can join the **Technical Help** session on Microsoft Teams. The session will be hosted by [Alfie](https://www.ucl.ac.uk/geospatial-analytics/people/alfie-long). He will be there for the whole hour to answer any question you have live in the meeting or any questions you have formulated beforehand. If you cannot make the meeting, feel free to post the issue you are having in the Technical Help channel on the GEOG0125 Team so that Alfie can help to find a solution. 
 
 ## GPS data
-Mobility is a central aspect of everyday life. In its simplest form, human mobility refers to the movement of individuals from location A to location B. This can be a relocation from one city to another city, as well as a trip from home to work. Transport systems provide the physical nodes and linkages that facilitate this mobility. However, transport systems and road networks in many cities around the world are under pressure as a result of unparalleled growth in private vehicle ownership and increasingly complex and fragmented travel patterns. Particularly in urban areas, this is problematic because it leads to problems such as congestion, accidents, road decay, and reduced accessibility. As such, governments and researchers throughout the world have started to recognise the need to curtail demand for private road transport, and agree that:
+Mobility is a central aspect of everyday life. In its simplest form, human mobility refers to the movement of individuals from location **A** to location **B**. This can be a relocation from one city to another city, as well as a trip from home to work. Transport systems provide the physical nodes and linkages that facilitate this mobility. However, transport systems and road networks in many cities around the world are under pressure as a result of unparalleled growth in private vehicle ownership and increasingly complex and fragmented travel patterns. Particularly in urban areas, this is problematic because it leads to problems such as congestion, accidents, road decay, and reduced accessibility. As such, governments and researchers throughout the world have started to recognise the need to curtail demand for private road transport, and agree that:
 
 >"Technological breakthroughs [alone] are not going to provide the silver bullet for the mitigation of climate change and energy security threats caused by the transport sector" ([Stradling and Anable, 2008: 195](https://www.wiley.com/en-gb/Transport+Geographies%3A+Mobilities%2C+Flows+and+Spaces-p-9781405153225))
 
@@ -50,7 +50,7 @@ embed_msstream('') %>% use_align('left')
 [[Lecture slides]]() [[Watch on MS stream]]()
 
 ## GPS data classification
-Where GPS technology can precisely register the spatiotemporal elements of activity-travel behaviour, travel characteristics need to be imputed from the data. As such, throughout the last decade or so, a plethora of methods has been developed for identifying trips, activities, and travel modes from raw GPS trajectories. These methods range from deterministic (rule-based) methods to advanced machine learning algorithms. Here, we will focus on using two types of machine learning technicues (Support Vector Machines and tree-based methods) to classify labelled GPS points into *stay* and *move* points.
+Where GPS technology can precisely register the spatiotemporal elements of activity-travel behaviour, travel characteristics need to be imputed from the data. As such, throughout the last decade or so, a plethora of methods has been developed for identifying trips, activities, and travel modes from raw GPS trajectories. These methods range from deterministic (rule-based) methods to advanced machine learning algorithms. Here, we will focus on using two types of machine learning techniques (Support Vector Machines and tree-based methods) to classify labelled GPS points into *stay* and *move* points.
 
 #### Video: GPS data classification {-}
 ```{r 04-data-classification, warnings=FALSE, message=FALSE, echo=FALSE}
@@ -58,9 +58,90 @@ embed_msstream('') %>% use_align('left')
 ```
 [[Lecture slides]]() [[Watch on MS stream]]()
 
-- Artificial GPS data
-- Random forest (+ boosted decision tree)
-- Support vector machine
+The segmentation of GPS data into activity and travel episodes is often the first step in a more elaborate process of identifying activity types and transport modes. A major issue with GPS data imputation, however, is the necessity of a ground truth to test whether the imputation algorithm correctly categorises GPS points into activity (*stay*) points and trips (*move*) points. We will be using a set of [50 artificially created GPS tracks](https://doi.org/10.1016/j.compenvurbsys.2018.02.004) that contain a sequence of stays and moves in Cape Town, South Africa. For the data that we will use, the artificial GPS 'records' a measurement every 60 seconds. To further simulate noise in the data, a random sample comprising of 50 per cent of the data points was taken. Besides these raw GPS data, we also have access to a basic road network lay out of the [Mother City](https://www.capetownmagazine.com/cape-town#:~:text=A%20more%20commonly%2Dused%20nickname,visitors%20to%20Cape%20Town%20alike.). 
+
+#### File download {-}
+| File                                                 | Type           | Link |
+| :------                                              | :------        | :------ |
+| Cape Town GPS and road data                          |`shp`     | [Download](https://github.com/jtvandijk/GEOG0125/tree/master/raw/zip/capetown.zip) |
+
+We will start by downloading the files, importing both into R, and having a look at what we will be working with. Be careful *not* to plot the road network file. Because the road network contains around 120,000 individual road segments it will take a long time to draw. Rather have a look at the data in [QGIS](https://www.qgis.org/en/site/), which is much more capable of on the fly displaying a large number of features.
+
+```{r 07-load-libraries, warnings=FALSE, message=FALSE, cache=TRUE}
+# load libraries
+library(tidyverse)
+library(sf)
+library(tmap)
+
+# read gps data
+gps <- read_sf('raw/w07/gps_cape_town.shp')
+
+# read road data
+road <- read_sf('raw/w07/roads_cape_town.shp')
+
+# inspect
+gps
+
+# inspect
+road
+
+# inspect 
+names(gps)
+
+# project into Hartbeesthoek94
+gps <- gps %>% st_transform(crs='epsg:2053')
+road <- road %>% st_transform(crs='epsg:2053')
+```
+
+The road network file is relatively simple and only contains the road network segments - no additional information (e.g. maximum speed, road type, etc.) is available. The GPS data themselves contain several fields:
+
+| Column heading | Description |
+| :---           | :---------- |
+| *stop*         | Stop number within GPS track |
+| *type*         | Type of stop (i.e. short, medium, long) |
+| *duration*     | Duration of stop in seconds |
+| *point_id_n*   | Unique point identifier within GPS track |
+| *timestamp*    | Time the point was recorded |
+| *mode*         | Travel mode |
+| *track_id*     | Unique ID for GPS track |
+| *move*         | Whether point is a move or a stay |
+| *activity*     | Whether point is move (inlcuding mode) or stay | 
+
+The *move* variable is the variable we will try to predict. Before we split our data into a *train* and *test* set, however, we will need to derive some features that will serve as predictors: speed, point density, and distance to nearest road segment. The order of the data is very important right now as the points form a trajectory, so before anything we start by making sure that the data are ordered correctly: by *track_id* and *timestamp*.
+
+```{r 07-calculate-speed, warnings=FALSE, message=FALSE, cache=TRUE}
+# order data
+gps <- gps %>% arrange(track_id,timestamp)
+
+# calculate distance between consecutive points // could take a few minutes
+gps <- gps %>% 
+         group_by(track_id) %>%
+         mutate(
+                lead_geom = geometry[row_number() + 1],
+                dist = st_distance(lead_geom,geometry, by_element=TRUE, which='Euclidean')
+                ) %>% 
+        ungroup()
+
+# inspect
+gps
+
+# calculate time between consecutive points 
+gps <- gps %>% 
+        group_by(track_id) %>% 
+        mutate(
+                lead_time = strptime(timestamp[row_number() + 1],format='%d/%m/%Y %H:%M:%S'),
+                diff = difftime(lead_time,strptime(timestamp,format='%d/%m/%Y %H:%M:%S'), units='secs')
+                ) %>% 
+        ungroup()
+
+# inspect
+gps
+
+# calculate speed in kilometres per hour
+gps <- gps %>% mutate(speed = as.integer(dist)/as.integer(diff)*3.6)
+```
+
+
 
 ## Take home message
 
