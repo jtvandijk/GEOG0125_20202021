@@ -163,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.3" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#fixed-effects-models"><i class="fa fa-check"></i><b>2.3.3</b> Fixed effects models</a></li>
 <li class="chapter" data-level="2.3.4" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#random-effects-models"><i class="fa fa-check"></i><b>2.3.4</b> Random effects models</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#take-home-message"><i class="fa fa-check"></i><b>2.4</b> Take home message</a></li>
+<li class="chapter" data-level="2.4" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#thm-w02"><i class="fa fa-check"></i><b>2.4</b> Take home message</a></li>
 <li class="chapter" data-level="2.5" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#attributions_w02"><i class="fa fa-check"></i><b>2.5</b> Attributions</a></li>
 </ul></li>
 <li class="part"><span><b>GeoAI</b></span></li>
@@ -179,8 +179,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1.2" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#technical-help-session"><i class="fa fa-check"></i><b>7.1.2</b> Technical Help session</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="spatial-temporal-mobility-analysis.html"><a href="spatial-temporal-mobility-analysis.html#gps-data"><i class="fa fa-check"></i><b>7.2</b> GPS data</a></li>
-<li class="chapter" data-level="7.3" data-path="spatial-temporal-mobility-analysis.html"><a href="spatial-temporal-mobility-analysis.html#gps-data-classification"><i class="fa fa-check"></i><b>7.3</b> GPS data classification</a></li>
-<li class="chapter" data-level="7.4" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#take-home-message"><i class="fa fa-check"></i><b>7.4</b> Take home message</a></li>
+<li class="chapter" data-level="7.3" data-path="spatial-temporal-mobility-analysis.html"><a href="spatial-temporal-mobility-analysis.html#gps-data-classification"><i class="fa fa-check"></i><b>7.3</b> GPS data classification</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="spatial-temporal-mobility-analysis.html"><a href="spatial-temporal-mobility-analysis.html#gps-data-preparation"><i class="fa fa-check"></i><b>7.3.1</b> GPS data preparation</a></li>
+<li class="chapter" data-level="7.3.2" data-path="spatial-temporal-mobility-analysis.html"><a href="spatial-temporal-mobility-analysis.html#gps-data-classification-1"><i class="fa fa-check"></i><b>7.3.2</b> GPS data classification</a></li>
+<li class="chapter" data-level="7.3.3" data-path="spatial-temporal-mobility-analysis.html"><a href="spatial-temporal-mobility-analysis.html#exercise"><i class="fa fa-check"></i><b>7.3.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="spatial-temporal-mobility-analysis.html"><a href="spatial-temporal-mobility-analysis.html#take-home-message"><i class="fa fa-check"></i><b>7.4</b> Take home message</a></li>
 <li class="chapter" data-level="7.5" data-path="spatial-temporal-mobility-analysis.html"><a href="spatial-temporal-mobility-analysis.html#attributions_w07"><i class="fa fa-check"></i><b>7.5</b> Attributions</a></li>
 </ul></li>
 <li class="part"><span><b>Data Sciencist’s Toolbox</b></span></li>
@@ -216,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="intro-w07" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Introduction</h2>
 <p>Against the background of unprecedented growth in private vehicle ownership and the entrenchment of the private car in everyday life, the past decades have seen a growing and ongoing academic and policy debate on how to encourage individuals to change to more sustainable ways of travelling. More recently, researchers have started to build on so-called location-aware technologies, exploring innovative methods to more accurately capture, visualise, and analyse individual spatiotemporal travel patterns: information that can be used to formulate strategies to accommodate the increasing demand for transport vis-à-vis growing environmental and societal concerns.</p>
-<p>This week we will be looking at capturing mobility data with GPS, specifically we will look at how to obtain, clean, and interpret a GPS data set. We will further use two Machine Learning algorithms, specifically Support Vector Machines and tree-based methods, to classify labeled GPS data into <em>stay</em> and <em>move</em> points. This week is structured around three short videos as well as a tutorial in R with a ‘hands-on’ application of GPS data classification.</p>
+<p>This week we will be looking at capturing mobility data with Global Positioning Systems. We will further use two types of Machine Learning classifiers, specifically Support Vector Machines and tree-based methods, to classify labeled GPS data into <em>stay</em> and <em>move</em> points. This week is structured around three short videos as well as a tutorial in R with a ‘hands-on’ application of GPS data classification.</p>
 <p>Let’s get to it!</p>
 <div id="video-introduction-w07" class="section level4 unnumbered">
 <h4>Video: Introduction W07</h4>
@@ -233,9 +238,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="core-reading" class="section level4 unnumbered">
 <h4>Core reading</h4>
 <ul>
+<li>Broach, J. <em>et al.</em>. 2019. Travel mode imputation using GPS and accelerometer data from a multi-day travel survey. <em>Journal of Transport Geography</em> 78: 194-204. <a href="https://doi.org/10.1016/j.jtrangeo.2019.06.001">[Link]</a></li>
 <li>Bohte, W. and K. Maat. 2009. Deriving and validating trip purposes and travel modes for multi-day GPS-based travel surveys: A large-scale application in the Netherlands. <em>Transportation Research Part C: Emerging Technologies</em> 17(3): 285–297. <a href="https://doi.org/10.1016/j.trc.2008.11.004">[Link]</a></li>
 <li>Feng, T and H. Timmermans. 2016. Comparison of advanced imputation algorithms for detection of transportation mode and activity episode using GPS data. <em>Transportation Planning and Technology</em> 39(2): 180–194. <a href="https://doi.org/10.1080/03081060.2015.1127540">[Link]</a></li>
-<li>Nitsche, P. <em>et al.</em>. 2014. Supporting large- scale travel surveys with smartphones - a practical approach. <em>Transportation Research Part C: Emerging Technologies</em> 43: 212–221. <a href="https://doi.org/10.1016/j.trc.2013.11.005">[Link]</a></li>
+<li>Nitsche, P. <em>et al.</em>. 2014. Supporting large-scale travel surveys with smartphones - a practical approach. <em>Transportation Research Part C: Emerging Technologies</em> 43: 212–221. <a href="https://doi.org/10.1016/j.trc.2013.11.005">[Link]</a></li>
 </ul>
 </div>
 <div id="supplementary-reading" class="section level4 unnumbered">
@@ -253,14 +259,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="gps-data" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> GPS data</h2>
-<p>Mobility is a central aspect of everyday life. In its simplest form, human mobility refers to the movement of individuals from location <strong>A</strong> to location <strong>B</strong>. This can be a relocation from one city to another city, as well as a trip from home to work. Transport systems provide the physical nodes and linkages that facilitate this mobility. However, transport systems and road networks in many cities around the world are under pressure as a result of unparalleled growth in private vehicle ownership and increasingly complex and fragmented travel patterns. Particularly in urban areas, this is problematic because it leads to problems such as congestion, accidents, road decay, and reduced accessibility. As such, governments and researchers throughout the world have started to recognise the need to curtail demand for private road transport, and agree that:</p>
+<p>Mobility is a central aspect of everyday life. In its simplest form, human mobility refers to the movement of individuals from location <strong>A</strong> to location <strong>B</strong>. This can be a relocation from one city to another city, as well as a trip from home to work. Transport systems provide the physical nodes and linkages that facilitate this mobility. However, transport systems and road networks in many cities around the world are under pressure as a result of unparalleled growth in private vehicle ownership and increasingly complex and fragmented travel patterns. Particularly in urban areas, this is problematic because it leads to problems such as congestion, accidents, road decay, and reduced accessibility. As such, governments and researchers throughout the world have started to recognise the need to curtail demand for private road transport.</p>
 <blockquote>
 <p>“Technological breakthroughs [alone] are not going to provide the silver bullet for the mitigation of climate change and energy security threats caused by the transport sector” (<a href="https://www.wiley.com/en-gb/Transport+Geographies%3A+Mobilities%2C+Flows+and+Spaces-p-9781405153225">Stradling and Anable, 2008: 195</a>)</p>
 </blockquote>
-<p>The realisation that increasing road infrastructure and improvements in car technology are not sufficient to address the transport problems around the world has led to the idea that transport planning should shift from supply-side to demand-side passenger transport planning. For this, accurate dat are required on individual spatio-temporal behaviour.</p>
-<p>Travel data collection methods can roughly be classified into two, not mutually exclusive, methods. The first method uses self-reported data, such as data collected through telephone-assisted interviews, computer-assisted interviews, and pen-and-paper interviews. The second method relies on passively collected data, such as data collected through call-detail records and GPS data. Technological developments in the field of location-aware technologies, GPS in particular, have greatly enhanced opportunities to collect accurate data on human spatiotemporal behaviour. GPS data need to be collected and analysed systematically to be intelligible for transport researchers and policy makers. Moreover, the challenges inherent to mobile data collection techniques include not only harnessing the tools to obtain geo-referenced data, but also the development of new skills sets for cleaning, analysing, and interpreting these data.</p>
-<div id="video-gps-data" class="section level4 unnumbered">
-<h4>Video: GPS data</h4>
+<p>The realisation that increasing road infrastructure and improvements in car technology are not sufficient to address the transport problems around the world has led to the idea that transport planning should shift from supply-side to demand-side passenger transport planning. For this, accurate data are required on individual spatio-temporal behaviour.</p>
+<p>Travel data collection methods can roughly be classified into two, not per semutually exclusive, methods. The first method uses self-reported data, such as data collected through telephone-assisted interviews, computer-assisted interviews, and pen-and-paper interviews. The second method relies on passively collected data, such as data collected through call-detail records and GPS data. Technological developments in the field of location-aware technologies, GPS in particular, have greatly enhanced opportunities to collect accurate data on human spatiotemporal behaviour. GPS data need to be collected and analysed systematically to be intelligible for transport researchers and policy makers. Moreover, the challenges inherent to mobile data collection techniques include not only harnessing the tools to obtain geo-referenced data, but also the development of new skills sets for cleaning, analysing, and interpreting these data.</p>
+<div id="video-gps-data-for-mobility-research" class="section level4 unnumbered">
+<h4>Video: GPS data for mobility research</h4>
 <p><div class="vembedr" align="left">
 <div>
 <iframe src="https://web.microsoftstream.com/embed/video/?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;"></iframe>
@@ -272,15 +278,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="gps-data-classification" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> GPS data classification</h2>
 <p>Where GPS technology can precisely register the spatiotemporal elements of activity-travel behaviour, travel characteristics need to be imputed from the data. As such, throughout the last decade or so, a plethora of methods has been developed for identifying trips, activities, and travel modes from raw GPS trajectories. These methods range from deterministic (rule-based) methods to advanced machine learning algorithms. Here, we will focus on using two types of machine learning techniques (Support Vector Machines and tree-based methods) to classify labelled GPS points into <em>stay</em> and <em>move</em> points.</p>
-<div id="video-gps-data-classification" class="section level4 unnumbered">
-<h4>Video: GPS data classification</h4>
+<div id="video-gps-data-classification-with-ml-techniques" class="section level4 unnumbered">
+<h4>Video: GPS data classification with ML techniques</h4>
 <p><div class="vembedr" align="left">
 <div>
 <iframe src="https://web.microsoftstream.com/embed/video/?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;"></iframe>
 </div>
 </div>
 <a href="">[Lecture slides]</a> <a href="">[Watch on MS stream]</a></p>
-<p>The segmentation of GPS data into activity and travel episodes is often the first step in a more elaborate process of identifying activity types and transport modes. A major issue with GPS data imputation, however, is the necessity of a ground truth to test whether the imputation algorithm correctly categorises GPS points into activity (<em>stay</em>) points and trips (<em>move</em>) points. We will be using a set of <a href="https://doi.org/10.1016/j.compenvurbsys.2018.02.004">100 artificially created GPS tracks</a> that contain a sequence of stays and moves in Cape Town, South Africa. For the data that we will use, the artificial GPS ‘records’ a measurement every 60 seconds. To further simulate noise in the data, a random sample comprising of 50 per cent of the data points was taken. Besides these raw GPS data, we also have access to a basic road network lay out of the <a href="https://www.capetownmagazine.com/cape-town#:~:text=A%20more%20commonly%2Dused%20nickname,visitors%20to%20Cape%20Town%20alike.">Mother City</a>.</p>
+<p>The segmentation of GPS data into activity and travel episodes is often the first step in a more elaborate process of identifying activity types and transport modes. A major issue with GPS data imputation, however, is the necessity of a ground truth to test whether the imputation algorithm correctly categorises GPS points into activity (<em>stay</em>) points and trips (<em>move</em>) points. We will be using a set of <a href="https://doi.org/10.1016/j.compenvurbsys.2018.02.004">50 artificially created GPS trajectories</a> that all contain a sequence of stays and moves in Cape Town, South Africa. For the data that we will use, the artificial GPS ‘records’ a measurement every 60 seconds. To further simulate noise in the data, a random sample comprising of 50 per cent of the data points was taken. Besides these raw GPS data, we also have access to a basic road network lay out of the <a href="https://www.capetownmagazine.com/cape-town#:~:text=A%20more%20commonly%2Dused%20nickname,visitors%20to%20Cape%20Town%20alike.">Mother City</a>.</p>
 </div>
 <div id="file-download" class="section level4 unnumbered">
 <h4>File download</h4>
@@ -300,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>We will start by downloading the files, importing both into R, and having a look at what we will be working with. Be careful <em>not</em> to plot the road network file. Because the road network contains around 120,000 individual road segments it will take a long time to draw. Rather have a look at the data in <a href="https://www.qgis.org/en/site/">QGIS</a>, which is much more capable of on the fly displaying a large number of features.</p>
+<p>We will start by downloading the files, importing both into R, and looking at what we will be working with. Be careful <em>not</em> to plot the road network file. Because the road network contains around 120,000 individual road segments it will take a long time to draw. Rather have a look at the data in <a href="https://www.qgis.org/en/site/">QGIS</a>, which is much more capable of on the fly displaying a large number of features.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="spatial-temporal-mobility-analysis.html#cb1-1" aria-hidden="true"></a><span class="co"># load libraries</span></span>
 <span id="cb1-2"><a href="spatial-temporal-mobility-analysis.html#cb1-2" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="spatial-temporal-mobility-analysis.html#cb1-3" aria-hidden="true"></a><span class="kw">library</span>(sf)</span>
@@ -314,27 +320,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-11"><a href="spatial-temporal-mobility-analysis.html#cb1-11" aria-hidden="true"></a></span>
 <span id="cb1-12"><a href="spatial-temporal-mobility-analysis.html#cb1-12" aria-hidden="true"></a><span class="co"># inspect</span></span>
 <span id="cb1-13"><a href="spatial-temporal-mobility-analysis.html#cb1-13" aria-hidden="true"></a>gps</span></code></pre></div>
-<pre><code>## Simple feature collection with 54218 features and 14 fields
+<pre><code>## Simple feature collection with 27019 features and 9 fields
 ## geometry type:  POINT
 ## dimension:      XY
-## bbox:           xmin: 18.34291 ymin: -34.20729 xmax: 19.06105 ymax: -33.64011
+## bbox:           xmin: 18.34291 ymin: -34.19419 xmax: 19.06105 ymax: -33.66433
 ## CRS:            4148
-## # A tibble: 54,218 x 15
-##     stop type  duration point_id_n point_x point_y st_dev xshift  yshift
-##    &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-##  1     1 MEDI…       30          1 -13316. -3.76e6     68  56.9   -86.7 
-##  2     1 MEDI…       30          2 -13316. -3.76e6     68  65.2   -69.6 
-##  3     1 MEDI…       30          5 -13316. -3.76e6     68 -13.4   106.  
-##  4     1 MEDI…       30          9 -13316. -3.76e6     68 129.    -22.5 
-##  5     1 MEDI…       30         10 -13316. -3.76e6     68 131.   -109.  
-##  6     1 MEDI…       30         12 -13316. -3.76e6     68   8.15  -14.2 
-##  7     1 MEDI…       30         14 -13316. -3.76e6     68  -1.16  -98.2 
-##  8     1 MEDI…       30         16 -13316. -3.76e6     68 -37.8     5.67
-##  9     1 MEDI…       30         18 -13316. -3.76e6     68  46.3    68.6 
-## 10     1 MEDI…       30         22 -13316. -3.76e6     68 -67.2    16.0 
-## # … with 54,208 more rows, and 6 more variables: timestamp &lt;chr&gt;,
-## #   mode &lt;chr&gt;, track_id &lt;chr&gt;, move &lt;chr&gt;, activity &lt;chr&gt;,
-## #   geometry &lt;POINT [°]&gt;</code></pre>
+## # A tibble: 27,019 x 10
+##     stop type  duration point_id_n timestamp mode  track_id move  activity
+##    &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;   
+##  1     1 MEDI…       30          1 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  2     1 MEDI…       30          2 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  3     1 MEDI…       30          5 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  4     1 MEDI…       30          9 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  5     1 MEDI…       30         10 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  6     1 MEDI…       30         12 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  7     1 MEDI…       30         14 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  8     1 MEDI…       30         16 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  9     1 MEDI…       30         18 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+## 10     1 MEDI…       30         22 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+## # … with 27,009 more rows, and 1 more variable: geometry &lt;POINT [°]&gt;</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="spatial-temporal-mobility-analysis.html#cb3-1" aria-hidden="true"></a><span class="co"># inspect</span></span>
 <span id="cb3-2"><a href="spatial-temporal-mobility-analysis.html#cb3-2" aria-hidden="true"></a>road</span></code></pre></div>
 <pre><code>## Simple feature collection with 125024 features and 1 field
@@ -358,10 +362,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 125,014 more rows</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="spatial-temporal-mobility-analysis.html#cb5-1" aria-hidden="true"></a><span class="co"># inspect </span></span>
 <span id="cb5-2"><a href="spatial-temporal-mobility-analysis.html#cb5-2" aria-hidden="true"></a><span class="kw">names</span>(gps)</span></code></pre></div>
-<pre><code>##  [1] &quot;stop&quot;       &quot;type&quot;       &quot;duration&quot;   &quot;point_id_n&quot; &quot;point_x&quot;   
-##  [6] &quot;point_y&quot;    &quot;st_dev&quot;     &quot;xshift&quot;     &quot;yshift&quot;     &quot;timestamp&quot; 
-## [11] &quot;mode&quot;       &quot;track_id&quot;   &quot;move&quot;       &quot;activity&quot;   &quot;geometry&quot;</code></pre>
-<p>The road network file is relatively simple and only contains the road network segments - no additional information (e.g. maximum speed, road type, etc.) is available. The GPS data themselves contain several fields:</p>
+<pre><code>##  [1] &quot;stop&quot;       &quot;type&quot;       &quot;duration&quot;   &quot;point_id_n&quot; &quot;timestamp&quot; 
+##  [6] &quot;mode&quot;       &quot;track_id&quot;   &quot;move&quot;       &quot;activity&quot;   &quot;geometry&quot;</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="spatial-temporal-mobility-analysis.html#cb7-1" aria-hidden="true"></a><span class="co"># project into Hartbeesthoek94</span></span>
+<span id="cb7-2"><a href="spatial-temporal-mobility-analysis.html#cb7-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">st_transform</span>(<span class="dt">crs=</span><span class="st">&#39;epsg:2053&#39;</span>)</span>
+<span id="cb7-3"><a href="spatial-temporal-mobility-analysis.html#cb7-3" aria-hidden="true"></a>road &lt;-<span class="st"> </span>road <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">st_transform</span>(<span class="dt">crs=</span><span class="st">&#39;epsg:2053&#39;</span>)</span>
+<span id="cb7-4"><a href="spatial-temporal-mobility-analysis.html#cb7-4" aria-hidden="true"></a></span>
+<span id="cb7-5"><a href="spatial-temporal-mobility-analysis.html#cb7-5" aria-hidden="true"></a><span class="co"># plot gps points</span></span>
+<span id="cb7-6"><a href="spatial-temporal-mobility-analysis.html#cb7-6" aria-hidden="true"></a><span class="kw">tm_shape</span>(gps) <span class="op">+</span></span>
+<span id="cb7-7"><a href="spatial-temporal-mobility-analysis.html#cb7-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">tm_dots</span>()</span></code></pre></div>
+<p><img src="GEOG0125_files/figure-html/07-load-libraries-1.png" width="672" /></p>
+<p>The road network file is relatively simple and only contains road network segments - no additional information (e.g. maximum speed, road type, etc.) is available. The GPS data themselves contain several fields:</p>
 <table>
 <thead>
 <tr class="header">
@@ -372,7 +383,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tbody>
 <tr class="odd">
 <td align="left"><em>stop</em></td>
-<td align="left">Stop number within GPS track</td>
+<td align="left">Stop number within GPS trajectory</td>
 </tr>
 <tr class="even">
 <td align="left"><em>type</em></td>
@@ -384,7 +395,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 <tr class="even">
 <td align="left"><em>point_id_n</em></td>
-<td align="left">Unique point identifier within GPS track</td>
+<td align="left">Unique point identifier within GPS trajectory</td>
 </tr>
 <tr class="odd">
 <td align="left"><em>timestamp</em></td>
@@ -396,7 +407,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 <tr class="odd">
 <td align="left"><em>track_id</em></td>
-<td align="left">Unique ID for GPS track</td>
+<td align="left">Unique ID for GPS trajectory</td>
 </tr>
 <tr class="even">
 <td align="left"><em>move</em></td>
@@ -408,17 +419,345 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>The <em>move</em> variable is the variable we will try to predict. Before we split our data into a <em>train</em> and <em>test</em> set, however, we will need to derive some features that will serve as predictors: speed, point density, and distance to nearest road segment.</p>
+</div>
+<div id="gps-data-preparation" class="section level3" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> GPS data preparation</h3>
+<p>The <em>move</em> variable is the variable we will try to predict. Before we split our data into a <em>train</em> and <em>test</em> set, however, we will need to derive some features from our raw GPS data that we can use as our input features: speed, point density, and distance to nearest road segment. As we want to derive information of consecutive measurements, the order of the data is very important right now as the points form a trajectory: so before we calculate anything we start by making sure that the data are ordered correctly: by <em>track_id</em> and <em>timestamp</em>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="spatial-temporal-mobility-analysis.html#cb8-1" aria-hidden="true"></a><span class="co"># order data so that we do not mix separate trajectories</span></span>
+<span id="cb8-2"><a href="spatial-temporal-mobility-analysis.html#cb8-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(track_id,timestamp)</span>
+<span id="cb8-3"><a href="spatial-temporal-mobility-analysis.html#cb8-3" aria-hidden="true"></a></span>
+<span id="cb8-4"><a href="spatial-temporal-mobility-analysis.html#cb8-4" aria-hidden="true"></a><span class="co"># calculate distance between consecutive points // could take a few minutes</span></span>
+<span id="cb8-5"><a href="spatial-temporal-mobility-analysis.html#cb8-5" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-6"><a href="spatial-temporal-mobility-analysis.html#cb8-6" aria-hidden="true"></a><span class="st">         </span><span class="kw">group_by</span>(track_id) <span class="op">%&gt;%</span></span>
+<span id="cb8-7"><a href="spatial-temporal-mobility-analysis.html#cb8-7" aria-hidden="true"></a><span class="st">         </span><span class="kw">mutate</span>(</span>
+<span id="cb8-8"><a href="spatial-temporal-mobility-analysis.html#cb8-8" aria-hidden="true"></a>                <span class="dt">lead_geom =</span> geometry[<span class="kw">row_number</span>() <span class="op">+</span><span class="st"> </span><span class="dv">1</span>],</span>
+<span id="cb8-9"><a href="spatial-temporal-mobility-analysis.html#cb8-9" aria-hidden="true"></a>                <span class="dt">dist =</span> <span class="kw">st_distance</span>(lead_geom,geometry, <span class="dt">by_element=</span><span class="ot">TRUE</span>, <span class="dt">which=</span><span class="st">&#39;Euclidean&#39;</span>)</span>
+<span id="cb8-10"><a href="spatial-temporal-mobility-analysis.html#cb8-10" aria-hidden="true"></a>                ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-11"><a href="spatial-temporal-mobility-analysis.html#cb8-11" aria-hidden="true"></a><span class="st">        </span><span class="kw">ungroup</span>()</span>
+<span id="cb8-12"><a href="spatial-temporal-mobility-analysis.html#cb8-12" aria-hidden="true"></a></span>
+<span id="cb8-13"><a href="spatial-temporal-mobility-analysis.html#cb8-13" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb8-14"><a href="spatial-temporal-mobility-analysis.html#cb8-14" aria-hidden="true"></a>gps</span></code></pre></div>
+<pre><code>## Simple feature collection with 27019 features and 10 fields
+## Active geometry column: geometry
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: 918250.7 ymin: 3775604 xmax: 986130.2 ymax: 3836086
+## CRS:            epsg:2053
+## # A tibble: 27,019 x 12
+##     stop type  duration point_id_n timestamp mode  track_id move  activity
+##    &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;   
+##  1     1 MEDI…       30          1 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  2     1 MEDI…       30          2 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  3     1 MEDI…       30          5 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  4     1 MEDI…       30          9 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  5     1 MEDI…       30         10 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  6     1 MEDI…       30         12 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  7     1 MEDI…       30         14 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  8     1 MEDI…       30         16 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  9     1 MEDI…       30         18 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+## 10     1 MEDI…       30         22 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+## # … with 27,009 more rows, and 3 more variables: geometry &lt;POINT [m]&gt;,
+## #   lead_geom &lt;POINT [m]&gt;, dist [m]</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="spatial-temporal-mobility-analysis.html#cb10-1" aria-hidden="true"></a><span class="co"># calculate time between consecutive points </span></span>
+<span id="cb10-2"><a href="spatial-temporal-mobility-analysis.html#cb10-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-3"><a href="spatial-temporal-mobility-analysis.html#cb10-3" aria-hidden="true"></a><span class="st">        </span><span class="kw">group_by</span>(track_id) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-4"><a href="spatial-temporal-mobility-analysis.html#cb10-4" aria-hidden="true"></a><span class="st">        </span><span class="kw">mutate</span>(</span>
+<span id="cb10-5"><a href="spatial-temporal-mobility-analysis.html#cb10-5" aria-hidden="true"></a>                <span class="dt">lead_time =</span> <span class="kw">strptime</span>(timestamp[<span class="kw">row_number</span>() <span class="op">+</span><span class="st"> </span><span class="dv">1</span>], <span class="dt">format=</span><span class="st">&#39;%d/%m/%Y %H:%M:%S&#39;</span>),</span>
+<span id="cb10-6"><a href="spatial-temporal-mobility-analysis.html#cb10-6" aria-hidden="true"></a>                <span class="dt">diff =</span> <span class="kw">difftime</span>(lead_time,<span class="kw">strptime</span>(timestamp, <span class="dt">format=</span><span class="st">&#39;%d/%m/%Y %H:%M:%S&#39;</span>), <span class="dt">units=</span><span class="st">&#39;secs&#39;</span>)</span>
+<span id="cb10-7"><a href="spatial-temporal-mobility-analysis.html#cb10-7" aria-hidden="true"></a>                ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-8"><a href="spatial-temporal-mobility-analysis.html#cb10-8" aria-hidden="true"></a><span class="st">        </span><span class="kw">ungroup</span>()</span>
+<span id="cb10-9"><a href="spatial-temporal-mobility-analysis.html#cb10-9" aria-hidden="true"></a></span>
+<span id="cb10-10"><a href="spatial-temporal-mobility-analysis.html#cb10-10" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb10-11"><a href="spatial-temporal-mobility-analysis.html#cb10-11" aria-hidden="true"></a>gps</span></code></pre></div>
+<pre><code>## Simple feature collection with 27019 features and 12 fields
+## Active geometry column: geometry
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: 918250.7 ymin: 3775604 xmax: 986130.2 ymax: 3836086
+## CRS:            epsg:2053
+## # A tibble: 27,019 x 14
+##     stop type  duration point_id_n timestamp mode  track_id move  activity
+##    &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;   
+##  1     1 MEDI…       30          1 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  2     1 MEDI…       30          2 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  3     1 MEDI…       30          5 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  4     1 MEDI…       30          9 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  5     1 MEDI…       30         10 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  6     1 MEDI…       30         12 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  7     1 MEDI…       30         14 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  8     1 MEDI…       30         16 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  9     1 MEDI…       30         18 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+## 10     1 MEDI…       30         22 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+## # … with 27,009 more rows, and 5 more variables: geometry &lt;POINT [m]&gt;,
+## #   lead_geom &lt;POINT [m]&gt;, dist [m], lead_time &lt;dttm&gt;, diff &lt;drtn&gt;</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="spatial-temporal-mobility-analysis.html#cb12-1" aria-hidden="true"></a><span class="co"># calculate speed in kilometres per hour</span></span>
+<span id="cb12-2"><a href="spatial-temporal-mobility-analysis.html#cb12-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">speed =</span> <span class="kw">as.integer</span>(dist)<span class="op">/</span><span class="kw">as.integer</span>(diff)<span class="op">*</span><span class="fl">3.6</span>)</span>
+<span id="cb12-3"><a href="spatial-temporal-mobility-analysis.html#cb12-3" aria-hidden="true"></a></span>
+<span id="cb12-4"><a href="spatial-temporal-mobility-analysis.html#cb12-4" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb12-5"><a href="spatial-temporal-mobility-analysis.html#cb12-5" aria-hidden="true"></a>gps</span></code></pre></div>
+<pre><code>## Simple feature collection with 27019 features and 13 fields
+## Active geometry column: geometry
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: 918250.7 ymin: 3775604 xmax: 986130.2 ymax: 3836086
+## CRS:            epsg:2053
+## # A tibble: 27,019 x 15
+##     stop type  duration point_id_n timestamp mode  track_id move  activity
+##  * &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;   
+##  1     1 MEDI…       30          1 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  2     1 MEDI…       30          2 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  3     1 MEDI…       30          5 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  4     1 MEDI…       30          9 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  5     1 MEDI…       30         10 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  6     1 MEDI…       30         12 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  7     1 MEDI…       30         14 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  8     1 MEDI…       30         16 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  9     1 MEDI…       30         18 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+## 10     1 MEDI…       30         22 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+## # … with 27,009 more rows, and 6 more variables: geometry &lt;POINT [m]&gt;,
+## #   lead_geom &lt;POINT [m]&gt;, dist [m], lead_time &lt;dttm&gt;, diff &lt;drtn&gt;,
+## #   speed &lt;dbl&gt;</code></pre>
+<p>Because we are using consecutive rows to calculate our speed, all of the last measurements within each of the 50 trajectories will not be assigned a value. However, because we do not really want to throw these points out, we will simply assign these points the same speed value as the last point that did get a value assigned.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="spatial-temporal-mobility-analysis.html#cb14-1" aria-hidden="true"></a><span class="co"># fill missing speeds</span></span>
+<span id="cb14-2"><a href="spatial-temporal-mobility-analysis.html#cb14-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">fill</span>(speed, <span class="dt">.direction=</span><span class="st">&#39;down&#39;</span>)</span></code></pre></div>
+<p>Another useful input feature would be a local point density: for each point it would be useful to know how many other points are in its vicinity, for instance, because a clustering of points could be indicative of an activity. Because vicinity is difficult to define, we will use three distance thresholds to create these local point densities: 100m, 250m, and 500m.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="spatial-temporal-mobility-analysis.html#cb15-1" aria-hidden="true"></a><span class="co"># distance thresholds</span></span>
+<span id="cb15-2"><a href="spatial-temporal-mobility-analysis.html#cb15-2" aria-hidden="true"></a>gps_100m &lt;-<span class="st"> </span><span class="kw">st_buffer</span>(gps,<span class="dv">100</span>)</span>
+<span id="cb15-3"><a href="spatial-temporal-mobility-analysis.html#cb15-3" aria-hidden="true"></a>gps_250m &lt;-<span class="st"> </span><span class="kw">st_buffer</span>(gps,<span class="dv">250</span>)</span>
+<span id="cb15-4"><a href="spatial-temporal-mobility-analysis.html#cb15-4" aria-hidden="true"></a>gps_500m &lt;-<span class="st"> </span><span class="kw">st_buffer</span>(gps,<span class="dv">500</span>)</span>
+<span id="cb15-5"><a href="spatial-temporal-mobility-analysis.html#cb15-5" aria-hidden="true"></a></span>
+<span id="cb15-6"><a href="spatial-temporal-mobility-analysis.html#cb15-6" aria-hidden="true"></a><span class="co"># loop through trajectories and count the number of points falling within the three distance thresholds </span></span>
+<span id="cb15-7"><a href="spatial-temporal-mobility-analysis.html#cb15-7" aria-hidden="true"></a><span class="co"># // this could take a few minutes</span></span>
+<span id="cb15-8"><a href="spatial-temporal-mobility-analysis.html#cb15-8" aria-hidden="true"></a>df &lt;-<span class="st"> </span>gps[<span class="dv">0</span>,]</span>
+<span id="cb15-9"><a href="spatial-temporal-mobility-analysis.html#cb15-9" aria-hidden="true"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">50</span>)) {</span>
+<span id="cb15-10"><a href="spatial-temporal-mobility-analysis.html#cb15-10" aria-hidden="true"></a></span>
+<span id="cb15-11"><a href="spatial-temporal-mobility-analysis.html#cb15-11" aria-hidden="true"></a>        <span class="co"># filter gps trajectory</span></span>
+<span id="cb15-12"><a href="spatial-temporal-mobility-analysis.html#cb15-12" aria-hidden="true"></a>        gps_sel &lt;-<span class="st"> </span><span class="kw">filter</span>(gps, <span class="kw">as.integer</span>(track_id)<span class="op">==</span>t)</span>
+<span id="cb15-13"><a href="spatial-temporal-mobility-analysis.html#cb15-13" aria-hidden="true"></a>        </span>
+<span id="cb15-14"><a href="spatial-temporal-mobility-analysis.html#cb15-14" aria-hidden="true"></a>        <span class="co"># filter buffer</span></span>
+<span id="cb15-15"><a href="spatial-temporal-mobility-analysis.html#cb15-15" aria-hidden="true"></a>        gps_100m_sel &lt;-<span class="st"> </span><span class="kw">filter</span>(gps_100m, <span class="kw">as.integer</span>(track_id)<span class="op">==</span>t)</span>
+<span id="cb15-16"><a href="spatial-temporal-mobility-analysis.html#cb15-16" aria-hidden="true"></a>        gps_250m_sel &lt;-<span class="st"> </span><span class="kw">filter</span>(gps_250m, <span class="kw">as.integer</span>(track_id)<span class="op">==</span>t)</span>
+<span id="cb15-17"><a href="spatial-temporal-mobility-analysis.html#cb15-17" aria-hidden="true"></a>        gps_500m_sel &lt;-<span class="st"> </span><span class="kw">filter</span>(gps_500m, <span class="kw">as.integer</span>(track_id)<span class="op">==</span>t)</span>
+<span id="cb15-18"><a href="spatial-temporal-mobility-analysis.html#cb15-18" aria-hidden="true"></a>        </span>
+<span id="cb15-19"><a href="spatial-temporal-mobility-analysis.html#cb15-19" aria-hidden="true"></a>        <span class="co"># intersect</span></span>
+<span id="cb15-20"><a href="spatial-temporal-mobility-analysis.html#cb15-20" aria-hidden="true"></a>        gps_sel<span class="op">$</span>buf100 &lt;-<span class="st"> </span><span class="kw">lengths</span>(<span class="kw">st_intersects</span>(gps_sel, gps_100m_sel))</span>
+<span id="cb15-21"><a href="spatial-temporal-mobility-analysis.html#cb15-21" aria-hidden="true"></a>        gps_sel<span class="op">$</span>buf250 &lt;-<span class="st"> </span><span class="kw">lengths</span>(<span class="kw">st_intersects</span>(gps_sel, gps_250m_sel))</span>
+<span id="cb15-22"><a href="spatial-temporal-mobility-analysis.html#cb15-22" aria-hidden="true"></a>        gps_sel<span class="op">$</span>buf500 &lt;-<span class="st"> </span><span class="kw">lengths</span>(<span class="kw">st_intersects</span>(gps_sel, gps_500m_sel))</span>
+<span id="cb15-23"><a href="spatial-temporal-mobility-analysis.html#cb15-23" aria-hidden="true"></a>        </span>
+<span id="cb15-24"><a href="spatial-temporal-mobility-analysis.html#cb15-24" aria-hidden="true"></a>        <span class="co"># bind results </span></span>
+<span id="cb15-25"><a href="spatial-temporal-mobility-analysis.html#cb15-25" aria-hidden="true"></a>        df &lt;-<span class="st"> </span><span class="kw">rbind</span>(df,gps_sel)</span>
+<span id="cb15-26"><a href="spatial-temporal-mobility-analysis.html#cb15-26" aria-hidden="true"></a></span>
+<span id="cb15-27"><a href="spatial-temporal-mobility-analysis.html#cb15-27" aria-hidden="true"></a>}</span>
+<span id="cb15-28"><a href="spatial-temporal-mobility-analysis.html#cb15-28" aria-hidden="true"></a></span>
+<span id="cb15-29"><a href="spatial-temporal-mobility-analysis.html#cb15-29" aria-hidden="true"></a><span class="co"># rename</span></span>
+<span id="cb15-30"><a href="spatial-temporal-mobility-analysis.html#cb15-30" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>df</span>
+<span id="cb15-31"><a href="spatial-temporal-mobility-analysis.html#cb15-31" aria-hidden="true"></a></span>
+<span id="cb15-32"><a href="spatial-temporal-mobility-analysis.html#cb15-32" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb15-33"><a href="spatial-temporal-mobility-analysis.html#cb15-33" aria-hidden="true"></a>gps</span></code></pre></div>
+<pre><code>## Simple feature collection with 27019 features and 16 fields
+## Active geometry column: geometry
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: 918250.7 ymin: 3775604 xmax: 986130.2 ymax: 3836086
+## CRS:            epsg:2053
+## # A tibble: 27,019 x 18
+##     stop type  duration point_id_n timestamp mode  track_id move  activity
+##  * &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;   
+##  1     1 MEDI…       30          1 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  2     1 MEDI…       30          2 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  3     1 MEDI…       30          5 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  4     1 MEDI…       30          9 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  5     1 MEDI…       30         10 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  6     1 MEDI…       30         12 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  7     1 MEDI…       30         14 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  8     1 MEDI…       30         16 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  9     1 MEDI…       30         18 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+## 10     1 MEDI…       30         22 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+## # … with 27,009 more rows, and 9 more variables: geometry &lt;POINT [m]&gt;,
+## #   lead_geom &lt;POINT [m]&gt;, dist [m], lead_time &lt;dttm&gt;, diff &lt;drtn&gt;,
+## #   speed &lt;dbl&gt;, buf100 &lt;int&gt;, buf250 &lt;int&gt;, buf500 &lt;int&gt;</code></pre>
+<p>Great. We now have a speed variable as well as three local density variables. The last thing we will need to do is for each point calculate the distance to the nearest road segment.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="spatial-temporal-mobility-analysis.html#cb17-1" aria-hidden="true"></a><span class="co"># for each point: get nearest road feature </span></span>
+<span id="cb17-2"><a href="spatial-temporal-mobility-analysis.html#cb17-2" aria-hidden="true"></a><span class="co"># // this could take a few minutes</span></span>
+<span id="cb17-3"><a href="spatial-temporal-mobility-analysis.html#cb17-3" aria-hidden="true"></a>nearest_road &lt;-<span class="st"> </span><span class="kw">st_nearest_feature</span>(gps, road)</span>
+<span id="cb17-4"><a href="spatial-temporal-mobility-analysis.html#cb17-4" aria-hidden="true"></a></span>
+<span id="cb17-5"><a href="spatial-temporal-mobility-analysis.html#cb17-5" aria-hidden="true"></a><span class="co"># for each point: get the distance to the nearest road feature </span></span>
+<span id="cb17-6"><a href="spatial-temporal-mobility-analysis.html#cb17-6" aria-hidden="true"></a><span class="co"># // this could take a few minutes</span></span>
+<span id="cb17-7"><a href="spatial-temporal-mobility-analysis.html#cb17-7" aria-hidden="true"></a>nearest_road_dst &lt;-<span class="st"> </span><span class="kw">st_distance</span>(gps, road[nearest_road,], <span class="dt">by_element=</span><span class="ot">TRUE</span>, <span class="dt">which=</span><span class="st">&#39;Euclidean&#39;</span>)</span>
+<span id="cb17-8"><a href="spatial-temporal-mobility-analysis.html#cb17-8" aria-hidden="true"></a></span>
+<span id="cb17-9"><a href="spatial-temporal-mobility-analysis.html#cb17-9" aria-hidden="true"></a><span class="co"># assign values to gps data set</span></span>
+<span id="cb17-10"><a href="spatial-temporal-mobility-analysis.html#cb17-10" aria-hidden="true"></a>gps<span class="op">$</span>road_dist &lt;-<span class="st"> </span>nearest_road_dst</span>
+<span id="cb17-11"><a href="spatial-temporal-mobility-analysis.html#cb17-11" aria-hidden="true"></a>        </span>
+<span id="cb17-12"><a href="spatial-temporal-mobility-analysis.html#cb17-12" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb17-13"><a href="spatial-temporal-mobility-analysis.html#cb17-13" aria-hidden="true"></a>gps </span></code></pre></div>
+<pre><code>## Simple feature collection with 27019 features and 17 fields
+## Active geometry column: geometry
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: 918250.7 ymin: 3775604 xmax: 986130.2 ymax: 3836086
+## CRS:            epsg:2053
+## # A tibble: 27,019 x 19
+##     stop type  duration point_id_n timestamp mode  track_id move  activity
+##  * &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;   
+##  1     1 MEDI…       30          1 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  2     1 MEDI…       30          2 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  3     1 MEDI…       30          5 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  4     1 MEDI…       30          9 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  5     1 MEDI…       30         10 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  6     1 MEDI…       30         12 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  7     1 MEDI…       30         14 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  8     1 MEDI…       30         16 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+##  9     1 MEDI…       30         18 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+## 10     1 MEDI…       30         22 04/02/19… &lt;NA&gt;  001      STAY  STAY    
+## # … with 27,009 more rows, and 10 more variables: geometry &lt;POINT [m]&gt;,
+## #   lead_geom &lt;POINT [m]&gt;, dist [m], lead_time &lt;dttm&gt;, diff &lt;drtn&gt;,
+## #   speed &lt;dbl&gt;, buf100 &lt;int&gt;, buf250 &lt;int&gt;, buf500 &lt;int&gt;, road_dist [m]</code></pre>
+</div>
+<div id="gps-data-classification-1" class="section level3" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> GPS data classification</h3>
+<p>Now we have added some useful variables to our raw GPS trajectories, we can scale them and move on to our classification algorithms. We will use a <strong>C5.0</strong> boosted decision tree, a <strong>random forest</strong>, and a <strong>support vector machine</strong>. We will use a test/train split of 70/30.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="spatial-temporal-mobility-analysis.html#cb19-1" aria-hidden="true"></a><span class="co"># libraries</span></span>
+<span id="cb19-2"><a href="spatial-temporal-mobility-analysis.html#cb19-2" aria-hidden="true"></a><span class="kw">library</span>(e1071)</span>
+<span id="cb19-3"><a href="spatial-temporal-mobility-analysis.html#cb19-3" aria-hidden="true"></a><span class="kw">library</span>(randomForest)</span>
+<span id="cb19-4"><a href="spatial-temporal-mobility-analysis.html#cb19-4" aria-hidden="true"></a><span class="kw">library</span>(C50)</span>
+<span id="cb19-5"><a href="spatial-temporal-mobility-analysis.html#cb19-5" aria-hidden="true"></a><span class="kw">library</span>(caret)</span>
+<span id="cb19-6"><a href="spatial-temporal-mobility-analysis.html#cb19-6" aria-hidden="true"></a></span>
+<span id="cb19-7"><a href="spatial-temporal-mobility-analysis.html#cb19-7" aria-hidden="true"></a><span class="co"># assign point to train and test</span></span>
+<span id="cb19-8"><a href="spatial-temporal-mobility-analysis.html#cb19-8" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">train =</span> <span class="kw">if_else</span>(<span class="kw">runif</span>(<span class="kw">nrow</span>(gps)) <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.7</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb19-9"><a href="spatial-temporal-mobility-analysis.html#cb19-9" aria-hidden="true"></a></span>
+<span id="cb19-10"><a href="spatial-temporal-mobility-analysis.html#cb19-10" aria-hidden="true"></a><span class="co"># create train set, select variables, confirm data types where necessary</span></span>
+<span id="cb19-11"><a href="spatial-temporal-mobility-analysis.html#cb19-11" aria-hidden="true"></a>gps_train &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(train<span class="op">==</span><span class="dv">1</span>) <span class="op">%&gt;%</span></span>
+<span id="cb19-12"><a href="spatial-temporal-mobility-analysis.html#cb19-12" aria-hidden="true"></a><span class="st">        </span><span class="kw">st_drop_geometry</span>() <span class="op">%&gt;%</span></span>
+<span id="cb19-13"><a href="spatial-temporal-mobility-analysis.html#cb19-13" aria-hidden="true"></a><span class="st">        </span><span class="kw">select</span>(speed,buf100,buf250,buf500,road_dist,move) <span class="op">%&gt;%</span></span>
+<span id="cb19-14"><a href="spatial-temporal-mobility-analysis.html#cb19-14" aria-hidden="true"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">road_dist=</span><span class="kw">as.numeric</span>(road_dist))</span>
+<span id="cb19-15"><a href="spatial-temporal-mobility-analysis.html#cb19-15" aria-hidden="true"></a></span>
+<span id="cb19-16"><a href="spatial-temporal-mobility-analysis.html#cb19-16" aria-hidden="true"></a><span class="co"># scale</span></span>
+<span id="cb19-17"><a href="spatial-temporal-mobility-analysis.html#cb19-17" aria-hidden="true"></a>gps_train[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(gps_train[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="cf">function</span>(x) <span class="kw">scale</span>(x))</span>
+<span id="cb19-18"><a href="spatial-temporal-mobility-analysis.html#cb19-18" aria-hidden="true"></a></span>
+<span id="cb19-19"><a href="spatial-temporal-mobility-analysis.html#cb19-19" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb19-20"><a href="spatial-temporal-mobility-analysis.html#cb19-20" aria-hidden="true"></a>gps_train</span></code></pre></div>
+<pre><code>## # A tibble: 18,972 x 6
+##    speed[,1] buf100[,1] buf250[,1] buf500[,1] road_dist[,1] move 
+##        &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;
+##  1    -0.735     -0.475     -0.755     -0.898        -0.753 STAY 
+##  2    -0.595     -0.563     -0.770     -0.898        -0.320 STAY 
+##  3    -0.451     -0.541     -0.770     -0.898        -0.667 STAY 
+##  4    -0.622     -0.409     -0.755     -0.898        -0.273 STAY 
+##  5    -0.572     -0.497     -0.755     -0.898         1.07  STAY 
+##  6    -0.675     -0.497     -0.755     -0.898        -0.228 STAY 
+##  7    -0.580     -0.563     -0.755     -0.898         1.50  STAY 
+##  8    -0.741     -0.475     -0.755     -0.898        -0.540 STAY 
+##  9    -0.634     -0.475     -0.755     -0.898        -0.195 STAY 
+## 10     2.49      -0.431     -0.755     -0.898        -0.691 STAY 
+## # … with 18,962 more rows</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="spatial-temporal-mobility-analysis.html#cb21-1" aria-hidden="true"></a><span class="co"># create train set, select variables, confirm data types where necessary</span></span>
+<span id="cb21-2"><a href="spatial-temporal-mobility-analysis.html#cb21-2" aria-hidden="true"></a>gps_test &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(train<span class="op">==</span><span class="dv">0</span>) <span class="op">%&gt;%</span></span>
+<span id="cb21-3"><a href="spatial-temporal-mobility-analysis.html#cb21-3" aria-hidden="true"></a><span class="st">        </span><span class="kw">st_drop_geometry</span>() <span class="op">%&gt;%</span></span>
+<span id="cb21-4"><a href="spatial-temporal-mobility-analysis.html#cb21-4" aria-hidden="true"></a><span class="st">        </span><span class="kw">select</span>(speed,buf100,buf250,buf500,road_dist,move) <span class="op">%&gt;%</span></span>
+<span id="cb21-5"><a href="spatial-temporal-mobility-analysis.html#cb21-5" aria-hidden="true"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">road_dist=</span><span class="kw">as.numeric</span>(road_dist))</span>
+<span id="cb21-6"><a href="spatial-temporal-mobility-analysis.html#cb21-6" aria-hidden="true"></a></span>
+<span id="cb21-7"><a href="spatial-temporal-mobility-analysis.html#cb21-7" aria-hidden="true"></a><span class="co"># scale</span></span>
+<span id="cb21-8"><a href="spatial-temporal-mobility-analysis.html#cb21-8" aria-hidden="true"></a>gps_test[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(gps_test[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="cf">function</span>(x) <span class="kw">scale</span>(x))</span>
+<span id="cb21-9"><a href="spatial-temporal-mobility-analysis.html#cb21-9" aria-hidden="true"></a></span>
+<span id="cb21-10"><a href="spatial-temporal-mobility-analysis.html#cb21-10" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb21-11"><a href="spatial-temporal-mobility-analysis.html#cb21-11" aria-hidden="true"></a>gps_test</span></code></pre></div>
+<pre><code>## # A tibble: 8,047 x 6
+##    speed[,1] buf100[,1] buf250[,1] buf500[,1] road_dist[,1] move 
+##        &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;
+##  1    -0.520     -0.455     -0.760     -0.897        -0.251 STAY 
+##  2    -0.412     -0.522     -0.760     -0.897         0.131 STAY 
+##  3    -0.564     -0.545     -0.760     -0.897         1.64  STAY 
+##  4     4.22      -0.612     -0.937     -1.04         -0.638 MOVE 
+##  5     6.21      -0.612     -0.937     -1.04         -0.475 MOVE 
+##  6     5.19      -0.612     -0.937     -1.04         -0.715 MOVE 
+##  7     4.30      -0.612     -0.937     -1.02         -0.673 MOVE 
+##  8     4.48      -0.612     -0.922     -1.02         -0.633 MOVE 
+##  9    -0.620      0.849      1.38       0.792         1.92  STAY 
+## 10    -0.615      1.61       1.38       0.792         1.75  STAY 
+## # … with 8,037 more rows</code></pre>
+<p>Let’s train our models on our train data and directly predict on our test data.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="spatial-temporal-mobility-analysis.html#cb23-1" aria-hidden="true"></a><span class="co"># boosted decision tree with 5 boosting iterations</span></span>
+<span id="cb23-2"><a href="spatial-temporal-mobility-analysis.html#cb23-2" aria-hidden="true"></a>train_boost &lt;-<span class="st"> </span><span class="kw">C5.0</span>(<span class="kw">as.factor</span>(move) <span class="op">~</span>., <span class="dt">data=</span>gps_train, <span class="dt">trials=</span><span class="dv">5</span>)</span>
+<span id="cb23-3"><a href="spatial-temporal-mobility-analysis.html#cb23-3" aria-hidden="true"></a></span>
+<span id="cb23-4"><a href="spatial-temporal-mobility-analysis.html#cb23-4" aria-hidden="true"></a><span class="co"># support vector machine</span></span>
+<span id="cb23-5"><a href="spatial-temporal-mobility-analysis.html#cb23-5" aria-hidden="true"></a>train_svm &lt;-<span class="st"> </span><span class="kw">svm</span>(<span class="kw">as.factor</span>(move) <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>gps_train)</span>
+<span id="cb23-6"><a href="spatial-temporal-mobility-analysis.html#cb23-6" aria-hidden="true"></a></span>
+<span id="cb23-7"><a href="spatial-temporal-mobility-analysis.html#cb23-7" aria-hidden="true"></a><span class="co"># random forest with 500 trees, 3 variables at each split, sampling with replacement</span></span>
+<span id="cb23-8"><a href="spatial-temporal-mobility-analysis.html#cb23-8" aria-hidden="true"></a>train_rf &lt;-<span class="st"> </span><span class="kw">randomForest</span>(<span class="kw">as.factor</span>(move) <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>gps_train, <span class="dt">ntree=</span><span class="dv">500</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>, <span class="dt">mtry=</span><span class="dv">3</span>)</span>
+<span id="cb23-9"><a href="spatial-temporal-mobility-analysis.html#cb23-9" aria-hidden="true"></a></span>
+<span id="cb23-10"><a href="spatial-temporal-mobility-analysis.html#cb23-10" aria-hidden="true"></a><span class="co"># predict boosted decision tree</span></span>
+<span id="cb23-11"><a href="spatial-temporal-mobility-analysis.html#cb23-11" aria-hidden="true"></a>test_boost &lt;-<span class="st"> </span><span class="kw">predict</span>(train_boost, gps_test)</span>
+<span id="cb23-12"><a href="spatial-temporal-mobility-analysis.html#cb23-12" aria-hidden="true"></a></span>
+<span id="cb23-13"><a href="spatial-temporal-mobility-analysis.html#cb23-13" aria-hidden="true"></a><span class="co"># predict support vector machine</span></span>
+<span id="cb23-14"><a href="spatial-temporal-mobility-analysis.html#cb23-14" aria-hidden="true"></a>test_svm &lt;-<span class="st"> </span><span class="kw">predict</span>(train_svm, gps_test)</span>
+<span id="cb23-15"><a href="spatial-temporal-mobility-analysis.html#cb23-15" aria-hidden="true"></a></span>
+<span id="cb23-16"><a href="spatial-temporal-mobility-analysis.html#cb23-16" aria-hidden="true"></a><span class="co"># predict random forest</span></span>
+<span id="cb23-17"><a href="spatial-temporal-mobility-analysis.html#cb23-17" aria-hidden="true"></a>test_rf &lt;-<span class="st"> </span><span class="kw">predict</span>(train_rf, gps_test)</span></code></pre></div>
+<p>We will use a confusion matrix to inspect our results. A confusion matrix is a table that is often used to describe the performance of a classification model on a set of test data for which the actual values are known. In other words, a confusion matrix can be used to compare the predictions our models make to the ground truth. A confusion matrix basically informs you for all prediction classes how many data points where predicted correctly and how many data points were predicted incorrectly.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="spatial-temporal-mobility-analysis.html#cb24-1" aria-hidden="true"></a><span class="co"># create confusion matrices</span></span>
+<span id="cb24-2"><a href="spatial-temporal-mobility-analysis.html#cb24-2" aria-hidden="true"></a>matrix_boost &lt;-<span class="kw">table</span>(test_boost, gps_test<span class="op">$</span>move)</span>
+<span id="cb24-3"><a href="spatial-temporal-mobility-analysis.html#cb24-3" aria-hidden="true"></a>matrix_svm &lt;-<span class="st"> </span><span class="kw">table</span>(test_svm, gps_test<span class="op">$</span>move)</span>
+<span id="cb24-4"><a href="spatial-temporal-mobility-analysis.html#cb24-4" aria-hidden="true"></a>matrix_rf &lt;-<span class="st"> </span><span class="kw">table</span>(test_rf, gps_test<span class="op">$</span>move)</span>
+<span id="cb24-5"><a href="spatial-temporal-mobility-analysis.html#cb24-5" aria-hidden="true"></a></span>
+<span id="cb24-6"><a href="spatial-temporal-mobility-analysis.html#cb24-6" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb24-7"><a href="spatial-temporal-mobility-analysis.html#cb24-7" aria-hidden="true"></a>matrix_boost</span></code></pre></div>
+<pre><code>##           
+## test_boost MOVE STAY
+##       MOVE 3223  130
+##       STAY  130 4564</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="spatial-temporal-mobility-analysis.html#cb26-1" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb26-2"><a href="spatial-temporal-mobility-analysis.html#cb26-2" aria-hidden="true"></a>matrix_svm</span></code></pre></div>
+<pre><code>##         
+## test_svm MOVE STAY
+##     MOVE 3229  124
+##     STAY  124 4570</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="spatial-temporal-mobility-analysis.html#cb28-1" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb28-2"><a href="spatial-temporal-mobility-analysis.html#cb28-2" aria-hidden="true"></a>matrix_rf</span></code></pre></div>
+<pre><code>##        
+## test_rf MOVE STAY
+##    MOVE 3222   77
+##    STAY  131 4617</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="spatial-temporal-mobility-analysis.html#cb30-1" aria-hidden="true"></a><span class="co"># get overall accuracy boosted decision tree</span></span>
+<span id="cb30-2"><a href="spatial-temporal-mobility-analysis.html#cb30-2" aria-hidden="true"></a><span class="kw">confusionMatrix</span>(matrix_boost)<span class="op">$</span>overall</span></code></pre></div>
+<pre><code>##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
+##      0.9676898      0.9335338      0.9635910      0.9714452      0.5833230 
+## AccuracyPValue  McnemarPValue 
+##      0.0000000      1.0000000</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="spatial-temporal-mobility-analysis.html#cb32-1" aria-hidden="true"></a><span class="co"># get overall accuracy support vector machine</span></span>
+<span id="cb32-2"><a href="spatial-temporal-mobility-analysis.html#cb32-2" aria-hidden="true"></a><span class="kw">confusionMatrix</span>(matrix_svm)<span class="op">$</span>overall</span></code></pre></div>
+<pre><code>##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
+##      0.9691811      0.9366015      0.9651688      0.9728486      0.5833230 
+## AccuracyPValue  McnemarPValue 
+##      0.0000000      1.0000000</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="spatial-temporal-mobility-analysis.html#cb34-1" aria-hidden="true"></a><span class="co"># get overall accuracy random forest</span></span>
+<span id="cb34-2"><a href="spatial-temporal-mobility-analysis.html#cb34-2" aria-hidden="true"></a><span class="kw">confusionMatrix</span>(matrix_rf)<span class="op">$</span>overall</span></code></pre></div>
+<pre><code>##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
+##    0.974151858    0.946704452    0.970446207    0.977508462    0.583322978 
+## AccuracyPValue  McnemarPValue 
+##    0.000000000    0.000237953</code></pre>
+<p>As we can see, all algorithms are highly accurate in classifying our artificial GPS points into <em>moves</em> and <em>stays</em> using the input features that were derived from the raw GPS trajectory data.</p>
+</div>
+<div id="exercise" class="section level3" number="7.3.3">
+<h3><span class="header-section-number">7.3.3</span> Exercise</h3>
+<p>Now we have worked through classifying our points into <em>moves</em> and <em>stays</em> using raw GPS points, there are three further excercises that we want you to do:</p>
+<ol style="list-style-type: decimal">
+<li>Add a new set of variables that, for every point in the dataset, contains the number of points within a distance of 100m, 250m, and 500m <strong>but for only</strong> those points that are within 5 minutes (both sides) of the point under consideration (i.e. use a moving time window to select the points that qualify). So, for instance, for point <span class="math inline">\(x\)</span> 10 other points are within a distance of 100m but only 5 of these points were recorded within 5 minutes of point <span class="math inline">\(x\)</span>: we now only want those 5 points and not the full 10 points. Please note: this is <strong>not</strong> a trivial task and you will have to considerably change the code that you have used so far. <br/><br/></li>
+<li>Instead of using the <em>move</em> column, use the <em>activity</em> column to classify the GPS points into travel modes (i.e. <em>walk</em>, <em>bike</em> , <em>car</em>) and <em>stays</em>. Incorporate all existing variables as well as the three variables you created in Exercise 1. <br/><br/></li>
+<li>Assess the <strong>relative</strong> importance of each of the input variables used in Exercise 2 by permutating (that is shuffling) each input variable and re-running the train and test sequence. So, for instance, shuffle the values within the <em>speed</em> column but leaving all the other values untouched, train the three models, and look at the accuracy and Kappa values to see the new results. Repeat this process for all columns in which every time one of the columns gets permutated but all the other values are untouched. With every iteration you save the accuracy and Kappa values so to get an idea about each variable’s relative importance: the variable that causes the largest drop in accuracy and Kappa values is relatively the most important one.
+<br/><br/><strong>Tip 1</strong>: You can shuffle your data by sampling without replacement, e.g. <code>gps_test$speed &lt;- sample(gps_test$speed)</code>.
+<br/><strong>Tip 2</strong>: Create a function or a loop to conduct this process!</li>
+</ol>
 </div>
 </div>
 <div id="take-home-message" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Take home message</h2>
+<p>Where GPS technology can precisely register locational information, travel characteristics need to be imputed from the data before it can be used by transport researchers and policy makers. As such, throughout the last decade, various methods have been developed for identifying trips, activities, and travel modes from raw GPS trajectories. In this week’s material, we took a closer look at GPS data. We also introduced you to three different discriminative classifiers to classify GPS points <em>into</em> moves and <em>stays</em>. It is important to keep in mind that because the GPS points were artificially created, the models results in relatively high prediction rates and will be very difficult to transfer to a different context. While this is obviously an issue, the advantage of using artificial data is that parameters and noise levels can be precisely tuned which allow you to systematically compare, test, and develop different algorithms.</p>
 </div>
 <div id="attributions_w07" class="section level2" number="7.5">
 <h2><span class="header-section-number">7.5</span> Attributions</h2>
 <p>This week’s content and practical uses content and inspiration from:</p>
 <ul>
-<li>Van Dijk, J. 2017. Designing Travel Behaviour Change Interventions: a spatiotemporal perspective. <em>Doctoral dissertation</em>. Stellenbosch: Stellenbosch University.<a href="http://hdl%20.handle.net/10019.1/102809">[Link]</a></li>
+<li>Van Dijk, J. 2017. Designing Travel Behaviour Change Interventions: a spatiotemporal perspective. <em>Doctoral dissertation</em>. Stellenbosch: Stellenbosch University. <a href="http://hdl%20.handle.net/10019.1/102809">[Link]</a></li>
 <li>Van Dijk, J. 2018. Identifying activity-travel points from GPS-data with multiple moving windows. <em>Computers, Environment and Urban Systems</em> 70: 84-101. <a href="https://doi.org/10.1016/j.compenvurbsys.2018.02.004">[Link]</a></li>
 </ul>
 
@@ -483,6 +822,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
