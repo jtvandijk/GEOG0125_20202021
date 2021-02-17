@@ -29,6 +29,7 @@ Please find the reading list for this week below.
 - Nitsche, P. *et al.*. 2014. Supporting large-scale travel surveys with smartphones - a practical approach. *Transportation Research Part C: Emerging Technologies* 43: 212–221. [[Link]](https://doi.org/10.1016/j.trc.2013.11.005)
 
 #### Supplementary reading {-}
+- Van de Coevering, P. *et al.*. 2021. Causes and effects between attitudes, the built environment and car kilometres: A longitudinal analysis. *Journal of Transport Geography* 91: 102982. [[Link]](https://doi.org/10.1016/j.jtrangeo.2021.102982)
 - Van Dijk, J. 2018. Identifying activity-travel points from GPS-data with multiple moving windows. *Computers, Environment and Urban Systems* 70: 84-101. [[Link]](https://doi.org/10.1016/j.compenvurbsys.2018.02.004)
 - Wolf, J. 2000. Using GPS data loggers to replace travel diaries in the collection of travel data. *Doctoral dissertation*. Atlanta, Georgia: Georgia Institute of Technology. [[Link]](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.126.3799&rep=rep1&type=pdf)
 
