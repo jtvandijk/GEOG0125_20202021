@@ -2,9 +2,6 @@
 
 # Unix tools
 
-## Introduction {#intro-w08}
-This week we will be looking at the Unix tools. Basic knowledge of the Unix shell as well as knowing how to retrieve datasets from databases are essential tools in a data scientist’s toolkit. This week you will be introduced to both. In the practical component of this week you will work within the 'bourne again shell' (bash) in a command-line environment to create a parallel data processing pipeline involving a database and Unix tools.
-
 <div class="note">
 **This week’s content will be made available on 08/03/2021.**
 </div>
