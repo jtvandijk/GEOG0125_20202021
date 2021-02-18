@@ -10,9 +10,9 @@ Let's get to it!
 #### Video: Introduction W07 {-}
 ```{r 07-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
-embed_msstream('') %>% use_align('left')
+embed_msstream('3a62bfb5-4598-4079-a14e-4ed2708c08c6') %>% use_align('left')
 ```
-[Lecture slides] [[Watch on MS stream]]()
+[Lecture slides] [[Watch on MS stream]](https://web.microsoftstream.com/video/3a62bfb5-4598-4079-a14e-4ed2708c08c6)
 
 ```{r 07-settings, warnings=FALSE, message=FALSE, echo=FALSE}
 # settings
@@ -46,22 +46,22 @@ Mobility is a central aspect of everyday life. In its simplest form, human mobil
 
 The realisation that increasing road infrastructure and improvements in car technology are not sufficient to address the transport problems around the world has led to the idea that transport planning should shift from supply-side to demand-side passenger transport planning. For this, accurate data are required on individual spatio-temporal behaviour. 
 
-Travel data collection methods can roughly be classified into two, not per semutually exclusive, methods. The first method uses self-reported data, such as data collected through telephone-assisted interviews, computer-assisted interviews, and pen-and-paper interviews. The second method relies on passively collected data, such as data collected through call-detail records and GPS data. Technological developments in the field of location-aware technologies, GPS in particular, have greatly enhanced opportunities to collect accurate data on human spatiotemporal behaviour. GPS data need to be collected and analysed systematically to be intelligible for transport researchers and policy makers. Moreover, the challenges inherent to mobile data collection techniques include not only harnessing the tools to obtain geo-referenced data, but also the development of new skills sets for cleaning, analysing, and interpreting these data.
+Travel data collection methods can roughly be classified into two, not per se mutually exclusive, methods. The first method uses self-reported data, such as data collected through telephone-assisted interviews, computer-assisted interviews, and pen-and-paper interviews. The second method relies on passively collected data, such as data collected through call-detail records and GPS data. Technological developments in the field of location-aware technologies, GPS in particular, have greatly enhanced opportunities to collect accurate data on human spatiotemporal behaviour. GPS data need to be collected and analysed systematically to be intelligible for transport researchers and policy makers. Moreover, the challenges inherent to mobile data collection techniques include not only harnessing the tools to obtain geo-referenced data, but also the development of new skills sets for cleaning, analysing, and interpreting these data.
 
-#### Video: GPS data for mobility research {-}
+#### Video: GPS data in transport research {-}
 ```{r 07-gps-data, warnings=FALSE, message=FALSE, echo=FALSE}
-embed_msstream('') %>% use_align('left')
+embed_msstream('de09a1f1-7293-4d92-82eb-1233571aa808') %>% use_align('left')
 ```
-[[Lecture slides]]() [[Watch on MS stream]]()
+[[Lecture slides]](https://github.com/jtvandijk/GEOG0125/blob/master/slides/w07/w07_01_gps_data.pdf) [[Watch on MS stream]](https://web.microsoftstream.com/video/de09a1f1-7293-4d92-82eb-1233571aa808)
 
 ## GPS data classification
 Where GPS technology can precisely register the spatiotemporal elements of activity-travel behaviour, travel characteristics need to be imputed from the data. As such, throughout the last decade or so, a plethora of methods has been developed for identifying trips, activities, and travel modes from raw GPS trajectories. These methods range from deterministic (rule-based) methods to advanced machine learning algorithms. Here, we will focus on using two types of machine learning techniques (Support Vector Machines and tree-based methods) to classify labelled GPS points into *stay* and *move* points.
 
 #### Video: GPS data classification with ML techniques {-}
 ```{r 04-data-classification, warnings=FALSE, message=FALSE, echo=FALSE}
-embed_msstream('') %>% use_align('left')
+embed_msstream('44eb5e0a-4f8f-4464-9c14-d5fe7c91a619') %>% use_align('left')
 ```
-[[Lecture slides]]() [[Watch on MS stream]]()
+[[Lecture slides]](https://github.com/jtvandijk/GEOG0125/blob/master/slides/w07/w07_02_gps_data_classification.pdf) [[Watch on MS stream]](https://web.microsoftstream.com/video/44eb5e0a-4f8f-4464-9c14-d5fe7c91a619)
 
 The segmentation of GPS data into activity and travel episodes is often the first step in a more elaborate process of identifying activity types and transport modes. A major issue with GPS data imputation, however, is the necessity of a ground truth to test whether the imputation algorithm correctly categorises GPS points into activity (*stay*) points and trips (*move*) points. We will be using a set of [50 artificially created GPS trajectories](https://doi.org/10.1016/j.compenvurbsys.2018.02.004) that all contain a sequence of stays and moves in Cape Town, South Africa. For the data that we will use, the artificial GPS 'records' a measurement every 60 seconds. To further simulate noise in the data, a random sample comprising of 50 per cent of the data points was taken. Besides these raw GPS data, we also have access to a basic road network lay out of the [Mother City](https://www.capetownmagazine.com/cape-town#:~:text=A%20more%20commonly%2Dused%20nickname,visitors%20to%20Cape%20Town%20alike.). 
 
@@ -114,7 +114,7 @@ The road network file is relatively simple and only contains road network segmen
 | *mode*         | Travel mode |
 | *track_id*     | Unique ID for GPS trajectory |
 | *move*         | Whether point is a move or a stay |
-| *activity*     | Whether point is move (inlcuding mode) or stay | 
+| *activity*     | Whether point is move (including mode) or stay | 
 
 ### GPS data preparation
 The *move* variable is the variable we will try to predict. Before we split our data into a *train* and *test* set, however, we will need to derive some features from our raw GPS data that we can use as our input features: speed, point density, and distance to nearest road segment. As we want to derive information of consecutive measurements, the order of the data is very important right now as the points form a trajectory: so before we calculate anything we start by making sure that the data are ordered correctly: by *track_id* and *timestamp*.
@@ -312,7 +312,7 @@ confusionMatrix(matrix_rf)$overall
 As we can see, all algorithms are highly accurate in classifying our artificial GPS points into *moves* and *stays* using the input features that were derived from the raw GPS trajectory data.
 
 ### Exercise
-Now we have worked through classifying our points into *moves* and *stays* using raw GPS points, there are three further excercises that we want you to do:
+Now we have worked through classifying our points into *moves* and *stays* using raw GPS points, there are three further exercises that we want you to do:
 
 1. Add a new set of variables that, for every point in the dataset, contains the number of points within a distance of 100m, 250m, and 500m **but for only** those points that are within 5 minutes (both sides) of the point under consideration (i.e. use a moving time window to select the points that qualify). So, for instance, for point $x$ 10 other points are within a distance of 100m but only 5 of these points were recorded within 5 minutes of point $x$: we now only want those 5 points and not the full 10 points. Please note: this is **not** a trivial task and you will have to considerably change the code that you have used so far. <br/><br/>
 2. Instead of using the *move* column, use the *activity* column to classify the GPS points into travel modes (i.e. *walk*, *bike* , *car*) and *stays*. Incorporate all existing variables as well as the three variables you created in Exercise 1. <br/><br/>

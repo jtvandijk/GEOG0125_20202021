@@ -24,7 +24,7 @@
 <meta name="author" content="Justin van Dijk and Stephen Law" />
 
 
-<meta name="date" content="2021-02-17" />
+<meta name="date" content="2021-02-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -227,10 +227,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4>Video: Introduction W07</h4>
 <p><div class="vembedr" align="left">
 <div>
-<iframe src="https://web.microsoftstream.com/embed/video/?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;"></iframe>
+<iframe src="https://web.microsoftstream.com/embed/video/3a62bfb5-4598-4079-a14e-4ed2708c08c6?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;"></iframe>
 </div>
 </div>
-[Lecture slides] <a href="">[Watch on MS stream]</a></p>
+[Lecture slides] <a href="https://web.microsoftstream.com/video/3a62bfb5-4598-4079-a14e-4ed2708c08c6">[Watch on MS stream]</a></p>
 </div>
 <div id="reading-list-w07" class="section level3" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Reading list</h3>
@@ -273,10 +273,10 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 <h4>Video: GPS data for mobility research</h4>
 <p><div class="vembedr" align="left">
 <div>
-<iframe src="https://web.microsoftstream.com/embed/video/?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;"></iframe>
+<iframe src="https://web.microsoftstream.com/embed/video/de09a1f1-7293-4d92-82eb-1233571aa808?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;"></iframe>
 </div>
 </div>
-<a href="">[Lecture slides]</a> <a href="">[Watch on MS stream]</a></p>
+<a href="https://github.com/jtvandijk/GEOG0125/blob/master/slides/w07/w07_01_gps_data.pdf">[Lecture slides]</a> <a href="https://web.microsoftstream.com/video/de09a1f1-7293-4d92-82eb-1233571aa808">[Watch on MS stream]</a></p>
 </div>
 </div>
 <div id="gps-data-classification" class="section level2" number="7.3">
@@ -286,10 +286,10 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 <h4>Video: GPS data classification with ML techniques</h4>
 <p><div class="vembedr" align="left">
 <div>
-<iframe src="https://web.microsoftstream.com/embed/video/?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;"></iframe>
+<iframe src="https://web.microsoftstream.com/embed/video/44eb5e0a-4f8f-4464-9c14-d5fe7c91a619?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;"></iframe>
 </div>
 </div>
-<a href="">[Lecture slides]</a> <a href="">[Watch on MS stream]</a></p>
+<a href="https://github.com/jtvandijk/GEOG0125/blob/master/slides/w07/w07_02_gps_data_classification.pdf">[Lecture slides]</a> <a href="https://web.microsoftstream.com/video/44eb5e0a-4f8f-4464-9c14-d5fe7c91a619">[Watch on MS stream]</a></p>
 <p>The segmentation of GPS data into activity and travel episodes is often the first step in a more elaborate process of identifying activity types and transport modes. A major issue with GPS data imputation, however, is the necessity of a ground truth to test whether the imputation algorithm correctly categorises GPS points into activity (<em>stay</em>) points and trips (<em>move</em>) points. We will be using a set of <a href="https://doi.org/10.1016/j.compenvurbsys.2018.02.004">50 artificially created GPS trajectories</a> that all contain a sequence of stays and moves in Cape Town, South Africa. For the data that we will use, the artificial GPS ‘records’ a measurement every 60 seconds. To further simulate noise in the data, a random sample comprising of 50 per cent of the data points was taken. Besides these raw GPS data, we also have access to a basic road network lay out of the <a href="https://www.capetownmagazine.com/cape-town#:~:text=A%20more%20commonly%2Dused%20nickname,visitors%20to%20Cape%20Town%20alike.">Mother City</a>.</p>
 </div>
 <div id="file-download" class="section level4 unnumbered">
@@ -311,19 +311,19 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 </tbody>
 </table>
 <p>We will start by downloading the files, importing both into R, and looking at what we will be working with. Be careful <em>not</em> to plot the road network file. Because the road network contains around 120,000 individual road segments it will take a long time to draw. Rather have a look at the data in <a href="https://www.qgis.org/en/site/">QGIS</a>, which is much more capable of on the fly displaying a large number of features.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="spatial-temporal-mobility-analysis.html#cb1-1" aria-hidden="true"></a><span class="co"># load libraries</span></span>
-<span id="cb1-2"><a href="spatial-temporal-mobility-analysis.html#cb1-2" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="spatial-temporal-mobility-analysis.html#cb1-3" aria-hidden="true"></a><span class="kw">library</span>(sf)</span>
-<span id="cb1-4"><a href="spatial-temporal-mobility-analysis.html#cb1-4" aria-hidden="true"></a><span class="kw">library</span>(tmap)</span>
-<span id="cb1-5"><a href="spatial-temporal-mobility-analysis.html#cb1-5" aria-hidden="true"></a></span>
-<span id="cb1-6"><a href="spatial-temporal-mobility-analysis.html#cb1-6" aria-hidden="true"></a><span class="co"># read gps data</span></span>
-<span id="cb1-7"><a href="spatial-temporal-mobility-analysis.html#cb1-7" aria-hidden="true"></a>gps &lt;-<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&#39;raw/w07/gps_cape_town.shp&#39;</span>)</span>
-<span id="cb1-8"><a href="spatial-temporal-mobility-analysis.html#cb1-8" aria-hidden="true"></a></span>
-<span id="cb1-9"><a href="spatial-temporal-mobility-analysis.html#cb1-9" aria-hidden="true"></a><span class="co"># read road data</span></span>
-<span id="cb1-10"><a href="spatial-temporal-mobility-analysis.html#cb1-10" aria-hidden="true"></a>road &lt;-<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&#39;raw/w07/roads_cape_town.shp&#39;</span>)</span>
-<span id="cb1-11"><a href="spatial-temporal-mobility-analysis.html#cb1-11" aria-hidden="true"></a></span>
-<span id="cb1-12"><a href="spatial-temporal-mobility-analysis.html#cb1-12" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb1-13"><a href="spatial-temporal-mobility-analysis.html#cb1-13" aria-hidden="true"></a>gps</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="spatial-temporal-mobility-analysis.html#cb24-1" aria-hidden="true"></a><span class="co"># load libraries</span></span>
+<span id="cb24-2"><a href="spatial-temporal-mobility-analysis.html#cb24-2" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb24-3"><a href="spatial-temporal-mobility-analysis.html#cb24-3" aria-hidden="true"></a><span class="kw">library</span>(sf)</span>
+<span id="cb24-4"><a href="spatial-temporal-mobility-analysis.html#cb24-4" aria-hidden="true"></a><span class="kw">library</span>(tmap)</span>
+<span id="cb24-5"><a href="spatial-temporal-mobility-analysis.html#cb24-5" aria-hidden="true"></a></span>
+<span id="cb24-6"><a href="spatial-temporal-mobility-analysis.html#cb24-6" aria-hidden="true"></a><span class="co"># read gps data</span></span>
+<span id="cb24-7"><a href="spatial-temporal-mobility-analysis.html#cb24-7" aria-hidden="true"></a>gps &lt;-<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&#39;raw/w07/gps_cape_town.shp&#39;</span>)</span>
+<span id="cb24-8"><a href="spatial-temporal-mobility-analysis.html#cb24-8" aria-hidden="true"></a></span>
+<span id="cb24-9"><a href="spatial-temporal-mobility-analysis.html#cb24-9" aria-hidden="true"></a><span class="co"># read road data</span></span>
+<span id="cb24-10"><a href="spatial-temporal-mobility-analysis.html#cb24-10" aria-hidden="true"></a>road &lt;-<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&#39;raw/w07/roads_cape_town.shp&#39;</span>)</span>
+<span id="cb24-11"><a href="spatial-temporal-mobility-analysis.html#cb24-11" aria-hidden="true"></a></span>
+<span id="cb24-12"><a href="spatial-temporal-mobility-analysis.html#cb24-12" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb24-13"><a href="spatial-temporal-mobility-analysis.html#cb24-13" aria-hidden="true"></a>gps</span></code></pre></div>
 <pre><code>## Simple feature collection with 27019 features and 9 fields
 ## geometry type:  POINT
 ## dimension:      XY
@@ -343,8 +343,8 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 ##  9     1 MEDI…       30         18 04/02/19… &lt;NA&gt;  001      STAY  STAY    
 ## 10     1 MEDI…       30         22 04/02/19… &lt;NA&gt;  001      STAY  STAY    
 ## # … with 27,009 more rows, and 1 more variable: geometry &lt;POINT [°]&gt;</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="spatial-temporal-mobility-analysis.html#cb3-1" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb3-2"><a href="spatial-temporal-mobility-analysis.html#cb3-2" aria-hidden="true"></a>road</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="spatial-temporal-mobility-analysis.html#cb26-1" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb26-2"><a href="spatial-temporal-mobility-analysis.html#cb26-2" aria-hidden="true"></a>road</span></code></pre></div>
 <pre><code>## Simple feature collection with 125024 features and 1 field
 ## geometry type:  LINESTRING
 ## dimension:      XY
@@ -364,17 +364,17 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 ##  9     9 (18.44389 -34.03779, 18.44389 -34.03798, 18.44388 -34.03826, 18.4…
 ## 10    10 (18.64958 -34.04498, 18.64729 -34.04547, 18.64228 -34.04652, 18.6…
 ## # … with 125,014 more rows</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="spatial-temporal-mobility-analysis.html#cb5-1" aria-hidden="true"></a><span class="co"># inspect </span></span>
-<span id="cb5-2"><a href="spatial-temporal-mobility-analysis.html#cb5-2" aria-hidden="true"></a><span class="kw">names</span>(gps)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="spatial-temporal-mobility-analysis.html#cb28-1" aria-hidden="true"></a><span class="co"># inspect </span></span>
+<span id="cb28-2"><a href="spatial-temporal-mobility-analysis.html#cb28-2" aria-hidden="true"></a><span class="kw">names</span>(gps)</span></code></pre></div>
 <pre><code>##  [1] &quot;stop&quot;       &quot;type&quot;       &quot;duration&quot;   &quot;point_id_n&quot; &quot;timestamp&quot; 
 ##  [6] &quot;mode&quot;       &quot;track_id&quot;   &quot;move&quot;       &quot;activity&quot;   &quot;geometry&quot;</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="spatial-temporal-mobility-analysis.html#cb7-1" aria-hidden="true"></a><span class="co"># project into Hartbeesthoek94</span></span>
-<span id="cb7-2"><a href="spatial-temporal-mobility-analysis.html#cb7-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">st_transform</span>(<span class="dt">crs=</span><span class="st">&#39;epsg:2053&#39;</span>)</span>
-<span id="cb7-3"><a href="spatial-temporal-mobility-analysis.html#cb7-3" aria-hidden="true"></a>road &lt;-<span class="st"> </span>road <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">st_transform</span>(<span class="dt">crs=</span><span class="st">&#39;epsg:2053&#39;</span>)</span>
-<span id="cb7-4"><a href="spatial-temporal-mobility-analysis.html#cb7-4" aria-hidden="true"></a></span>
-<span id="cb7-5"><a href="spatial-temporal-mobility-analysis.html#cb7-5" aria-hidden="true"></a><span class="co"># plot gps points</span></span>
-<span id="cb7-6"><a href="spatial-temporal-mobility-analysis.html#cb7-6" aria-hidden="true"></a><span class="kw">tm_shape</span>(gps) <span class="op">+</span></span>
-<span id="cb7-7"><a href="spatial-temporal-mobility-analysis.html#cb7-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">tm_dots</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="spatial-temporal-mobility-analysis.html#cb30-1" aria-hidden="true"></a><span class="co"># project into Hartbeesthoek94</span></span>
+<span id="cb30-2"><a href="spatial-temporal-mobility-analysis.html#cb30-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">st_transform</span>(<span class="dt">crs=</span><span class="st">&#39;epsg:2053&#39;</span>)</span>
+<span id="cb30-3"><a href="spatial-temporal-mobility-analysis.html#cb30-3" aria-hidden="true"></a>road &lt;-<span class="st"> </span>road <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">st_transform</span>(<span class="dt">crs=</span><span class="st">&#39;epsg:2053&#39;</span>)</span>
+<span id="cb30-4"><a href="spatial-temporal-mobility-analysis.html#cb30-4" aria-hidden="true"></a></span>
+<span id="cb30-5"><a href="spatial-temporal-mobility-analysis.html#cb30-5" aria-hidden="true"></a><span class="co"># plot gps points</span></span>
+<span id="cb30-6"><a href="spatial-temporal-mobility-analysis.html#cb30-6" aria-hidden="true"></a><span class="kw">tm_shape</span>(gps) <span class="op">+</span></span>
+<span id="cb30-7"><a href="spatial-temporal-mobility-analysis.html#cb30-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">tm_dots</span>()</span></code></pre></div>
 <p><img src="GEOG0125_files/figure-html/07-load-libraries-1.png" width="672" /></p>
 <p>The road network file is relatively simple and only contains road network segments - no additional information (e.g. maximum speed, road type, etc.) is available. The GPS data themselves contain several fields:</p>
 <table>
@@ -427,20 +427,20 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 <div id="gps-data-preparation" class="section level3" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> GPS data preparation</h3>
 <p>The <em>move</em> variable is the variable we will try to predict. Before we split our data into a <em>train</em> and <em>test</em> set, however, we will need to derive some features from our raw GPS data that we can use as our input features: speed, point density, and distance to nearest road segment. As we want to derive information of consecutive measurements, the order of the data is very important right now as the points form a trajectory: so before we calculate anything we start by making sure that the data are ordered correctly: by <em>track_id</em> and <em>timestamp</em>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="spatial-temporal-mobility-analysis.html#cb8-1" aria-hidden="true"></a><span class="co"># order data so that we do not mix separate trajectories</span></span>
-<span id="cb8-2"><a href="spatial-temporal-mobility-analysis.html#cb8-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(track_id,timestamp)</span>
-<span id="cb8-3"><a href="spatial-temporal-mobility-analysis.html#cb8-3" aria-hidden="true"></a></span>
-<span id="cb8-4"><a href="spatial-temporal-mobility-analysis.html#cb8-4" aria-hidden="true"></a><span class="co"># calculate distance between consecutive points // could take a few minutes</span></span>
-<span id="cb8-5"><a href="spatial-temporal-mobility-analysis.html#cb8-5" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-6"><a href="spatial-temporal-mobility-analysis.html#cb8-6" aria-hidden="true"></a><span class="st">         </span><span class="kw">group_by</span>(track_id) <span class="op">%&gt;%</span></span>
-<span id="cb8-7"><a href="spatial-temporal-mobility-analysis.html#cb8-7" aria-hidden="true"></a><span class="st">         </span><span class="kw">mutate</span>(</span>
-<span id="cb8-8"><a href="spatial-temporal-mobility-analysis.html#cb8-8" aria-hidden="true"></a>                <span class="dt">lead_geom =</span> geometry[<span class="kw">row_number</span>() <span class="op">+</span><span class="st"> </span><span class="dv">1</span>],</span>
-<span id="cb8-9"><a href="spatial-temporal-mobility-analysis.html#cb8-9" aria-hidden="true"></a>                <span class="dt">dist =</span> <span class="kw">st_distance</span>(lead_geom,geometry, <span class="dt">by_element=</span><span class="ot">TRUE</span>, <span class="dt">which=</span><span class="st">&#39;Euclidean&#39;</span>)</span>
-<span id="cb8-10"><a href="spatial-temporal-mobility-analysis.html#cb8-10" aria-hidden="true"></a>                ) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-11"><a href="spatial-temporal-mobility-analysis.html#cb8-11" aria-hidden="true"></a><span class="st">        </span><span class="kw">ungroup</span>()</span>
-<span id="cb8-12"><a href="spatial-temporal-mobility-analysis.html#cb8-12" aria-hidden="true"></a></span>
-<span id="cb8-13"><a href="spatial-temporal-mobility-analysis.html#cb8-13" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb8-14"><a href="spatial-temporal-mobility-analysis.html#cb8-14" aria-hidden="true"></a>gps</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="spatial-temporal-mobility-analysis.html#cb31-1" aria-hidden="true"></a><span class="co"># order data so that we do not mix separate trajectories</span></span>
+<span id="cb31-2"><a href="spatial-temporal-mobility-analysis.html#cb31-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(track_id,timestamp)</span>
+<span id="cb31-3"><a href="spatial-temporal-mobility-analysis.html#cb31-3" aria-hidden="true"></a></span>
+<span id="cb31-4"><a href="spatial-temporal-mobility-analysis.html#cb31-4" aria-hidden="true"></a><span class="co"># calculate distance between consecutive points // could take a few minutes</span></span>
+<span id="cb31-5"><a href="spatial-temporal-mobility-analysis.html#cb31-5" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb31-6"><a href="spatial-temporal-mobility-analysis.html#cb31-6" aria-hidden="true"></a><span class="st">         </span><span class="kw">group_by</span>(track_id) <span class="op">%&gt;%</span></span>
+<span id="cb31-7"><a href="spatial-temporal-mobility-analysis.html#cb31-7" aria-hidden="true"></a><span class="st">         </span><span class="kw">mutate</span>(</span>
+<span id="cb31-8"><a href="spatial-temporal-mobility-analysis.html#cb31-8" aria-hidden="true"></a>                <span class="dt">lead_geom =</span> geometry[<span class="kw">row_number</span>() <span class="op">+</span><span class="st"> </span><span class="dv">1</span>],</span>
+<span id="cb31-9"><a href="spatial-temporal-mobility-analysis.html#cb31-9" aria-hidden="true"></a>                <span class="dt">dist =</span> <span class="kw">st_distance</span>(lead_geom,geometry, <span class="dt">by_element=</span><span class="ot">TRUE</span>, <span class="dt">which=</span><span class="st">&#39;Euclidean&#39;</span>)</span>
+<span id="cb31-10"><a href="spatial-temporal-mobility-analysis.html#cb31-10" aria-hidden="true"></a>                ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb31-11"><a href="spatial-temporal-mobility-analysis.html#cb31-11" aria-hidden="true"></a><span class="st">        </span><span class="kw">ungroup</span>()</span>
+<span id="cb31-12"><a href="spatial-temporal-mobility-analysis.html#cb31-12" aria-hidden="true"></a></span>
+<span id="cb31-13"><a href="spatial-temporal-mobility-analysis.html#cb31-13" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb31-14"><a href="spatial-temporal-mobility-analysis.html#cb31-14" aria-hidden="true"></a>gps</span></code></pre></div>
 <pre><code>## Simple feature collection with 27019 features and 10 fields
 ## Active geometry column: geometry
 ## geometry type:  POINT
@@ -462,17 +462,17 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 ## 10     1 MEDI…       30         22 04/02/19… &lt;NA&gt;  001      STAY  STAY    
 ## # … with 27,009 more rows, and 3 more variables: geometry &lt;POINT [m]&gt;,
 ## #   lead_geom &lt;POINT [m]&gt;, dist [m]</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="spatial-temporal-mobility-analysis.html#cb10-1" aria-hidden="true"></a><span class="co"># calculate time between consecutive points </span></span>
-<span id="cb10-2"><a href="spatial-temporal-mobility-analysis.html#cb10-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb10-3"><a href="spatial-temporal-mobility-analysis.html#cb10-3" aria-hidden="true"></a><span class="st">        </span><span class="kw">group_by</span>(track_id) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb10-4"><a href="spatial-temporal-mobility-analysis.html#cb10-4" aria-hidden="true"></a><span class="st">        </span><span class="kw">mutate</span>(</span>
-<span id="cb10-5"><a href="spatial-temporal-mobility-analysis.html#cb10-5" aria-hidden="true"></a>                <span class="dt">lead_time =</span> <span class="kw">strptime</span>(timestamp[<span class="kw">row_number</span>() <span class="op">+</span><span class="st"> </span><span class="dv">1</span>], <span class="dt">format=</span><span class="st">&#39;%d/%m/%Y %H:%M:%S&#39;</span>),</span>
-<span id="cb10-6"><a href="spatial-temporal-mobility-analysis.html#cb10-6" aria-hidden="true"></a>                <span class="dt">diff =</span> <span class="kw">difftime</span>(lead_time,<span class="kw">strptime</span>(timestamp, <span class="dt">format=</span><span class="st">&#39;%d/%m/%Y %H:%M:%S&#39;</span>), <span class="dt">units=</span><span class="st">&#39;secs&#39;</span>)</span>
-<span id="cb10-7"><a href="spatial-temporal-mobility-analysis.html#cb10-7" aria-hidden="true"></a>                ) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb10-8"><a href="spatial-temporal-mobility-analysis.html#cb10-8" aria-hidden="true"></a><span class="st">        </span><span class="kw">ungroup</span>()</span>
-<span id="cb10-9"><a href="spatial-temporal-mobility-analysis.html#cb10-9" aria-hidden="true"></a></span>
-<span id="cb10-10"><a href="spatial-temporal-mobility-analysis.html#cb10-10" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb10-11"><a href="spatial-temporal-mobility-analysis.html#cb10-11" aria-hidden="true"></a>gps</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="spatial-temporal-mobility-analysis.html#cb33-1" aria-hidden="true"></a><span class="co"># calculate time between consecutive points </span></span>
+<span id="cb33-2"><a href="spatial-temporal-mobility-analysis.html#cb33-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb33-3"><a href="spatial-temporal-mobility-analysis.html#cb33-3" aria-hidden="true"></a><span class="st">        </span><span class="kw">group_by</span>(track_id) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb33-4"><a href="spatial-temporal-mobility-analysis.html#cb33-4" aria-hidden="true"></a><span class="st">        </span><span class="kw">mutate</span>(</span>
+<span id="cb33-5"><a href="spatial-temporal-mobility-analysis.html#cb33-5" aria-hidden="true"></a>                <span class="dt">lead_time =</span> <span class="kw">strptime</span>(timestamp[<span class="kw">row_number</span>() <span class="op">+</span><span class="st"> </span><span class="dv">1</span>], <span class="dt">format=</span><span class="st">&#39;%d/%m/%Y %H:%M:%S&#39;</span>),</span>
+<span id="cb33-6"><a href="spatial-temporal-mobility-analysis.html#cb33-6" aria-hidden="true"></a>                <span class="dt">diff =</span> <span class="kw">difftime</span>(lead_time,<span class="kw">strptime</span>(timestamp, <span class="dt">format=</span><span class="st">&#39;%d/%m/%Y %H:%M:%S&#39;</span>), <span class="dt">units=</span><span class="st">&#39;secs&#39;</span>)</span>
+<span id="cb33-7"><a href="spatial-temporal-mobility-analysis.html#cb33-7" aria-hidden="true"></a>                ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb33-8"><a href="spatial-temporal-mobility-analysis.html#cb33-8" aria-hidden="true"></a><span class="st">        </span><span class="kw">ungroup</span>()</span>
+<span id="cb33-9"><a href="spatial-temporal-mobility-analysis.html#cb33-9" aria-hidden="true"></a></span>
+<span id="cb33-10"><a href="spatial-temporal-mobility-analysis.html#cb33-10" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb33-11"><a href="spatial-temporal-mobility-analysis.html#cb33-11" aria-hidden="true"></a>gps</span></code></pre></div>
 <pre><code>## Simple feature collection with 27019 features and 12 fields
 ## Active geometry column: geometry
 ## geometry type:  POINT
@@ -494,11 +494,11 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 ## 10     1 MEDI…       30         22 04/02/19… &lt;NA&gt;  001      STAY  STAY    
 ## # … with 27,009 more rows, and 5 more variables: geometry &lt;POINT [m]&gt;,
 ## #   lead_geom &lt;POINT [m]&gt;, dist [m], lead_time &lt;dttm&gt;, diff &lt;drtn&gt;</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="spatial-temporal-mobility-analysis.html#cb12-1" aria-hidden="true"></a><span class="co"># calculate speed in kilometres per hour</span></span>
-<span id="cb12-2"><a href="spatial-temporal-mobility-analysis.html#cb12-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">speed =</span> <span class="kw">as.integer</span>(dist)<span class="op">/</span><span class="kw">as.integer</span>(diff)<span class="op">*</span><span class="fl">3.6</span>)</span>
-<span id="cb12-3"><a href="spatial-temporal-mobility-analysis.html#cb12-3" aria-hidden="true"></a></span>
-<span id="cb12-4"><a href="spatial-temporal-mobility-analysis.html#cb12-4" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb12-5"><a href="spatial-temporal-mobility-analysis.html#cb12-5" aria-hidden="true"></a>gps</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="spatial-temporal-mobility-analysis.html#cb35-1" aria-hidden="true"></a><span class="co"># calculate speed in kilometres per hour</span></span>
+<span id="cb35-2"><a href="spatial-temporal-mobility-analysis.html#cb35-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">speed =</span> <span class="kw">as.integer</span>(dist)<span class="op">/</span><span class="kw">as.integer</span>(diff)<span class="op">*</span><span class="fl">3.6</span>)</span>
+<span id="cb35-3"><a href="spatial-temporal-mobility-analysis.html#cb35-3" aria-hidden="true"></a></span>
+<span id="cb35-4"><a href="spatial-temporal-mobility-analysis.html#cb35-4" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb35-5"><a href="spatial-temporal-mobility-analysis.html#cb35-5" aria-hidden="true"></a>gps</span></code></pre></div>
 <pre><code>## Simple feature collection with 27019 features and 13 fields
 ## Active geometry column: geometry
 ## geometry type:  POINT
@@ -522,42 +522,42 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 ## #   lead_geom &lt;POINT [m]&gt;, dist [m], lead_time &lt;dttm&gt;, diff &lt;drtn&gt;,
 ## #   speed &lt;dbl&gt;</code></pre>
 <p>Because we are using consecutive rows to calculate our speed, all of the last measurements within each of the 50 trajectories will not be assigned a value. However, because we do not really want to throw these points out, we will simply assign these points the same speed value as the last point that did get a value assigned.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="spatial-temporal-mobility-analysis.html#cb14-1" aria-hidden="true"></a><span class="co"># fill missing speeds</span></span>
-<span id="cb14-2"><a href="spatial-temporal-mobility-analysis.html#cb14-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">fill</span>(speed, <span class="dt">.direction=</span><span class="st">&#39;down&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="spatial-temporal-mobility-analysis.html#cb37-1" aria-hidden="true"></a><span class="co"># fill missing speeds</span></span>
+<span id="cb37-2"><a href="spatial-temporal-mobility-analysis.html#cb37-2" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">fill</span>(speed, <span class="dt">.direction=</span><span class="st">&#39;down&#39;</span>)</span></code></pre></div>
 <p>Another useful input feature would be a local point density: for each point it would be useful to know how many other points are in its vicinity, for instance, because a clustering of points could be indicative of an activity. Because vicinity is difficult to define, we will use three distance thresholds to create these local point densities: 100m, 250m, and 500m.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="spatial-temporal-mobility-analysis.html#cb15-1" aria-hidden="true"></a><span class="co"># distance thresholds</span></span>
-<span id="cb15-2"><a href="spatial-temporal-mobility-analysis.html#cb15-2" aria-hidden="true"></a>gps_100m &lt;-<span class="st"> </span><span class="kw">st_buffer</span>(gps,<span class="dv">100</span>)</span>
-<span id="cb15-3"><a href="spatial-temporal-mobility-analysis.html#cb15-3" aria-hidden="true"></a>gps_250m &lt;-<span class="st"> </span><span class="kw">st_buffer</span>(gps,<span class="dv">250</span>)</span>
-<span id="cb15-4"><a href="spatial-temporal-mobility-analysis.html#cb15-4" aria-hidden="true"></a>gps_500m &lt;-<span class="st"> </span><span class="kw">st_buffer</span>(gps,<span class="dv">500</span>)</span>
-<span id="cb15-5"><a href="spatial-temporal-mobility-analysis.html#cb15-5" aria-hidden="true"></a></span>
-<span id="cb15-6"><a href="spatial-temporal-mobility-analysis.html#cb15-6" aria-hidden="true"></a><span class="co"># loop through trajectories and count the number of points falling within the three distance thresholds </span></span>
-<span id="cb15-7"><a href="spatial-temporal-mobility-analysis.html#cb15-7" aria-hidden="true"></a><span class="co"># // this could take a few minutes</span></span>
-<span id="cb15-8"><a href="spatial-temporal-mobility-analysis.html#cb15-8" aria-hidden="true"></a>df &lt;-<span class="st"> </span>gps[<span class="dv">0</span>,]</span>
-<span id="cb15-9"><a href="spatial-temporal-mobility-analysis.html#cb15-9" aria-hidden="true"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">50</span>)) {</span>
-<span id="cb15-10"><a href="spatial-temporal-mobility-analysis.html#cb15-10" aria-hidden="true"></a></span>
-<span id="cb15-11"><a href="spatial-temporal-mobility-analysis.html#cb15-11" aria-hidden="true"></a>        <span class="co"># filter gps trajectory</span></span>
-<span id="cb15-12"><a href="spatial-temporal-mobility-analysis.html#cb15-12" aria-hidden="true"></a>        gps_sel &lt;-<span class="st"> </span><span class="kw">filter</span>(gps, <span class="kw">as.integer</span>(track_id)<span class="op">==</span>t)</span>
-<span id="cb15-13"><a href="spatial-temporal-mobility-analysis.html#cb15-13" aria-hidden="true"></a>        </span>
-<span id="cb15-14"><a href="spatial-temporal-mobility-analysis.html#cb15-14" aria-hidden="true"></a>        <span class="co"># filter buffer</span></span>
-<span id="cb15-15"><a href="spatial-temporal-mobility-analysis.html#cb15-15" aria-hidden="true"></a>        gps_100m_sel &lt;-<span class="st"> </span><span class="kw">filter</span>(gps_100m, <span class="kw">as.integer</span>(track_id)<span class="op">==</span>t)</span>
-<span id="cb15-16"><a href="spatial-temporal-mobility-analysis.html#cb15-16" aria-hidden="true"></a>        gps_250m_sel &lt;-<span class="st"> </span><span class="kw">filter</span>(gps_250m, <span class="kw">as.integer</span>(track_id)<span class="op">==</span>t)</span>
-<span id="cb15-17"><a href="spatial-temporal-mobility-analysis.html#cb15-17" aria-hidden="true"></a>        gps_500m_sel &lt;-<span class="st"> </span><span class="kw">filter</span>(gps_500m, <span class="kw">as.integer</span>(track_id)<span class="op">==</span>t)</span>
-<span id="cb15-18"><a href="spatial-temporal-mobility-analysis.html#cb15-18" aria-hidden="true"></a>        </span>
-<span id="cb15-19"><a href="spatial-temporal-mobility-analysis.html#cb15-19" aria-hidden="true"></a>        <span class="co"># intersect</span></span>
-<span id="cb15-20"><a href="spatial-temporal-mobility-analysis.html#cb15-20" aria-hidden="true"></a>        gps_sel<span class="op">$</span>buf100 &lt;-<span class="st"> </span><span class="kw">lengths</span>(<span class="kw">st_intersects</span>(gps_sel, gps_100m_sel))</span>
-<span id="cb15-21"><a href="spatial-temporal-mobility-analysis.html#cb15-21" aria-hidden="true"></a>        gps_sel<span class="op">$</span>buf250 &lt;-<span class="st"> </span><span class="kw">lengths</span>(<span class="kw">st_intersects</span>(gps_sel, gps_250m_sel))</span>
-<span id="cb15-22"><a href="spatial-temporal-mobility-analysis.html#cb15-22" aria-hidden="true"></a>        gps_sel<span class="op">$</span>buf500 &lt;-<span class="st"> </span><span class="kw">lengths</span>(<span class="kw">st_intersects</span>(gps_sel, gps_500m_sel))</span>
-<span id="cb15-23"><a href="spatial-temporal-mobility-analysis.html#cb15-23" aria-hidden="true"></a>        </span>
-<span id="cb15-24"><a href="spatial-temporal-mobility-analysis.html#cb15-24" aria-hidden="true"></a>        <span class="co"># bind results </span></span>
-<span id="cb15-25"><a href="spatial-temporal-mobility-analysis.html#cb15-25" aria-hidden="true"></a>        df &lt;-<span class="st"> </span><span class="kw">rbind</span>(df,gps_sel)</span>
-<span id="cb15-26"><a href="spatial-temporal-mobility-analysis.html#cb15-26" aria-hidden="true"></a></span>
-<span id="cb15-27"><a href="spatial-temporal-mobility-analysis.html#cb15-27" aria-hidden="true"></a>}</span>
-<span id="cb15-28"><a href="spatial-temporal-mobility-analysis.html#cb15-28" aria-hidden="true"></a></span>
-<span id="cb15-29"><a href="spatial-temporal-mobility-analysis.html#cb15-29" aria-hidden="true"></a><span class="co"># rename</span></span>
-<span id="cb15-30"><a href="spatial-temporal-mobility-analysis.html#cb15-30" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>df</span>
-<span id="cb15-31"><a href="spatial-temporal-mobility-analysis.html#cb15-31" aria-hidden="true"></a></span>
-<span id="cb15-32"><a href="spatial-temporal-mobility-analysis.html#cb15-32" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb15-33"><a href="spatial-temporal-mobility-analysis.html#cb15-33" aria-hidden="true"></a>gps</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="spatial-temporal-mobility-analysis.html#cb38-1" aria-hidden="true"></a><span class="co"># distance thresholds</span></span>
+<span id="cb38-2"><a href="spatial-temporal-mobility-analysis.html#cb38-2" aria-hidden="true"></a>gps_100m &lt;-<span class="st"> </span><span class="kw">st_buffer</span>(gps,<span class="dv">100</span>)</span>
+<span id="cb38-3"><a href="spatial-temporal-mobility-analysis.html#cb38-3" aria-hidden="true"></a>gps_250m &lt;-<span class="st"> </span><span class="kw">st_buffer</span>(gps,<span class="dv">250</span>)</span>
+<span id="cb38-4"><a href="spatial-temporal-mobility-analysis.html#cb38-4" aria-hidden="true"></a>gps_500m &lt;-<span class="st"> </span><span class="kw">st_buffer</span>(gps,<span class="dv">500</span>)</span>
+<span id="cb38-5"><a href="spatial-temporal-mobility-analysis.html#cb38-5" aria-hidden="true"></a></span>
+<span id="cb38-6"><a href="spatial-temporal-mobility-analysis.html#cb38-6" aria-hidden="true"></a><span class="co"># loop through trajectories and count the number of points falling within the three distance thresholds </span></span>
+<span id="cb38-7"><a href="spatial-temporal-mobility-analysis.html#cb38-7" aria-hidden="true"></a><span class="co"># // this could take a few minutes</span></span>
+<span id="cb38-8"><a href="spatial-temporal-mobility-analysis.html#cb38-8" aria-hidden="true"></a>df &lt;-<span class="st"> </span>gps[<span class="dv">0</span>,]</span>
+<span id="cb38-9"><a href="spatial-temporal-mobility-analysis.html#cb38-9" aria-hidden="true"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">50</span>)) {</span>
+<span id="cb38-10"><a href="spatial-temporal-mobility-analysis.html#cb38-10" aria-hidden="true"></a></span>
+<span id="cb38-11"><a href="spatial-temporal-mobility-analysis.html#cb38-11" aria-hidden="true"></a>        <span class="co"># filter gps trajectory</span></span>
+<span id="cb38-12"><a href="spatial-temporal-mobility-analysis.html#cb38-12" aria-hidden="true"></a>        gps_sel &lt;-<span class="st"> </span><span class="kw">filter</span>(gps, <span class="kw">as.integer</span>(track_id)<span class="op">==</span>t)</span>
+<span id="cb38-13"><a href="spatial-temporal-mobility-analysis.html#cb38-13" aria-hidden="true"></a>        </span>
+<span id="cb38-14"><a href="spatial-temporal-mobility-analysis.html#cb38-14" aria-hidden="true"></a>        <span class="co"># filter buffer</span></span>
+<span id="cb38-15"><a href="spatial-temporal-mobility-analysis.html#cb38-15" aria-hidden="true"></a>        gps_100m_sel &lt;-<span class="st"> </span><span class="kw">filter</span>(gps_100m, <span class="kw">as.integer</span>(track_id)<span class="op">==</span>t)</span>
+<span id="cb38-16"><a href="spatial-temporal-mobility-analysis.html#cb38-16" aria-hidden="true"></a>        gps_250m_sel &lt;-<span class="st"> </span><span class="kw">filter</span>(gps_250m, <span class="kw">as.integer</span>(track_id)<span class="op">==</span>t)</span>
+<span id="cb38-17"><a href="spatial-temporal-mobility-analysis.html#cb38-17" aria-hidden="true"></a>        gps_500m_sel &lt;-<span class="st"> </span><span class="kw">filter</span>(gps_500m, <span class="kw">as.integer</span>(track_id)<span class="op">==</span>t)</span>
+<span id="cb38-18"><a href="spatial-temporal-mobility-analysis.html#cb38-18" aria-hidden="true"></a>        </span>
+<span id="cb38-19"><a href="spatial-temporal-mobility-analysis.html#cb38-19" aria-hidden="true"></a>        <span class="co"># intersect</span></span>
+<span id="cb38-20"><a href="spatial-temporal-mobility-analysis.html#cb38-20" aria-hidden="true"></a>        gps_sel<span class="op">$</span>buf100 &lt;-<span class="st"> </span><span class="kw">lengths</span>(<span class="kw">st_intersects</span>(gps_sel, gps_100m_sel))</span>
+<span id="cb38-21"><a href="spatial-temporal-mobility-analysis.html#cb38-21" aria-hidden="true"></a>        gps_sel<span class="op">$</span>buf250 &lt;-<span class="st"> </span><span class="kw">lengths</span>(<span class="kw">st_intersects</span>(gps_sel, gps_250m_sel))</span>
+<span id="cb38-22"><a href="spatial-temporal-mobility-analysis.html#cb38-22" aria-hidden="true"></a>        gps_sel<span class="op">$</span>buf500 &lt;-<span class="st"> </span><span class="kw">lengths</span>(<span class="kw">st_intersects</span>(gps_sel, gps_500m_sel))</span>
+<span id="cb38-23"><a href="spatial-temporal-mobility-analysis.html#cb38-23" aria-hidden="true"></a>        </span>
+<span id="cb38-24"><a href="spatial-temporal-mobility-analysis.html#cb38-24" aria-hidden="true"></a>        <span class="co"># bind results </span></span>
+<span id="cb38-25"><a href="spatial-temporal-mobility-analysis.html#cb38-25" aria-hidden="true"></a>        df &lt;-<span class="st"> </span><span class="kw">rbind</span>(df,gps_sel)</span>
+<span id="cb38-26"><a href="spatial-temporal-mobility-analysis.html#cb38-26" aria-hidden="true"></a></span>
+<span id="cb38-27"><a href="spatial-temporal-mobility-analysis.html#cb38-27" aria-hidden="true"></a>}</span>
+<span id="cb38-28"><a href="spatial-temporal-mobility-analysis.html#cb38-28" aria-hidden="true"></a></span>
+<span id="cb38-29"><a href="spatial-temporal-mobility-analysis.html#cb38-29" aria-hidden="true"></a><span class="co"># rename</span></span>
+<span id="cb38-30"><a href="spatial-temporal-mobility-analysis.html#cb38-30" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>df</span>
+<span id="cb38-31"><a href="spatial-temporal-mobility-analysis.html#cb38-31" aria-hidden="true"></a></span>
+<span id="cb38-32"><a href="spatial-temporal-mobility-analysis.html#cb38-32" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb38-33"><a href="spatial-temporal-mobility-analysis.html#cb38-33" aria-hidden="true"></a>gps</span></code></pre></div>
 <pre><code>## Simple feature collection with 27019 features and 16 fields
 ## Active geometry column: geometry
 ## geometry type:  POINT
@@ -581,19 +581,19 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 ## #   lead_geom &lt;POINT [m]&gt;, dist [m], lead_time &lt;dttm&gt;, diff &lt;drtn&gt;,
 ## #   speed &lt;dbl&gt;, buf100 &lt;int&gt;, buf250 &lt;int&gt;, buf500 &lt;int&gt;</code></pre>
 <p>Great. We now have a speed variable as well as three local density variables. The last thing we will need to do is for each point calculate the distance to the nearest road segment.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="spatial-temporal-mobility-analysis.html#cb17-1" aria-hidden="true"></a><span class="co"># for each point: get nearest road feature </span></span>
-<span id="cb17-2"><a href="spatial-temporal-mobility-analysis.html#cb17-2" aria-hidden="true"></a><span class="co"># // this could take a few minutes</span></span>
-<span id="cb17-3"><a href="spatial-temporal-mobility-analysis.html#cb17-3" aria-hidden="true"></a>nearest_road &lt;-<span class="st"> </span><span class="kw">st_nearest_feature</span>(gps, road)</span>
-<span id="cb17-4"><a href="spatial-temporal-mobility-analysis.html#cb17-4" aria-hidden="true"></a></span>
-<span id="cb17-5"><a href="spatial-temporal-mobility-analysis.html#cb17-5" aria-hidden="true"></a><span class="co"># for each point: get the distance to the nearest road feature </span></span>
-<span id="cb17-6"><a href="spatial-temporal-mobility-analysis.html#cb17-6" aria-hidden="true"></a><span class="co"># // this could take a few minutes</span></span>
-<span id="cb17-7"><a href="spatial-temporal-mobility-analysis.html#cb17-7" aria-hidden="true"></a>nearest_road_dst &lt;-<span class="st"> </span><span class="kw">st_distance</span>(gps, road[nearest_road,], <span class="dt">by_element=</span><span class="ot">TRUE</span>, <span class="dt">which=</span><span class="st">&#39;Euclidean&#39;</span>)</span>
-<span id="cb17-8"><a href="spatial-temporal-mobility-analysis.html#cb17-8" aria-hidden="true"></a></span>
-<span id="cb17-9"><a href="spatial-temporal-mobility-analysis.html#cb17-9" aria-hidden="true"></a><span class="co"># assign values to gps data set</span></span>
-<span id="cb17-10"><a href="spatial-temporal-mobility-analysis.html#cb17-10" aria-hidden="true"></a>gps<span class="op">$</span>road_dist &lt;-<span class="st"> </span>nearest_road_dst</span>
-<span id="cb17-11"><a href="spatial-temporal-mobility-analysis.html#cb17-11" aria-hidden="true"></a>        </span>
-<span id="cb17-12"><a href="spatial-temporal-mobility-analysis.html#cb17-12" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb17-13"><a href="spatial-temporal-mobility-analysis.html#cb17-13" aria-hidden="true"></a>gps </span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="spatial-temporal-mobility-analysis.html#cb40-1" aria-hidden="true"></a><span class="co"># for each point: get nearest road feature </span></span>
+<span id="cb40-2"><a href="spatial-temporal-mobility-analysis.html#cb40-2" aria-hidden="true"></a><span class="co"># // this could take a few minutes</span></span>
+<span id="cb40-3"><a href="spatial-temporal-mobility-analysis.html#cb40-3" aria-hidden="true"></a>nearest_road &lt;-<span class="st"> </span><span class="kw">st_nearest_feature</span>(gps, road)</span>
+<span id="cb40-4"><a href="spatial-temporal-mobility-analysis.html#cb40-4" aria-hidden="true"></a></span>
+<span id="cb40-5"><a href="spatial-temporal-mobility-analysis.html#cb40-5" aria-hidden="true"></a><span class="co"># for each point: get the distance to the nearest road feature </span></span>
+<span id="cb40-6"><a href="spatial-temporal-mobility-analysis.html#cb40-6" aria-hidden="true"></a><span class="co"># // this could take a few minutes</span></span>
+<span id="cb40-7"><a href="spatial-temporal-mobility-analysis.html#cb40-7" aria-hidden="true"></a>nearest_road_dst &lt;-<span class="st"> </span><span class="kw">st_distance</span>(gps, road[nearest_road,], <span class="dt">by_element=</span><span class="ot">TRUE</span>, <span class="dt">which=</span><span class="st">&#39;Euclidean&#39;</span>)</span>
+<span id="cb40-8"><a href="spatial-temporal-mobility-analysis.html#cb40-8" aria-hidden="true"></a></span>
+<span id="cb40-9"><a href="spatial-temporal-mobility-analysis.html#cb40-9" aria-hidden="true"></a><span class="co"># assign values to gps data set</span></span>
+<span id="cb40-10"><a href="spatial-temporal-mobility-analysis.html#cb40-10" aria-hidden="true"></a>gps<span class="op">$</span>road_dist &lt;-<span class="st"> </span>nearest_road_dst</span>
+<span id="cb40-11"><a href="spatial-temporal-mobility-analysis.html#cb40-11" aria-hidden="true"></a>        </span>
+<span id="cb40-12"><a href="spatial-temporal-mobility-analysis.html#cb40-12" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb40-13"><a href="spatial-temporal-mobility-analysis.html#cb40-13" aria-hidden="true"></a>gps </span></code></pre></div>
 <pre><code>## Simple feature collection with 27019 features and 17 fields
 ## Active geometry column: geometry
 ## geometry type:  POINT
@@ -620,129 +620,129 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 <div id="gps-data-classification-1" class="section level3" number="7.3.2">
 <h3><span class="header-section-number">7.3.2</span> GPS data classification</h3>
 <p>Now we have added some useful variables to our raw GPS trajectories, we can scale them and move on to our classification algorithms. We will use a <strong>C5.0</strong> boosted decision tree, a <strong>random forest</strong>, and a <strong>support vector machine</strong>. We will use a test/train split of 70/30.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="spatial-temporal-mobility-analysis.html#cb19-1" aria-hidden="true"></a><span class="co"># libraries</span></span>
-<span id="cb19-2"><a href="spatial-temporal-mobility-analysis.html#cb19-2" aria-hidden="true"></a><span class="kw">library</span>(e1071)</span>
-<span id="cb19-3"><a href="spatial-temporal-mobility-analysis.html#cb19-3" aria-hidden="true"></a><span class="kw">library</span>(randomForest)</span>
-<span id="cb19-4"><a href="spatial-temporal-mobility-analysis.html#cb19-4" aria-hidden="true"></a><span class="kw">library</span>(C50)</span>
-<span id="cb19-5"><a href="spatial-temporal-mobility-analysis.html#cb19-5" aria-hidden="true"></a><span class="kw">library</span>(caret)</span>
-<span id="cb19-6"><a href="spatial-temporal-mobility-analysis.html#cb19-6" aria-hidden="true"></a></span>
-<span id="cb19-7"><a href="spatial-temporal-mobility-analysis.html#cb19-7" aria-hidden="true"></a><span class="co"># assign point to train and test</span></span>
-<span id="cb19-8"><a href="spatial-temporal-mobility-analysis.html#cb19-8" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">train =</span> <span class="kw">if_else</span>(<span class="kw">runif</span>(<span class="kw">nrow</span>(gps)) <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.7</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb19-9"><a href="spatial-temporal-mobility-analysis.html#cb19-9" aria-hidden="true"></a></span>
-<span id="cb19-10"><a href="spatial-temporal-mobility-analysis.html#cb19-10" aria-hidden="true"></a><span class="co"># create train set, select variables, confirm data types where necessary</span></span>
-<span id="cb19-11"><a href="spatial-temporal-mobility-analysis.html#cb19-11" aria-hidden="true"></a>gps_train &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(train<span class="op">==</span><span class="dv">1</span>) <span class="op">%&gt;%</span></span>
-<span id="cb19-12"><a href="spatial-temporal-mobility-analysis.html#cb19-12" aria-hidden="true"></a><span class="st">        </span><span class="kw">select</span>(speed,buf100,buf250,buf500,road_dist,move) <span class="op">%&gt;%</span></span>
-<span id="cb19-13"><a href="spatial-temporal-mobility-analysis.html#cb19-13" aria-hidden="true"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">road_dist=</span><span class="kw">as.numeric</span>(road_dist))</span>
-<span id="cb19-14"><a href="spatial-temporal-mobility-analysis.html#cb19-14" aria-hidden="true"></a></span>
-<span id="cb19-15"><a href="spatial-temporal-mobility-analysis.html#cb19-15" aria-hidden="true"></a><span class="co"># drop geometry</span></span>
-<span id="cb19-16"><a href="spatial-temporal-mobility-analysis.html#cb19-16" aria-hidden="true"></a>gps_train &lt;-<span class="st"> </span><span class="kw">st_drop_geometry</span>(gps_train)</span>
-<span id="cb19-17"><a href="spatial-temporal-mobility-analysis.html#cb19-17" aria-hidden="true"></a></span>
-<span id="cb19-18"><a href="spatial-temporal-mobility-analysis.html#cb19-18" aria-hidden="true"></a><span class="co"># scale</span></span>
-<span id="cb19-19"><a href="spatial-temporal-mobility-analysis.html#cb19-19" aria-hidden="true"></a>gps_train[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(gps_train[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="cf">function</span>(x) <span class="kw">scale</span>(x))</span>
-<span id="cb19-20"><a href="spatial-temporal-mobility-analysis.html#cb19-20" aria-hidden="true"></a></span>
-<span id="cb19-21"><a href="spatial-temporal-mobility-analysis.html#cb19-21" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb19-22"><a href="spatial-temporal-mobility-analysis.html#cb19-22" aria-hidden="true"></a>gps_train</span></code></pre></div>
-<pre><code>## # A tibble: 18,984 x 6
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="spatial-temporal-mobility-analysis.html#cb42-1" aria-hidden="true"></a><span class="co"># libraries</span></span>
+<span id="cb42-2"><a href="spatial-temporal-mobility-analysis.html#cb42-2" aria-hidden="true"></a><span class="kw">library</span>(e1071)</span>
+<span id="cb42-3"><a href="spatial-temporal-mobility-analysis.html#cb42-3" aria-hidden="true"></a><span class="kw">library</span>(randomForest)</span>
+<span id="cb42-4"><a href="spatial-temporal-mobility-analysis.html#cb42-4" aria-hidden="true"></a><span class="kw">library</span>(C50)</span>
+<span id="cb42-5"><a href="spatial-temporal-mobility-analysis.html#cb42-5" aria-hidden="true"></a><span class="kw">library</span>(caret)</span>
+<span id="cb42-6"><a href="spatial-temporal-mobility-analysis.html#cb42-6" aria-hidden="true"></a></span>
+<span id="cb42-7"><a href="spatial-temporal-mobility-analysis.html#cb42-7" aria-hidden="true"></a><span class="co"># assign point to train and test</span></span>
+<span id="cb42-8"><a href="spatial-temporal-mobility-analysis.html#cb42-8" aria-hidden="true"></a>gps &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">train =</span> <span class="kw">if_else</span>(<span class="kw">runif</span>(<span class="kw">nrow</span>(gps)) <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.7</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb42-9"><a href="spatial-temporal-mobility-analysis.html#cb42-9" aria-hidden="true"></a></span>
+<span id="cb42-10"><a href="spatial-temporal-mobility-analysis.html#cb42-10" aria-hidden="true"></a><span class="co"># create train set, select variables, confirm data types where necessary</span></span>
+<span id="cb42-11"><a href="spatial-temporal-mobility-analysis.html#cb42-11" aria-hidden="true"></a>gps_train &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(train<span class="op">==</span><span class="dv">1</span>) <span class="op">%&gt;%</span></span>
+<span id="cb42-12"><a href="spatial-temporal-mobility-analysis.html#cb42-12" aria-hidden="true"></a><span class="st">        </span><span class="kw">select</span>(speed,buf100,buf250,buf500,road_dist,move) <span class="op">%&gt;%</span></span>
+<span id="cb42-13"><a href="spatial-temporal-mobility-analysis.html#cb42-13" aria-hidden="true"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">road_dist=</span><span class="kw">as.numeric</span>(road_dist))</span>
+<span id="cb42-14"><a href="spatial-temporal-mobility-analysis.html#cb42-14" aria-hidden="true"></a></span>
+<span id="cb42-15"><a href="spatial-temporal-mobility-analysis.html#cb42-15" aria-hidden="true"></a><span class="co"># drop geometry</span></span>
+<span id="cb42-16"><a href="spatial-temporal-mobility-analysis.html#cb42-16" aria-hidden="true"></a>gps_train &lt;-<span class="st"> </span><span class="kw">st_drop_geometry</span>(gps_train)</span>
+<span id="cb42-17"><a href="spatial-temporal-mobility-analysis.html#cb42-17" aria-hidden="true"></a></span>
+<span id="cb42-18"><a href="spatial-temporal-mobility-analysis.html#cb42-18" aria-hidden="true"></a><span class="co"># scale</span></span>
+<span id="cb42-19"><a href="spatial-temporal-mobility-analysis.html#cb42-19" aria-hidden="true"></a>gps_train[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(gps_train[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="cf">function</span>(x) <span class="kw">scale</span>(x))</span>
+<span id="cb42-20"><a href="spatial-temporal-mobility-analysis.html#cb42-20" aria-hidden="true"></a></span>
+<span id="cb42-21"><a href="spatial-temporal-mobility-analysis.html#cb42-21" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb42-22"><a href="spatial-temporal-mobility-analysis.html#cb42-22" aria-hidden="true"></a>gps_train</span></code></pre></div>
+<pre><code>## # A tibble: 18,951 x 6
 ##    speed[,1] buf100[,1] buf250[,1] buf500[,1] road_dist[,1] move 
 ##        &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;
-##  1    -0.515     -0.454     -0.757     -0.898        -0.246 STAY 
-##  2    -0.593     -0.564     -0.772     -0.898        -0.322 STAY 
-##  3    -0.408     -0.520     -0.757     -0.898         0.153 STAY 
-##  4    -0.559     -0.542     -0.757     -0.898         1.74  STAY 
-##  5    -0.673     -0.498     -0.757     -0.898        -0.233 STAY 
-##  6    -0.578     -0.564     -0.757     -0.898         1.46  STAY 
-##  7    -0.739     -0.476     -0.757     -0.898        -0.538 STAY 
-##  8     2.49      -0.432     -0.757     -0.898        -0.686 STAY 
-##  9     5.66      -0.609     -0.934     -1.04         -0.695 MOVE 
-## 10     5.21      -0.609     -0.934     -1.04         -0.351 MOVE 
-## # … with 18,974 more rows</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="spatial-temporal-mobility-analysis.html#cb21-1" aria-hidden="true"></a><span class="co"># create train set, select variables, confirm data types where necessary</span></span>
-<span id="cb21-2"><a href="spatial-temporal-mobility-analysis.html#cb21-2" aria-hidden="true"></a>gps_test &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(train<span class="op">==</span><span class="dv">0</span>) <span class="op">%&gt;%</span></span>
-<span id="cb21-3"><a href="spatial-temporal-mobility-analysis.html#cb21-3" aria-hidden="true"></a><span class="st">        </span><span class="kw">select</span>(speed,buf100,buf250,buf500,road_dist,move) <span class="op">%&gt;%</span></span>
-<span id="cb21-4"><a href="spatial-temporal-mobility-analysis.html#cb21-4" aria-hidden="true"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">road_dist=</span><span class="kw">as.numeric</span>(road_dist))</span>
-<span id="cb21-5"><a href="spatial-temporal-mobility-analysis.html#cb21-5" aria-hidden="true"></a></span>
-<span id="cb21-6"><a href="spatial-temporal-mobility-analysis.html#cb21-6" aria-hidden="true"></a><span class="co"># drop geometry</span></span>
-<span id="cb21-7"><a href="spatial-temporal-mobility-analysis.html#cb21-7" aria-hidden="true"></a>gps_test &lt;-<span class="st"> </span><span class="kw">st_drop_geometry</span>(gps_test)</span>
-<span id="cb21-8"><a href="spatial-temporal-mobility-analysis.html#cb21-8" aria-hidden="true"></a></span>
-<span id="cb21-9"><a href="spatial-temporal-mobility-analysis.html#cb21-9" aria-hidden="true"></a><span class="co"># scale</span></span>
-<span id="cb21-10"><a href="spatial-temporal-mobility-analysis.html#cb21-10" aria-hidden="true"></a>gps_test[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(gps_test[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="cf">function</span>(x) <span class="kw">scale</span>(x))</span>
-<span id="cb21-11"><a href="spatial-temporal-mobility-analysis.html#cb21-11" aria-hidden="true"></a></span>
-<span id="cb21-12"><a href="spatial-temporal-mobility-analysis.html#cb21-12" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb21-13"><a href="spatial-temporal-mobility-analysis.html#cb21-13" aria-hidden="true"></a>gps_test</span></code></pre></div>
-<pre><code>## # A tibble: 8,035 x 6
+##  1    -0.738     -0.479     -0.760     -0.903        -0.745 STAY 
+##  2    -0.519     -0.457     -0.760     -0.903        -0.246 STAY 
+##  3    -0.625     -0.413     -0.760     -0.903        -0.277 STAY 
+##  4    -0.563     -0.545     -0.760     -0.903         1.73  STAY 
+##  5    -0.744     -0.479     -0.760     -0.903        -0.537 STAY 
+##  6    -0.637     -0.479     -0.760     -0.903        -0.200 STAY 
+##  7     2.50      -0.435     -0.760     -0.903        -0.684 STAY 
+##  8     5.22      -0.611     -0.937     -1.04         -0.350 MOVE 
+##  9     4.78      -0.611     -0.937     -1.04         -0.540 MOVE 
+## 10     5.67      -0.611     -0.937     -1.04         -0.260 MOVE 
+## # … with 18,941 more rows</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="spatial-temporal-mobility-analysis.html#cb44-1" aria-hidden="true"></a><span class="co"># create train set, select variables, confirm data types where necessary</span></span>
+<span id="cb44-2"><a href="spatial-temporal-mobility-analysis.html#cb44-2" aria-hidden="true"></a>gps_test &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(train<span class="op">==</span><span class="dv">0</span>) <span class="op">%&gt;%</span></span>
+<span id="cb44-3"><a href="spatial-temporal-mobility-analysis.html#cb44-3" aria-hidden="true"></a><span class="st">        </span><span class="kw">select</span>(speed,buf100,buf250,buf500,road_dist,move) <span class="op">%&gt;%</span></span>
+<span id="cb44-4"><a href="spatial-temporal-mobility-analysis.html#cb44-4" aria-hidden="true"></a><span class="st">        </span><span class="kw">mutate</span>(<span class="dt">road_dist=</span><span class="kw">as.numeric</span>(road_dist))</span>
+<span id="cb44-5"><a href="spatial-temporal-mobility-analysis.html#cb44-5" aria-hidden="true"></a></span>
+<span id="cb44-6"><a href="spatial-temporal-mobility-analysis.html#cb44-6" aria-hidden="true"></a><span class="co"># drop geometry</span></span>
+<span id="cb44-7"><a href="spatial-temporal-mobility-analysis.html#cb44-7" aria-hidden="true"></a>gps_test &lt;-<span class="st"> </span><span class="kw">st_drop_geometry</span>(gps_test)</span>
+<span id="cb44-8"><a href="spatial-temporal-mobility-analysis.html#cb44-8" aria-hidden="true"></a></span>
+<span id="cb44-9"><a href="spatial-temporal-mobility-analysis.html#cb44-9" aria-hidden="true"></a><span class="co"># scale</span></span>
+<span id="cb44-10"><a href="spatial-temporal-mobility-analysis.html#cb44-10" aria-hidden="true"></a>gps_test[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>] &lt;-<span class="st"> </span><span class="kw">lapply</span>(gps_test[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="cf">function</span>(x) <span class="kw">scale</span>(x))</span>
+<span id="cb44-11"><a href="spatial-temporal-mobility-analysis.html#cb44-11" aria-hidden="true"></a></span>
+<span id="cb44-12"><a href="spatial-temporal-mobility-analysis.html#cb44-12" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb44-13"><a href="spatial-temporal-mobility-analysis.html#cb44-13" aria-hidden="true"></a>gps_test</span></code></pre></div>
+<pre><code>## # A tibble: 8,068 x 6
 ##    speed[,1] buf100[,1] buf250[,1] buf500[,1] road_dist[,1] move 
 ##        &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;
-##  1    -0.744     -0.474     -0.756     -0.897        -0.741 STAY 
-##  2    -0.458     -0.541     -0.771     -0.897        -0.657 STAY 
-##  3    -0.631     -0.408     -0.756     -0.897        -0.271 STAY 
-##  4    -0.580     -0.497     -0.756     -0.897         1.05  STAY 
-##  5    -0.643     -0.474     -0.756     -0.897        -0.195 STAY 
-##  6     5.69      -0.608     -0.933     -1.04         -0.255 MOVE 
-##  7     6.19      -0.608     -0.933     -1.04         -0.476 MOVE 
-##  8     5.17      -0.608     -0.933     -1.04         -0.727 MOVE 
-##  9     5.45      -0.608     -0.933     -1.03         -0.371 MOVE 
-## 10     5.35      -0.608     -0.933     -1.04         -0.395 MOVE 
-## # … with 8,025 more rows</code></pre>
+##  1    -0.593     -0.557     -0.763     -0.886       -0.317  STAY 
+##  2    -0.408     -0.512     -0.748     -0.886        0.162  STAY 
+##  3    -0.448     -0.535     -0.763     -0.886       -0.661  STAY 
+##  4    -0.570     -0.490     -0.748     -0.886        1.06   STAY 
+##  5    -0.673     -0.490     -0.748     -0.886       -0.227  STAY 
+##  6    -0.577     -0.557     -0.748     -0.886        1.48   STAY 
+##  7     5.66      -0.602     -0.926     -1.03        -0.693  MOVE 
+##  8     4.18      -0.602     -0.926     -1.03        -0.650  MOVE 
+##  9     5.14      -0.602     -0.926     -1.03        -0.732  MOVE 
+## 10     5.26      -0.602     -0.926     -1.00        -0.0660 MOVE 
+## # … with 8,058 more rows</code></pre>
 <p>Let’s train our models on our train data and directly predict on our test data.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="spatial-temporal-mobility-analysis.html#cb23-1" aria-hidden="true"></a><span class="co"># boosted decision tree with 5 boosting iterations</span></span>
-<span id="cb23-2"><a href="spatial-temporal-mobility-analysis.html#cb23-2" aria-hidden="true"></a>train_boost &lt;-<span class="st"> </span><span class="kw">C5.0</span>(<span class="kw">as.factor</span>(move) <span class="op">~</span>., <span class="dt">data=</span>gps_train, <span class="dt">trials=</span><span class="dv">5</span>)</span>
-<span id="cb23-3"><a href="spatial-temporal-mobility-analysis.html#cb23-3" aria-hidden="true"></a></span>
-<span id="cb23-4"><a href="spatial-temporal-mobility-analysis.html#cb23-4" aria-hidden="true"></a><span class="co"># support vector machine</span></span>
-<span id="cb23-5"><a href="spatial-temporal-mobility-analysis.html#cb23-5" aria-hidden="true"></a>train_svm &lt;-<span class="st"> </span><span class="kw">svm</span>(<span class="kw">as.factor</span>(move) <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>gps_train)</span>
-<span id="cb23-6"><a href="spatial-temporal-mobility-analysis.html#cb23-6" aria-hidden="true"></a></span>
-<span id="cb23-7"><a href="spatial-temporal-mobility-analysis.html#cb23-7" aria-hidden="true"></a><span class="co"># random forest with 500 trees, 3 variables at each split, sampling with replacement</span></span>
-<span id="cb23-8"><a href="spatial-temporal-mobility-analysis.html#cb23-8" aria-hidden="true"></a>train_rf &lt;-<span class="st"> </span><span class="kw">randomForest</span>(<span class="kw">as.factor</span>(move) <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>gps_train, <span class="dt">ntree=</span><span class="dv">500</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>, <span class="dt">mtry=</span><span class="dv">3</span>)</span>
-<span id="cb23-9"><a href="spatial-temporal-mobility-analysis.html#cb23-9" aria-hidden="true"></a></span>
-<span id="cb23-10"><a href="spatial-temporal-mobility-analysis.html#cb23-10" aria-hidden="true"></a><span class="co"># predict boosted decision tree</span></span>
-<span id="cb23-11"><a href="spatial-temporal-mobility-analysis.html#cb23-11" aria-hidden="true"></a>test_boost &lt;-<span class="st"> </span><span class="kw">predict</span>(train_boost, gps_test)</span>
-<span id="cb23-12"><a href="spatial-temporal-mobility-analysis.html#cb23-12" aria-hidden="true"></a></span>
-<span id="cb23-13"><a href="spatial-temporal-mobility-analysis.html#cb23-13" aria-hidden="true"></a><span class="co"># predict support vector machine</span></span>
-<span id="cb23-14"><a href="spatial-temporal-mobility-analysis.html#cb23-14" aria-hidden="true"></a>test_svm &lt;-<span class="st"> </span><span class="kw">predict</span>(train_svm, gps_test)</span>
-<span id="cb23-15"><a href="spatial-temporal-mobility-analysis.html#cb23-15" aria-hidden="true"></a></span>
-<span id="cb23-16"><a href="spatial-temporal-mobility-analysis.html#cb23-16" aria-hidden="true"></a><span class="co"># predict random forest</span></span>
-<span id="cb23-17"><a href="spatial-temporal-mobility-analysis.html#cb23-17" aria-hidden="true"></a>test_rf &lt;-<span class="st"> </span><span class="kw">predict</span>(train_rf, gps_test)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="spatial-temporal-mobility-analysis.html#cb46-1" aria-hidden="true"></a><span class="co"># boosted decision tree with 5 boosting iterations</span></span>
+<span id="cb46-2"><a href="spatial-temporal-mobility-analysis.html#cb46-2" aria-hidden="true"></a>train_boost &lt;-<span class="st"> </span><span class="kw">C5.0</span>(<span class="kw">as.factor</span>(move) <span class="op">~</span>., <span class="dt">data=</span>gps_train, <span class="dt">trials=</span><span class="dv">5</span>)</span>
+<span id="cb46-3"><a href="spatial-temporal-mobility-analysis.html#cb46-3" aria-hidden="true"></a></span>
+<span id="cb46-4"><a href="spatial-temporal-mobility-analysis.html#cb46-4" aria-hidden="true"></a><span class="co"># support vector machine</span></span>
+<span id="cb46-5"><a href="spatial-temporal-mobility-analysis.html#cb46-5" aria-hidden="true"></a>train_svm &lt;-<span class="st"> </span><span class="kw">svm</span>(<span class="kw">as.factor</span>(move) <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>gps_train)</span>
+<span id="cb46-6"><a href="spatial-temporal-mobility-analysis.html#cb46-6" aria-hidden="true"></a></span>
+<span id="cb46-7"><a href="spatial-temporal-mobility-analysis.html#cb46-7" aria-hidden="true"></a><span class="co"># random forest with 500 trees, 3 variables at each split, sampling with replacement</span></span>
+<span id="cb46-8"><a href="spatial-temporal-mobility-analysis.html#cb46-8" aria-hidden="true"></a>train_rf &lt;-<span class="st"> </span><span class="kw">randomForest</span>(<span class="kw">as.factor</span>(move) <span class="op">~</span><span class="st"> </span>., <span class="dt">data=</span>gps_train, <span class="dt">ntree=</span><span class="dv">500</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>, <span class="dt">mtry=</span><span class="dv">3</span>)</span>
+<span id="cb46-9"><a href="spatial-temporal-mobility-analysis.html#cb46-9" aria-hidden="true"></a></span>
+<span id="cb46-10"><a href="spatial-temporal-mobility-analysis.html#cb46-10" aria-hidden="true"></a><span class="co"># predict boosted decision tree</span></span>
+<span id="cb46-11"><a href="spatial-temporal-mobility-analysis.html#cb46-11" aria-hidden="true"></a>test_boost &lt;-<span class="st"> </span><span class="kw">predict</span>(train_boost, gps_test)</span>
+<span id="cb46-12"><a href="spatial-temporal-mobility-analysis.html#cb46-12" aria-hidden="true"></a></span>
+<span id="cb46-13"><a href="spatial-temporal-mobility-analysis.html#cb46-13" aria-hidden="true"></a><span class="co"># predict support vector machine</span></span>
+<span id="cb46-14"><a href="spatial-temporal-mobility-analysis.html#cb46-14" aria-hidden="true"></a>test_svm &lt;-<span class="st"> </span><span class="kw">predict</span>(train_svm, gps_test)</span>
+<span id="cb46-15"><a href="spatial-temporal-mobility-analysis.html#cb46-15" aria-hidden="true"></a></span>
+<span id="cb46-16"><a href="spatial-temporal-mobility-analysis.html#cb46-16" aria-hidden="true"></a><span class="co"># predict random forest</span></span>
+<span id="cb46-17"><a href="spatial-temporal-mobility-analysis.html#cb46-17" aria-hidden="true"></a>test_rf &lt;-<span class="st"> </span><span class="kw">predict</span>(train_rf, gps_test)</span></code></pre></div>
 <p>We will use a confusion matrix to inspect our results. A confusion matrix is a table that is often used to describe the performance of a classification model on a set of test data for which the actual values are known. In other words, a confusion matrix can be used to compare the predictions our models make to the ground truth. A confusion matrix basically informs you for all prediction classes how many data points where predicted correctly and how many data points were predicted incorrectly.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="spatial-temporal-mobility-analysis.html#cb24-1" aria-hidden="true"></a><span class="co"># create confusion matrices</span></span>
-<span id="cb24-2"><a href="spatial-temporal-mobility-analysis.html#cb24-2" aria-hidden="true"></a>matrix_boost &lt;-<span class="kw">table</span>(test_boost, gps_test<span class="op">$</span>move)</span>
-<span id="cb24-3"><a href="spatial-temporal-mobility-analysis.html#cb24-3" aria-hidden="true"></a>matrix_svm &lt;-<span class="st"> </span><span class="kw">table</span>(test_svm, gps_test<span class="op">$</span>move)</span>
-<span id="cb24-4"><a href="spatial-temporal-mobility-analysis.html#cb24-4" aria-hidden="true"></a>matrix_rf &lt;-<span class="st"> </span><span class="kw">table</span>(test_rf, gps_test<span class="op">$</span>move)</span>
-<span id="cb24-5"><a href="spatial-temporal-mobility-analysis.html#cb24-5" aria-hidden="true"></a></span>
-<span id="cb24-6"><a href="spatial-temporal-mobility-analysis.html#cb24-6" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb24-7"><a href="spatial-temporal-mobility-analysis.html#cb24-7" aria-hidden="true"></a>matrix_boost</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="spatial-temporal-mobility-analysis.html#cb47-1" aria-hidden="true"></a><span class="co"># create confusion matrices</span></span>
+<span id="cb47-2"><a href="spatial-temporal-mobility-analysis.html#cb47-2" aria-hidden="true"></a>matrix_boost &lt;-<span class="kw">table</span>(test_boost, gps_test<span class="op">$</span>move)</span>
+<span id="cb47-3"><a href="spatial-temporal-mobility-analysis.html#cb47-3" aria-hidden="true"></a>matrix_svm &lt;-<span class="st"> </span><span class="kw">table</span>(test_svm, gps_test<span class="op">$</span>move)</span>
+<span id="cb47-4"><a href="spatial-temporal-mobility-analysis.html#cb47-4" aria-hidden="true"></a>matrix_rf &lt;-<span class="st"> </span><span class="kw">table</span>(test_rf, gps_test<span class="op">$</span>move)</span>
+<span id="cb47-5"><a href="spatial-temporal-mobility-analysis.html#cb47-5" aria-hidden="true"></a></span>
+<span id="cb47-6"><a href="spatial-temporal-mobility-analysis.html#cb47-6" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb47-7"><a href="spatial-temporal-mobility-analysis.html#cb47-7" aria-hidden="true"></a>matrix_boost</span></code></pre></div>
 <pre><code>##           
 ## test_boost MOVE STAY
-##       MOVE 3168   89
-##       STAY  160 4618</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="spatial-temporal-mobility-analysis.html#cb26-1" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb26-2"><a href="spatial-temporal-mobility-analysis.html#cb26-2" aria-hidden="true"></a>matrix_svm</span></code></pre></div>
+##       MOVE 3237  104
+##       STAY  159 4568</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="spatial-temporal-mobility-analysis.html#cb49-1" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb49-2"><a href="spatial-temporal-mobility-analysis.html#cb49-2" aria-hidden="true"></a>matrix_svm</span></code></pre></div>
 <pre><code>##         
 ## test_svm MOVE STAY
-##     MOVE 3205  143
-##     STAY  123 4564</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="spatial-temporal-mobility-analysis.html#cb28-1" aria-hidden="true"></a><span class="co"># inspect</span></span>
-<span id="cb28-2"><a href="spatial-temporal-mobility-analysis.html#cb28-2" aria-hidden="true"></a>matrix_rf</span></code></pre></div>
+##     MOVE 3270  112
+##     STAY  126 4560</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="spatial-temporal-mobility-analysis.html#cb51-1" aria-hidden="true"></a><span class="co"># inspect</span></span>
+<span id="cb51-2"><a href="spatial-temporal-mobility-analysis.html#cb51-2" aria-hidden="true"></a>matrix_rf</span></code></pre></div>
 <pre><code>##        
 ## test_rf MOVE STAY
-##    MOVE 3196   90
-##    STAY  132 4617</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="spatial-temporal-mobility-analysis.html#cb30-1" aria-hidden="true"></a><span class="co"># get overall accuracy boosted decision tree</span></span>
-<span id="cb30-2"><a href="spatial-temporal-mobility-analysis.html#cb30-2" aria-hidden="true"></a><span class="kw">confusionMatrix</span>(matrix_boost)<span class="op">$</span>overall</span></code></pre></div>
+##    MOVE 3236   84
+##    STAY  160 4588</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="spatial-temporal-mobility-analysis.html#cb53-1" aria-hidden="true"></a><span class="co"># get overall accuracy boosted decision tree</span></span>
+<span id="cb53-2"><a href="spatial-temporal-mobility-analysis.html#cb53-2" aria-hidden="true"></a><span class="kw">confusionMatrix</span>(matrix_boost)<span class="op">$</span>overall</span></code></pre></div>
 <pre><code>##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
-##   9.690106e-01   9.359400e-01   9.649851e-01   9.726909e-01   5.858121e-01 
+##    0.967402082    0.932983354    0.963292456    0.971169367    0.579077838 
 ## AccuracyPValue  McnemarPValue 
-##   0.000000e+00   9.161617e-06</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="spatial-temporal-mobility-analysis.html#cb32-1" aria-hidden="true"></a><span class="co"># get overall accuracy support vector machine</span></span>
-<span id="cb32-2"><a href="spatial-temporal-mobility-analysis.html#cb32-2" aria-hidden="true"></a><span class="kw">confusionMatrix</span>(matrix_svm)<span class="op">$</span>overall</span></code></pre></div>
+##    0.000000000    0.000869138</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="spatial-temporal-mobility-analysis.html#cb55-1" aria-hidden="true"></a><span class="co"># get overall accuracy support vector machine</span></span>
+<span id="cb55-2"><a href="spatial-temporal-mobility-analysis.html#cb55-2" aria-hidden="true"></a><span class="kw">confusionMatrix</span>(matrix_svm)<span class="op">$</span>overall</span></code></pre></div>
 <pre><code>##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
-##      0.9668948      0.9318403      0.9627475      0.9706989      0.5858121 
+##      0.9705007      0.9394538      0.9665725      0.9740840      0.5790778 
 ## AccuracyPValue  McnemarPValue 
-##      0.0000000      0.2440333</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="spatial-temporal-mobility-analysis.html#cb34-1" aria-hidden="true"></a><span class="co"># get overall accuracy random forest</span></span>
-<span id="cb34-2"><a href="spatial-temporal-mobility-analysis.html#cb34-2" aria-hidden="true"></a><span class="kw">confusionMatrix</span>(matrix_rf)<span class="op">$</span>overall</span></code></pre></div>
+##      0.0000000      0.3994159</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="spatial-temporal-mobility-analysis.html#cb57-1" aria-hidden="true"></a><span class="co"># get overall accuracy random forest</span></span>
+<span id="cb57-2"><a href="spatial-temporal-mobility-analysis.html#cb57-2" aria-hidden="true"></a><span class="kw">confusionMatrix</span>(matrix_rf)<span class="op">$</span>overall</span></code></pre></div>
 <pre><code>##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
-##     0.97237088     0.94295929     0.96854892     0.97584483     0.58581207 
+##   9.697571e-01   9.377722e-01   9.657844e-01   9.733854e-01   5.790778e-01 
 ## AccuracyPValue  McnemarPValue 
-##     0.00000000     0.00592796</code></pre>
+##   0.000000e+00   1.575736e-06</code></pre>
 <p>As we can see, all algorithms are highly accurate in classifying our artificial GPS points into <em>moves</em> and <em>stays</em> using the input features that were derived from the raw GPS trajectory data.</p>
 </div>
 <div id="exercise" class="section level3" number="7.3.3">
