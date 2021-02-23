@@ -3,7 +3,7 @@
 # Unix tools
 
 ## Introduction {#intro-w08}
-Over the past months, you have learned all about advanced topics in the domains of spatial analysis and machine learning. However, in your career as a data scientist or researcher, you are also very likely to encounter having to work in a command line environment. To do this, and to take full advantage of the tool that your computer provides, this week we will be working with a text interface: [the Shell](https://en.wikipedia.org/wiki/Shell_(computing). A shell is a computer program which exposes an operating system's services to a human user or other program. Although several shell programmes exist, at their core they are all roughly the same: they allow you to run programmes from within a textual environment. 
+Over the past months, you have learned all about advanced topics in the domains of spatial analysis and machine learning. However, in your career as a data scientist or researcher, you are also very likely to encounter having to work in a command line environment. To do this, and to take full advantage of the tool that your computer provides, this week we will be working with a text interface: [the Shell](https://en.wikipedia.org/wiki/Shell_(computing)). A shell is a computer program which exposes an operating system's services to a human user or other program. Although several shell programmes exist, at their core they are all roughly the same: they allow you to run programmes from within a textual environment. 
 
 This week we will focus on one of the most widely used shells: **bash** ([Bourne Again SHell](https://en.wikipedia.org/wiki/Bash_(Unix_shell))). We will look into some basic commands, accessing a remote server, and using some Unix tools for basic data wrangling tasks. The lecture videos this week are provided by [Dr Balamurugan Soundararaj](https://cityfutures.be.unsw.edu.au/about-us/our-profiles/dr-balamurugan-soundararaj/), who obtained a Masters' degree from [CASA](https://www.ucl.ac.uk/bartlett/casa/) and a PhD from [UCL Geography](https://www.geog.ucl.ac.uk/), is an avid Unix user and made extensive use of Unix tools to set up a data processing pipeline for [his PhD research](https://github.com/sbmkvp/phd_thesis). 
 
@@ -31,12 +31,13 @@ Because this week's tutorial material is rather extensive and has a strong pract
 Every Thursday between 13h00-14h00 you can join the **Technical Help** session on Microsoft Teams. The session will be hosted by [Alfie](https://www.ucl.ac.uk/geospatial-analytics/people/alfie-long). He will be there for the whole hour to answer any question you have live in the meeting or any questions you have formulated beforehand. If you cannot make the meeting, feel free to post the issue you are having in the Technical Help channel on the GEOG0125 Team so that Alfie can help to find a solution. 
 
 ## Bourne Again SHell (BASH)
-We will be using Bash for this course, Bash is a Unix shell and command language. It is free software and has been distributed widely as the default login shell for most Linux distributions and Apple’s macOS, a version is also available for Windows. To open a shell prompt, which is where you can type commands, you first need a terminal. Carefully follow the installation instruction for your operating system:
+We will be using Bash for this course, Bash is a Unix shell and command language. It is free software and has been distributed widely as the default login shell for most Linux distributions and Apple’s macOS, a version is also available for Windows. To open a shell prompt, which is where you can type commands, you first need a terminal. 
 
-### Windows
+### Installation
+#### Windows {-}
 1. Download the [Git for Windows installer](https://gitforwindows.org/). It depends on your machine, but you probably need the *Git-2.30.1-64-bit.exe* version.
 2. Run the installer and follow the steps below:
-- Click on *next* four times (two times if you've previously installed Git). You don't need to change anything in the Information, location, components, and start menu screens.
+- Click on *next* four times (two times if you've previously installed Git). You don't need to change anything in the "information", "location", "components", and "start menu" screens.
 - From the dropdown menu select "Use Vim (the ubiquitous text editor as Git's default editor". Click *next.*
 - On the page that says "Adjusting the name of the initial branch in new repositories", leave the default as "Let Git decide". Click *next.*
 - Leave the" "Git from the command line and also from 3rd-party software" button selected and click on *next*.
@@ -56,14 +57,14 @@ We will be using Bash for this course, Bash is a Unix shell and command language
   - Quit command prompt by typing `exit` then pressing *enter*.
 4. You can now open the programme *Git Bash*.
 
-### macOS
+#### macOS {-}
 The default shell in some versions of macOS is Bash, and Bash is available in all versions, so no need to install anything. You access Bash from the **Terminal** (found in /Applications/Utilities). 
 
-### Linux
+#### Linux {-}
 The default shell is usually Bash and there is usually no need to install anything. If you are running a distribution like [Ubuntu Desktop](https://ubuntu.com/) you can also access Bash from the **Terminal**. 
 
-## Getting started with the shell
-Now everyone should have access to a terminal, either through installation or by default, we can get started. In order to make sure that everyone has access to the same tools and functionality, we will actually use our terminal to log into a server that we have created specifically for this course. In the following, we will log in to this server through something called [ssh](https://www.ssh.com/ssh/) (Secure Shell). The SSH protocol uses encryption to secure the connection between a client and a server. Start your terminal and type in the following:
+### Getting started
+Now everyone should have access to a terminal, either by installing *Git Bash* or through your operating system, we can get started. In order to make sure that everyone has access to the same tools and functionality, we will use our terminal to log into a server that we have created specifically for this course. In the following, we will log in to this server through something called [ssh](https://www.ssh.com/ssh/) (Secure Shell). The SSH protocol uses encryption to secure the connection between a client and a server. Start your terminal and type in the following:
 
 ```{bash eval=FALSE}
 ssh username@178.79.152.249
@@ -74,10 +75,10 @@ ssh username@178.79.152.249
 You can find your username and password on Moodle.
 </div>
 
-When you log in for the first time, you will get a message that `The authenticity of host 178.79.152.249 can't be established` together with the question whether you to continue connecting. Simply type **yes** and hit enter to log on to the server. You terminal window should now look similar to Figure \@ref(fig:login-server).
+When you log in for the first time, you will get a message that `The authenticity of host 178.79.152.249 can't be established` together with the question whether you want to continue connecting. Simply type **yes** and hit enter to log on to the server. You terminal window should now look similar to Figure \@ref(fig:login-server).
 
 ```{r login-server, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Enter the Matrix.', fig.align='center'}
-knitr::include_graphics('images/w07/login-server.png')
+knitr::include_graphics('images/w08/login-server.png')
 ```
 
 Now we have successfully logged onto the server, you will see a prompt that looks like this: `username@geog:~$`. This is the main textual interface to the shell. It tells you that you are on the machine *geog* and that your "current working directory", or where you currently are, is `~` (short for "home"). The `$` tells you that you are not the root user (the root user can do many things an ordinary user cannot). At this prompt you can type a command, which will then be interpreted by the shell. The most basic command is to execute a program:
@@ -86,42 +87,42 @@ Now we have successfully logged onto the server, you will see a prompt that look
 date
 ```
 
-Here, we executed the date program, which (perhaps unsurprisingly) prints the current date and time. The shell then asks us for another command to execute. We can also execute a command with arguments:
+Here, we executed the `date` program, which (perhaps unsurprisingly) prints the current date and time. The shell then asks us for another command to execute. We can also execute a command with arguments:
 
 ```{bash}
 echo hello
 ```
 
-In this case, we told the shell to execute the program "echo" with the argument "hello". The echo program simply prints out its arguments, similar to `print()` in R or Python. 
+In this case, we told the shell to execute the program `echo` with the argument "hello". The echo program simply prints out its arguments, similar to `print()` in R or Python. 
 
 <div class="note">
 **Note**<br/>
-The shell parses the command by splitting it by whitespace, and then runs the program indicated by the first word, supplying each subsequent word as an argument that the program can access. If you want to provide an argument that contains spaces or other special characters (e.g., a directory named "My Documents"), you can either quote the argument with `'` or `"` (`"My Documents"`), or escape just the relevant characters with `\` (`My\\ Documents`).
+The shell parses the command by splitting it by whitespace, and then runs the program indicated by the first word, supplying each subsequent word as an argument that the program can access. If you want to provide an argument that contains spaces or other special characters (e.g., a directory named "My Documents"), you can either quote the argument with `'` or `"` (`"My Documents"`), or escape the relevant characters with `\` (`My\\ Documents`).
 </div>
 
-But how does the shell know how to find the date or echo programs? The shell is a programming environment, just like Python or R, and so it has variables, conditionals, loops, and functions. When you run commands in your shell, you are really writing a small bit of code that your shell interprets. If the shell is asked to execute a command that doesn’t match one of its programming keywords, it consults an environment variable called `$PATH` that lists which directories the shell should search for programs when it is given a command:
+But how does the shell know how to find the date or echo programs? The shell is a programming environment, just like Python or R, and so it has variables, conditionals, loops, and functions. When you run commands in your shell, you are really writing a small bit of code that your shell interprets. If the shell is asked to execute a command that does not match one of its programming keywords, it consults an environment variable called `$PATH` that lists which directories the shell should search for programs when it is given a command:
 
 ```{bash}
 echo $PATH
 ```
 
-When we run the echo command, the shell sees that it should execute the program echo, and then searches through the :-separated list of directories in `$PATH` for a file by that name. When it finds it, it runs it. We can find out which file is executed for a given program name using the which program. We can also bypass `$PATH` entirely by giving the path to the file we want to execute. You may have encoutered working with this `$PATH` variable already when you are using [miniconda](https://docs.conda.io/en/latest/miniconda.html) to manage your virtual environments.
+When we run the echo command, the shell sees that it should execute the program `echo`, and then searches through the `:`-separated list of directories in `$PATH` for a file by that name. When it finds it, it runs it. We can find out which file is executed for a given program name using the which program. We can also bypass `$PATH` entirely by giving the path to the file we want to execute. You may have encountered working with this `$PATH` variable already when you are using [miniconda](https://docs.conda.io/en/latest/miniconda.html) to manage your virtual environments - conda has to be added to the `PATH` variable to be available; e.g. in case of `conda env list` the shell will find `conda` by consulting the `PATH` variable and in case this has not been set up properly you will get a `conda: command not found` message.
 
-A path on the shell is a delimited list of directories; separated by `/` on Linux and macOS and `\` on Windows. On Linux and macOS, the path `/` is the "root" of the file system, under which all directories and files lie, whereas on Windows there is one root for each disk partition (e.g., `C:\`). Because we are working on the `GEOG0125 server` we are using a Linux filesystem. A path that starts with `/` is called an absolute path. Any other path is a relative path. Relative paths are relative to the current working directory, which we can see with the `pwd` command and change with the `cd` command. In a path, `.` refers to the current directory, and `..` to its parent directory. To see what lives in a given directory, we use the `ls` command. Try out out these commands to navigate the server.
+A (file) path on the shell is a delimited list of directories; separated by `/` on Linux and macOS and `\` on Windows. On Linux and macOS, the path `/` is the "root" of the file system, under which all directories and files lie, whereas on Windows there is one root for each disk partition (e.g., `C:\`). Because we are working on the `GEOG0125 Linux server` we will use `/` for the remainder of this tutotiral. A path that starts with `/` is called an absolute path. Any other path is a relative path. Relative paths are relative to the current working directory, which we can see with the `pwd` command and change with the `cd` command. Again, this is not very different than how you deal with paths in R and Python. In a path, `.` refers to the current directory, and `..` to its parent directory. To see what lives in a given directory, we use the `ls` command. Try out out these commands to navigate the server.
 
 ```{r navigating, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Navigating in the shell.', fig.align='center'}
-knitr::include_graphics('images/w07/navigating.png')
+knitr::include_graphics('images/w08/navigating.png')
 ```
 
 Unless a directory is given as its first argument, `ls` will print the contents of the current directory. Most commands accept flags and options (flags with values) that start with `-` to modify their behavior. Usually, running a program with the `-h` or `--help` flag will print some help text that tells you what flags and options are available. For example, `ls --help` tells us: that the `-l` flag uses a long listing format.
 
 ```{r long-list, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Using the `-l` flag with `ls`.', fig.align='center'}
-knitr::include_graphics('images/w07/longlist.png')
+knitr::include_graphics('images/w08/longlist.png')
 ```
 
 This gives us a bunch more information about each file or directory present.
 
-In the shell, programs have two primary "streams" associated with them: their **input stream** and their **output stream**. When the program tries to read input, it reads from the input stream, and when it prints something, it prints to its output stream. Normally, a program’s input and output are both your terminal. That is, your keyboard as input and your screen as output. However, we can also rewire those streams. The simplest form of redirection is `< file` and `> file`. These let you rewrite the input and output streams of a programme to a file respectively. Navigate to your home directory (i.e. `/home/username`) and try the following:
+In the shell, programs have two primary "streams" associated with them: their **input stream** and their **output stream**. When the program tries to read input, it reads from the input stream, and when it prints something, it prints to its output stream. Normally, a program’s input and output are both your terminal. That is, your keyboard as input and your screen as output. However, we can also rewire those streams. The simplest form of redirection is `< file` and `> file`. These let you rewrite the input ("standard input**) and output ("standard output") streams of a programme to a file respectively. Navigate to your home directory (i.e. `/home/username`) and try the following:
 
 ```{bash eval=FALSE}
 # redirect echo to file
@@ -155,7 +156,7 @@ You can also use `>>` to append to a file. Where this kind of input/output redir
 
 <div class="note">
 **Note**<br/>
-Be very careful with using the `rm` file: if you use `rm` to delete a file the file will be gone completely and you cannot 'recover it from the trash'! There is no Trash can for `rm`!
+Be very careful with using the `rm` file: if you use `rm` to delete a file the file will be gone completely and you cannot "recover it from the trash" because there is no trash can for `rm`!
 </div>
 
 ### Exercises
@@ -163,18 +164,105 @@ Try to do the following, using the `man`programme or `--help` flag when you are 
 
 1. Create a new directory called `data` in your home directory (`/home/username`).
 2. Use `touch` to create a new file called `data.txt`.
-3. Add three lines of data to `data.txt`; it does not matter what you add to the file!).
+3. Add three lines of data to `data.txt`; it does not matter what you add to the file!.
 4. Inspect the file with `head` and `tail`.
 5. Rename the file to `data_renamed.txt`.
 
 ## Text editing
-- Vim
+When working in a server environment, you will spend some time reading, navigating, and editing code, so it is worthwile to spend a litte attention to text editors. Programmers have very strong opinions about their text editors, but one of the most popular command-line-based text editor is [Vim](https://www.vim.org/). Vim has a rich history; it originated from the Vi editor (1976), and it is still being developed today. When programming, you spend most of your time reading/editing, not writing. For this reason, Vim is a modal editor: it has different modes for inserting text vs manipulating text:
+
+- *Normal*: for moving around a file and making edits
+- *Insert*: for inserting text
+- *Replace*: for replacing text
+- *Visual*: for selecting blocks of text
+- *Command-line*: for running a command
+
+Keystrokes have different meanings in different operating modes. For example, the letter `x` in Insert mode will just insert a literal character "x", but in Normal mode, it will delete the character under the cursor, and in Visual mode, it will delete the selection. In its default configuration, Vim shows the current mode in the bottom left. The initial/default mode is Normal mode. 
+
+<div class="note">
+The usage of different modes and navigating aroudn Vim can be a little difficult in the beginning. The question "[how do I exit the Vim editor](https://stackoverflow.com/questions/11828270/how-do-i-exit-the-vim-editor)" has over 4,000 upvotes on stackoverflow! 
+</div>
+
+You change modes by pressing *<ESC>* (the escape key) to switch from any mode back to Normal mode. From Normal mode, enter Insert mode with `i`, Replace mode with `R`, Visual mode with `v`, Visual Line mode with `V`, Visual Block mode with *<C-v>* (Ctrl + V), and Command-line mode with `:`.
+
+#### Inserting text {-}
+From Normal mode, press `i` to enter Insert mode. Now, Vim behaves like any other text editor, until you press *<ESC>* to return to Normal mode. This, along with the basics explained above, are all you need to start editing files using Vim.
+
+#### Buffers, tabs, and windows {-}
+Vim maintains a set of open files, called *buffers*. A Vim session has a number of tabs, each of which has a number of windows (split panes). Each window shows a single buffer. Unlike other programs you are familiar with, like web browsers, there is not a 1-to-1 correspondence between buffers and windows; windows are merely views. A given buffer may be open in multiple windows, even within the same tab. This can be quite handy, for example, to view two different parts of a file at the same time. By default, Vim opens with a single tab, which contains a single window.
+
+#### Command-line {-}
+Command mode can be entered by typing `:` in Normal mode. Your cursor will jump to the command line at the bottom of the screen upon pressing `:`. This mode has many functionalities, including opening, saving, and closing files, and quitting Vim.
+
+| command   | action  |
+| :--       | :------ |
+| `:q`      | quit (close Vim) |
+| `:w`      | write (save) |
+| `:wq`     | write (save file) and quit Vim |
+| `:e {*name of file*}` | open file for editing |
+| `:ls`     | show open buffers |
+
+#### Movement {-}
+You should spend most of your time in Normal mode, using movement commands to navigate the buffer. Some useful movement commands:
+
+| command   | action  |
+| :--       | :------ |
+| `hjkl`    | basic movement (left, down, up, right) |
+| `w`       | next word |
+| `b`       | beginning of word |
+| `e`       | end of word |
+| `0`       | beginning of line |
+| `$`       | end of line |
+| `H`       | top of screen |
+| `M`       | middle of screen |
+| `L`       | bottom of screen |
+| `ctrl` + `u` | scroll up |
+| `ctrl` + `d` | scroll down |
+
+#### Selection {-}
+From Normal mode, press `v` to enter Visual mode, `V` to enter Visual Line mode, and `ctrl` + `v` to enter Visual Block mode. You can use movement keys to select text.
+
+#### Edits {-}
+For some more advanced editing, i.e. outside of the Insert mode `i`, some useful commands are:
+
+| command   | action  |
+| :--       | :------ |
+| `o `      | insert line below |
+| `O`       | insert line above |
+| `dw `     | delete word |
+| `d$`      | delete till end of line |
+| `d0`      | delete to beginning of line |
+| `x`       | delete character |
+| `s`       | subsitute character |
+| `u`       | undo |
+| `y`       | yank (copy)
+| `p`       | paste
+
+#### Customising Vim {-}
+Vim is customisable through a plain-text configuration file in `~/.vimrc` (containing Vimscript commands) and there are also tons of plugins for extending Vim, however, this is out of the scope of this tutorial. Dr Soundararaj actually did write [his entire PhD thesis using Vim](https://github.com/sbmkvp/phd_thesis). 
+
+#### Video: MIT's Missing Semester: Vim {-}
+For a more in-depth introduction to Vim, do have a look at the lecture video that is part of MIT's [Missing Semester course](https://missing.csail.mit.edu/) on which lots of this week's material is based.
+
+```{r 08-vim, warnings=FALSE, message=FALSE, echo=FALSE}
+embed_youtube('a6Q8Na575qc') %>% use_align('left')
+```
+
+### Exercises
+Vim has a built-in tutorial (`vimtutor`) that comes installed with Vim. You can start it simply by typing `vimtutor` in your shell. Complete `vimtutor` to get comfortable moving around Vim. You do not need to become an expert in Vim, unless you want to, but just be comfortable enough to access and edits files.
+
+```{r vim-tutor, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Vimtutor.', fig.align='center'}
+knitr::include_graphics('images/w08/vimtutor.png')
+```
 
 ## Data wrangling
-- pipe with sort uniq grep
+
 
 ## Web
 - go to personal index.html page (browser)
+
+## Take home message
+
 
 ## Attributions {#attributions_w08}
 This material was adapted from The Missing Semester of your CS Education [The Shell, Editors (Vim), Data Wrangling). Cambridge, MA: Massachusetts Institute of Technology and is licensed under a Non Commercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). [[Link]](https://missing.csail.mit.edu/)

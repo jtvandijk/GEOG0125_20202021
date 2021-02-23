@@ -114,7 +114,7 @@ The road network file is relatively simple and only contains road network segmen
 | *mode*         | Travel mode |
 | *track_id*     | Unique ID for GPS trajectory |
 | *move*         | Whether point is a move or a stay |
-| *activity*     | Whether point is move (including mode) or stay | 
+| *activity*     | Whether point is a move (including mode) or a stay | 
 
 ### GPS data preparation
 The *move* variable is the variable we will try to predict. Before we split our data into a *train* and *test* set, however, we will need to derive some features from our raw GPS data that we can use as our input features: speed, point density, and distance to nearest road segment. As we want to derive information of consecutive measurements, the order of the data is very important right now as the points form a trajectory: so before we calculate anything we start by making sure that the data are ordered correctly: by *track_id* and *timestamp*.
