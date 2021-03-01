@@ -1,3 +1,128 @@
+--- 
+title: "GEOG0125:  Advanced Topics in Social and Geographic Data Science"
+author: Justin van Dijk^[Department of Geography, https://www.mappingdutchman.com/] and Stephen Law^[Department of Geography, https://www.geog.ucl.ac.uk/people/academic-staff/stephen-law]
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+link-citations: yes
+github-repo: "jtvandijk/GEOG0125"
+description: "GEOG0125: Advanced Topics in Social and Geographic Data Science."
+url: 'https\://jtvandijk.github.io/GEOG0125/'
+---
+
+# Welcome {-}
+
+Placeholder
+
+
+## Weekly topics {-}
+## Moodle {-}
+## Useful additional resources {-}
+## Office hours {-}
+
+<!--chapter:end:index.Rmd-->
+
+# (PART\*) Introduction {-}
+
+# Introduction 
+The first week of Advanced Topics in Social and Geographic Data Science will introduce the module, why is it useful and what you will learn. You will be given a recap to the introduction to social and geographic data science specifically on the machine learning workflow. We will then give instructions to the reading group and the coursework assessment. This week’s practical component will focus on installing a new virtual environment for the module, accessing Jupyter Notebook locally and a recap on a typical machine learning workflow in Python. We will also get everyone familiar with Google Colab Web service. This week plays a formative role in providing you with the baseline knowledge for the module.
+
+<div class="note">
+**This week's material is available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=23879).**
+</div>
+
+<!--chapter:end:01-week01.Rmd-->
+
+
+# (PART\*) Inference {-}
+# Statistical Inference and Causality
+
+Placeholder
+
+
+## Introduction {#intro-w09}
+#### Video: Introduction W01 {-}
+### Reading list {#reading-list-w01}
+#### Core reading {-}
+#### Supplementary reading {-}
+### Technical Help session
+## Statistical inference
+## Causality
+### What is causality?
+### The problem with causality
+#### Video: Panel Data Analysis {-}
+### Fixed effects models
+#### File download {-}
+### Random effects models
+## Take home message {#thm-w02}
+## Attributions {#attributions_w02}
+
+<!--chapter:end:02-week02.Rmd-->
+
+# (PART\*) GeoAI {-}
+
+# Introduction to Deep Learning
+This week, we will introduce you to the topic of Deep Learning, its history and its uses in digital humanities, robotics, climate science, geography and social science. We will discuss the principles and algorithms of training and evaluating a deep neural network as an extension of a linear regression model. We will also present the strength and weakness of such techniques. The practical component of the week will allow you to practice and deep learning models, which are highly transferable skills in the future.
+
+<div class="note">
+**This week's material is available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=23879).**
+</div>
+
+<!--chapter:end:03-week03.Rmd-->
+
+# Keynote: Spatial Data Science
+This week we will have a guest lecture from Miguel Alvarez Garcia @Carto on CartoFrame and Spatial Data Science. Miguel is a Data Scientist at CARTO and has experience in optimisation and machine learning. His current work focuses on solving problems with a strong geospatial component in various sectors such as logistics, utilities, retail, and environmental. 
+
+<div class="note">
+**Details on this guest lecture are available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=23879).**
+</div>
+
+<!--chapter:end:04-week04.Rmd-->
+
+# Convolutional Neural Networks
+This week, we will introduce you to the topic of Convolutional Neural Network, a special case of Neural Network. In particular, we will describe the various CNN architecture and the useful technique of transfer learning. We will discuss the principles behind the different convolutional layers and activation functions. We will also give a case study on street frontage classification and object detection. The practical component of the week will allow you to practice running convolutional neural network models.
+
+<div class="note">
+**This week's material is available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=23879).**
+</div>
+
+<!--chapter:end:05-week05.Rmd-->
+
+# Spatial Data Science Applications
+This week, we will introduce you the topic of applying deep neural networks for spatial data science applications. In particular we will describe the use of multi-modality data in machine learning. In particular we will describe the use of multi-modal data for socio-economic predictions for two different papers.
+
+<div class="note">
+**This week's material is available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=23879).**
+</div>
+
+<!--chapter:end:06-week06.Rmd-->
+
+
+# Spatial-Temporal Mobility Analysis
+
+Placeholder
+
+
+## Introduction {#intro-w07}
+#### Video: Introduction W07 {-}
+### Reading list {#reading-list-w07}
+#### Core reading {-}
+#### Supplementary reading {-}
+### Technical Help session
+## GPS data
+#### Video: GPS data in transport research {-}
+## GPS data classification
+#### Video: GPS data classification with ML techniques {-}
+#### File download {-}
+### GPS data preparation
+### GPS data classification
+### Exercise
+## Take home message
+## Attributions {#attributions_w07}
+
+<!--chapter:end:07-week07.Rmd-->
+
 # (PART\*) Data Sciencist's Toolbox {-}
 
 # Unix tools
@@ -365,3 +490,25 @@ Some useful command line programmes that we have used ourselves in the past for 
 
 ## Attributions {#attributions_w08}
 This material was adapted from *The Missing Semester of your CS Education [The Shell, Editors (Vim), Data Wrangling)*. Cambridge, MA: Massachusetts Institute of Technology and is licensed under a Non Commercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). [[Link]](https://missing.csail.mit.edu/)
+
+<!--chapter:end:08-week08.Rmd-->
+
+# Web Visualisation
+
+<div class="note">
+**This week’s content will be made available on 15/03/2021.**
+</div>
+
+<!--chapter:end:09-week09.Rmd-->
+
+# (PART\*) Future {-}
+
+# A look into the future
+This week we will wrap up what we have discussed over the past weeks and take a look at the future of Social and Geographic Data science.
+
+<div class="note">
+**This week's material will be available on [Moodle](https://moodle.ucl.ac.uk/course/view.php?id=23879).**
+</div>
+
+<!--chapter:end:10-week10.Rmd-->
+
