@@ -24,7 +24,7 @@
 <meta name="author" content="Justin van Dijk and Stephen Law" />
 
 
-<meta name="date" content="2021-02-18" />
+<meta name="date" content="2021-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -189,7 +189,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="spatial-temporal-mobility-analysis.html"><a href="spatial-temporal-mobility-analysis.html#attributions_w07"><i class="fa fa-check"></i><b>7.5</b> Attributions</a></li>
 </ul></li>
 <li class="part"><span><b>Data Sciencist’s Toolbox</b></span></li>
-<li class="chapter" data-level="8" data-path="unix-tools.html"><a href="unix-tools.html"><i class="fa fa-check"></i><b>8</b> Unix tools</a></li>
+<li class="chapter" data-level="8" data-path="unix-tools.html"><a href="unix-tools.html"><i class="fa fa-check"></i><b>8</b> Unix tools</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="unix-tools.html"><a href="unix-tools.html#intro-w08"><i class="fa fa-check"></i><b>8.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="unix-tools.html"><a href="unix-tools.html#reading-list-w08"><i class="fa fa-check"></i><b>8.1.1</b> Reading list</a></li>
+<li class="chapter" data-level="8.1.2" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#technical-help-session"><i class="fa fa-check"></i><b>8.1.2</b> Technical Help session</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="unix-tools.html"><a href="unix-tools.html#bourne-again-shell-bash"><i class="fa fa-check"></i><b>8.2</b> Bourne Again SHell (BASH)</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="unix-tools.html"><a href="unix-tools.html#installation"><i class="fa fa-check"></i><b>8.2.1</b> Installation</a></li>
+<li class="chapter" data-level="8.2.2" data-path="unix-tools.html"><a href="unix-tools.html#getting-started"><i class="fa fa-check"></i><b>8.2.2</b> Getting started</a></li>
+<li class="chapter" data-level="8.2.3" data-path="spatial-temporal-mobility-analysis.html"><a href="spatial-temporal-mobility-analysis.html#exercise"><i class="fa fa-check"></i><b>8.2.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="unix-tools.html"><a href="unix-tools.html#text-editing"><i class="fa fa-check"></i><b>8.3</b> Text editing</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="unix-tools.html"><a href="unix-tools.html#exercise-1"><i class="fa fa-check"></i><b>8.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="unix-tools.html"><a href="unix-tools.html#data-wrangling"><i class="fa fa-check"></i><b>8.4</b> Data wrangling</a></li>
+<li class="chapter" data-level="8.5" data-path="unix-tools.html"><a href="unix-tools.html#copying-data"><i class="fa fa-check"></i><b>8.5</b> Copying data</a></li>
+<li class="chapter" data-level="8.6" data-path="unix-tools.html"><a href="unix-tools.html#web"><i class="fa fa-check"></i><b>8.6</b> Web</a>
+<ul>
+<li class="chapter" data-level="" data-path="unix-tools.html"><a href="unix-tools.html#assignment"><i class="fa fa-check"></i>Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="spatial-temporal-mobility-analysis.html"><a href="spatial-temporal-mobility-analysis.html#take-home-message"><i class="fa fa-check"></i><b>8.7</b> Take home message</a></li>
+<li class="chapter" data-level="8.8" data-path="unix-tools.html"><a href="unix-tools.html#attributions_w08"><i class="fa fa-check"></i><b>8.8</b> Attributions</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="web-visualisation.html"><a href="web-visualisation.html"><i class="fa fa-check"></i><b>9</b> Web Visualisation</a></li>
 <li class="part"><span><b>Future</b></span></li>
 <li class="chapter" data-level="10" data-path="a-look-into-the-future.html"><a href="a-look-into-the-future.html"><i class="fa fa-check"></i><b>10</b> A look into the future</a></li>
@@ -300,7 +325,7 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 <tr class="odd">
 <td align="left">Cape Town GPS and road data</td>
 <td align="left"><code>shp</code></td>
-<td align="left"><a href="https://github.com/jtvandijk/GEOG0125/tree/master/raw/zip/capetown.zip">Download</a></td>
+<td align="left"><a href="https://github.com/jtvandijk/GEOG0125/tree/master/raw/zip/cape_town.zip">Download</a></td>
 </tr>
 </tbody>
 </table>
@@ -413,7 +438,7 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 </tr>
 <tr class="odd">
 <td align="left"><em>activity</em></td>
-<td align="left">Whether point is move (including mode) or stay</td>
+<td align="left">Whether point is a move (including mode) or a stay</td>
 </tr>
 </tbody>
 </table>
@@ -636,20 +661,20 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 <span id="cb42-20"><a href="spatial-temporal-mobility-analysis.html#cb42-20" aria-hidden="true"></a></span>
 <span id="cb42-21"><a href="spatial-temporal-mobility-analysis.html#cb42-21" aria-hidden="true"></a><span class="co"># inspect</span></span>
 <span id="cb42-22"><a href="spatial-temporal-mobility-analysis.html#cb42-22" aria-hidden="true"></a>gps_train</span></code></pre></div>
-<pre><code>## # A tibble: 18,951 x 6
+<pre><code>## # A tibble: 18,943 x 6
 ##    speed[,1] buf100[,1] buf250[,1] buf500[,1] road_dist[,1] move 
 ##        &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;
-##  1    -0.733     -0.475     -0.755     -0.895        -0.758 STAY 
-##  2    -0.516     -0.453     -0.755     -0.895        -0.249 STAY 
-##  3    -0.409     -0.519     -0.755     -0.895         0.158 STAY 
-##  4    -0.450     -0.541     -0.770     -0.895        -0.672 STAY 
-##  5    -0.621     -0.408     -0.755     -0.895        -0.280 STAY 
-##  6    -0.559     -0.541     -0.755     -0.895         1.77  STAY 
-##  7    -0.571     -0.497     -0.755     -0.895         1.06  STAY 
-##  8    -0.674     -0.497     -0.755     -0.895        -0.235 STAY 
-##  9    -0.740     -0.475     -0.755     -0.895        -0.545 STAY 
-## 10    -0.633     -0.475     -0.755     -0.895        -0.202 STAY 
-## # … with 18,941 more rows</code></pre>
+##  1    -0.734     -0.474     -0.755     -0.896        -0.742 STAY 
+##  2    -0.516     -0.452     -0.755     -0.896        -0.240 STAY 
+##  3    -0.594     -0.563     -0.770     -0.896        -0.316 STAY 
+##  4    -0.409     -0.519     -0.755     -0.896         0.161 STAY 
+##  5    -0.450     -0.541     -0.770     -0.896        -0.658 STAY 
+##  6    -0.622     -0.408     -0.755     -0.896        -0.271 STAY 
+##  7    -0.560     -0.541     -0.755     -0.896         1.75  STAY 
+##  8    -0.571     -0.496     -0.755     -0.896         1.05  STAY 
+##  9    -0.740     -0.474     -0.755     -0.896        -0.533 STAY 
+## 10     2.49      -0.430     -0.755     -0.896        -0.681 STAY 
+## # … with 18,933 more rows</code></pre>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="spatial-temporal-mobility-analysis.html#cb44-1" aria-hidden="true"></a><span class="co"># create train set, select variables, confirm data types where necessary</span></span>
 <span id="cb44-2"><a href="spatial-temporal-mobility-analysis.html#cb44-2" aria-hidden="true"></a>gps_test &lt;-<span class="st"> </span>gps <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(train<span class="op">==</span><span class="dv">0</span>) <span class="op">%&gt;%</span></span>
 <span id="cb44-3"><a href="spatial-temporal-mobility-analysis.html#cb44-3" aria-hidden="true"></a><span class="st">        </span><span class="kw">select</span>(speed,buf100,buf250,buf500,road_dist,move) <span class="op">%&gt;%</span></span>
@@ -663,20 +688,20 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 <span id="cb44-11"><a href="spatial-temporal-mobility-analysis.html#cb44-11" aria-hidden="true"></a></span>
 <span id="cb44-12"><a href="spatial-temporal-mobility-analysis.html#cb44-12" aria-hidden="true"></a><span class="co"># inspect</span></span>
 <span id="cb44-13"><a href="spatial-temporal-mobility-analysis.html#cb44-13" aria-hidden="true"></a>gps_test</span></code></pre></div>
-<pre><code>## # A tibble: 8,068 x 6
+<pre><code>## # A tibble: 8,076 x 6
 ##    speed[,1] buf100[,1] buf250[,1] buf500[,1] road_dist[,1] move 
 ##        &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;
-##  1    -0.602     -0.567     -0.776     -0.905       -0.309  STAY 
-##  2    -0.586     -0.567     -0.761     -0.905        1.41   STAY 
-##  3     5.73      -0.612     -0.939     -1.05        -0.667  MOVE 
-##  4     5.73      -0.612     -0.939     -1.05        -0.249  MOVE 
-##  5     5.32      -0.612     -0.939     -1.02        -0.0689 MOVE 
-##  6     5.69      -0.612     -0.924     -1.04        -0.494  MOVE 
-##  7     5.89      -0.590     -0.924     -1.04        -0.381  MOVE 
-##  8     4.57      -0.612     -0.939     -1.05        -0.739  MOVE 
-##  9     0.147     -0.343     -0.599     -0.775       -0.690  STAY 
-## 10    -0.356     -0.388     -0.628     -0.775       -0.682  STAY 
-## # … with 8,058 more rows</code></pre>
+##  1    -0.682     -0.501     -0.760     -0.902        -0.241 STAY 
+##  2    -0.586     -0.567     -0.760     -0.902         1.44  STAY 
+##  3    -0.641     -0.478     -0.760     -0.902        -0.209 STAY 
+##  4     4.83      -0.612     -0.938     -1.04         -0.547 MOVE 
+##  5     5.22      -0.589     -0.923     -1.03         -0.391 MOVE 
+##  6     4.83      -0.612     -0.938     -1.04         -0.698 MOVE 
+##  7     5.37      -0.612     -0.938     -1.04         -0.408 MOVE 
+##  8    -0.714     -0.545     -0.686     -0.772        -0.625 STAY 
+##  9    -0.722     -0.434     -0.597     -0.772         0.563 STAY 
+## 10    -0.467     -0.301     -0.597     -0.772         0.475 STAY 
+## # … with 8,066 more rows</code></pre>
 <p>Let’s train our models on our train data and directly predict on our test data.</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="spatial-temporal-mobility-analysis.html#cb46-1" aria-hidden="true"></a><span class="co"># boosted decision tree with 5 boosting iterations</span></span>
 <span id="cb46-2"><a href="spatial-temporal-mobility-analysis.html#cb46-2" aria-hidden="true"></a>train_boost &lt;-<span class="st"> </span><span class="kw">C5.0</span>(<span class="kw">as.factor</span>(move) <span class="op">~</span>., <span class="dt">data=</span>gps_train, <span class="dt">trials=</span><span class="dv">5</span>)</span>
@@ -705,38 +730,38 @@ behavior over time. <em>International Journal of Sustainable Transportation</em>
 <span id="cb47-7"><a href="spatial-temporal-mobility-analysis.html#cb47-7" aria-hidden="true"></a>matrix_boost</span></code></pre></div>
 <pre><code>##           
 ## test_boost MOVE STAY
-##       MOVE 3203  110
-##       STAY  110 4645</code></pre>
+##       MOVE 3175  128
+##       STAY  125 4648</code></pre>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="spatial-temporal-mobility-analysis.html#cb49-1" aria-hidden="true"></a><span class="co"># inspect</span></span>
 <span id="cb49-2"><a href="spatial-temporal-mobility-analysis.html#cb49-2" aria-hidden="true"></a>matrix_svm</span></code></pre></div>
 <pre><code>##         
 ## test_svm MOVE STAY
-##     MOVE 3200  146
-##     STAY  113 4609</code></pre>
+##     MOVE 3184  158
+##     STAY  116 4618</code></pre>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="spatial-temporal-mobility-analysis.html#cb51-1" aria-hidden="true"></a><span class="co"># inspect</span></span>
 <span id="cb51-2"><a href="spatial-temporal-mobility-analysis.html#cb51-2" aria-hidden="true"></a>matrix_rf</span></code></pre></div>
 <pre><code>##        
 ## test_rf MOVE STAY
-##    MOVE 3190   87
-##    STAY  123 4668</code></pre>
+##    MOVE 3155   77
+##    STAY  145 4699</code></pre>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="spatial-temporal-mobility-analysis.html#cb53-1" aria-hidden="true"></a><span class="co"># get overall accuracy boosted decision tree</span></span>
 <span id="cb53-2"><a href="spatial-temporal-mobility-analysis.html#cb53-2" aria-hidden="true"></a><span class="kw">confusionMatrix</span>(matrix_boost)<span class="op">$</span>overall</span></code></pre></div>
 <pre><code>##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
-##      0.9727318      0.9436639      0.9689407      0.9761759      0.5893654 
+##      0.9686726      0.9351892      0.9646383      0.9723639      0.5913819 
 ## AccuracyPValue  McnemarPValue 
-##      0.0000000      1.0000000</code></pre>
+##      0.0000000      0.8999386</code></pre>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="spatial-temporal-mobility-analysis.html#cb55-1" aria-hidden="true"></a><span class="co"># get overall accuracy support vector machine</span></span>
 <span id="cb55-2"><a href="spatial-temporal-mobility-analysis.html#cb55-2" aria-hidden="true"></a><span class="kw">confusionMatrix</span>(matrix_svm)<span class="op">$</span>overall</span></code></pre></div>
 <pre><code>##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
-##     0.96789787     0.93377709     0.96381660     0.97163638     0.58936539 
+##     0.96607231     0.92993754     0.96188997     0.96991376     0.59138187 
 ## AccuracyPValue  McnemarPValue 
-##     0.00000000     0.04676932</code></pre>
+##     0.00000000     0.01325288</code></pre>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="spatial-temporal-mobility-analysis.html#cb57-1" aria-hidden="true"></a><span class="co"># get overall accuracy random forest</span></span>
 <span id="cb57-2"><a href="spatial-temporal-mobility-analysis.html#cb57-2" aria-hidden="true"></a><span class="kw">confusionMatrix</span>(matrix_rf)<span class="op">$</span>overall</span></code></pre></div>
 <pre><code>##       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull 
-##      0.9739712      0.9461359      0.9702591      0.9773354      0.5893654 
+##   9.725111e-01   9.429407e-01   9.687083e-01   9.759677e-01   5.913819e-01 
 ## AccuracyPValue  McnemarPValue 
-##      0.0000000      0.0157253</code></pre>
+##   0.000000e+00   6.900148e-06</code></pre>
 <p>As we can see, all algorithms are highly accurate in classifying our artificial GPS points into <em>moves</em> and <em>stays</em> using the input features that were derived from the raw GPS trajectory data.</p>
 </div>
 <div id="exercise" class="section level3" number="7.3.3">
