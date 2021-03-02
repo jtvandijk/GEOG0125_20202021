@@ -351,7 +351,7 @@ HTML is the foundation of all web pages. It defines the structure of a page, whi
 Of course, you do not need to become an expert in HTML and front-end web development and need to know everything in detail: but again try to get comfortable enough that you can adjust existing HTML code to make changes and that if you were to get stuck that you can find a solution using a targeted Google search. Try to play around with the HTML and CSS of your `index.html` page. You can use your newly acquired Vim skills to make adjustments to your file. Or you can create an `index.html` locally and when you are happy copy your local file to the server with `scp`.
 
 ## Take home message
-This week we have introduced you to the Shell. At its core, a shell allows you to run programmes from within a textual environment. As a data scientist you will most likely run into this at some point: most likely because you need to run your code or analysis on a dedicated high-performance machine or because you have created some maps that you want to host on a website. This week really only introduced you to the very basics of working with bash and their are many, many more useful command line programmes
+This week we have introduced you to the Shell. At its core, a shell allows you to run programmes from within a textual environment. As a data scientist you will most likely run into this at some point: most likely because you need to run your code or analysis on a dedicated high-performance machine or because you have created some maps that you want to host on a website. This week really only introduced you to the very basics of working with bash and their are many, many more useful command line programmes.
 
 Some useful command line programmes that we have used ourselves in the past for a variety of tasks:
 
@@ -364,4 +364,4 @@ Some useful command line programmes that we have used ourselves in the past for 
 - [ffmpeg](https://ffmpeg.org/) is a complete, cross-platform solution to record, convert and stream audio and video.
 
 ## Attributions {#attributions_w08}
-This material was adapted from *The Missing Semester of your CS Education [The Shell, Editors (Vim), Data Wrangling)*. Cambridge, MA: Massachusetts Institute of Technology and is licensed under a Non Commercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). [[Link]](https://missing.csail.mit.edu/)
+This material was adapted from *The Missing Semester of your CS Education [The Shell, Editors (Vim), Data Wrangling)*. Cambridge, MA: Massachusetts Institute of Technology and is licensed under a Non Commercial-ShareAlike 4.0 International license (CC BY-NC-SA 4.0). [[Link]](https://missing.csail.mit.edu/)
