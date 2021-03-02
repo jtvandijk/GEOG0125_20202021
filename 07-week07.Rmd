@@ -68,7 +68,7 @@ The segmentation of GPS data into activity and travel episodes is often the firs
 #### File download {-}
 | File                                                 | Type           | Link |
 | :------                                              | :------        | :------ |
-| Cape Town GPS and road data                          |`shp`     | [Download](https://github.com/jtvandijk/GEOG0125/tree/master/raw/zip/capetown.zip) |
+| Cape Town GPS and road data                          |`shp`     | [Download](https://github.com/jtvandijk/GEOG0125/tree/master/raw/zip/cape_town.zip) |
 
 We will start by downloading the files, importing both into R, and looking at what we will be working with. Be careful *not* to plot the road network file. Because the road network contains around 120,000 individual road segments it will take a long time to draw. Rather have a look at the data in [QGIS](https://www.qgis.org/en/site/), which is much more capable of on the fly displaying a large number of features.
 
