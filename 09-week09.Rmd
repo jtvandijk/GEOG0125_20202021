@@ -29,7 +29,7 @@ Because this week's tutorial material is rather extensive and has a strong pract
 ### Technical Help session
 Every Thursday between 13h00-14h00 you can join the **Technical Help** session on Microsoft Teams. The session will be hosted by [Alfie](https://www.ucl.ac.uk/geospatial-analytics/people/alfie-long). He will be there for the whole hour to answer any question you have live in the meeting or any questions you have formulated beforehand. If you cannot make the meeting, feel free to post the issue you are having in the Technical Help channel on the GEOG0125 Team so that Alfie can help to find a solution. 
 
-## JavaScript and Leaflet.js
+## JavaScript
 Alongside HTML and CSS, JavaScript (JS) is one of the core technologies of the World Wide Web. JavaScript enables interactive web pages and is an essential part of web applications. The vast majority of websites use it for **client-side** page behavior and all major web browsers have a dedicated JavaScript engine to execute it. Basically you can say that:
 
 - HTML is used to define the content of a web page;
@@ -39,12 +39,428 @@ Alongside HTML and CSS, JavaScript (JS) is one of the core technologies of the W
 JavaScript is one of the most popular modern web technologies. However, getting comfortable with JavaScript is more challenging than getting comfortable with HTML and CSS. You may have to start small, and progress gradually.
 
 ### Assignment {-}
-[Leaflet.js](leafletjs.com) is a JavaScript mapping library. This means that in order to create basic maps with Leaflet you will require a basic understanding of JavaScript. Just like last week, [MDN Web Doc](https://developer.mozilla.org/en-US/) have a very useful tutorial to get you started: [JavaScript basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics). Before you continue with the rest of the tutorial, please work through this tutorial first.
+This week we will be creating maps using [Leaflet.js](leafletjs.com). Leaflet.js is a JavaScript mapping library. This means that in order to create basic maps with Leaflet you will require a basic understanding of JavaScript. Just like last week, [MDN Web Doc](https://developer.mozilla.org/en-US/) have a very useful tutorial to get you started: [JavaScript basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics). Before you continue with the rest of the tutorial, please work through this tutorial first.
 
 <div class="note">
-If you haven't don so already, do install a text-editor to write your code in. Office document editors are not suitable for this use, as they rely on hidden elements that interfere with the rendering engines used by web browsers. [Atom](https://atom.io/) is a good, free, open-source, cross-platform editor. 
+**Note** <br/>
+If you haven't done so already, do install a text-editor to write your HTML/CSS/JS code in. Office document editors are not suitable for this use, as they rely on hidden elements that interfere with the rendering engines used by web browsers. [Atom](https://atom.io/) is a good, free, open-source, cross-platform editor. 
 </div>
 
-## Attributions {#attributions_w08}
-Content and inspiration for this week's material was derived from: the *Interactive Choropleth Map Tutorial* available on https://leafletjs.com/. [[Link]](https://leafletjs.com/examples/choropleth/)
+## Leaflet.js
+As your web map will be embedded within a web page, we need to start with a basic HTML page in which we want to embed our map. You can download the template here:
 
+#### File download {-}
+| File                                                 | Type           | Link |
+| :------                                              | :------        | :------ |
+| Basic HTML file                                      |`html`          | [Download](https://github.com/jtvandijk/GEOG0125/tree/master/raw/zip/index.zip) |
+
+Once downloaded, you can open the `index.html` file using your text-editor. To see how the web page currently looks like, you can also open `index.html` in your browser (Figure \@ref(fig:basic-html)).
+
+```{r basic-html, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Basic HTML file.', fig.align='center'}
+knitr::include_graphics('images/w09/basic-html.png')
+```
+
+### Setting up
+Before writing any code for the map, you need to do the following preparation steps on your page:
+
+- Include Leaflet CSS file in the head section of your document: 
+```{html}
+<link rel="stylesheet" 
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
+```
+- Include Bootstrap CSS file:
+```{html}
+<link rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"/>
+```
+- Include Leaflet JavaScript file **after** Leaflet’s CSS:
+```{html}
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin="">
+</script>
+```
+
+You may wonder why something called "Bootstrap" is included here. Well, technically this is not necessary. However, [Bootstrap](https://getbootstrap.com/) is a free front-end framework for faster and easier web development. Bootstrap includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels and many other, as well as optional JavaScript plugins. Bootstrap also gives you the ability to easily create responsive designs. What this means is that you can use pre-created CSS classes and apply it directly onto your HTML. For instance, the `container mb-3` class you may have spotted in in your `index.html` is actually a CSS class that is found in the Bootstrap CSS. Notice the difference between Figure \@ref(fig:basic-html) and Figure \@ref(fig:add-css)?
+
+```{r add-css, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Basic HTML file with Bootstrap CSS.', fig.align='center'}
+knitr::include_graphics('images/w09/add-css.png')
+```
+
+Now we can put a `div` element with a certain **id** on the place where you want the map to be. Replace the `<!--map will be here-->` in your `index.html` document with the following code:
+
+```{html}
+<div id="simple_map" class="card-body p-0">
+  <canvas width="100" height="850"></canvas>
+</div>
+```
+
+It is important that the element that will be containing the map, has a specified height. We do this by giving the `canvas` element a `width` of '100' and a `height` of `850`. You can see the effect of this change immediately (Figure \@ref(fig:add-canvas)).
+
+```{r add-canvas, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Basic HTML file with map canvas.', fig.align='center'}
+knitr::include_graphics('images/w09/add-canvas.png')
+```
+
+The next thing we need to do is create a separate JavaScript file: `map.js`. This is the file were the Leaflet code will live. Save the file in the same folder as your `index.html` page. We also include a link to the file in our `index.html` file. Add the following directly below the `<canvas id="simple_map" width="100" height="850"></canvas>` element:
+
+```{html}
+<!--map js-->
+<script src="map.js"></script>
+```
+
+### Simple web map
+Now we are fully set up, we can start by creating a map of the center of London with some Carto map tiles. First we will initialise the map and set its view to our chosen geographical coordinates and a zoom level:
+
+```{js}
+// set up map in the map.js file
+var smap = L.map('simple_map').setView([51.505, -0.09], 12);
+```
+
+Note that the `id` that we given to the `canvas` HTML element is used here to initiate the map. Next we'll add a tile layer to add to our map, in this case it’s a Carto tile layer. Creating a tile layer usually involves setting the URL template for the tile images, the attribution text and the maximum zoom level of the layer. Make sure all the code is called after the `canvas` and `leaflet.js` inclusion in your HTML page; e.g. you cannot include `map.js` above your `canvas` HTML element and above the Leaflet JavaScript file.
+
+```{js}
+// create tile layer, add to map
+L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', 
+    {attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL',
+    maxZoom: 18,
+}).addTo(smap);
+```
+
+That is it. Your basic map layer is now working: you can confirm this by opening your `index.html` file in your browser (Figure \@ref(fig:basic-map)).
+
+```{r basic-map, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Basic map.', fig.align='center'}
+knitr::include_graphics('images/w09/basic-map.png')
+```
+
+<div class="note">
+**Note**<br />
+If your map does not show it means that something did go wrong, perhaps the map did not properly load or perhaps your `map.js` file is not in the same location as the `index.html` file. You can check for errors in the browser by using your browser's developer's tools. If using Google Chrome, you can [right click in your browser window](https://developers.google.com/web/tools/chrome-devtools/open) and click on *inspect* to open *Chrome DevTools*. The *console* tab brings you to the JavaScript console and will show messages that can help you debug. 
+</div>
+
+Besides tile layers, you can easily add other things to your map, including markers, polylines, polygons, circles, and popups. Let’s add a marker:
+
+```{js}
+// create marker
+var marker = L.marker([51.5, -0.09]);
+
+// add to map
+marker.addTo(smap);
+```
+
+Adding a circle is the same (except for specifying the radius in meters as a second argument), but lets you control how it looks by passing options as the last argument when creating the object:
+
+```{js}
+// create circle
+var circle = L.circle([51.508, -0.11], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+});
+
+// add to map
+circle.addTo(smap);
+```
+
+Adding a polygon is as easy:
+
+```{js}
+// create polygon
+var polygon = L.polygon([
+    [51.509, -0.08],
+    [51.503, -0.06],
+    [51.51, -0.047]
+]);
+
+// add to map
+polygon.addTo(smap);
+```
+
+The result is a simple map that includes a marker, circly, and simple polygyon. If you open `index.html` in your browser again, your screen now resemble Figure \@ref(fig:basic-map-marker).
+
+```{r basic-map-marker, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Basic map with marker, circle, and polygon.', fig.align='center'}
+knitr::include_graphics('images/w09/basic-map-marker.png')
+```
+
+To finalise this simple map, we can also add some popups to our map objects.
+
+``` {js}
+// add popups
+marker.bindPopup("<b>Hello world!</b><br>I am a marker.").openPopup();
+circle.bindPopup("I am a circle.");
+polygon.bindPopup("I am a polygon.");
+```
+
+Try clicking on the objects. The `bindPopup` method attaches a popup with the specified HTML content to your marker so the popup appears when you click on the object, and the `openPopup` method (for markers only) immediately opens the attached popup.
+
+### Choropleth web map
+Now, let's move to something a little more advanced and try to create a choropleth web map of 2021 projected [population density in London's boroughs](https://data.london.gov.uk/dataset/land-area-and-population-density-ward-and-borough).  Start by creating a new basic HTML file (`index_choropleth.html`) as well as a new, empty JS file (`choropleth.js`). Because the amount of data (borough shapes and the density value for each borough) is not very big, the most convenient and simple way to store and then display it is by using `GeoJSON`. We have created this `GeoJSON` file for you and you can download it below. Save the file in the same folder as your new basic HTML file and your new, empty JS file.
+
+#### File download {-}
+| File                                                 | Type           | Link |
+| :------                                              | :------        | :------ |
+| London Population Density                            |`geojson`          | [Download](https://github.com/jtvandijk/GEOG0125/tree/master/raw/zip/london.zip) |
+
+Each feature of the `GeoJSON` data (*london.geojson*) will look like this:
+
+``` {js}
+{
+"type": "FeatureCollection",
+"name": "london",
+ "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::27700" } },
+  "features": [
+      { "type": "Feature", "properties": 
+        { "NAME": "Kingston upon Thames", "GSS_CODE": "E09000021", "POPDENS": 4955 }, 
+        "geometry": ... 
+```
+
+As we want JavaScript to treat this simple `GeoJSON` file as a variable, we have to make a small change to the file. Open the file in your text editor and add `var boroughs = ` to the beginning of the file: 
+
+``` {js}
+var boroughs = {
+"type": "FeatureCollection",
+"name": "london",
+ "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::27700" } },
+  "features": [
+      { "type": "Feature", "properties": 
+        { "NAME": "Kingston upon Thames", "GSS_CODE": "E09000021", "POPDENS": 4955 }, 
+        "geometry": ... 
+```
+
+Now we can set up our HTML file to include **both** the `GeoJSON` file as well as the our new JavaScript file. Depending on how you named your files, this means that you need to add something like this to your HTML file:
+
+```{html}
+<!--map js-->
+<script src="london.geojson"></script>
+<script src="choropleth.js"></script>
+```
+
+<div class="note">
+**Note** <br/>
+Make sure that the order of the scripts is correct: the `GeoJSON` file will need to be put **above** the JavaScript file that will contain our map code. Also make sure that you have added a `div` with an **id** to which we link our JavaScript code.
+</div>
+
+The next step is to initiate the map in our `choropleth.js` file:
+
+```{js}
+// set up map in the map.js file
+var cmap = L.map('choropleth').setView([51.505, -0.09], 8);
+
+// create tile layer, add to map
+L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+    {attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL',
+     maxZoom: 18,
+}).addTo(cmap);
+
+// add London boroughs
+L.geoJson(boroughs).addTo(cmap);
+```
+
+If your setup is correct, the London boroughs should now show as in Figure \@ref(fig:london-boroughs).
+
+```{r london-boroughs, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='London boroughs with GeoJSON.', fig.align='center'}
+knitr::include_graphics('images/w09/london-boroughs.png')
+```
+
+<div class="note">
+**Note** <br/>
+When you prepare your own map layers with this method you need to pay attention to at least **two** things. First, your map layers cannot be too large and in some cases you may want to simplify your polygons. Large shapefiles with lots of details will require a different approach, e.g. through creating a slippy map. Second, Leaflet's default projection is `EPSG:3857`, also known as "Google Mercator" or "Web Mercator". In order for your map layers to show correctly you will need to make sure your `GeoJSON` is project in `EPSG:4326` (WGS 84). If this is not the case, you can reproject your data using, for instance, [Q-GIS](https://docs.qgis.org/2.8/en/docs/training_manual/vector_analysis/reproject_transform.html) or [R](https://r-spatial.github.io/sf/reference/st_transform.html).
+</div>
+
+Now we need to colour the boroughs according to their population density. You can use [colorbrewer 2.0](https://colorbrewer2.org/#type=sequential&scheme=OrRd&n=5) to select colours. Once we selected some nice colours,wWe can create a function that returns a colour based on population density:
+
+```{js}
+// colour function
+function getColour(d) {
+    return d > 20000 ? '#b30000' :
+           d > 15000 ? '#e34a33' :
+           d > 10000 ? '#fc8d59' :
+           d > 5000  ? '#fdcc8a' :
+                       '#fef0d9' ;
+};
+```
+
+Next we define a styling function for our `GeoJSON` layer so that its `fillColor` depends on `feature.properties.POPDENS` property, also adjusting the appearance a bit and adding a nice touch with dashed stroke.
+
+```{js}
+// style function
+function style(feature) {
+    return {
+        fillColor: getColour(feature.properties.POPDENS),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+};
+```
+
+Make sure that both the `getColor()` function and the `style()` function are placed **before** you add London boroughs to the map through:
+
+``` {js}
+// add London boroughs
+L.geoJson(boroughs,{style: style}).addTo(cmap);
+```
+
+And there we go:
+
+```{r london-boroughs-colour, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='London borough population density choropleth.', fig.align='center'}
+knitr::include_graphics('images/w09/london-boroughs-colour.png')
+```
+
+We can make things a little more interesting by adding some interaction by highlighting boroughs when they are hovered with a mouse. First, we'll need an [event listener](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events) for a layer mouseover event:
+
+```{js}
+// event listener
+function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+};
+```
+
+Here we get access to the layer that was hovered through `e.target`, set a thick grey border on the layer as our highlight effect, also bringing it to the front so that the border does not clash with nearby states. Next we’ll define what happens once the mouse is not hovering over the layer anymore:
+
+``` {js}
+// reset layout
+function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+};
+```
+
+The `geojson.resetStyle` method will reset the layer style to its default state (defined by our style function). For this to work, make sure our `GeoJSON` layer is accessible through the `geojson` variable by defining it before our listeners and assigning the layer to it later:
+
+``` {js}
+// define variable
+var geojson;
+
+// ... event listener, reset layout function
+
+```
+
+As an additional touch, let’s define a **click event listener** that zooms to the borough:
+
+``` {js}
+// zoom to feature function
+function zoomToFeature(e) {
+    cmap.fitBounds(e.target.getBounds());
+};
+```
+
+Now we can use the `onEachFeature` option to add the listeners on our state layers:
+
+``` {js}
+// apply listeners on each polygon
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+    });
+};
+
+// add London boroughs
+geojson = L.geoJson(boroughs, {
+    style: style,
+    onEachFeature: onEachFeature
+}).addTo(cmap);
+```
+
+And it works:
+
+```{r london-boroughs-highlight, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='London borough population density choropleth.', fig.align='center'}
+knitr::include_graphics('images/w09/london-boroughs-highlight.png')
+```
+
+### Assignment {-}
+You know went through all the steps involved in creating a simple choropleth web map using Leaflet.js. The last thing you would want to add is a legend. Try this by adding the following code to your `choropleth.js` file:
+
+``` {js}
+// define legend
+var legend = L.control({position: 'bottomright'});
+
+// create legend function
+legend.onAdd = function(map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [0, 5000, 10000, 15000, 20000],
+        labels = [];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    div.innerHTML = '<b class="title">Population density</b><br/>';
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColour(grades[i] + 1) + '"></i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    }
+
+    return div;
+};
+
+// add to map
+legend.addTo(cmap);
+```
+
+Once this is done, create a new `custom.css` file, in the same folder as your `index_choropleth.html` and `choropleth.js` files, with the following code:
+
+```{css}
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 15px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+```
+
+Link the `CSS file` by adding the following to the `head` of your HTML file:
+```{html}
+<!--custom css -->
+<link rel="stylesheet" href="custom.css" />
+```
+
+Your map is now done:
+
+```{r london-boroughs-legend, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='London borough population density choropleth.', fig.align='center'}
+knitr::include_graphics('images/w09/london-boroughs-legend.png')
+```
+
+Futher experimentation:
+
+1. Try to play with some of the settings to see how changes in the HTML, CSS, and JavaScript affect the look of your web page and web map.
+2. Rename your HTML file with your choropleth map to `index.html` and, together with the `custom.css` and `choropleth.js`, upload it to the `GEOG0125` server under `~/web`. If all is well, your web map will now be reflected on http://178.79.152.249/username/!
+
+## Take home message
+This week we have introduced you to JavaScript. JavaScript is used to provide the interactive elements to a web page, such as an interactive web map using the [Leaflet.js](https://leafletjs.com/) library. Leaflet is designed with simplicity, performance and usability in mind. It works efficiently across all major desktop and mobile platforms and can be extended with lots of plugins. This tutorial only covered some of the basics of using Leaflet to create maps, so by all means do have a look at the tutorials on [Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/) and [Layer Groups and Layers Control
+](https://leafletjs.com/examples/layers-control/).
+
+## Attributions {#attributions_w09}
+Content and inspiration for this week's material was derived from: the *[Leaflet Quick Start Guide](https://leafletjs.com/examples/quick-start/)* and the *[Interactive Choropleth Map Tutorial](https://leafletjs.com/examples/choropleth/)*.

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+   <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="favicon" href=""/>
+    <title>GEOG0125: Mapping</title>
+
+    <!--leaflet css-->
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+
+    <!--bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin=""/>
+
+    <!--custom css -->
+    <link rel="stylesheet" href="custom.css" />
+
+    <!--leaflet js-->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin="">
+    </script>
+
+   </head>
+
+   <!--content -->
+   <body>
+
+     <!--simple leaflet map-->
+     <div class="container mb-3">
+       <h1>Choropleth Leaflet.js map</h1>
+       <div>
+
+         <div id="choropleth" class="card-body p-0">
+           <canvas width="100" height="850"></canvas>
+
+           <!--choroplet js-->
+           <script src="london.geojson"></script>
+           <script src="choropleth.js"></script>
+
+        </div>
+      </div>
+    </div>
+
+    <!--footer-->
+    <div class="container mb-3">
+      <h1>About</h1>
+      <p class="text-justify">
+        Creating a map using Leaflet.js
+      </p>
+    </div>
+   </body>
+</html>
