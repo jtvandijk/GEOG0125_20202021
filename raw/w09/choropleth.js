@@ -41,6 +41,10 @@ function highlightFeature(e) {
         dashArray: '',
         fillOpacity: 0.7
     });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+      layer.bringToFront();
+    }
 };
 
 // reset layout

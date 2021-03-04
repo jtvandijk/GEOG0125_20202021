@@ -3,7 +3,7 @@
 ## Introduction {#intro-w08}
 Web mapping or online mapping is the process of using the maps delivered by geographic information systems (GIS) on the Internet. With ever-increasing numbers of large demographic data sets becoming available, many provided as open data, web mapping platforms can be used to facilitate the use and exploration of these datasets. Examples of such web mapping platforms are [DataShine](https://datashine.org.uk/), [CDRC Maps](https://maps.cdrc.ac.uk/), and [CDRC Mapmaker](https://mapmaker.cdrc.ac.uk/).
 
-This week we will dive a little deeper into creating webmaps. We will do this by looking at "the leading open-source JavaScript library for mobile-friendly interactive maps": [Leaflet.js](https://leafletjs.com/). The lecture videos this week are provided by the best mapmaker at UCL: [Oliver O'Brien](https://oobrien.com/). Ollie is a senior research associate at the UCL Department of Geography’s Geospatial Analytics and Computing group. He is particularly interested in investigating and implementing new ways to visualise spatial and socioeconomic data, especially open datasets relating to transport, London and other urban areas. Ollie is also directly reponsible for the creation of [DataShine](https://datashine.org.uk/) and [CDRC Maps](https://maps.cdrc.ac.uk/). He also created the official maps for the [Scottish Index of Multiple Deprivation 2020](https://simd.scot/#/simd2020/BTTTFTT/9/-4.0000/55.9000/).
+This week we will dive a little deeper into creating web maps. We will do this by looking at "the leading open-source JavaScript library for mobile-friendly interactive maps": [Leaflet.js](https://leafletjs.com/). Morevoer, the lecture videos this week are provided by the best mapmaker at UCL: [Oliver O'Brien](https://oobrien.com/). Ollie is a senior research associate at the UCL Department of Geography’s Geospatial Analytics and Computing group. He is interested in investigating and implementing new ways to visualise spatial and socioeconomic data, especially open datasets relating to transport, London and other urban areas. Ollie is also directly responsible for the creation of [DataShine](https://datashine.org.uk/) and [CDRC Maps](https://maps.cdrc.ac.uk/). He also created the official maps for the [Scottish Index of Multiple Deprivation 2020](https://simd.scot/#/simd2020/BTTTFTT/9/-4.0000/55.9000/).
 
 Let's get mapping!
 
@@ -20,7 +20,7 @@ options(max.print=30)
 ```
 
 ### Reading list {#reading-list-w09}
-Because this week's tutorial material is rather extensive and has a strong practical focus, we only have two article as suggested reading this week.
+Because this week's tutorial material is rather extensive and has a strong practical focus, we only have two articles as suggested reading this week.
 
 #### Suggested reading {-}
 - O'Brien, O. and J. Cheshire. 2015. Interactive mapping for large, open demographic data sets using familiar geographical features. *Journal of Maps* 12(4): 676-683. [[Link]](https://doi.org/10.1080/17445647.2015.1060183)
@@ -30,7 +30,7 @@ Because this week's tutorial material is rather extensive and has a strong pract
 Every Thursday between 13h00-14h00 you can join the **Technical Help** session on Microsoft Teams. The session will be hosted by [Alfie](https://www.ucl.ac.uk/geospatial-analytics/people/alfie-long). He will be there for the whole hour to answer any question you have live in the meeting or any questions you have formulated beforehand. If you cannot make the meeting, feel free to post the issue you are having in the Technical Help channel on the GEOG0125 Team so that Alfie can help to find a solution. 
 
 ## JavaScript
-Alongside HTML and CSS, JavaScript (JS) is one of the core technologies of the World Wide Web. JavaScript enables interactive web pages and is an essential part of web applications. The vast majority of websites use it for **client-side** page behavior and all major web browsers have a dedicated JavaScript engine to execute it. Basically you can say that:
+Alongside HTML and CSS, JavaScript (JS) is one of the core technologies of the World Wide Web. JavaScript enables interactive web pages and is an essential part of web applications. The vast majority of websites use it for **client-side** page behaviour and all major web browsers have a dedicated JavaScript engine to execute it. Basically you can say that:
 
 - HTML is used to define the content of a web page;
 - CSS is used to specify the layout of a web page; and,
@@ -39,7 +39,7 @@ Alongside HTML and CSS, JavaScript (JS) is one of the core technologies of the W
 JavaScript is one of the most popular modern web technologies. However, getting comfortable with JavaScript is more challenging than getting comfortable with HTML and CSS. You may have to start small, and progress gradually.
 
 ### Assignment {-}
-This week we will be creating maps using [Leaflet.js](leafletjs.com). Leaflet.js is a JavaScript mapping library. This means that in order to create basic maps with Leaflet you will require a basic understanding of JavaScript. Just like last week, [MDN Web Doc](https://developer.mozilla.org/en-US/) have a very useful tutorial to get you started: [JavaScript basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics). Before you continue with the rest of the tutorial, please work through this tutorial first.
+This week we will be creating maps using [Leaflet.js](leafletjs.com). Leaflet.js is a JavaScript mapping library. This means that in order to create basic maps with Leaflet you will require a basic understanding of JavaScript. [MDN Web Doc](https://developer.mozilla.org/en-US/) contains a very useful tutorial to get you started: [JavaScript basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics). Before you continue with the rest of the tutorial, please work through this tutorial first.
 
 <div class="note">
 **Note** <br/>
@@ -85,7 +85,7 @@ Before writing any code for the map, you need to do the following preparation st
 </script>
 ```
 
-You may wonder why something called "Bootstrap" is included here. Well, technically this is not necessary. However, [Bootstrap](https://getbootstrap.com/) is a free front-end framework for faster and easier web development. Bootstrap includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels and many other, as well as optional JavaScript plugins. Bootstrap also gives you the ability to easily create responsive designs. What this means is that you can use pre-created CSS classes and apply it directly onto your HTML. For instance, the `container mb-3` class you may have spotted in in your `index.html` is actually a CSS class that is found in the Bootstrap CSS. Notice the difference between Figure \@ref(fig:basic-html) and Figure \@ref(fig:add-css)?
+You may wonder why something called "Bootstrap" is included here. Well, technically this is not necessary. However, [Bootstrap](https://getbootstrap.com/) is a free front-end framework for faster and easier web development. Bootstrap includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels and many other, as well as optional JavaScript plugins. Bootstrap also gives you the ability to easily create responsive designs. What this means is that you can use pre-created CSS classes and apply it directly to your HTML. For instance, the `container mb-3` class you may have spotted in in your `index.html` is actually a CSS class that is found in the Bootstrap CSS. Notice the difference between Figure \@ref(fig:basic-html) and Figure \@ref(fig:add-css)?
 
 ```{r add-css, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Basic HTML file with Bootstrap CSS.', fig.align='center'}
 knitr::include_graphics('images/w09/add-css.png')
@@ -99,7 +99,7 @@ Now we can put a `div` element with a certain **id** on the place where you want
 </div>
 ```
 
-It is important that the element that will be containing the map, has a specified height. We do this by giving the `canvas` element a `width` of '100' and a `height` of `850`. You can see the effect of this change immediately (Figure \@ref(fig:add-canvas)).
+It is important that the element that will be containing the map, has a specified height. We do this by giving the `canvas` element a `width` of `100` and a `height` of `850`. You can see the effect of this change immediately (Figure \@ref(fig:add-canvas)).
 
 ```{r add-canvas, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Basic HTML file with map canvas.', fig.align='center'}
 knitr::include_graphics('images/w09/add-canvas.png')
@@ -120,7 +120,7 @@ Now we are fully set up, we can start by creating a map of the center of London 
 var smap = L.map('simple_map').setView([51.505, -0.09], 12);
 ```
 
-Note that the `id` that we given to the `canvas` HTML element is used here to initiate the map. Next we'll add a tile layer to add to our map, in this case it’s a Carto tile layer. Creating a tile layer usually involves setting the URL template for the tile images, the attribution text and the maximum zoom level of the layer. Make sure all the code is called after the `canvas` and `leaflet.js` inclusion in your HTML page; e.g. you cannot include `map.js` above your `canvas` HTML element and above the Leaflet JavaScript file.
+Note that the `id` that we gave to the `canvas` HTML element is used here to initiate the map. Next we'll add a tile layer to add to our map, in this case it’s a Carto tile layer. Creating a tile layer usually involves setting the URL template for the tile images, the attribution text and the maximum zoom level of the layer. Make sure all the code is called after the `canvas` and `leaflet.js` inclusion in your HTML page; e.g. you cannot include `map.js` before you have included your `canvas` HTML element and before you have included the Leaflet JavaScript file.
 
 ```{js}
 // create tile layer, add to map
@@ -180,9 +180,9 @@ var polygon = L.polygon([
 polygon.addTo(smap);
 ```
 
-The result is a simple map that includes a marker, circly, and simple polygyon. If you open `index.html` in your browser again, your screen now resemble Figure \@ref(fig:basic-map-marker).
+The result is a simple map that includes a marker, circle, and simple polygon. If you open `index.html` in your browser again, your screen now resemble Figure \@ref(fig:basic-map-marker).
 
-```{r basic-map-marker, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Basic map with marker, circle, and polygon.', fig.align='center'}
+```{r basic-map-marker, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Basic map with a marker, a circle, and a polygon.', fig.align='center'}
 knitr::include_graphics('images/w09/basic-map-marker.png')
 ```
 
@@ -205,7 +205,7 @@ Now, let's move to something a little more advanced and try to create a chorople
 | :------                                              | :------        | :------ |
 | London Population Density                            |`geojson`          | [Download](https://github.com/jtvandijk/GEOG0125/tree/master/raw/zip/london.zip) |
 
-Each feature of the `GeoJSON` data (*london.geojson*) will look like this:
+The features of the `GeoJSON` data (*london.geojson*) will look like this:
 
 ``` {js}
 {
@@ -241,13 +241,13 @@ Now we can set up our HTML file to include **both** the `GeoJSON` file as well a
 
 <div class="note">
 **Note** <br/>
-Make sure that the order of the scripts is correct: the `GeoJSON` file will need to be put **above** the JavaScript file that will contain our map code. Also make sure that you have added a `div` with an **id** to which we link our JavaScript code.
+Make sure that the order of the scripts is correct: the `GeoJSON` file will need to be put **above** the JavaScript file that will contain our map code. Also make sure that you have added a `div` with an **id** to which we can link our JavaScript code.
 </div>
 
 The next step is to initiate the map in our `choropleth.js` file:
 
 ```{js}
-// set up map in the map.js file
+// set up map in the choropleth.js file
 var cmap = L.map('choropleth').setView([51.505, -0.09], 8);
 
 // create tile layer, add to map
@@ -268,10 +268,10 @@ knitr::include_graphics('images/w09/london-boroughs.png')
 
 <div class="note">
 **Note** <br/>
-When you prepare your own map layers with this method you need to pay attention to at least **two** things. First, your map layers cannot be too large and in some cases you may want to simplify your polygons. Large shapefiles with lots of details will require a different approach, e.g. through creating a slippy map. Second, Leaflet's default projection is `EPSG:3857`, also known as "Google Mercator" or "Web Mercator". In order for your map layers to show correctly you will need to make sure your `GeoJSON` is project in `EPSG:4326` (WGS 84). If this is not the case, you can reproject your data using, for instance, [Q-GIS](https://docs.qgis.org/2.8/en/docs/training_manual/vector_analysis/reproject_transform.html) or [R](https://r-spatial.github.io/sf/reference/st_transform.html).
+When you prepare your own map layers with this method you need to pay attention to at least **two** things. First, your map layers cannot be too large and as such in some cases you may want to simplify your polygons. Large shapefiles with lots of details will require a different approach, e.g. through creating a slippy map. Second, Leaflet's default projection is `EPSG:3857`, also known as "Google Mercator" or "Web Mercator". In order for your map layers to show correctly you will need to make sure your `GeoJSON` is projected in `EPSG:4326` (WGS 84). If this is not the case, you can re-project your data using, for instance, [Q-GIS](https://docs.qgis.org/2.8/en/docs/training_manual/vector_analysis/reproject_transform.html) or [R](https://r-spatial.github.io/sf/reference/st_transform.html).
 </div>
 
-Now we need to colour the boroughs according to their population density. You can use [colorbrewer 2.0](https://colorbrewer2.org/#type=sequential&scheme=OrRd&n=5) to select colours. Once we selected some nice colours,wWe can create a function that returns a colour based on population density:
+Now we need to colour the boroughs according to their population density. You can use [colorbrewer 2.0](https://colorbrewer2.org/#type=sequential&scheme=OrRd&n=5) to select colours. Once we selected some nice colours, we can create a function that returns a colour based on population density:
 
 ```{js}
 // colour function
@@ -300,7 +300,7 @@ function style(feature) {
 };
 ```
 
-Make sure that both the `getColor()` function and the `style()` function are placed **before** you add London boroughs to the map through:
+Make sure that both the `getColour()` function and the `style()` function are included in `choropleth.js` **before** you add London boroughs to the map with:
 
 ``` {js}
 // add London boroughs
@@ -326,6 +326,10 @@ function highlightFeature(e) {
         dashArray: '',
         fillOpacity: 0.7
     });
+    
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
 };
 ```
 
@@ -453,12 +457,13 @@ Your map is now done:
 knitr::include_graphics('images/w09/london-boroughs-legend.png')
 ```
 
-Futher experimentation:
+Further experimentation:
 
 1. Try to play with some of the settings to see how changes in the HTML, CSS, and JavaScript affect the look of your web page and web map.
-2. Rename your HTML file with your choropleth map to `index.html` and, together with the `custom.css` and `choropleth.js`, upload it to the `GEOG0125` server under `~/web`. If all is well, your web map will now be reflected on http://178.79.152.249/username/!
+2. Try to understand what is happening in the JavaScript codes that generates the legend to our map.
+3. Rename your HTML file with your choropleth map to `index.html` and, together with the `custom.css` and `choropleth.js`, upload it to the `GEOG0125` server under `~/web`. If all is well, your web map will now be reflected on http://178.79.152.249/username/
 
-## Take home message
+## Take home message {#thm_w09}
 This week we have introduced you to JavaScript. JavaScript is used to provide the interactive elements to a web page, such as an interactive web map using the [Leaflet.js](https://leafletjs.com/) library. Leaflet is designed with simplicity, performance and usability in mind. It works efficiently across all major desktop and mobile platforms and can be extended with lots of plugins. This tutorial only covered some of the basics of using Leaflet to create maps, so by all means do have a look at the tutorials on [Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/) and [Layer Groups and Layers Control
 ](https://leafletjs.com/examples/layers-control/).
 
