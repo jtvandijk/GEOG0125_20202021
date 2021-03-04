@@ -1,6 +1,6 @@
 # (PART\*) Data Sciencist's Toolbox {-}
 
-# Unix tools
+# Unix Tools
 
 ## Introduction {#intro-w08}
 Over the past months, you have learned all about advanced topics in the domains of spatial analysis and machine learning. However, in your career as a data scientist or researcher you are also very likely to encounter having to work in a command line environment. For instance, because you need to run your code or analysis on a dedicated high-performance machine or because you have created some maps that you want to host on a website. To do this, and to take full advantage of the tools that your computer provides, this week we will be working with a text interface: [the Shell](https://en.wikipedia.org/wiki/Shell_(computing)). A shell is a computer program which exposes an operating system's services to a human user or other program. Although several shell programmes exist, at their core they are all roughly the same: they allow you to run programmes from within a textual environment. 
@@ -367,7 +367,7 @@ We further would recommend that you have a look at some of the [HTML — Structu
 Of course, you do not need to become an expert in HTML and front-end web development and need to know everything in detail: just as with Vim try to get comfortable enough so that you can adjust existing HTML code to make changes and that if you were to get stuck that you can find a solution using a targeted Google search. Try to play around with the HTML and CSS of your `index.html` page. You can even use your newly acquired Vim skills to make adjustments to your file. Or you can create an `index.html` locally and when you are happy copy your local file to the server with `scp`.
 
 <div class="note">
-When writing HMTL and CSS you will need a text-editor to write your code in. Office document editors are not suitable for this use, as they rely on hidden elements that interfere with the rendering engines used by web browsers [Atom](https://atom.io/) is a good, free, open-source, cross-platform editor. 
+When writing HMTL and CSS you will need a text-editor to write your code in. Office document editors are not suitable for this use, as they rely on hidden elements that interfere with the rendering engines used by web browsers. [Atom](https://atom.io/) is a good, free, open-source, cross-platform editor. 
 </div>
 
 ## Take home message
