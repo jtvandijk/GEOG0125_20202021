@@ -28,7 +28,7 @@ The first half of the module introduces a variety of important concepts such as 
 |               |               | *reading week* | | |
 | 6             | 22/02/2021    | GeoAI: Spatial Data Science Applications | **x** | |
 | 7             | 01/03/2021    | GeoAI: [Spatial-Temporal Mobility Analysis](spatial-temporal-mobility-analysis.html) | | **x** |
-| 8             | 08/03/2021    | Data Sciencist's Toolbox: [Unix tools](unix-tools.html) | | **x** |
+| 8             | 08/03/2021    | Data Sciencist's Toolbox: [Unix Tools](unix-tools.html) | | **x** |
 | 9             | 15/03/2021    | Data Sciencist's Toolbox: [Web Visualisation](web-visualisation.html) | | **x** |
 | 10            | 22/03/2021    | A look into the future of SocGeoDataScience | **x** | |
 

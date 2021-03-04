@@ -3,7 +3,7 @@
 ## Introduction {#intro-w08}
 Web mapping or online mapping is the process of using the maps delivered by geographic information systems (GIS) on the Internet. With ever-increasing numbers of large demographic data sets becoming available, many provided as open data, web mapping platforms can be used to facilitate the use and exploration of these datasets. Examples of such web mapping platforms are [DataShine](https://datashine.org.uk/), [CDRC Maps](https://maps.cdrc.ac.uk/), and [CDRC Mapmaker](https://mapmaker.cdrc.ac.uk/).
 
-This week we will dive a little deeper into creating webmaps. We will do this by looking at "the leading open-source JavaScript library for mobile-friendly interactive maps": [Leaflet.js](https://leafletjs.com/). The lecture videos this week are provided by the best mapmaker in UCL: [Oliver O'Brien](https://oobrien.com/). Ollie is a senior research associate at the UCL Department of Geography’s Geospatial Analytics and Computing group. He is particularly interested in investigating and implementing new ways to visualise spatial and socioeconomic data, especially open datasets relating to transport, London and other urban areas. Ollie is also directly reponsible for the creation of [DataShine](https://datashine.org.uk/) and [CDRC Maps](https://maps.cdrc.ac.uk/).
+This week we will dive a little deeper into creating webmaps. We will do this by looking at "the leading open-source JavaScript library for mobile-friendly interactive maps": [Leaflet.js](https://leafletjs.com/). The lecture videos this week are provided by the best mapmaker at UCL: [Oliver O'Brien](https://oobrien.com/). Ollie is a senior research associate at the UCL Department of Geography’s Geospatial Analytics and Computing group. He is particularly interested in investigating and implementing new ways to visualise spatial and socioeconomic data, especially open datasets relating to transport, London and other urban areas. Ollie is also directly reponsible for the creation of [DataShine](https://datashine.org.uk/) and [CDRC Maps](https://maps.cdrc.ac.uk/). He also created the official maps for the [Scottish Index of Multiple Deprivation 2020](https://simd.scot/#/simd2020/BTTTFTT/9/-4.0000/55.9000/).
 
 Let's get mapping!
 
@@ -36,8 +36,15 @@ Alongside HTML and CSS, JavaScript (JS) is one of the core technologies of the W
 - CSS is used to specify the layout of a web page; and,
 - JS to define the behaviour of a web page.
 
-## Attributions {#attributions_w08}
-This material was adapted from *JavaScript basics*. [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics/contributors.txt) and is licensed under a Attribution ShareAlike 2.5 Generic license (CC BY-NC-SA 4.0). [[Link]](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics)
+JavaScript is one of the most popular modern web technologies. However, getting comfortable with JavaScript is more challenging than getting comfortable with HTML and CSS. You may have to start small, and progress gradually.
 
-Futher content and inspiration for this week's material was derived from: the *Interactive Choropleth Map Tutorial* available on https://leafletjs.com/. [[Link]](https://leafletjs.com/examples/choropleth/)
+### Assignment {-}
+[Leaflet.js](leafletjs.com) is a JavaScript mapping library. This means that in order to create basic maps with Leaflet you will require a basic understanding of JavaScript. Just like last week, [MDN Web Doc](https://developer.mozilla.org/en-US/) have a very useful tutorial to get you started: [JavaScript basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics). Before you continue with the rest of the tutorial, please work through this tutorial first.
+
+<div class="note">
+If you haven't don so already, do install a text-editor to write your code in. Office document editors are not suitable for this use, as they rely on hidden elements that interfere with the rendering engines used by web browsers. [Atom](https://atom.io/) is a good, free, open-source, cross-platform editor. 
+</div>
+
+## Attributions {#attributions_w08}
+Content and inspiration for this week's material was derived from: the *Interactive Choropleth Map Tutorial* available on https://leafletjs.com/. [[Link]](https://leafletjs.com/examples/choropleth/)
 
