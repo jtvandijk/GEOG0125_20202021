@@ -367,7 +367,7 @@ We further would recommend that you have a look at some of the [HTML — Structu
 Of course, you do not need to become an expert in HTML and front-end web development and need to know everything in detail: just as with Vim try to get comfortable enough so that you can adjust existing HTML code to make changes and that if you were to get stuck that you can find a solution using a targeted Google search. Try to play around with the HTML and CSS of your `index.html` page. You can even use your newly acquired Vim skills to make adjustments to your file. Or you can create an `index.html` locally and when you are happy copy your local file to the server with `scp`.
 
 <div class="note">
-When writing HMTL and CSS you will need a text-editor to write your code in. Office document editors are not suitable for this use, as they rely on hidden elements that interfere with the rendering engines used by web browsers [Atom](https://atom.io/) is a good, free, open-source, cross-platform editor. 
+When writing HMTL and CSS you will need a text-editor to write your code in. Office document editors are not suitable for this use, as they rely on hidden elements that interfere with the rendering engines used by web browsers. [Atom](https://atom.io/) is a good, free, open-source, cross-platform editor. 
 </div>
 
 ## Take home message
