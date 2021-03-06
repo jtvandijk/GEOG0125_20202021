@@ -412,4 +412,4 @@ Some useful command line programmes that we have used ourselves in the past for 
 - [ffmpeg](https://ffmpeg.org/) is a complete, cross-platform solution to record, convert and stream audio and video.
 
 ## Attributions {#attributions_w08}
-This material was adapted from *The Missing Semester of your CS Education [The Shell, Editors (Vim), Data Wrangling)*. Cambridge, MA: Massachusetts Institute of Technology and is licensed under a Non Commercial-ShareAlike 4.0 International license (CC BY-NC-SA 4.0). [[Link]](https://missing.csail.mit.edu/)
+This material was adapted from *The Missing Semester of your CS Education [The Shell, Editors (Vim), Data Wrangling]*. Cambridge, MA: Massachusetts Institute of Technology and is licensed under a Non Commercial-ShareAlike 4.0 International license (CC BY-NC-SA 4.0). [[Link]](https://missing.csail.mit.edu/)
