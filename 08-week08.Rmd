@@ -34,7 +34,7 @@ Every Thursday between 13h00-14h00 you can join the **Technical Help** session o
 Before we get started with the Unix Shell, it would be very useful to know where different programming languages stand in the grand scheme of things. As such, in the first short lecture video Bala will give a brief introduction to computer science from a non-computer scientist's perspective.
 
 #### Video: Introduction to Computer Sciences {-}
-```{r 08-introduction-cs warnings=FALSE, message=FALSE, echo=FALSE}
+```{r 08-introduction-cs, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
 embed_msstream('2fb4de2b-5649-42af-8b8a-e6db13e36718') %>% use_align('left')
 ```
@@ -43,7 +43,7 @@ embed_msstream('2fb4de2b-5649-42af-8b8a-e6db13e36718') %>% use_align('left')
 Now we have had a basic introduction to computer science from a non-computer scientist's perspective, we can dive into the Unix Shell. 
 
 #### Video: Introduction to Unix Shell {-}
-```{r 08-introduction-unix-shell warnings=FALSE, message=FALSE, echo=FALSE}
+```{r 08-introduction-unix-shell, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
 embed_msstream('9aebd3a1-ae60-43ab-89ee-8ec2662161af') %>% use_align('left')
 ```
