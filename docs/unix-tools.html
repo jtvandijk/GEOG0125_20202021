@@ -241,7 +241,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="intro-w08" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Introduction</h2>
 <p>Over the past months, you have learned all about advanced topics in the domains of spatial analysis and machine learning. However, in your career as a data scientist or researcher you are also very likely to encounter having to work in a command line environment. For instance, because you need to run your code or analysis on a dedicated high-performance machine or because you have created some maps that you want to host on a website. To do this, and to take full advantage of the tools that your computer provides, this week we will be working with a text interface: <a href="https://en.wikipedia.org/wiki/Shell_(computing)">the Shell</a>. A shell is a computer program which exposes an operating system’s services to a human user or other program. Although several shell programmes exist, at their core they are all roughly the same: they allow you to run programmes from within a textual environment.</p>
-<p>This week we will focus on one of the most widely used shells: <strong>bash</strong> (<a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bourne Again SHell</a>). We will look into accessing a remote server, using some basic commands and programmes, and using some Unix tools for basic data wrangling tasks. The lecture videos this week are provided by <a href="https://cityfutures.be.unsw.edu.au/about-us/our-profiles/dr-balamurugan-soundararaj/">Dr Balamurugan Soundararaj</a>, who obtained a Masters’ degree from <a href="https://www.ucl.ac.uk/bartlett/casa/">CASA</a> and a PhD from <a href="https://www.geog.ucl.ac.uk/">UCL Geography</a>, is an avid Unix user and made extensive use of Unix tools to set up a data processing pipeline for <a href="https://github.com/sbmkvp/phd_thesis">his PhD research</a>.</p>
+<p>This week we will focus on one of the most widely used shells: <strong>bash</strong> (<a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bourne Again SHell</a>). We will look into accessing a remote server, using some basic commands and programmes, and using some Unix tools for basic data wrangling tasks.</p>
+<p>The lecture videos this week are provided by <a href="https://cityfutures.be.unsw.edu.au/about-us/our-profiles/dr-balamurugan-soundararaj/">Dr Balamurugan Soundararaj</a>, who obtained a Masters’ degree from <a href="https://www.ucl.ac.uk/bartlett/casa/">CASA</a> and a PhD from <a href="https://www.geog.ucl.ac.uk/">UCL Geography</a>, is an avid Unix user and made extensive use of Unix tools to set up a data processing pipeline for <a href="https://github.com/sbmkvp/phd_thesis">his PhD research</a>.</p>
 <p>Let’s get started!</p>
 <div id="video-introduction-w08" class="section level4 unnumbered">
 <h4>Video: Introduction W08</h4>
@@ -355,7 +356,7 @@ Figure 8.1: Enter the Matrix.
 </div>
 <p>Now we have successfully logged onto the server, you will see a prompt that looks like this: <code>username@geog:~$</code>. This is the main textual interface to the shell. It tells you that you are on the machine <em>geog</em> and that your “current working directory”, or where you currently are, is <code>~</code> (short for “home”). The <code>$</code> tells you that you are not the root user (the root user can do many things an ordinary user cannot). At this prompt you can type a command, which will then be interpreted by the shell. The most basic command is to execute a program:</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb60-1"><a href="unix-tools.html#cb60-1" aria-hidden="true"></a><span class="fu">date</span></span></code></pre></div>
-<pre><code>## Sat Mar  6 12:22:41 GMT 2021</code></pre>
+<pre><code>## Sat Mar  6 12:47:06 GMT 2021</code></pre>
 <p>Here, we executed the <code>date</code> program, which (perhaps unsurprisingly) prints the current date and time. The shell then asks us for another command to execute. We can also execute a command with arguments:</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb62-1"><a href="unix-tools.html#cb62-1" aria-hidden="true"></a><span class="bu">echo</span> hello</span></code></pre></div>
 <pre><code>## hello</code></pre>
@@ -753,7 +754,7 @@ Figure 8.4: Vimtutor.
 <li>the hostname of the computer to which the source file will be copied (<code>178.79.152.249</code>); and,</li>
 <li>the directory to which the source fill will be copied (<code>/home/username</code>).</li>
 </ul>
-<p>Give it a try with a <strong>small file</strong> you have on your own computer!</p>
+<p>Give it a try with any <strong>small text file</strong> that you may have on your own computer!</p>
 <div class="note">
 <p><strong>Note</strong><br />
 Make sure to include a space between the source and destination paths. Also, be careful when copying files that share the same name on both hosts; you may accidentally overwrite data you intended to keep.</p>
