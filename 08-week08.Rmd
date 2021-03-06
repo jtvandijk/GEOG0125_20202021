@@ -5,16 +5,18 @@
 ## Introduction {#intro-w08}
 Over the past months, you have learned all about advanced topics in the domains of spatial analysis and machine learning. However, in your career as a data scientist or researcher you are also very likely to encounter having to work in a command line environment. For instance, because you need to run your code or analysis on a dedicated high-performance machine or because you have created some maps that you want to host on a website. To do this, and to take full advantage of the tools that your computer provides, this week we will be working with a text interface: [the Shell](https://en.wikipedia.org/wiki/Shell_(computing)). A shell is a computer program which exposes an operating system's services to a human user or other program. Although several shell programmes exist, at their core they are all roughly the same: they allow you to run programmes from within a textual environment. 
 
-This week we will focus on one of the most widely used shells: **bash** ([Bourne Again SHell](https://en.wikipedia.org/wiki/Bash_(Unix_shell))). We will look into accessing a remote server, using some basic commands and programmes, and using some Unix tools for basic data wrangling tasks. The lecture videos this week are provided by [Dr Balamurugan Soundararaj](https://cityfutures.be.unsw.edu.au/about-us/our-profiles/dr-balamurugan-soundararaj/), who obtained a Masters' degree from [CASA](https://www.ucl.ac.uk/bartlett/casa/) and a PhD from [UCL Geography](https://www.geog.ucl.ac.uk/), is an avid Unix user and made extensive use of Unix tools to set up a data processing pipeline for [his PhD research](https://github.com/sbmkvp/phd_thesis). 
+This week we will focus on one of the most widely used shells: **bash** ([Bourne Again SHell](https://en.wikipedia.org/wiki/Bash_(Unix_shell))). We will look into accessing a remote server, using some basic commands and programmes, and using some Unix tools for basic data wrangling tasks. 
+
+The lecture videos this week are provided by [Dr Balamurugan Soundararaj](https://cityfutures.be.unsw.edu.au/about-us/our-profiles/dr-balamurugan-soundararaj/). Bala obtained a Masters' degree from [CASA](https://www.ucl.ac.uk/bartlett/casa/) and a PhD from [UCL Geography](https://www.geog.ucl.ac.uk/). Moreover, Bala is an avid Unix user and he has made extensive use of Unix tools to set up a data processing pipeline for [his PhD research](https://github.com/sbmkvp/phd_thesis). 
 
 Let's get started!
 
 #### Video: Introduction W08 {-}
 ```{r 08-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
-embed_msstream('') %>% use_align('left')
+embed_msstream('ac25dcb6-5e21-4bfd-b99b-e70bf43c8853') %>% use_align('left')
 ```
-[Lecture slides] [[Watch on MS stream]]()
+[Lecture slides] [[Watch on MS stream]](https://web.microsoftstream.com/video/ac25dcb6-5e21-4bfd-b99b-e70bf43c8853)
 
 ```{r 08-settings, warnings=FALSE, message=FALSE, echo=FALSE}
 # settings
@@ -29,6 +31,25 @@ Because this week's tutorial material is rather extensive and has a strong pract
 
 ### Technical Help session
 Every Thursday between 13h00-14h00 you can join the **Technical Help** session on Microsoft Teams. The session will be hosted by [Alfie](https://www.ucl.ac.uk/geospatial-analytics/people/alfie-long). He will be there for the whole hour to answer any question you have live in the meeting or any questions you have formulated beforehand. If you cannot make the meeting, feel free to post the issue you are having in the Technical Help channel on the GEOG0125 Team so that Alfie can help to find a solution. 
+
+## Unix Shell
+Before we get started with the Unix Shell, it would be very useful to know where different programming languages stand in the grand scheme of things. As such, in the first short lecture video Bala will give a brief introduction to computer science from a non-computer scientist's perspective.
+
+#### Video: Introduction to Computer Sciences {-}
+```{r 08-introduction-cs, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_msstream('2fb4de2b-5649-42af-8b8a-e6db13e36718') %>% use_align('left')
+```
+[[Lecture slides]](https://github.com/jtvandijk/GEOG0125/blob/master/slides/w08/w08_01_introduction_to_cs.pdf) [[Demo data]](https://github.com/jtvandijk/GEOG0125/tree/master/raw/zip/demo.zip) [[Watch on MS stream]](https://web.microsoftstream.com/video/2fb4de2b-5649-42af-8b8a-e6db13e36718)
+
+Now we have had a basic introduction to computer science from a non-computer scientist's perspective, we can dive into the Unix Shell. 
+
+#### Video: Introduction to Unix Shell {-}
+```{r 08-introduction-unix-shell, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_msstream('9aebd3a1-ae60-43ab-89ee-8ec2662161af') %>% use_align('left')
+```
+[[Lecture slides]](https://github.com/jtvandijk/GEOG0125/blob/master/slides/w08/w08_02_introduction_unix_shell.pdf) [[Watch on MS stream]](https://web.microsoftstream.com/video/9aebd3a1-ae60-43ab-89ee-8ec2662161af)
 
 ## Bourne Again SHell (BASH)
 Bash is a Unix shell and command language. It is free software and has been distributed widely as the default login shell for most Linux distributions and Apple’s macOS, a version is also available for Windows. To open a shell prompt, which is where you can type commands, you first need a terminal. 
@@ -311,7 +332,14 @@ But what if we only want to now the differences in number of lines within each f
 grep -Fxvf file_b file_a | wc -l
 ```
 
-In this example the output stream from grep (i.e. the addresses that are not present in `file_a`) serve as input to `wc -l`. This may seem trivial, however, this is very powerful. You could think of a situation where you go through a file, perform a database query, analyse the results of this query in a Python script, and push these analysis result to an R script to create a set of visualisations. You can also combine these pipelines in a bash scripts (`*.sh`). Anything you can run normally on the command line can be put into a script and it will do exactly the same thing. Similarly, anything you can put into a script can also be run normally on the command line and it will do exactly the same thing. We will not go into further details here but we will show you some examples during **Tuesday's seminar** of how this can be used to set up a processing pipeline that allows for parallel data processing.
+In this example the output stream from grep (i.e. the addresses that are not present in `file_a`) serve as input to `wc -l`. This may seem trivial, however, this is very powerful. You could think of a situation where you go through a file, perform a database query, analyse the results of this query in a Python script, and push these analysis result to an R script to create a set of visualisations. You can also combine these pipelines in a bash scripts (`*.sh`). Anything you can run normally on the command line can be put into a script and it will do exactly the same thing. Similarly, anything you can put into a script can also be run normally on the command line and it will do exactly the same thing. In the final lecture video of this week, Bala will show an example of a bespoke processing pipepline that he developed in his research.
+
+#### Video: Medium Data Toolkit {-}
+```{r 08-medium-data-toolkit, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_msstream('6ebde94f-31ed-404a-9ae7-218d145da643') %>% use_align('left')
+```
+[[Lecture slides]](https://github.com/jtvandijk/GEOG0125/blob/master/slides/w08/w08_03_medium_data_toolkit.pdf) [[Watch on MS stream]](https://web.microsoftstream.com/video/6ebde94f-31ed-404a-9ae7-218d145da643)
 
 ## Copying data
 Sometimes you will need to upload files to the server. For instance, you have created an analysis pipeline on your local machine and you know want to move this code to a high-performance machine for parallel processing. You can do this by making use of the **secure copy protocol** (SCP). Secure copy protocol (SCP) is a means of securely transferring computer files between a local host and a remote host or between two remote hosts - and this can be done through with the `scp` programme. 
@@ -329,7 +357,7 @@ The exact location to which the source file will be copied is specified by `user
 - the hostname of the computer to which the source file will be copied (`178.79.152.249`); and, 
 - the directory to which the source fill will be copied (`/home/username`). 
 
-Give it a try with a **small file** you have on your own computer!
+Give it a try with any **small text file** that you may have on your own computer!
 
 <div class="note">
 **Note**<br />
@@ -370,7 +398,7 @@ Of course, you do not need to become an expert in HTML and front-end web develop
 When writing HMTL and CSS you will need a text-editor to write your code in. Office document editors are not suitable for this use, as they rely on hidden elements that interfere with the rendering engines used by web browsers. [Atom](https://atom.io/) is a good, free, open-source, cross-platform editor. 
 </div>
 
-## Take home message
+## Take home message {#thm_w08}
 This week we have introduced you to the Shell. At its core, a shell allows you to run programmes from within a textual environment. As a data scientist you will most likely run into this at some point: most likely because you need to run your code or analysis on a dedicated high-performance machine or because you have created some maps that you want to host on a website. This week really only introduced you to the very basics of working with bash and their are many, many more useful command line programmes.
 
 Some useful command line programmes that we have used ourselves in the past for a variety of tasks:
@@ -380,7 +408,7 @@ Some useful command line programmes that we have used ourselves in the past for 
 - [Git](https://git-scm.com/) is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
 - [Miniconda](https://docs.conda.io/en/latest/miniconda.html) is a free minimal installer for conda. It is a small, bootstrap version of Anaconda that includes only conda, Python, the packages they depend on, and a small number of other useful packages, including pip, zlib and a few others.)
 - [sed](https://www.gnu.org/software/sed/manual/sed.html) is a stream editor. A stream editor is used to perform basic text transformations on an input stream (a file or input from a pipeline).
-- [Mapshaper](https://github.com/mbloch/mapshaper) is software for editing `Shapefile`, `GeoJSON`, `TopoJSON`, `csv` and several other data formats, written in JavaScript. Although technically written in JavaScript, mapshaper can be installed using [npm](https://www.npmjs.com/) and run from the command line.
+- [Mapshaper](https://github.com/mloch/mapshaper) is software for editing `Shapefile`, `GeoJSON`, `TopoJSON`, `csv` and several other data formats, written in JavaScript. Although technically written in JavaScript, mapshaper can be installed using [npm](https://www.npmjs.com/) and run from the command line.
 - [ffmpeg](https://ffmpeg.org/) is a complete, cross-platform solution to record, convert and stream audio and video.
 
 ## Attributions {#attributions_w08}
