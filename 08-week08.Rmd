@@ -7,7 +7,7 @@ Over the past months, you have learned all about advanced topics in the domains 
 
 This week we will focus on one of the most widely used shells: **bash** ([Bourne Again SHell](https://en.wikipedia.org/wiki/Bash_(Unix_shell))). We will look into accessing a remote server, using some basic commands and programmes, and using some Unix tools for basic data wrangling tasks. 
 
-The lecture videos this week are provided by [Dr Balamurugan Soundararaj](https://cityfutures.be.unsw.edu.au/about-us/our-profiles/dr-balamurugan-soundararaj/), who obtained a Masters' degree from [CASA](https://www.ucl.ac.uk/bartlett/casa/) and a PhD from [UCL Geography](https://www.geog.ucl.ac.uk/), is an avid Unix user and made extensive use of Unix tools to set up a data processing pipeline for [his PhD research](https://github.com/sbmkvp/phd_thesis). 
+The lecture videos this week are provided by [Dr Balamurugan Soundararaj](https://cityfutures.be.unsw.edu.au/about-us/our-profiles/dr-balamurugan-soundararaj/). Bala obtained a Masters' degree from [CASA](https://www.ucl.ac.uk/bartlett/casa/) and a PhD from [UCL Geography](https://www.geog.ucl.ac.uk/). Moreover, Bala is an avid Unix user and he has made extensive use of Unix tools to set up a data processing pipeline for [his PhD research](https://github.com/sbmkvp/phd_thesis). 
 
 Let's get started!
 
