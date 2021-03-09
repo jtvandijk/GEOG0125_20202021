@@ -24,7 +24,7 @@
 <meta name="author" content="Justin van Dijk and Stephen Law" />
 
 
-<meta name="date" content="2021-03-06" />
+<meta name="date" content="2021-03-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -216,7 +216,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.8" data-path="unix-tools.html"><a href="unix-tools.html#thm_w08"><i class="fa fa-check"></i><b>8.8</b> Take home message</a></li>
 <li class="chapter" data-level="8.9" data-path="unix-tools.html"><a href="unix-tools.html#attributions_w08"><i class="fa fa-check"></i><b>8.9</b> Attributions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="web-visualisation.html"><a href="web-visualisation.html"><i class="fa fa-check"></i><b>9</b> Web Visualisation</a></li>
+<li class="chapter" data-level="9" data-path="web-visualisation.html"><a href="web-visualisation.html"><i class="fa fa-check"></i><b>9</b> Web Visualisation</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="unix-tools.html"><a href="unix-tools.html#intro-w08"><i class="fa fa-check"></i><b>9.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="web-visualisation.html"><a href="web-visualisation.html#reading-list-w09"><i class="fa fa-check"></i><b>9.1.1</b> Reading list</a></li>
+<li class="chapter" data-level="9.1.2" data-path="statistical-inference-and-causality.html"><a href="statistical-inference-and-causality.html#technical-help-session"><i class="fa fa-check"></i><b>9.1.2</b> Technical Help session</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="web-visualisation.html"><a href="web-visualisation.html#javascript"><i class="fa fa-check"></i><b>9.2</b> JavaScript</a>
+<ul>
+<li class="chapter" data-level="" data-path="unix-tools.html"><a href="unix-tools.html#assignment"><i class="fa fa-check"></i>Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="web-visualisation.html"><a href="web-visualisation.html#leaflet.js"><i class="fa fa-check"></i><b>9.3</b> Leaflet.js</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="web-visualisation.html"><a href="web-visualisation.html#setting-up"><i class="fa fa-check"></i><b>9.3.1</b> Setting up</a></li>
+<li class="chapter" data-level="9.3.2" data-path="web-visualisation.html"><a href="web-visualisation.html#simple-web-map"><i class="fa fa-check"></i><b>9.3.2</b> Simple web map</a></li>
+<li class="chapter" data-level="9.3.3" data-path="web-visualisation.html"><a href="web-visualisation.html#choropleth-web-map"><i class="fa fa-check"></i><b>9.3.3</b> Choropleth web map</a></li>
+<li class="chapter" data-level="" data-path="web-visualisation.html"><a href="web-visualisation.html#assignment-1"><i class="fa fa-check"></i>Assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="web-visualisation.html"><a href="web-visualisation.html#thm_w09"><i class="fa fa-check"></i><b>9.4</b> Take home message</a></li>
+<li class="chapter" data-level="9.5" data-path="web-visualisation.html"><a href="web-visualisation.html#attributions_w09"><i class="fa fa-check"></i><b>9.5</b> Attributions</a></li>
+</ul></li>
 <li class="part"><span><b>Future</b></span></li>
 <li class="chapter" data-level="10" data-path="a-look-into-the-future.html"><a href="a-look-into-the-future.html"><i class="fa fa-check"></i><b>10</b> A look into the future</a></li>
 </ul>
@@ -238,10 +258,638 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="web-visualisation" class="section level1" number="9">
 <h1><span class="header-section-number">9</span> Web Visualisation</h1>
-<div class="note">
-<p><strong>This week’s content will be made available on 15/03/2021.</strong></p>
+<div id="intro-w08" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Introduction</h2>
+<p>Web mapping or online mapping is the process of using the maps delivered by geographic information systems (GIS) on the Internet. With ever-increasing numbers of large demographic data sets becoming available, many provided as open data, web mapping platforms can be used to facilitate the use and exploration of these datasets. Examples of such web mapping platforms are <a href="https://datashine.org.uk/">DataShine</a>, <a href="https://maps.cdrc.ac.uk/">CDRC Maps</a>, and <a href="https://mapmaker.cdrc.ac.uk/">CDRC Mapmaker</a>.</p>
+<p>This week we will dive a little deeper into creating web maps. We will do this by looking at “the leading open-source JavaScript library for mobile-friendly interactive maps”: <a href="https://leafletjs.com/">Leaflet.js</a>. Moreover, the lecture videos this week are provided by the best mapmaker at UCL: <a href="https://oobrien.com/">Oliver O’Brien</a>. Ollie is a senior research associate at the UCL Department of Geography’s Geospatial Analytics and Computing group. He is interested in investigating and implementing new ways to visualise spatial and socioeconomic data, especially open datasets relating to transport, London and other urban areas. Ollie is also directly responsible for the creation of <a href="https://datashine.org.uk/">DataShine</a>, <a href="https://maps.cdrc.ac.uk/">CDRC Maps</a>, and the official maps for the <a href="https://simd.scot/#/simd2020/BTTTFTT/9/-4.0000/55.9000/">Scottish Index of Multiple Deprivation 2020</a>.</p>
+<p>Let’s get mapping!</p>
+<div id="video-introduction-w09" class="section level4 unnumbered">
+<h4>Video: Introduction W09</h4>
+<p><div class="vembedr" align="left">
+<div>
+<iframe src="https://web.microsoftstream.com/embed/video/?autoplay=false&amp;showinfo=true" width="533" height="300" style="border:none;"></iframe>
 </div>
+</div>
+[Lecture slides] <a href="">[Watch on MS stream]</a></p>
+</div>
+<div id="reading-list-w09" class="section level3" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Reading list</h3>
+<p>Because this week’s tutorial material is rather extensive and has a strong practical focus, we only have two articles as suggested reading this week.</p>
+<div id="suggested-reading" class="section level4 unnumbered">
+<h4>Suggested reading</h4>
+<ul>
+<li>O’Brien, O. and J. Cheshire. 2015. Interactive mapping for large, open demographic data sets using familiar geographical features. <em>Journal of Maps</em> 12(4): 676-683. <a href="https://doi.org/10.1080/17445647.2015.1060183">[Link]</a></li>
+<li>Van Dijk, J. T. and P. A. Longley. 2020. Interactive display of surnames distributions in historic and contemporary Great Britain. <em>Journal of Maps</em> 16(1): 68-76. <a href="https://www.tandfonline.com/doi/full/10.1080/17445647.2020.1746418">[Link]</a></li>
+</ul>
+</div>
+</div>
+<div id="technical-help-session" class="section level3" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> Technical Help session</h3>
+<p>Every Thursday between 13h00-14h00 you can join the <strong>Technical Help</strong> session on Microsoft Teams. The session will be hosted by <a href="https://www.ucl.ac.uk/geospatial-analytics/people/alfie-long">Alfie</a>. He will be there for the whole hour to answer any question you have live in the meeting or any questions you have formulated beforehand. If you cannot make the meeting, feel free to post the issue you are having in the Technical Help channel on the GEOG0125 Team so that Alfie can help to find a solution.</p>
+</div>
+</div>
+<div id="javascript" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> JavaScript</h2>
+<p>Alongside HTML and CSS, JavaScript (JS) is one of the core technologies of the World Wide Web. JavaScript enables interactive web pages and is an essential part of web applications. The vast majority of websites use it for <strong>client-side</strong> page behaviour and all major web browsers have a dedicated JavaScript engine to execute it. Basically you can say that:</p>
+<ul>
+<li>HTML is used to define the content of a web page;</li>
+<li>CSS is used to specify the layout of a web page; and,</li>
+<li>JS to define the behaviour of a web page.</li>
+</ul>
+<p>JavaScript is one of the most popular modern web technologies. However, getting comfortable with JavaScript is more challenging than getting comfortable with HTML and CSS. You may have to start small, and progress gradually.</p>
+<div id="assignment" class="section level3 unnumbered">
+<h3>Assignment</h3>
+<p>This week we will be creating maps using <a href="leafletjs.com">Leaflet.js</a>. Leaflet.js is a JavaScript mapping library. This means that in order to create basic maps with Leaflet you will require a basic understanding of JavaScript. <a href="https://developer.mozilla.org/en-US/">MDN Web Doc</a> contains a very useful tutorial to get you started: <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics">JavaScript basics</a>. Before you continue with the rest of the tutorial, please work through this tutorial first.</p>
+<div class="note">
+<p><strong>Note</strong> <br/>
+If you haven’t done so already, do install a text-editor to write your HTML/CSS/JS code in. Office document editors are not suitable for this use, as they rely on hidden elements that interfere with the rendering engines used by web browsers. <a href="https://atom.io/">Atom</a> is a good, free, open-source, cross-platform editor.</p>
+</div>
+</div>
+</div>
+<div id="leaflet.js" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Leaflet.js</h2>
+<p>As your web map will be embedded within a web page, we need to start with a basic HTML page in which we want to embed our map. You can download the template here:</p>
+<div id="file-download" class="section level4 unnumbered">
+<h4>File download</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">File</th>
+<th align="left">Type</th>
+<th align="left">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Basic HTML file</td>
+<td align="left"><code>html</code></td>
+<td align="left"><a href="https://github.com/jtvandijk/GEOG0125/tree/master/raw/zip/index.zip">Download</a></td>
+</tr>
+</tbody>
+</table>
+<p>Once downloaded, you can open the <code>index.html</code> file using your text-editor. To see how the web page currently looks like, you can also open <code>index.html</code> in your browser (Figure <a href="web-visualisation.html#fig:basic-html">9.1</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:basic-html"></span>
+<img src="images/w09/basic-html.png" alt="Basic HTML file." width="762" />
+<p class="caption">
+Figure 9.1: Basic HTML file.
+</p>
+</div>
+</div>
+<div id="setting-up" class="section level3" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Setting up</h3>
+<p>Before writing any code for the map, you need to do the following preparation steps on your page:</p>
+<ul>
+<li>Include Leaflet CSS file in the head section of your document:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="web-visualisation.html#cb1-1" aria-hidden="true"></a><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span> </span>
+<span id="cb1-2"><a href="web-visualisation.html#cb1-2" aria-hidden="true"></a><span class="ot">      href=</span><span class="st">&quot;https://unpkg.com/leaflet@1.7.1/dist/leaflet.css&quot;</span></span>
+<span id="cb1-3"><a href="web-visualisation.html#cb1-3" aria-hidden="true"></a><span class="ot">      integrity=</span><span class="st">&quot;sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==&quot;</span></span>
+<span id="cb1-4"><a href="web-visualisation.html#cb1-4" aria-hidden="true"></a><span class="ot">      crossorigin=</span><span class="st">&quot;&quot;</span><span class="kw">/&gt;</span></span></code></pre></div>
+<ul>
+<li>Include Bootstrap CSS file:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="web-visualisation.html#cb2-1" aria-hidden="true"></a><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span> </span>
+<span id="cb2-2"><a href="web-visualisation.html#cb2-2" aria-hidden="true"></a><span class="ot">      href=</span><span class="st">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;</span></span>
+<span id="cb2-3"><a href="web-visualisation.html#cb2-3" aria-hidden="true"></a><span class="ot">      integrity=</span><span class="st">&quot;sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T&quot;</span></span>
+<span id="cb2-4"><a href="web-visualisation.html#cb2-4" aria-hidden="true"></a><span class="ot">      crossorigin=</span><span class="st">&quot;anonymous&quot;</span><span class="kw">/&gt;</span></span></code></pre></div>
+<ul>
+<li>Include Leaflet JavaScript file <strong>after</strong> Leaflet’s CSS:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="web-visualisation.html#cb3-1" aria-hidden="true"></a><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://unpkg.com/leaflet@1.7.1/dist/leaflet.js&quot;</span></span>
+<span id="cb3-2"><a href="web-visualisation.html#cb3-2" aria-hidden="true"></a><span class="ot">        integrity=</span><span class="st">&quot;sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==&quot;</span></span>
+<span id="cb3-3"><a href="web-visualisation.html#cb3-3" aria-hidden="true"></a><span class="ot">        crossorigin=</span><span class="st">&quot;&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb3-4"><a href="web-visualisation.html#cb3-4" aria-hidden="true"></a><span class="kw">&lt;/script&gt;</span></span></code></pre></div>
+<p>You may wonder why something called “Bootstrap” is included here. Well, technically this is not necessary. However, <a href="https://getbootstrap.com/">Bootstrap</a> is a free front-end framework for faster and easier web development. Bootstrap includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels and many other, as well as optional JavaScript plugins. Bootstrap also gives you the ability to easily create responsive designs. What this means is that you can use pre-created CSS classes and apply it directly to your HTML. For instance, the <code>container mb-3</code> class you may have spotted in in your <code>index.html</code> is actually a CSS class that is found in the Bootstrap CSS. Notice the difference between Figure <a href="web-visualisation.html#fig:basic-html">9.1</a> and Figure <a href="web-visualisation.html#fig:add-css">9.2</a>?</p>
+<div class="figure" style="text-align: center"><span id="fig:add-css"></span>
+<img src="images/w09/add-css.png" alt="Basic HTML file with Bootstrap CSS." width="784" />
+<p class="caption">
+Figure 9.2: Basic HTML file with Bootstrap CSS.
+</p>
+</div>
+<p>Now we can put a <code>div</code> element with a certain <strong>id</strong> on the place where you want the map to be. Replace the <code>&lt;!--map will be here--&gt;</code> in your <code>index.html</code> document with the following code:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="web-visualisation.html#cb4-1" aria-hidden="true"></a><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;simple_map&quot;</span><span class="ot"> class=</span><span class="st">&quot;card-body p-0&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb4-2"><a href="web-visualisation.html#cb4-2" aria-hidden="true"></a>  <span class="kw">&lt;canvas</span><span class="ot"> width=</span><span class="st">&quot;100&quot;</span><span class="ot"> height=</span><span class="st">&quot;850&quot;</span><span class="kw">&gt;&lt;/canvas&gt;</span></span>
+<span id="cb4-3"><a href="web-visualisation.html#cb4-3" aria-hidden="true"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+<p>It is important that the element that will be containing the map, has a specified height. We do this by giving the <code>canvas</code> element a <code>width</code> of <code>100</code> and a <code>height</code> of <code>850</code>. You can see the effect of this change immediately (Figure <a href="web-visualisation.html#fig:add-canvas">9.3</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:add-canvas"></span>
+<img src="images/w09/add-canvas.png" alt="Basic HTML file with map canvas." width="784" />
+<p class="caption">
+Figure 9.3: Basic HTML file with map canvas.
+</p>
+</div>
+<p>The next thing we need to do is create a separate JavaScript file: <code>map.js</code>. This is the file were the Leaflet code will live. Save the file in the same folder as your <code>index.html</code> page. We also include a link to the file in our <code>index.html</code> file. Add the following directly below the <code>&lt;canvas id="simple_map" width="100" height="850"&gt;&lt;/canvas&gt;</code> element:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="web-visualisation.html#cb5-1" aria-hidden="true"></a><span class="co">&lt;!--map js--&gt;</span></span>
+<span id="cb5-2"><a href="web-visualisation.html#cb5-2" aria-hidden="true"></a><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;map.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></span></code></pre></div>
+</div>
+<div id="simple-web-map" class="section level3" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Simple web map</h3>
+<p>Now we are fully set up, we can start by creating a map of the center of London with some Carto map tiles. First we will initialise the map and set its view to our chosen geographical coordinates and a zoom level:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb6-1"><a href="web-visualisation.html#cb6-1" aria-hidden="true"></a><span class="co">// set up map in the map.js file</span></span>
+<span id="cb6-2"><a href="web-visualisation.html#cb6-2" aria-hidden="true"></a><span class="kw">var</span> smap <span class="op">=</span> L<span class="op">.</span><span class="fu">map</span>(<span class="st">&#39;simple_map&#39;</span>)<span class="op">.</span><span class="fu">setView</span>([<span class="fl">51.505</span><span class="op">,</span> <span class="fl">-0.09</span>]<span class="op">,</span> <span class="dv">12</span>)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// set up map in the map.js file
+var smap = L.map('simple_map').setView([51.505, -0.09], 12);
+</script>
+<p>Note that the <code>id</code> that we gave to the <code>canvas</code> HTML element is used here to initiate the map. Next we’ll add a tile layer to add to our map, in this case it’s a Carto tile layer. Creating a tile layer usually involves setting the URL template for the tile images, the attribution text and the maximum zoom level of the layer. Make sure all the code is called after the <code>canvas</code> and <code>leaflet.js</code> inclusion in your HTML page; e.g. you cannot include <code>map.js</code> before you have included your <code>canvas</code> HTML element and before you have included the Leaflet JavaScript file.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb7-1"><a href="web-visualisation.html#cb7-1" aria-hidden="true"></a><span class="co">// create tile layer, add to map</span></span>
+<span id="cb7-2"><a href="web-visualisation.html#cb7-2" aria-hidden="true"></a>L<span class="op">.</span><span class="fu">tileLayer</span>(<span class="st">&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png&#39;</span><span class="op">,</span> </span>
+<span id="cb7-3"><a href="web-visualisation.html#cb7-3" aria-hidden="true"></a>    {<span class="dt">attribution</span><span class="op">:</span> <span class="st">&#39;Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL&#39;</span><span class="op">,</span></span>
+<span id="cb7-4"><a href="web-visualisation.html#cb7-4" aria-hidden="true"></a>    <span class="dt">maxZoom</span><span class="op">:</span> <span class="dv">18</span><span class="op">,</span></span>
+<span id="cb7-5"><a href="web-visualisation.html#cb7-5" aria-hidden="true"></a>})<span class="op">.</span><span class="fu">addTo</span>(smap)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// create tile layer, add to map
+L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', 
+    {attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL',
+    maxZoom: 18,
+}).addTo(smap);
+</script>
+<p>That is it. Your basic map layer is now working: you can confirm this by opening your <code>index.html</code> file in your browser (Figure <a href="web-visualisation.html#fig:basic-map">9.4</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:basic-map"></span>
+<img src="images/w09/basic-map.png" alt="Basic map." width="784" />
+<p class="caption">
+Figure 9.4: Basic map.
+</p>
+</div>
+<div class="note">
+<p><strong>Note</strong><br />
+If your map does not show it means that something did go wrong, perhaps the map did not properly load or perhaps your <code>map.js</code> file is not in the same location as the <code>index.html</code> file. You can check for errors in the browser by using your browser’s developer’s tools. If using Google Chrome, you can <a href="https://developers.google.com/web/tools/chrome-devtools/open">right click in your browser window</a> and click on <em>inspect</em> to open <em>Chrome DevTools</em>. The <em>console</em> tab brings you to the JavaScript console and will show messages that can help you debug.</p>
+</div>
+<p>Besides tile layers, you can easily add other things to your map, including markers, polylines, polygons, circles, and popups. Let’s add a marker:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb8-1"><a href="web-visualisation.html#cb8-1" aria-hidden="true"></a><span class="co">// create marker</span></span>
+<span id="cb8-2"><a href="web-visualisation.html#cb8-2" aria-hidden="true"></a><span class="kw">var</span> marker <span class="op">=</span> L<span class="op">.</span><span class="fu">marker</span>([<span class="fl">51.5</span><span class="op">,</span> <span class="fl">-0.09</span>])<span class="op">;</span></span>
+<span id="cb8-3"><a href="web-visualisation.html#cb8-3" aria-hidden="true"></a></span>
+<span id="cb8-4"><a href="web-visualisation.html#cb8-4" aria-hidden="true"></a><span class="co">// add to map</span></span>
+<span id="cb8-5"><a href="web-visualisation.html#cb8-5" aria-hidden="true"></a>marker<span class="op">.</span><span class="fu">addTo</span>(smap)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// create marker
+var marker = L.marker([51.5, -0.09]);
 
+// add to map
+marker.addTo(smap);
+</script>
+<p>Adding a circle is the same (except for specifying the radius in meters as a second argument), but lets you control how it looks by passing options as the last argument when creating the object:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb9-1"><a href="web-visualisation.html#cb9-1" aria-hidden="true"></a><span class="co">// create circle</span></span>
+<span id="cb9-2"><a href="web-visualisation.html#cb9-2" aria-hidden="true"></a><span class="kw">var</span> circle <span class="op">=</span> L<span class="op">.</span><span class="fu">circle</span>([<span class="fl">51.508</span><span class="op">,</span> <span class="fl">-0.11</span>]<span class="op">,</span> {</span>
+<span id="cb9-3"><a href="web-visualisation.html#cb9-3" aria-hidden="true"></a>    <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;red&#39;</span><span class="op">,</span></span>
+<span id="cb9-4"><a href="web-visualisation.html#cb9-4" aria-hidden="true"></a>    <span class="dt">fillColor</span><span class="op">:</span> <span class="st">&#39;#f03&#39;</span><span class="op">,</span></span>
+<span id="cb9-5"><a href="web-visualisation.html#cb9-5" aria-hidden="true"></a>    <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.5</span><span class="op">,</span></span>
+<span id="cb9-6"><a href="web-visualisation.html#cb9-6" aria-hidden="true"></a>    <span class="dt">radius</span><span class="op">:</span> <span class="dv">500</span></span>
+<span id="cb9-7"><a href="web-visualisation.html#cb9-7" aria-hidden="true"></a>})<span class="op">;</span></span>
+<span id="cb9-8"><a href="web-visualisation.html#cb9-8" aria-hidden="true"></a></span>
+<span id="cb9-9"><a href="web-visualisation.html#cb9-9" aria-hidden="true"></a><span class="co">// add to map</span></span>
+<span id="cb9-10"><a href="web-visualisation.html#cb9-10" aria-hidden="true"></a>circle<span class="op">.</span><span class="fu">addTo</span>(smap)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// create circle
+var circle = L.circle([51.508, -0.11], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+});
+
+// add to map
+circle.addTo(smap);
+</script>
+<p>Adding a polygon is as easy:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb10-1"><a href="web-visualisation.html#cb10-1" aria-hidden="true"></a><span class="co">// create polygon</span></span>
+<span id="cb10-2"><a href="web-visualisation.html#cb10-2" aria-hidden="true"></a><span class="kw">var</span> polygon <span class="op">=</span> L<span class="op">.</span><span class="fu">polygon</span>([</span>
+<span id="cb10-3"><a href="web-visualisation.html#cb10-3" aria-hidden="true"></a>    [<span class="fl">51.509</span><span class="op">,</span> <span class="fl">-0.08</span>]<span class="op">,</span></span>
+<span id="cb10-4"><a href="web-visualisation.html#cb10-4" aria-hidden="true"></a>    [<span class="fl">51.503</span><span class="op">,</span> <span class="fl">-0.06</span>]<span class="op">,</span></span>
+<span id="cb10-5"><a href="web-visualisation.html#cb10-5" aria-hidden="true"></a>    [<span class="fl">51.51</span><span class="op">,</span> <span class="fl">-0.047</span>]</span>
+<span id="cb10-6"><a href="web-visualisation.html#cb10-6" aria-hidden="true"></a>])<span class="op">;</span></span>
+<span id="cb10-7"><a href="web-visualisation.html#cb10-7" aria-hidden="true"></a></span>
+<span id="cb10-8"><a href="web-visualisation.html#cb10-8" aria-hidden="true"></a><span class="co">// add to map</span></span>
+<span id="cb10-9"><a href="web-visualisation.html#cb10-9" aria-hidden="true"></a>polygon<span class="op">.</span><span class="fu">addTo</span>(smap)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// create polygon
+var polygon = L.polygon([
+    [51.509, -0.08],
+    [51.503, -0.06],
+    [51.51, -0.047]
+]);
+
+// add to map
+polygon.addTo(smap);
+</script>
+<p>The result is a simple map that includes a marker, circle, and simple polygon. If you open <code>index.html</code> in your browser again, your screen now resemble Figure <a href="web-visualisation.html#fig:basic-map-marker">9.5</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:basic-map-marker"></span>
+<img src="images/w09/basic-map-marker.png" alt="Basic map with a marker, a circle, and a polygon." width="784" />
+<p class="caption">
+Figure 9.5: Basic map with a marker, a circle, and a polygon.
+</p>
+</div>
+<p>To finalise this simple map, we can also add some popups to our map objects.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb11-1"><a href="web-visualisation.html#cb11-1" aria-hidden="true"></a><span class="co">// add popups</span></span>
+<span id="cb11-2"><a href="web-visualisation.html#cb11-2" aria-hidden="true"></a>marker<span class="op">.</span><span class="fu">bindPopup</span>(<span class="st">&quot;&lt;b&gt;Hello world!&lt;/b&gt;&lt;br&gt;I am a marker.&quot;</span>)<span class="op">.</span><span class="fu">openPopup</span>()<span class="op">;</span></span>
+<span id="cb11-3"><a href="web-visualisation.html#cb11-3" aria-hidden="true"></a>circle<span class="op">.</span><span class="fu">bindPopup</span>(<span class="st">&quot;I am a circle.&quot;</span>)<span class="op">;</span></span>
+<span id="cb11-4"><a href="web-visualisation.html#cb11-4" aria-hidden="true"></a>polygon<span class="op">.</span><span class="fu">bindPopup</span>(<span class="st">&quot;I am a polygon.&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// add popups
+marker.bindPopup("<b>Hello world!</b><br>I am a marker.").openPopup();
+circle.bindPopup("I am a circle.");
+polygon.bindPopup("I am a polygon.");
+</script>
+<p>Try clicking on the objects. The <code>bindPopup</code> method attaches a popup with the specified HTML content to your marker so the popup appears when you click on the object, and the <code>openPopup</code> method (for markers only) immediately opens the attached popup.</p>
+</div>
+<div id="choropleth-web-map" class="section level3" number="9.3.3">
+<h3><span class="header-section-number">9.3.3</span> Choropleth web map</h3>
+<p>Now, let’s move to something a little more advanced and try to create a choropleth web map of 2021 projected <a href="https://data.london.gov.uk/dataset/land-area-and-population-density-ward-and-borough">population density in London’s boroughs</a>. Start by creating a new basic HTML file (<code>index_choropleth.html</code>) as well as a new, empty JS file (<code>choropleth.js</code>). Because the amount of data (borough shapes and the density value for each borough) is not very big, the most convenient and simple way to store and then display it is by using <code>GeoJSON</code>. We have created this <code>GeoJSON</code> file for you and you can download it below. Save the file in the same folder as your new basic HTML file and your new, empty JS file.</p>
+<div id="file-download-1" class="section level4 unnumbered">
+<h4>File download</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">File</th>
+<th align="left">Type</th>
+<th align="left">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">London Population Density</td>
+<td align="left"><code>geojson</code></td>
+<td align="left"><a href="https://github.com/jtvandijk/GEOG0125/tree/master/raw/zip/london.zip">Download</a></td>
+</tr>
+</tbody>
+</table>
+<p>The features of the <code>GeoJSON</code> data (<em>london.geojson</em>) will look like this:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb12-1"><a href="web-visualisation.html#cb12-1" aria-hidden="true"></a>{</span>
+<span id="cb12-2"><a href="web-visualisation.html#cb12-2" aria-hidden="true"></a><span class="st">&quot;type&quot;</span><span class="op">:</span> <span class="st">&quot;FeatureCollection&quot;</span><span class="op">,</span></span>
+<span id="cb12-3"><a href="web-visualisation.html#cb12-3" aria-hidden="true"></a><span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;london&quot;</span><span class="op">,</span></span>
+<span id="cb12-4"><a href="web-visualisation.html#cb12-4" aria-hidden="true"></a> <span class="st">&quot;crs&quot;</span><span class="op">:</span> { <span class="st">&quot;type&quot;</span><span class="op">:</span> <span class="st">&quot;name&quot;</span><span class="op">,</span> <span class="st">&quot;properties&quot;</span><span class="op">:</span> { <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;urn:ogc:def:crs:EPSG::27700&quot;</span> } }<span class="op">,</span></span>
+<span id="cb12-5"><a href="web-visualisation.html#cb12-5" aria-hidden="true"></a>  <span class="st">&quot;features&quot;</span><span class="op">:</span> [</span>
+<span id="cb12-6"><a href="web-visualisation.html#cb12-6" aria-hidden="true"></a>      { <span class="st">&quot;type&quot;</span><span class="op">:</span> <span class="st">&quot;Feature&quot;</span><span class="op">,</span> <span class="st">&quot;properties&quot;</span><span class="op">:</span> </span>
+<span id="cb12-7"><a href="web-visualisation.html#cb12-7" aria-hidden="true"></a>        { <span class="st">&quot;NAME&quot;</span><span class="op">:</span> <span class="st">&quot;Kingston upon Thames&quot;</span><span class="op">,</span> <span class="st">&quot;GSS_CODE&quot;</span><span class="op">:</span> <span class="st">&quot;E09000021&quot;</span><span class="op">,</span> <span class="st">&quot;POPDENS&quot;</span><span class="op">:</span> <span class="dv">4955</span> }<span class="op">,</span> </span>
+<span id="cb12-8"><a href="web-visualisation.html#cb12-8" aria-hidden="true"></a>        <span class="st">&quot;geometry&quot;</span><span class="op">:</span> <span class="op">...</span> </span></code></pre></div>
+<script type="text/javascript">
+{
+"type": "FeatureCollection",
+"name": "london",
+ "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::27700" } },
+  "features": [
+      { "type": "Feature", "properties": 
+        { "NAME": "Kingston upon Thames", "GSS_CODE": "E09000021", "POPDENS": 4955 }, 
+        "geometry": ... 
+</script>
+<p>As we want JavaScript to treat this simple <code>GeoJSON</code> file as a variable, we have to make a small change to the file. Open the file in your text editor and add <code>var boroughs =</code> to the beginning of the file:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb13-1"><a href="web-visualisation.html#cb13-1" aria-hidden="true"></a><span class="kw">var</span> boroughs <span class="op">=</span> {</span>
+<span id="cb13-2"><a href="web-visualisation.html#cb13-2" aria-hidden="true"></a><span class="st">&quot;type&quot;</span><span class="op">:</span> <span class="st">&quot;FeatureCollection&quot;</span><span class="op">,</span></span>
+<span id="cb13-3"><a href="web-visualisation.html#cb13-3" aria-hidden="true"></a><span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;london&quot;</span><span class="op">,</span></span>
+<span id="cb13-4"><a href="web-visualisation.html#cb13-4" aria-hidden="true"></a> <span class="st">&quot;crs&quot;</span><span class="op">:</span> { <span class="st">&quot;type&quot;</span><span class="op">:</span> <span class="st">&quot;name&quot;</span><span class="op">,</span> <span class="st">&quot;properties&quot;</span><span class="op">:</span> { <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;urn:ogc:def:crs:EPSG::27700&quot;</span> } }<span class="op">,</span></span>
+<span id="cb13-5"><a href="web-visualisation.html#cb13-5" aria-hidden="true"></a>  <span class="st">&quot;features&quot;</span><span class="op">:</span> [</span>
+<span id="cb13-6"><a href="web-visualisation.html#cb13-6" aria-hidden="true"></a>      { <span class="st">&quot;type&quot;</span><span class="op">:</span> <span class="st">&quot;Feature&quot;</span><span class="op">,</span> <span class="st">&quot;properties&quot;</span><span class="op">:</span> </span>
+<span id="cb13-7"><a href="web-visualisation.html#cb13-7" aria-hidden="true"></a>        { <span class="st">&quot;NAME&quot;</span><span class="op">:</span> <span class="st">&quot;Kingston upon Thames&quot;</span><span class="op">,</span> <span class="st">&quot;GSS_CODE&quot;</span><span class="op">:</span> <span class="st">&quot;E09000021&quot;</span><span class="op">,</span> <span class="st">&quot;POPDENS&quot;</span><span class="op">:</span> <span class="dv">4955</span> }<span class="op">,</span> </span>
+<span id="cb13-8"><a href="web-visualisation.html#cb13-8" aria-hidden="true"></a>        <span class="st">&quot;geometry&quot;</span><span class="op">:</span> <span class="op">...</span> </span></code></pre></div>
+<script type="text/javascript">
+var boroughs = {
+"type": "FeatureCollection",
+"name": "london",
+ "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::27700" } },
+  "features": [
+      { "type": "Feature", "properties": 
+        { "NAME": "Kingston upon Thames", "GSS_CODE": "E09000021", "POPDENS": 4955 }, 
+        "geometry": ... 
+</script>
+<p>Now we can set up our HTML file to include <strong>both</strong> the <code>GeoJSON</code> file as well as the our new JavaScript file. Depending on how you named your files, this means that you need to add something like this to your HTML file:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="web-visualisation.html#cb14-1" aria-hidden="true"></a><span class="co">&lt;!--map js--&gt;</span></span>
+<span id="cb14-2"><a href="web-visualisation.html#cb14-2" aria-hidden="true"></a><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;london.geojson&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></span>
+<span id="cb14-3"><a href="web-visualisation.html#cb14-3" aria-hidden="true"></a><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;choropleth.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></span></code></pre></div>
+<div class="note">
+<p><strong>Note</strong> <br/>
+Make sure that the order of the scripts is correct: the <code>GeoJSON</code> file will need to be put <strong>above</strong> the JavaScript file that will contain our map code. Also make sure that you have added a <code>div</code> with an <strong>id</strong> to which we can link our JavaScript code.</p>
+</div>
+<p>The next step is to initiate the map in our <code>choropleth.js</code> file:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb15-1"><a href="web-visualisation.html#cb15-1" aria-hidden="true"></a><span class="co">// set up map in the choropleth.js file</span></span>
+<span id="cb15-2"><a href="web-visualisation.html#cb15-2" aria-hidden="true"></a><span class="kw">var</span> cmap <span class="op">=</span> L<span class="op">.</span><span class="fu">map</span>(<span class="st">&#39;choropleth&#39;</span>)<span class="op">.</span><span class="fu">setView</span>([<span class="fl">51.505</span><span class="op">,</span> <span class="fl">-0.09</span>]<span class="op">,</span> <span class="dv">8</span>)<span class="op">;</span></span>
+<span id="cb15-3"><a href="web-visualisation.html#cb15-3" aria-hidden="true"></a></span>
+<span id="cb15-4"><a href="web-visualisation.html#cb15-4" aria-hidden="true"></a><span class="co">// create tile layer, add to map</span></span>
+<span id="cb15-5"><a href="web-visualisation.html#cb15-5" aria-hidden="true"></a>L<span class="op">.</span><span class="fu">tileLayer</span>(<span class="st">&#39;https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png&#39;</span><span class="op">,</span></span>
+<span id="cb15-6"><a href="web-visualisation.html#cb15-6" aria-hidden="true"></a>    {<span class="dt">attribution</span><span class="op">:</span> <span class="st">&#39;Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL&#39;</span><span class="op">,</span></span>
+<span id="cb15-7"><a href="web-visualisation.html#cb15-7" aria-hidden="true"></a>     <span class="dt">maxZoom</span><span class="op">:</span> <span class="dv">18</span><span class="op">,</span></span>
+<span id="cb15-8"><a href="web-visualisation.html#cb15-8" aria-hidden="true"></a>})<span class="op">.</span><span class="fu">addTo</span>(cmap)<span class="op">;</span></span>
+<span id="cb15-9"><a href="web-visualisation.html#cb15-9" aria-hidden="true"></a></span>
+<span id="cb15-10"><a href="web-visualisation.html#cb15-10" aria-hidden="true"></a><span class="co">// add London boroughs</span></span>
+<span id="cb15-11"><a href="web-visualisation.html#cb15-11" aria-hidden="true"></a>L<span class="op">.</span><span class="fu">geoJson</span>(boroughs)<span class="op">.</span><span class="fu">addTo</span>(cmap)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// set up map in the choropleth.js file
+var cmap = L.map('choropleth').setView([51.505, -0.09], 8);
+
+// create tile layer, add to map
+L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+    {attribution: 'Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL',
+     maxZoom: 18,
+}).addTo(cmap);
+
+// add London boroughs
+L.geoJson(boroughs).addTo(cmap);
+</script>
+<p>If your setup is correct, the London boroughs should now show as in Figure <a href="web-visualisation.html#fig:london-boroughs">9.6</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:london-boroughs"></span>
+<img src="images/w09/london-boroughs.png" alt="London boroughs with GeoJSON." width="784" />
+<p class="caption">
+Figure 9.6: London boroughs with GeoJSON.
+</p>
+</div>
+<div class="note">
+<p><strong>Note</strong> <br/>
+When you prepare your own map layers with this method you need to pay attention to at least <strong>two</strong> things. First, your map layers cannot be too large and as such in some cases you may want to simplify your polygons. Large shapefiles with lots of details will require a different approach, e.g. through creating a slippy map. Second, Leaflet’s default projection is <code>EPSG:3857</code>, also known as “Google Mercator” or “Web Mercator”. In order for your map layers to show correctly you will need to make sure your <code>GeoJSON</code> is projected in <code>EPSG:4326</code> (WGS 84). If this is not the case, you can re-project your data using, for instance, <a href="https://docs.qgis.org/2.8/en/docs/training_manual/vector_analysis/reproject_transform.html">Q-GIS</a> or <a href="https://r-spatial.github.io/sf/reference/st_transform.html">R</a>.</p>
+</div>
+<p>Now we need to colour the boroughs according to their population density. You can use <a href="https://colorbrewer2.org/#type=sequential&amp;scheme=OrRd&amp;n=5">colorbrewer 2.0</a> to select colours. Once we selected some nice colours, we can create a function that returns a colour based on population density:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb16-1"><a href="web-visualisation.html#cb16-1" aria-hidden="true"></a><span class="co">// colour function</span></span>
+<span id="cb16-2"><a href="web-visualisation.html#cb16-2" aria-hidden="true"></a><span class="kw">function</span> <span class="fu">getColour</span>(d) {</span>
+<span id="cb16-3"><a href="web-visualisation.html#cb16-3" aria-hidden="true"></a>    <span class="cf">return</span> d <span class="op">&gt;</span> <span class="dv">20000</span> <span class="op">?</span> <span class="st">&#39;#b30000&#39;</span> <span class="op">:</span></span>
+<span id="cb16-4"><a href="web-visualisation.html#cb16-4" aria-hidden="true"></a>           d <span class="op">&gt;</span> <span class="dv">15000</span> <span class="op">?</span> <span class="st">&#39;#e34a33&#39;</span> <span class="op">:</span></span>
+<span id="cb16-5"><a href="web-visualisation.html#cb16-5" aria-hidden="true"></a>           d <span class="op">&gt;</span> <span class="dv">10000</span> <span class="op">?</span> <span class="st">&#39;#fc8d59&#39;</span> <span class="op">:</span></span>
+<span id="cb16-6"><a href="web-visualisation.html#cb16-6" aria-hidden="true"></a>           d <span class="op">&gt;</span> <span class="dv">5000</span>  <span class="op">?</span> <span class="st">&#39;#fdcc8a&#39;</span> <span class="op">:</span></span>
+<span id="cb16-7"><a href="web-visualisation.html#cb16-7" aria-hidden="true"></a>                       <span class="st">&#39;#fef0d9&#39;</span> <span class="op">;</span></span>
+<span id="cb16-8"><a href="web-visualisation.html#cb16-8" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// colour function
+function getColour(d) {
+    return d > 20000 ? '#b30000' :
+           d > 15000 ? '#e34a33' :
+           d > 10000 ? '#fc8d59' :
+           d > 5000  ? '#fdcc8a' :
+                       '#fef0d9' ;
+};
+</script>
+<p>Next we define a styling function for our <code>GeoJSON</code> layer so that its <code>fillColor</code> depends on <code>feature.properties.POPDENS</code> property, also adjusting the appearance a bit and adding a nice touch with dashed stroke.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb17-1"><a href="web-visualisation.html#cb17-1" aria-hidden="true"></a><span class="co">// style function</span></span>
+<span id="cb17-2"><a href="web-visualisation.html#cb17-2" aria-hidden="true"></a><span class="kw">function</span> <span class="fu">style</span>(feature) {</span>
+<span id="cb17-3"><a href="web-visualisation.html#cb17-3" aria-hidden="true"></a>    <span class="cf">return</span> {</span>
+<span id="cb17-4"><a href="web-visualisation.html#cb17-4" aria-hidden="true"></a>        <span class="dt">fillColor</span><span class="op">:</span> <span class="fu">getColour</span>(feature<span class="op">.</span><span class="at">properties</span><span class="op">.</span><span class="at">POPDENS</span>)<span class="op">,</span></span>
+<span id="cb17-5"><a href="web-visualisation.html#cb17-5" aria-hidden="true"></a>        <span class="dt">weight</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb17-6"><a href="web-visualisation.html#cb17-6" aria-hidden="true"></a>        <span class="dt">opacity</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb17-7"><a href="web-visualisation.html#cb17-7" aria-hidden="true"></a>        <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;white&#39;</span><span class="op">,</span></span>
+<span id="cb17-8"><a href="web-visualisation.html#cb17-8" aria-hidden="true"></a>        <span class="dt">dashArray</span><span class="op">:</span> <span class="st">&#39;3&#39;</span><span class="op">,</span></span>
+<span id="cb17-9"><a href="web-visualisation.html#cb17-9" aria-hidden="true"></a>        <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.7</span></span>
+<span id="cb17-10"><a href="web-visualisation.html#cb17-10" aria-hidden="true"></a>    }<span class="op">;</span></span>
+<span id="cb17-11"><a href="web-visualisation.html#cb17-11" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// style function
+function style(feature) {
+    return {
+        fillColor: getColour(feature.properties.POPDENS),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+};
+</script>
+<p>Make sure that both the <code>getColour()</code> function and the <code>style()</code> function are included in <code>choropleth.js</code> <strong>before</strong> you add London boroughs to the map with:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb18-1"><a href="web-visualisation.html#cb18-1" aria-hidden="true"></a><span class="co">// add London boroughs</span></span>
+<span id="cb18-2"><a href="web-visualisation.html#cb18-2" aria-hidden="true"></a>L<span class="op">.</span><span class="fu">geoJson</span>(boroughs<span class="op">,</span>{<span class="dt">style</span><span class="op">:</span> style})<span class="op">.</span><span class="fu">addTo</span>(cmap)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// add London boroughs
+L.geoJson(boroughs,{style: style}).addTo(cmap);
+</script>
+<p>And there we go:</p>
+<div class="figure" style="text-align: center"><span id="fig:london-boroughs-colour"></span>
+<img src="images/w09/london-boroughs-colour.png" alt="London borough population density choropleth." width="784" />
+<p class="caption">
+Figure 9.7: London borough population density choropleth.
+</p>
+</div>
+<p>We can make things a little more interesting by adding some interaction by highlighting boroughs when they are hovered with a mouse. First, we’ll need an <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events">event listener</a> for a layer mouseover event:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb19-1"><a href="web-visualisation.html#cb19-1" aria-hidden="true"></a><span class="co">// event listener</span></span>
+<span id="cb19-2"><a href="web-visualisation.html#cb19-2" aria-hidden="true"></a><span class="kw">function</span> <span class="fu">highlightFeature</span>(e) {</span>
+<span id="cb19-3"><a href="web-visualisation.html#cb19-3" aria-hidden="true"></a>    <span class="kw">var</span> layer <span class="op">=</span> e<span class="op">.</span><span class="at">target</span><span class="op">;</span></span>
+<span id="cb19-4"><a href="web-visualisation.html#cb19-4" aria-hidden="true"></a></span>
+<span id="cb19-5"><a href="web-visualisation.html#cb19-5" aria-hidden="true"></a>    layer<span class="op">.</span><span class="fu">setStyle</span>({</span>
+<span id="cb19-6"><a href="web-visualisation.html#cb19-6" aria-hidden="true"></a>        <span class="dt">weight</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb19-7"><a href="web-visualisation.html#cb19-7" aria-hidden="true"></a>        <span class="dt">color</span><span class="op">:</span> <span class="st">&#39;#666&#39;</span><span class="op">,</span></span>
+<span id="cb19-8"><a href="web-visualisation.html#cb19-8" aria-hidden="true"></a>        <span class="dt">dashArray</span><span class="op">:</span> <span class="st">&#39;&#39;</span><span class="op">,</span></span>
+<span id="cb19-9"><a href="web-visualisation.html#cb19-9" aria-hidden="true"></a>        <span class="dt">fillOpacity</span><span class="op">:</span> <span class="fl">0.7</span></span>
+<span id="cb19-10"><a href="web-visualisation.html#cb19-10" aria-hidden="true"></a>    })<span class="op">;</span></span>
+<span id="cb19-11"><a href="web-visualisation.html#cb19-11" aria-hidden="true"></a>    </span>
+<span id="cb19-12"><a href="web-visualisation.html#cb19-12" aria-hidden="true"></a>    <span class="cf">if</span> (<span class="op">!</span>L<span class="op">.</span><span class="at">Browser</span><span class="op">.</span><span class="at">ie</span> <span class="op">&amp;&amp;</span> <span class="op">!</span>L<span class="op">.</span><span class="at">Browser</span><span class="op">.</span><span class="at">opera</span> <span class="op">&amp;&amp;</span> <span class="op">!</span>L<span class="op">.</span><span class="at">Browser</span><span class="op">.</span><span class="at">edge</span>) {</span>
+<span id="cb19-13"><a href="web-visualisation.html#cb19-13" aria-hidden="true"></a>        layer<span class="op">.</span><span class="fu">bringToFront</span>()<span class="op">;</span></span>
+<span id="cb19-14"><a href="web-visualisation.html#cb19-14" aria-hidden="true"></a>    }</span>
+<span id="cb19-15"><a href="web-visualisation.html#cb19-15" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// event listener
+function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+    
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
+};
+</script>
+<p>Here we get access to the layer that was hovered through <code>e.target</code>, set a thick grey border on the layer as our highlight effect, also bringing it to the front so that the border does not clash with nearby states. Next we’ll define what happens once the mouse is not hovering over the layer anymore:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb20-1"><a href="web-visualisation.html#cb20-1" aria-hidden="true"></a><span class="co">// reset layout</span></span>
+<span id="cb20-2"><a href="web-visualisation.html#cb20-2" aria-hidden="true"></a><span class="kw">function</span> <span class="fu">resetHighlight</span>(e) {</span>
+<span id="cb20-3"><a href="web-visualisation.html#cb20-3" aria-hidden="true"></a>    geojson<span class="op">.</span><span class="fu">resetStyle</span>(e<span class="op">.</span><span class="at">target</span>)<span class="op">;</span></span>
+<span id="cb20-4"><a href="web-visualisation.html#cb20-4" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// reset layout
+function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+};
+</script>
+<p>The <code>geojson.resetStyle</code> method will reset the layer style to its default state (defined by our style function). For this to work, make sure our <code>GeoJSON</code> layer is accessible through the <code>geojson</code> variable by defining it before our listeners and assigning the layer to it later:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb21-1"><a href="web-visualisation.html#cb21-1" aria-hidden="true"></a><span class="co">// define variable</span></span>
+<span id="cb21-2"><a href="web-visualisation.html#cb21-2" aria-hidden="true"></a><span class="kw">var</span> geojson<span class="op">;</span></span>
+<span id="cb21-3"><a href="web-visualisation.html#cb21-3" aria-hidden="true"></a></span>
+<span id="cb21-4"><a href="web-visualisation.html#cb21-4" aria-hidden="true"></a><span class="co">// ... event listener, reset layout function</span></span></code></pre></div>
+<script type="text/javascript">
+// define variable
+var geojson;
+
+// ... event listener, reset layout function
+
+</script>
+<p>As an additional touch, let’s define a <strong>click event listener</strong> that zooms to the borough:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb22-1"><a href="web-visualisation.html#cb22-1" aria-hidden="true"></a><span class="co">// zoom to feature function</span></span>
+<span id="cb22-2"><a href="web-visualisation.html#cb22-2" aria-hidden="true"></a><span class="kw">function</span> <span class="fu">zoomToFeature</span>(e) {</span>
+<span id="cb22-3"><a href="web-visualisation.html#cb22-3" aria-hidden="true"></a>    cmap<span class="op">.</span><span class="fu">fitBounds</span>(e<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="fu">getBounds</span>())<span class="op">;</span></span>
+<span id="cb22-4"><a href="web-visualisation.html#cb22-4" aria-hidden="true"></a>}<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// zoom to feature function
+function zoomToFeature(e) {
+    cmap.fitBounds(e.target.getBounds());
+};
+</script>
+<p>Now we can use the <code>onEachFeature</code> option to add the listeners on our state layers:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb23-1"><a href="web-visualisation.html#cb23-1" aria-hidden="true"></a><span class="co">// apply listeners on each polygon</span></span>
+<span id="cb23-2"><a href="web-visualisation.html#cb23-2" aria-hidden="true"></a><span class="kw">function</span> <span class="fu">onEachFeature</span>(feature<span class="op">,</span> layer) {</span>
+<span id="cb23-3"><a href="web-visualisation.html#cb23-3" aria-hidden="true"></a>    layer<span class="op">.</span><span class="fu">on</span>({</span>
+<span id="cb23-4"><a href="web-visualisation.html#cb23-4" aria-hidden="true"></a>        <span class="dt">mouseover</span><span class="op">:</span> highlightFeature<span class="op">,</span></span>
+<span id="cb23-5"><a href="web-visualisation.html#cb23-5" aria-hidden="true"></a>        <span class="dt">mouseout</span><span class="op">:</span> resetHighlight<span class="op">,</span></span>
+<span id="cb23-6"><a href="web-visualisation.html#cb23-6" aria-hidden="true"></a>        <span class="dt">click</span><span class="op">:</span> zoomToFeature</span>
+<span id="cb23-7"><a href="web-visualisation.html#cb23-7" aria-hidden="true"></a>    })<span class="op">;</span></span>
+<span id="cb23-8"><a href="web-visualisation.html#cb23-8" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb23-9"><a href="web-visualisation.html#cb23-9" aria-hidden="true"></a></span>
+<span id="cb23-10"><a href="web-visualisation.html#cb23-10" aria-hidden="true"></a><span class="co">// add London boroughs</span></span>
+<span id="cb23-11"><a href="web-visualisation.html#cb23-11" aria-hidden="true"></a>geojson <span class="op">=</span> L<span class="op">.</span><span class="fu">geoJson</span>(boroughs<span class="op">,</span> {</span>
+<span id="cb23-12"><a href="web-visualisation.html#cb23-12" aria-hidden="true"></a>    <span class="dt">style</span><span class="op">:</span> style<span class="op">,</span></span>
+<span id="cb23-13"><a href="web-visualisation.html#cb23-13" aria-hidden="true"></a>    <span class="dt">onEachFeature</span><span class="op">:</span> onEachFeature</span>
+<span id="cb23-14"><a href="web-visualisation.html#cb23-14" aria-hidden="true"></a>})<span class="op">.</span><span class="fu">addTo</span>(cmap)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// apply listeners on each polygon
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+    });
+};
+
+// add London boroughs
+geojson = L.geoJson(boroughs, {
+    style: style,
+    onEachFeature: onEachFeature
+}).addTo(cmap);
+</script>
+<p>And it works:</p>
+<div class="figure" style="text-align: center"><span id="fig:london-boroughs-highlight"></span>
+<img src="images/w09/london-boroughs-highlight.png" alt="London borough population density choropleth." width="926" />
+<p class="caption">
+Figure 9.8: London borough population density choropleth.
+</p>
+</div>
+</div>
+</div>
+<div id="assignment-1" class="section level3 unnumbered">
+<h3>Assignment</h3>
+<p>You know went through all the steps involved in creating a simple choropleth web map using Leaflet.js. The last thing you would want to add is a legend. Try this by adding the following code to your <code>choropleth.js</code> file:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb24-1"><a href="web-visualisation.html#cb24-1" aria-hidden="true"></a><span class="co">// define legend</span></span>
+<span id="cb24-2"><a href="web-visualisation.html#cb24-2" aria-hidden="true"></a><span class="kw">var</span> legend <span class="op">=</span> L<span class="op">.</span><span class="fu">control</span>({<span class="dt">position</span><span class="op">:</span> <span class="st">&#39;bottomright&#39;</span>})<span class="op">;</span></span>
+<span id="cb24-3"><a href="web-visualisation.html#cb24-3" aria-hidden="true"></a></span>
+<span id="cb24-4"><a href="web-visualisation.html#cb24-4" aria-hidden="true"></a><span class="co">// create legend function</span></span>
+<span id="cb24-5"><a href="web-visualisation.html#cb24-5" aria-hidden="true"></a>legend<span class="op">.</span><span class="at">onAdd</span> <span class="op">=</span> <span class="kw">function</span>(map) {</span>
+<span id="cb24-6"><a href="web-visualisation.html#cb24-6" aria-hidden="true"></a></span>
+<span id="cb24-7"><a href="web-visualisation.html#cb24-7" aria-hidden="true"></a>    <span class="kw">var</span> div <span class="op">=</span> L<span class="op">.</span><span class="at">DomUtil</span><span class="op">.</span><span class="fu">create</span>(<span class="st">&#39;div&#39;</span><span class="op">,</span> <span class="st">&#39;info legend&#39;</span>)<span class="op">,</span></span>
+<span id="cb24-8"><a href="web-visualisation.html#cb24-8" aria-hidden="true"></a>        grades <span class="op">=</span> [<span class="dv">0</span><span class="op">,</span> <span class="dv">5000</span><span class="op">,</span> <span class="dv">10000</span><span class="op">,</span> <span class="dv">15000</span><span class="op">,</span> <span class="dv">20000</span>]<span class="op">,</span></span>
+<span id="cb24-9"><a href="web-visualisation.html#cb24-9" aria-hidden="true"></a>        labels <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb24-10"><a href="web-visualisation.html#cb24-10" aria-hidden="true"></a></span>
+<span id="cb24-11"><a href="web-visualisation.html#cb24-11" aria-hidden="true"></a>    <span class="co">// loop through our density intervals and generate a label with a colored square for each interval</span></span>
+<span id="cb24-12"><a href="web-visualisation.html#cb24-12" aria-hidden="true"></a>    div<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">&#39;&lt;b class=&quot;title&quot;&gt;Population density&lt;/b&gt;&lt;br/&gt;&#39;</span><span class="op">;</span></span>
+<span id="cb24-13"><a href="web-visualisation.html#cb24-13" aria-hidden="true"></a>    <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> grades<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb24-14"><a href="web-visualisation.html#cb24-14" aria-hidden="true"></a>        div<span class="op">.</span><span class="at">innerHTML</span> <span class="op">+=</span></span>
+<span id="cb24-15"><a href="web-visualisation.html#cb24-15" aria-hidden="true"></a>            <span class="st">&#39;&lt;i style=&quot;background:&#39;</span> <span class="op">+</span> <span class="fu">getColour</span>(grades[i] <span class="op">+</span> <span class="dv">1</span>) <span class="op">+</span> <span class="st">&#39;&quot;&gt;&lt;/i&gt; &#39;</span> <span class="op">+</span></span>
+<span id="cb24-16"><a href="web-visualisation.html#cb24-16" aria-hidden="true"></a>            grades[i] <span class="op">+</span> (grades[i <span class="op">+</span> <span class="dv">1</span>] <span class="op">?</span> <span class="st">&#39;&amp;ndash;&#39;</span> <span class="op">+</span> grades[i <span class="op">+</span> <span class="dv">1</span>] <span class="op">+</span> <span class="st">&#39;&lt;br&gt;&#39;</span> <span class="op">:</span> <span class="st">&#39;+&#39;</span>)<span class="op">;</span></span>
+<span id="cb24-17"><a href="web-visualisation.html#cb24-17" aria-hidden="true"></a>    }</span>
+<span id="cb24-18"><a href="web-visualisation.html#cb24-18" aria-hidden="true"></a></span>
+<span id="cb24-19"><a href="web-visualisation.html#cb24-19" aria-hidden="true"></a>    <span class="cf">return</span> div<span class="op">;</span></span>
+<span id="cb24-20"><a href="web-visualisation.html#cb24-20" aria-hidden="true"></a>}<span class="op">;</span></span>
+<span id="cb24-21"><a href="web-visualisation.html#cb24-21" aria-hidden="true"></a></span>
+<span id="cb24-22"><a href="web-visualisation.html#cb24-22" aria-hidden="true"></a><span class="co">// add to map</span></span>
+<span id="cb24-23"><a href="web-visualisation.html#cb24-23" aria-hidden="true"></a>legend<span class="op">.</span><span class="fu">addTo</span>(cmap)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// define legend
+var legend = L.control({position: 'bottomright'});
+
+// create legend function
+legend.onAdd = function(map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [0, 5000, 10000, 15000, 20000],
+        labels = [];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    div.innerHTML = '<b class="title">Population density</b><br/>';
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColour(grades[i] + 1) + '"></i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    }
+
+    return div;
+};
+
+// add to map
+legend.addTo(cmap);
+</script>
+<p>Once this is done, create a new <code>custom.css</code> file, in the same folder as your <code>index_choropleth.html</code> and <code>choropleth.js</code> files, with the following code:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb25-1"><a href="web-visualisation.html#cb25-1" aria-hidden="true"></a><span class="fu">.legend</span> {</span>
+<span id="cb25-2"><a href="web-visualisation.html#cb25-2" aria-hidden="true"></a>    <span class="kw">line-height</span>: <span class="dv">18</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb25-3"><a href="web-visualisation.html#cb25-3" aria-hidden="true"></a>    <span class="kw">color</span>: <span class="cn">#555</span><span class="op">;</span></span>
+<span id="cb25-4"><a href="web-visualisation.html#cb25-4" aria-hidden="true"></a>}</span>
+<span id="cb25-5"><a href="web-visualisation.html#cb25-5" aria-hidden="true"></a><span class="fu">.legend</span> i {</span>
+<span id="cb25-6"><a href="web-visualisation.html#cb25-6" aria-hidden="true"></a>    <span class="kw">width</span>: <span class="dv">18</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb25-7"><a href="web-visualisation.html#cb25-7" aria-hidden="true"></a>    <span class="kw">height</span>: <span class="dv">15</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb25-8"><a href="web-visualisation.html#cb25-8" aria-hidden="true"></a>    <span class="kw">float</span>: <span class="dv">left</span><span class="op">;</span></span>
+<span id="cb25-9"><a href="web-visualisation.html#cb25-9" aria-hidden="true"></a>    <span class="kw">margin-right</span>: <span class="dv">8</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb25-10"><a href="web-visualisation.html#cb25-10" aria-hidden="true"></a>    <span class="kw">opacity</span>: <span class="dv">0.7</span><span class="op">;</span></span>
+<span id="cb25-11"><a href="web-visualisation.html#cb25-11" aria-hidden="true"></a>}</span>
+<span id="cb25-12"><a href="web-visualisation.html#cb25-12" aria-hidden="true"></a></span>
+<span id="cb25-13"><a href="web-visualisation.html#cb25-13" aria-hidden="true"></a><span class="fu">.info</span> {</span>
+<span id="cb25-14"><a href="web-visualisation.html#cb25-14" aria-hidden="true"></a>    <span class="kw">padding</span>: <span class="dv">6</span><span class="dt">px</span> <span class="dv">8</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb25-15"><a href="web-visualisation.html#cb25-15" aria-hidden="true"></a>    <span class="kw">font</span>: <span class="dv">14</span><span class="dt">px</span>/<span class="dv">16</span><span class="dt">px</span> Arial<span class="op">,</span> Helvetica<span class="op">,</span> <span class="dv">sans-serif</span><span class="op">;</span></span>
+<span id="cb25-16"><a href="web-visualisation.html#cb25-16" aria-hidden="true"></a>    <span class="kw">background</span>: <span class="cn">white</span><span class="op">;</span></span>
+<span id="cb25-17"><a href="web-visualisation.html#cb25-17" aria-hidden="true"></a>    <span class="kw">background</span>: <span class="fu">rgba(</span><span class="dv">255</span><span class="op">,</span><span class="dv">255</span><span class="op">,</span><span class="dv">255</span><span class="op">,</span><span class="dv">0.8</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb25-18"><a href="web-visualisation.html#cb25-18" aria-hidden="true"></a>    <span class="kw">box-shadow</span>: <span class="dv">0</span> <span class="dv">0</span> <span class="dv">15</span><span class="dt">px</span> <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">0.2</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb25-19"><a href="web-visualisation.html#cb25-19" aria-hidden="true"></a>    <span class="kw">border-radius</span>: <span class="dv">5</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb25-20"><a href="web-visualisation.html#cb25-20" aria-hidden="true"></a>}</span>
+<span id="cb25-21"><a href="web-visualisation.html#cb25-21" aria-hidden="true"></a></span>
+<span id="cb25-22"><a href="web-visualisation.html#cb25-22" aria-hidden="true"></a><span class="fu">.info</span> h4 {</span>
+<span id="cb25-23"><a href="web-visualisation.html#cb25-23" aria-hidden="true"></a>    <span class="kw">margin</span>: <span class="dv">0</span> <span class="dv">0</span> <span class="dv">5</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb25-24"><a href="web-visualisation.html#cb25-24" aria-hidden="true"></a>    <span class="kw">color</span>: <span class="cn">#777</span><span class="op">;</span></span>
+<span id="cb25-25"><a href="web-visualisation.html#cb25-25" aria-hidden="true"></a>}</span></code></pre></div>
+<style type="text/css">
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 15px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+</style>
+<p>Link the <code>CSS file</code> by adding the following to the <code>head</code> of your HTML file:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb26-1"><a href="web-visualisation.html#cb26-1" aria-hidden="true"></a><span class="co">&lt;!--custom css --&gt;</span></span>
+<span id="cb26-2"><a href="web-visualisation.html#cb26-2" aria-hidden="true"></a><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;custom.css&quot;</span> <span class="kw">/&gt;</span></span></code></pre></div>
+<p>Your map is now done:</p>
+<div class="figure" style="text-align: center"><span id="fig:london-boroughs-legend"></span>
+<img src="images/w09/london-boroughs-legend.png" alt="London borough population density choropleth." width="926" />
+<p class="caption">
+Figure 9.9: London borough population density choropleth.
+</p>
+</div>
+<p>Further experimentation:</p>
+<ol style="list-style-type: decimal">
+<li>Try to play with some of the settings to see how changes in the HTML, CSS, and JavaScript affect the look of your web page and web map.</li>
+<li>Try to understand what is happening in the JavaScript codes that generates the legend to our map.</li>
+<li>Rename your HTML file with your choropleth map to <code>index.html</code> and, together with the <code>custom.css</code> and <code>choropleth.js</code>, upload it to the <code>GEOG0125</code> server under <code>~/web</code>. If all is well, your web map will now be reflected on <a href="http://178.79.152.249/username/" class="uri">http://178.79.152.249/username/</a></li>
+</ol>
+</div>
+</div>
+<div id="thm_w09" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Take home message</h2>
+<p>This week we have introduced you to JavaScript. JavaScript is used to provide the interactive elements to a web page, such as an interactive web map using the <a href="https://leafletjs.com/">Leaflet.js</a> library. Leaflet is designed with simplicity, performance and usability in mind. It works efficiently across all major desktop and mobile platforms and can be extended with lots of plugins. This tutorial only covered some of the basics of using Leaflet to create maps, so by all means do have a look at the tutorials on <a href="https://leafletjs.com/examples/geojson/">Using GeoJSON with Leaflet</a> and <a href="https://leafletjs.com/examples/layers-control/">Layer Groups and Layers Control</a>.</p>
+</div>
+<div id="attributions_w09" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> Attributions</h2>
+<p>Content and inspiration for this week’s material was derived from: the <em><a href="https://leafletjs.com/examples/quick-start/">Leaflet Quick Start Guide</a></em> and the <em><a href="https://leafletjs.com/examples/choropleth/">Interactive Choropleth Map Tutorial</a></em>.</p>
+
+</div>
 </div>
 
 
@@ -302,20 +950,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
