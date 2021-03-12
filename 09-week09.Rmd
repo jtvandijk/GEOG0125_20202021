@@ -3,16 +3,16 @@
 ## Introduction {#intro-w09}
 Web mapping or online mapping is the process of using the maps delivered by geographic information systems (GIS) on the Internet. With ever-increasing numbers of large demographic data sets becoming available, many provided as open data, web mapping platforms can be used to facilitate the use and exploration of these datasets. Examples of such web mapping platforms are [DataShine](https://datashine.org.uk/), [CDRC Maps](https://maps.cdrc.ac.uk/), and [CDRC Mapmaker](https://mapmaker.cdrc.ac.uk/).
 
-This week we will dive a little deeper into creating web maps. We will do this by looking at "the leading open-source JavaScript library for mobile-friendly interactive maps": [Leaflet.js](https://leafletjs.com/). Moreover, the lecture videos this week are provided by the best mapmaker at UCL: [Oliver O'Brien](https://oobrien.com/). Ollie is a senior research associate at the UCL Department of Geography’s Geospatial Analytics and Computing group. He is interested in investigating and implementing new ways to visualise spatial and socioeconomic data, especially open datasets relating to transport, London and other urban areas. Ollie is also directly responsible for the creation of [DataShine](https://datashine.org.uk/), [CDRC Maps](https://maps.cdrc.ac.uk/), and the official maps for the [Scottish Index of Multiple Deprivation 2020](https://simd.scot/#/simd2020/BTTTFTT/9/-4.0000/55.9000/).
+This week we will dive a little deeper into creating web maps. We will do this by looking at "the leading open-source JavaScript library for mobile-friendly interactive maps": [Leaflet.js](https://leafletjs.com/). Moreover, the lecture videos this week are provided by arguably the best mapmaker at UCL: [Oliver O'Brien](https://oobrien.com/). Oliver is a senior research associate at the UCL Department of Geography’s Geospatial Analytics and Computing group. He is interested in investigating and implementing new ways to visualise spatial and socioeconomic data, especially open datasets relating to transport, London and other urban areas. Oliver is also directly responsible for the creation of [DataShine](https://datashine.org.uk/), [CDRC Maps](https://maps.cdrc.ac.uk/), and the official maps for the [Scottish Index of Multiple Deprivation 2020](https://simd.scot/#/simd2020/BTTTFTT/9/-4.0000/55.9000/).
 
 Let's get mapping!
 
 #### Video: Introduction W09 {-}
 ```{r 09-short-lecture-welcome, warnings=FALSE, message=FALSE, echo=FALSE}
 library(vembedr)
-embed_msstream('') %>% use_align('left')
+embed_msstream('d0273d51-09f6-41d0-a6eb-57f64b3462a1') %>% use_align('left')
 ```
-[Lecture slides] [[Watch on MS stream]]()
+[Lecture slides] [[Watch on MS stream]](https://web.microsoftstream.com/video/d0273d51-09f6-41d0-a6eb-57f64b3462a1)
 
 ```{r 09-settings, warnings=FALSE, message=FALSE, echo=FALSE}
 # settings
@@ -46,8 +46,20 @@ This week we will be creating maps using [Leaflet.js](leafletjs.com). Leaflet.js
 If you haven't done so already, do install a text-editor to write your HTML/CSS/JS code in. Office document editors are not suitable for this use, as they rely on hidden elements that interfere with the rendering engines used by web browsers. [Atom](https://atom.io/) is a good, free, open-source, cross-platform editor. 
 </div>
 
+## Web mapping
+Although only a part of web visualisation, web maps are very important because they can convey a huge amount of data in a small space. Oliver will give an introduction to slippy maps, toolkits and platforms, and show several examples of web maps.
+
+#### Video: Web Mapping Basics {-}
+```{r 09-slippy-maps, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_msstream('9b03713d-be6c-4074-88b1-31150582cbe7') %>% use_align('left')
+```
+[[Lecture slides]](https://github.com/jtvandijk/GEOG0125/blob/master/slides/w09/w09_01_web_vis.pdf) [[Watch on MS stream]](https://web.microsoftstream.com/video/9b03713d-be6c-4074-88b1-31150582cbe7)
+
+Now we have some background to creating maps online, we can start to create some maps ourselves using JavaScript mapping library Leaflet.js.
+
 ## Leaflet.js
-As your web map will be embedded within a web page, we need to start with a basic HTML page in which we want to embed our map. You can download the template here:
+As your web map will be embedded within a web page, we need to start with a basic HTML page in which we want to embed our map. You can download a prepared template here:
 
 #### File download {-}
 | File                                                 | Type           | Link |
@@ -120,7 +132,7 @@ Now we are fully set up, we can start by creating a map of the center of London 
 var smap = L.map('simple_map').setView([51.505, -0.09], 12);
 ```
 
-Note that the `id` that we gave to the `canvas` HTML element is used here to initiate the map. Next we'll add a tile layer to add to our map, in this case it’s a Carto tile layer. Creating a tile layer usually involves setting the URL template for the tile images, the attribution text and the maximum zoom level of the layer. Make sure all the code is called after the `canvas` and `leaflet.js` inclusion in your HTML page; e.g. you cannot include `map.js` before you have included your `canvas` HTML element and before you have included the Leaflet JavaScript file.
+Note that the `id` that we gave to the `canvas` HTML element is used here to initiate the map. Next we'll add a tile layer to add to our map, in this case it’s a Carto tile layer. Creating a tile layer usually involves setting the URL template for the tile images, the attribution text and the maximum zoom level of the layer. Make sure all the code is called **after** the `canvas` and Leaflet.js inclusion in your HTML page; e.g. you cannot refer to `map.js` **before** you have included your `canvas` HTML element and **before** you have included the Leaflet JavaScript file.
 
 ```{js}
 // create tile layer, add to map
@@ -462,6 +474,16 @@ Further experimentation:
 1. Try to play with some of the settings to see how changes in the HTML, CSS, and JavaScript affect the look of your web page and web map.
 2. Try to understand what is happening in the JavaScript codes that generates the legend to our map.
 3. Rename your HTML file with your choropleth map to `index.html` and, together with the `custom.css` and `choropleth.js`, upload it to the `GEOG0125` server under `~/web`. If all is well, your web map will now be reflected on http://178.79.152.249/username/
+
+## Web visualisation
+Web visualisation is much more than creating maps online, so in the second part of this lecture Oliver will go beyond slippy maps and talk about "raster vs vector", [Deck.gl](https://deck.gl/) and [Kepler.gl](https://kepler.gl/), [D3](https://d3js.org/), and [Google Charts](https://developers.google.com/chart).
+
+#### Video: Beyond Slippy Maps {-}
+```{r 09-advanced-web-vis, warnings=FALSE, message=FALSE, echo=FALSE}
+library(vembedr)
+embed_msstream('c250880c-a2fe-4fbf-aec4-74daac423878') %>% use_align('left')
+```
+[[Lecture slides]](https://github.com/jtvandijk/GEOG0125/blob/master/slides/w09/w09_02_web_vis.pdf) [[Watch on MS stream]](https://web.microsoftstream.com/video/c250880c-a2fe-4fbf-aec4-74daac423878)
 
 ## Take home message {#thm_w09}
 This week we have introduced you to JavaScript. JavaScript is used to provide the interactive elements to a web page, such as an interactive web map using the [Leaflet.js](https://leafletjs.com/) library. Leaflet is designed with simplicity, performance and usability in mind. It works efficiently across all major desktop and mobile platforms and can be extended with lots of plugins. This tutorial only covered some of the basics of using Leaflet to create maps, so by all means do have a look at the tutorials on [Using GeoJSON with Leaflet](https://leafletjs.com/examples/geojson/) and [Layer Groups and Layers Control
