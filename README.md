@@ -1,6 +1,6 @@
 # GEOG0125 Advanced Topics in Social Data Science
 
-This GitHub repository generates the GEOG0125 Advanced Topics in Social Data Science handbook which can be found at: https://jtvandijk.github.io/GEOG0125/
+This GitHub repository generates the GEOG0125 Advanced Topics in Social Data Science handbook for the 2020-2021 academic year which can be found at: https://jtvandijk.github.io/GEOG0125_20202021/
 
 This work is licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
