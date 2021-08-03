@@ -6,9 +6,9 @@ site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
 link-citations: yes
-github-repo: "jtvandijk/GEOG0125"
+github-repo: "jtvandijk/GEOG0125_20202021"
 description: "GEOG0125: Advanced Topics in Social and Geographic Data Science."
-url: 'https\://jtvandijk.github.io/GEOG0125/'
+url: 'https\://jtvandijk.github.io/GEOG0125_20202021/'
 ---
 
 # Welcome {-}
